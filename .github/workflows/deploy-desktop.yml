@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - feature/ci
 
 jobs:
   deploy-windows-x86_64:
