@@ -6,5 +6,7 @@ Halfsunk Holdings is a singleplayer management game built in the [Godot](https:/
 Play the game in your browser [here](https://ozuyatamutsu.github.io/halfsunk-holdings/), or see the [Releases](https://github.com/OzuYatamutsu/halfsunk-holdings/releases) page for the latest desktop release of the game.
 
 ## Building
-
 Pull the repository and open `project.godot` in Godot 4.x or higher.
+
+## License
+This project is licensed under the [Blue Oak Model License 1.0](https://blueoakcouncil.org/).
