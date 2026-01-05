@@ -12,7 +12,7 @@ Play the game in your browser [here](https://ozuyatamutsu.github.io/halfsunk-hol
 Pull the repository and open `project.godot` in Godot 4.x or higher.
 
 ## License
-This project is licensed under the [Blue Oak Model License 1.0](https://blueoakcouncil.org/).
+This project is licensed under the [Blue Oak Model License 1.0](https://blueoakcouncil.org/license/1.0.0).
 
 ## Versions
 (will be added upon first release)
