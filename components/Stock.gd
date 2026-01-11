@@ -12,9 +12,9 @@ const RANDOM_RANGE_PCTS = [-0.02, 0.02]
 ## A Stock represents a financial instrument with a set value that
 ## can increase or decrease over time.
 
-@export var TickerSymbol: String = "NEW"
-@export var CompanyName: String = "New Holdings Co., Ltd."
-@export var CurrentValue: float = 0 
+@export var ticker_symbol: String = "NEW"
+@export var company_name: String = "New Holdings Co., Ltd."
+@export var current_value: float = 0.0
 
 func recalculate_value_on_tick(weight: float = 0, force_positive: bool = false,
                                force_negative: bool = false) -> void:
@@ -25,8 +25,8 @@ func recalculate_value_on_tick(weight: float = 0, force_positive: bool = false,
         effective_range[1] + weight if not force_negative else 0.0
     ]
     
-    CurrentValue = Helpers.money_round(
-        CurrentValue * (
+    current_value = Helpers.money_round(
+        current_value * (
             1.0 + randf_range(effective_range[0], effective_range[1])
         )
     )
