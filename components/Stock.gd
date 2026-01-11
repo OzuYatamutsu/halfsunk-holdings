@@ -25,6 +25,8 @@ func recalculate_value_on_tick(weight: float = 0, force_positive: bool = false,
         effective_range[1] + weight if not force_negative else 0.0
     ]
     
-    CurrentValue *= Helpers.money_round(
-        randf_range(effective_range[0], effective_range[1])
+    CurrentValue = Helpers.money_round(
+        CurrentValue * (
+            1.0 + randf_range(effective_range[0], effective_range[1])
+        )
     )
