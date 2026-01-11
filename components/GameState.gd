@@ -10,6 +10,7 @@ const STARTING_DAY: int = 1
 
 var Cash: float = 0.0
 var Investments: Portfolio = Portfolio.new()
+var Debt: float = 0.0
 var NetWorth: float = 0.0
 var DayCount: int = 1
 
@@ -20,5 +21,5 @@ func clear_state() -> void:
     DayCount = STARTING_DAY
 
 func recalculate_net_worth() -> void:
-    NetWorth = Cash + Investments.value()
+    NetWorth = Cash + Investments.value() - Debt
     net_worth_changed.emit()
