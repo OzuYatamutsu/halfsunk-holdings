@@ -1,5 +1,4 @@
 class_name Helpers
-extends Node
 
 ## Helper functions.
 

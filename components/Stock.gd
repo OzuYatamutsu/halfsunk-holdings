@@ -30,3 +30,5 @@ func recalculate_value_on_tick(weight: float = 0, force_positive: bool = false,
             1.0 + randf_range(effective_range[0], effective_range[1])
         )
     )
+    
+    value_changed.emit()
