@@ -14,5 +14,7 @@ Pull the repository and open `project.godot` in Godot 4.x or higher.
 ## License
 This project is licensed under the [Blue Oak Model License 1.0](https://blueoakcouncil.org/license/1.0.0).
 
+Bergoom is licensed under the [SIL Open Font License, Version 1.1](https://github.com/dchest/bergoom/blob/main/LICENSE.md). 
+
 ## Versions
 (will be added upon first release)
