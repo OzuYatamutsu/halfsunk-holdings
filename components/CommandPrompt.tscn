@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs2lb7mrudu1"]
+
+[sub_resource type="Animation" id="Animation_xrmc2"]
+resource_name = "cursor_blink_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Prompt:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_5mqv2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Prompt:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p6ed2"]
+_data = {
+&"RESET": SubResource("Animation_5mqv2"),
+&"cursor_blink_idle": SubResource("Animation_xrmc2")
+}
+
+[node name="CommandPrompt" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Border" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 439.0
+offset_bottom = 20.0
+color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 438.0
+offset_bottom = 19.0
+color = Color(0, 0, 0, 1)
+
+[node name="Triangle" type="Polygon2D" parent="."]
+color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+polygon = PackedVector2Array(1, 1, 5, 10, 1, 19)
+
+[node name="Prompt" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 18.0
+color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+
+[node name="CursorBlink" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p6ed2")
+}
