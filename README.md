@@ -16,5 +16,8 @@ This project is licensed under the [Blue Oak Model License 1.0](https://blueoakc
 
 Bergoom is licensed under the [SIL Open Font License, Version 1.1](https://github.com/dchest/bergoom/blob/main/LICENSE.md). 
 
+Other assets:
+    - [Bird blue flying](https://opengameart.org/content/bird-blue-flying), by Enquest
+
 ## Versions
 (will be added upon first release)
