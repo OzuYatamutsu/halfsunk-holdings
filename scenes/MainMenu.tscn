@@ -1,7 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3blm3xslex1d"]
+[gd_scene load_steps=11 format=3 uid="uid://d3blm3xslex1d"]
 
-[ext_resource type="Theme" uid="uid://bdiij5lv0nxdj" path="res://components/TextHighlight_theme.tres" id="1_yqorp"]
+[ext_resource type="Texture2D" uid="uid://60p57klycspm" path="res://components/bluebird_sprite_sheet.png" id="1_2wh52"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_0ykhv"]
+[ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="2_ow34m"]
+[ext_resource type="FontFile" uid="uid://cq1pk117rvlqw" path="res://components/fira_code/FiraCode-Light.woff2" id="4_l72w3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow34m"]
+atlas = ExtResource("1_2wh52")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l72w3"]
+atlas = ExtResource("1_2wh52")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_826wr"]
+atlas = ExtResource("1_2wh52")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucygd"]
+atlas = ExtResource("1_2wh52")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mipys"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow34m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l72w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_826wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucygd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_826wr"]
+Label/colors/font_color = Color(0.3529412, 0.45490196, 0.45882353, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("4_l72w3")
+Label/styles/focus = null
+Label/styles/normal = null
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,40 +63,73 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(0, 360)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 41.0
-grow_horizontal = 2
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(165, 295)
+scale = Vector2(4.40625, 4.40625)
+sprite_frames = SubResource("SpriteFrames_mipys")
+frame_progress = 0.18678713
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="TitleLabel" type="Label" parent="MarginContainer/CenterContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("1_yqorp")
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 370.0
+offset_right = 873.0
+offset_bottom = 471.0
+theme = ExtResource("2_ow34m")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
 text = "Halfsunk Holdings"
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(0, 360)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -20.5
-offset_bottom = 20.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer2"]
-layout_mode = 2
-
-[node name="TitleLabel" type="Label" parent="MarginContainer2/CenterContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
+[node name="SubtitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 471.0
+offset_right = 706.0
+offset_bottom = 512.0
 theme = ExtResource("2_0ykhv")
-text = "Start Game"
+text = "Powered by the Bluebird Terminal™"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1201.0
+offset_top = 345.0
+offset_right = 1477.0
+offset_bottom = 386.0
+theme = ExtResource("2_ow34m")
+text = "Start new game"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1201.0
+offset_top = 397.0
+offset_right = 1477.0
+offset_bottom = 438.0
+theme = ExtResource("2_ow34m")
+text = "Load game"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1201.0
+offset_top = 440.0
+offset_right = 1477.0
+offset_bottom = 481.0
+theme = ExtResource("2_ow34m")
+text = "Settings"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1201.0
+offset_top = 492.0
+offset_right = 1477.0
+offset_bottom = 533.0
+theme = ExtResource("2_ow34m")
+text = "Quit"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 546.0
+offset_right = 909.0
+offset_bottom = 596.0
+theme = SubResource("Theme_826wr")
+text = "Version 0.0.1      | Build 20260114"
