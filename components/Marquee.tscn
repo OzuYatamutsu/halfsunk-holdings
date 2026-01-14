@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb8axm8xx5ehk"]
+
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_b66nl"]
+
+[node name="Marquee" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 998.0
+offset_right = 1918.0
+offset_bottom = 1077.0
+color = Color(0, 0.07450981, 0.20392157, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 1018.0
+offset_right = 1897.0
+offset_bottom = 1059.0
+theme = ExtResource("1_b66nl")
+text = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)"
+text_overrun_behavior = 1
