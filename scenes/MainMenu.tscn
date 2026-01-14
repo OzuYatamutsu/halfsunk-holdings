@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3blm3xslex1d"]
+[gd_scene load_steps=12 format=3 uid="uid://d3blm3xslex1d"]
 
 [ext_resource type="Texture2D" uid="uid://60p57klycspm" path="res://components/bluebird_sprite_sheet.png" id="1_2wh52"]
+[ext_resource type="PackedScene" uid="uid://cb8axm8xx5ehk" path="res://components/Marquee.tscn" id="1_l72w3"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_0ykhv"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="2_ow34m"]
 [ext_resource type="FontFile" uid="uid://cq1pk117rvlqw" path="res://components/fira_code/FiraCode-Light.woff2" id="4_l72w3"]
@@ -63,18 +64,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Marquee" parent="." instance=ExtResource("1_l72w3")]
+layout_mode = 1
+offset_top = 9.0
+offset_bottom = 9.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(165, 295)
+position = Vector2(277, 369.5)
 scale = Vector2(4.40625, 4.40625)
 sprite_frames = SubResource("SpriteFrames_mipys")
-frame_progress = 0.18678713
+frame_progress = 0.1334504
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 88.0
-offset_top = 370.0
-offset_right = 873.0
-offset_bottom = 471.0
+offset_left = 200.0
+offset_top = 444.5
+offset_right = 985.0
+offset_bottom = 545.5
 theme = ExtResource("2_ow34m")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 100
@@ -82,54 +88,54 @@ text = "Halfsunk Holdings"
 
 [node name="SubtitleLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 471.0
-offset_right = 706.0
-offset_bottom = 512.0
+offset_left = 210.0
+offset_top = 545.5
+offset_right = 818.0
+offset_bottom = 586.5
 theme = ExtResource("2_0ykhv")
 text = "Powered by the Bluebird Terminal™"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1201.0
-offset_top = 345.0
-offset_right = 1477.0
-offset_bottom = 386.0
+offset_left = 1313.0
+offset_top = 419.5
+offset_right = 1589.0
+offset_bottom = 460.5
 theme = ExtResource("2_ow34m")
 text = "Start new game"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1201.0
-offset_top = 397.0
-offset_right = 1477.0
-offset_bottom = 438.0
+offset_left = 1313.0
+offset_top = 471.5
+offset_right = 1589.0
+offset_bottom = 512.5
 theme = ExtResource("2_ow34m")
 text = "Load game"
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1201.0
-offset_top = 440.0
-offset_right = 1477.0
-offset_bottom = 481.0
+offset_left = 1313.0
+offset_top = 520.5
+offset_right = 1589.0
+offset_bottom = 561.5
 theme = ExtResource("2_ow34m")
 text = "Settings"
 
 [node name="Label4" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1201.0
-offset_top = 492.0
-offset_right = 1477.0
-offset_bottom = 533.0
+offset_left = 1313.0
+offset_top = 566.5
+offset_right = 1589.0
+offset_bottom = 607.5
 theme = ExtResource("2_ow34m")
 text = "Quit"
 
 [node name="Label5" type="Label" parent="."]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 546.0
-offset_right = 909.0
-offset_bottom = 596.0
+offset_left = 209.0
+offset_top = 620.5
+offset_right = 1072.0
+offset_bottom = 670.5
 theme = SubResource("Theme_826wr")
 text = "Version 0.0.1      | Build 20260114"
