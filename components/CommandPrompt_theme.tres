@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dccrfjyl2pwt3"]
+
+[ext_resource type="FontFile" uid="uid://ddecrx7wssdy5" path="res://components/fira_code/FiraCode-Medium.woff2" id="1_r63n3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wk40n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mkog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p01m0"]
+
+[resource]
+LineEdit/colors/caret_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/constants/caret_blink_speed = 1
+LineEdit/constants/caret_width = 20
+LineEdit/font_sizes/font_size = 40
+LineEdit/fonts/font = ExtResource("1_r63n3")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_wk40n")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_8mkog")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_p01m0")
