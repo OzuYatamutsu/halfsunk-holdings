@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bdiij5lv0nxdj"]
+
+[ext_resource type="FontFile" uid="uid://6vfr71kg32ox" path="res://components/bergoom/Bergoom-Bold.otf" id="1_alf3i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mgo8"]
+bg_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_alf3i")
+Label/styles/focus = null
+Label/styles/normal = SubResource("StyleBoxFlat_5mgo8")
