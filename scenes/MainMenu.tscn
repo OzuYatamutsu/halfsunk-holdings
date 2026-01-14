@@ -73,7 +73,7 @@ offset_bottom = 9.0
 position = Vector2(277, 369.5)
 scale = Vector2(4.40625, 4.40625)
 sprite_frames = SubResource("SpriteFrames_mipys")
-frame_progress = 0.1334504
+frame_progress = 0.32688314
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 0
