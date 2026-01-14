@@ -1,73 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs2lb7mrudu1"]
+[gd_scene load_steps=7 format=3 uid="uid://cs2lb7mrudu1"]
 
-[sub_resource type="Animation" id="Animation_xrmc2"]
-resource_name = "cursor_blink_idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Prompt:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
+[ext_resource type="Script" uid="uid://cgkgneevcqm7l" path="res://components/command_prompt.gd" id="1_5mqv2"]
+[ext_resource type="FontFile" uid="uid://ddecrx7wssdy5" path="res://components/fira_code/FiraCode-Medium.woff2" id="2_p6ed2"]
 
-[sub_resource type="Animation" id="Animation_5mqv2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Prompt:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wk40n"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p6ed2"]
-_data = {
-&"RESET": SubResource("Animation_5mqv2"),
-&"cursor_blink_idle": SubResource("Animation_xrmc2")
-}
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mkog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p01m0"]
+
+[sub_resource type="Theme" id="Theme_wk40n"]
+LineEdit/colors/caret_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/constants/caret_blink_speed = 1
+LineEdit/constants/caret_width = 20
+LineEdit/font_sizes/font_size = 40
+LineEdit/fonts/font = ExtResource("2_p6ed2")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_wk40n")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_8mkog")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_p01m0")
 
 [node name="CommandPrompt" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_5mqv2")
 
 [node name="Border" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 439.0
-offset_bottom = 20.0
+offset_top = -4.0
+offset_right = 1200.0
+offset_bottom = 75.0
 color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 
 [node name="Bg" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 438.0
-offset_bottom = 19.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 1193.0
+offset_bottom = 68.0
 color = Color(0, 0, 0, 1)
 
-[node name="Triangle" type="Polygon2D" parent="."]
-color = Color(0.36078432, 0.5803922, 0.7764706, 1)
-polygon = PackedVector2Array(1, 1, 5, 10, 1, 19)
-
-[node name="Prompt" type="ColorRect" parent="."]
+[node name="PromptEdit" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 2.0
-offset_right = 14.0
-offset_bottom = 18.0
-color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+offset_left = 40.0
+offset_top = 10.0
+offset_right = 1186.0
+offset_bottom = 60.0
+theme = SubResource("Theme_wk40n")
+text = "TEST"
+caret_blink = true
+caret_blink_interval = 0.5
 
-[node name="CursorBlink" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_p6ed2")
-}
+[node name="Triangle" type="Polygon2D" parent="."]
+position = Vector2(4, 27)
+color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+polygon = PackedVector2Array(1, -24, 13, 10, 1, 42)
