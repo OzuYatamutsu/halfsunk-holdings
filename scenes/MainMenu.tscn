@@ -129,22 +129,26 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="NewGameButton" type="Label" parent="MenuItemsCenterer/MenuItems"]
+[node name="NewGameButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
 layout_mode = 2
 theme = ExtResource("2_ow34m")
 text = "Start new game"
+alignment = 0
 
-[node name="LoadGameButton" type="Label" parent="MenuItemsCenterer/MenuItems"]
+[node name="LoadGameButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
 layout_mode = 2
 theme = ExtResource("2_ow34m")
 text = "Load game"
+alignment = 0
 
-[node name="SettingsButton" type="Label" parent="MenuItemsCenterer/MenuItems"]
+[node name="SettingsButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
 layout_mode = 2
 theme = ExtResource("2_ow34m")
 text = "Settings"
+alignment = 0
 
-[node name="QuitButton" type="Label" parent="MenuItemsCenterer/MenuItems"]
+[node name="QuitButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
 layout_mode = 2
 theme = ExtResource("2_ow34m")
 text = "Quit"
+alignment = 0
