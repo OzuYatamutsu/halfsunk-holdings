@@ -92,7 +92,8 @@ layout_mode = 2
 position = Vector2(0, -150)
 scale = Vector2(4.40625, 4.40625)
 sprite_frames = SubResource("SpriteFrames_mipys")
-frame_progress = 0.32688314
+autoplay = "default"
+frame_progress = 0.33944783
 centered = false
 
 [node name="TitleLabel" type="Label" parent="MenuTitleCenter/LogoItems"]
@@ -131,24 +132,28 @@ theme_override_constants/separation = 10
 
 [node name="NewGameButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
 text = "Start new game"
 alignment = 0
 
 [node name="LoadGameButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
 text = "Load game"
 alignment = 0
 
 [node name="SettingsButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
 text = "Settings"
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
 text = "Quit"
 alignment = 0
