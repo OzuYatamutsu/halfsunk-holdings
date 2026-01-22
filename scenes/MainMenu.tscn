@@ -134,6 +134,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
+disabled = true
 text = "Start new game"
 alignment = 0
 
@@ -141,6 +142,7 @@ alignment = 0
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
+disabled = true
 text = "Load game"
 alignment = 0
 
@@ -148,6 +150,7 @@ alignment = 0
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
+disabled = true
 text = "Settings"
 alignment = 0
 
@@ -157,3 +160,8 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
 text = "Quit"
 alignment = 0
+
+[connection signal="pressed" from="MenuItemsCenterer/MenuItems/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MenuItemsCenterer/MenuItems/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="MenuItemsCenterer/MenuItems/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MenuItemsCenterer/MenuItems/QuitButton" to="." method="_on_quit_button_pressed"]
