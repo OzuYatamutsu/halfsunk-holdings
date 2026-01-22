@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb8axm8xx5ehk"]
+[gd_scene load_steps=3 format=3 uid="uid://cb8axm8xx5ehk"]
 
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_b66nl"]
+[ext_resource type="Script" uid="uid://06avs308fdt7" path="res://components/marquee.gd" id="1_g0725"]
 
 [node name="Marquee" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_g0725")
 
 [node name="Border" type="ColorRect" parent="."]
 layout_mode = 0
@@ -26,3 +28,7 @@ offset_bottom = 1059.0
 theme = ExtResource("1_b66nl")
 text = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)"
 text_overrun_behavior = 1
+
+[node name="ScrollInterval" type="Timer" parent="."]
+
+[connection signal="timeout" from="ScrollInterval" to="." method="_on_scroll_interval_timeout"]
