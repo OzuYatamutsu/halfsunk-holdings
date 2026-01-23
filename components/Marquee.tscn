@@ -21,14 +21,18 @@ color = Color(0, 0.07450981, 0.20392157, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 25.0
 offset_top = 1018.0
-offset_right = 1897.0
+offset_right = 1872.0
 offset_bottom = 1059.0
 theme = ExtResource("1_b66nl")
-text = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)"
+text = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2208.0
+offset_top = 1018.0
+offset_right = 4080.0
+offset_bottom = 1059.0
+theme = ExtResource("1_b66nl")
+text = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |"
 text_overrun_behavior = 1
-
-[node name="ScrollInterval" type="Timer" parent="."]
-
-[connection signal="timeout" from="ScrollInterval" to="." method="_on_scroll_interval_timeout"]
