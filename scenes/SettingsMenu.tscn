@@ -13,7 +13,17 @@
 content_margin_top = 75.0
 texture = ExtResource("6_xqqjd")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xqqjd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78o0x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5l02p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yx3ee"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n660j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqf5a"]
 
 [node name="SettingsMenu" type="Control" unique_id=598024250]
 layout_mode = 3
@@ -83,14 +93,17 @@ layout_mode = 2
 icon = ExtResource("5_fl0th")
 flat = true
 
-[node name="MasterVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=1047928685]
+[node name="MasterVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=1047928685 groups=["MasterVolumeSlider"]]
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_icons/grabber = ExtResource("6_78o0x")
+theme_override_icons/grabber_highlight = ExtResource("6_78o0x")
+theme_override_icons/grabber_disabled = ExtResource("6_78o0x")
 theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
-theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_n660j")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_xqqjd")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_78o0x")
 value = 75.0
 scrollable = false
 
@@ -117,14 +130,17 @@ layout_mode = 2
 icon = ExtResource("5_fl0th")
 flat = true
 
-[node name="MusicVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=1962351749]
+[node name="MusicVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=1962351749 groups=["MusicVolumeSlider"]]
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_icons/grabber = ExtResource("6_78o0x")
+theme_override_icons/grabber_highlight = ExtResource("6_78o0x")
+theme_override_icons/grabber_disabled = ExtResource("6_78o0x")
 theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
-theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_n660j")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5l02p")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yx3ee")
 value = 75.0
 scrollable = false
 
@@ -151,14 +167,17 @@ layout_mode = 2
 icon = ExtResource("5_fl0th")
 flat = true
 
-[node name="SfxVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=1904726797]
+[node name="SfxVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=1904726797 groups=["SfxVolumeSlider"]]
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_icons/grabber = ExtResource("6_78o0x")
+theme_override_icons/grabber_highlight = ExtResource("6_78o0x")
+theme_override_icons/grabber_disabled = ExtResource("6_78o0x")
 theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_n660j")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yqf5a")
 value = 75.0
 scrollable = false
 
@@ -168,3 +187,9 @@ icon = ExtResource("6_nuakw")
 flat = true
 
 [connection signal="pressed" from="ReturnContainer/MainMenuReturnButton" to="." method="_on_main_menu_return_button_pressed"]
+[connection signal="pressed" from="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/MuteMasterVolumeButton" to="." method="_on_mute_master_volume_button_pressed"]
+[connection signal="pressed" from="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/FullMasterVolumeButton" to="." method="_on_full_master_volume_button_pressed"]
+[connection signal="pressed" from="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/MuteMusicVolumeButton" to="." method="_on_mute_music_volume_button_pressed"]
+[connection signal="pressed" from="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/FullMusicVolumeButton" to="." method="_on_full_music_volume_button_pressed"]
+[connection signal="pressed" from="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/MuteSfxVolumeButton" to="." method="_on_mute_sfx_volume_button_pressed"]
+[connection signal="pressed" from="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/FullSfxVolumeButton" to="." method="_on_full_sfx_volume_button_pressed"]
