@@ -31,3 +31,25 @@ func pause_bgm() -> void:
 
 func resume_bgm() -> void:
     bgm.play(_bgm_position)
+
+## value should be between 0.0 and 1.0
+func adjust_master_volume(value: float) -> void:
+    print("audio: adjusted master volume to " + str(value))
+    AudioServer.set_bus_volume_db(
+        AudioServer.get_bus_index("Master"),
+        linear_to_db(value)
+    )
+
+func adjust_music_volume(value: float) -> void:
+    print("audio: adjusted music volume to " + str(value))
+    AudioServer.set_bus_volume_db(
+        AudioServer.get_bus_index("bgm"),
+        linear_to_db(value)
+    )
+
+func adjust_sfx_volume(value: float) -> void:
+    print("audio: adjusted sfx volume to " + str(value))
+    AudioServer.set_bus_volume_db(
+        AudioServer.get_bus_index("sfx"),
+        linear_to_db(value)
+    )
