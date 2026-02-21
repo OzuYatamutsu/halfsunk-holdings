@@ -188,8 +188,11 @@ flat = true
 
 [connection signal="pressed" from="ReturnContainer/MainMenuReturnButton" to="." method="_on_main_menu_return_button_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/MuteMasterVolumeButton" to="." method="_on_mute_master_volume_button_pressed"]
+[connection signal="value_changed" from="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="pressed" from="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/FullMasterVolumeButton" to="." method="_on_full_master_volume_button_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/MuteMusicVolumeButton" to="." method="_on_mute_music_volume_button_pressed"]
+[connection signal="value_changed" from="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="pressed" from="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/FullMusicVolumeButton" to="." method="_on_full_music_volume_button_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/MuteSfxVolumeButton" to="." method="_on_mute_sfx_volume_button_pressed"]
+[connection signal="value_changed" from="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="pressed" from="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/FullSfxVolumeButton" to="." method="_on_full_sfx_volume_button_pressed"]
