@@ -26,6 +26,7 @@ buses/default_bus_layout="uid://cet8idepc42j1"
 [autoload]
 
 GameState="*res://components/GameState.gd"
+AudioEngine="*uid://dcdc7o4ccehu7"
 
 [display]
 
