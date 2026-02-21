@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3blm3xslex1d"]
+[gd_scene format=3 uid="uid://d3blm3xslex1d"]
 
 [ext_resource type="Texture2D" uid="uid://60p57klycspm" path="res://components/bluebird_sprite_sheet.png" id="1_2wh52"]
 [ext_resource type="Script" uid="uid://bodu0kuw22rl2" path="res://scenes/main_menu.gd" id="1_826wr"]
@@ -57,7 +57,7 @@ Label/fonts/font = ExtResource("4_l72w3")
 Label/styles/focus = null
 Label/styles/normal = null
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=940046486]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,12 +66,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_826wr")
 
-[node name="Marquee" parent="." instance=ExtResource("1_l72w3")]
+[node name="Marquee" parent="." unique_id=715031618 instance=ExtResource("1_l72w3")]
 layout_mode = 1
 offset_top = 9.0
 offset_bottom = 9.0
 
-[node name="MenuTitleCenter" type="CenterContainer" parent="."]
+[node name="MenuTitleCenter" type="CenterContainer" parent="." unique_id=715490309]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -82,13 +82,13 @@ offset_right = 863.0
 offset_bottom = 102.0
 grow_vertical = 2
 
-[node name="LogoItems" type="VBoxContainer" parent="MenuTitleCenter"]
+[node name="LogoItems" type="VBoxContainer" parent="MenuTitleCenter" unique_id=1414790989]
 layout_mode = 2
 
-[node name="AnimatedLogo" type="Control" parent="MenuTitleCenter/LogoItems"]
+[node name="AnimatedLogo" type="Control" parent="MenuTitleCenter/LogoItems" unique_id=353312994]
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MenuTitleCenter/LogoItems/AnimatedLogo"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MenuTitleCenter/LogoItems/AnimatedLogo" unique_id=769751805]
 position = Vector2(0, -150)
 scale = Vector2(4.40625, 4.40625)
 sprite_frames = SubResource("SpriteFrames_mipys")
@@ -96,24 +96,24 @@ autoplay = "default"
 frame_progress = 0.33944783
 centered = false
 
-[node name="TitleLabel" type="Label" parent="MenuTitleCenter/LogoItems"]
+[node name="TitleLabel" type="Label" parent="MenuTitleCenter/LogoItems" unique_id=511414236]
 layout_mode = 2
 theme = ExtResource("2_ow34m")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 100
 text = "Halfsunk Holdings"
 
-[node name="SubtitleLabel" type="Label" parent="MenuTitleCenter/LogoItems"]
+[node name="SubtitleLabel" type="Label" parent="MenuTitleCenter/LogoItems" unique_id=1069052077]
 layout_mode = 2
 theme = ExtResource("2_0ykhv")
 text = "Powered by the Bluebird Terminal™"
 
-[node name="BuildInfoLabel" type="Label" parent="MenuTitleCenter/LogoItems"]
+[node name="BuildInfoLabel" type="Label" parent="MenuTitleCenter/LogoItems" unique_id=1916500260]
 layout_mode = 2
 theme = SubResource("Theme_826wr")
 text = "Version 0.0.1      | Build 20260120"
 
-[node name="MenuItemsCenterer" type="CenterContainer" parent="."]
+[node name="MenuItemsCenterer" type="CenterContainer" parent="." unique_id=1283325356]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -126,11 +126,11 @@ offset_bottom = 88.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="MenuItems" type="VBoxContainer" parent="MenuItemsCenterer"]
+[node name="MenuItems" type="VBoxContainer" parent="MenuItemsCenterer" unique_id=698351341]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="NewGameButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
+[node name="NewGameButton" type="Button" parent="MenuItemsCenterer/MenuItems" unique_id=1701388332]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
@@ -138,7 +138,7 @@ disabled = true
 text = "Start new game"
 alignment = 0
 
-[node name="LoadGameButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
+[node name="LoadGameButton" type="Button" parent="MenuItemsCenterer/MenuItems" unique_id=769047547]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
@@ -146,7 +146,7 @@ disabled = true
 text = "Load game"
 alignment = 0
 
-[node name="SettingsButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
+[node name="SettingsButton" type="Button" parent="MenuItemsCenterer/MenuItems" unique_id=1162676458]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
@@ -154,7 +154,7 @@ disabled = true
 text = "Settings"
 alignment = 0
 
-[node name="QuitButton" type="Button" parent="MenuItemsCenterer/MenuItems"]
+[node name="QuitButton" type="Button" parent="MenuItemsCenterer/MenuItems" unique_id=729795984]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")

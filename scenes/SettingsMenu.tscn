@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cddbxemjn3aq4"]
+
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_yelko"]
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="2_1yw23"]
+[ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="2_dd8lr"]
+
+[node name="SettingsMenu" type="Control" unique_id=598024250]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleContainer" type="VBoxContainer" parent="." unique_id=940823956]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 1.0
+anchor_bottom = 0.02
+grow_horizontal = 2
+
+[node name="TitleLabel" type="Label" parent="TitleContainer" unique_id=1238958405]
+layout_mode = 2
+theme = ExtResource("1_yelko")
+theme_override_font_sizes/font_size = 100
+text = "Settings"
+
+[node name="ReturnContainer" type="VBoxContainer" parent="." unique_id=1993411742]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.95
+anchor_right = 1.0
+anchor_bottom = 0.95
+grow_horizontal = 2
+
+[node name="MainMenuReturnButton" type="Button" parent="ReturnContainer" unique_id=599532545]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_dd8lr")
+text = "< Back to Main Menu"
+alignment = 0
+
+[node name="SettingsContainer" type="VBoxContainer" parent="." unique_id=1485777906]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.2
+grow_horizontal = 2
+theme_override_constants/separation = 50
+
+[node name="SettingsAlignerMasterVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=1718234550]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="MasterVolumeLabel" type="Label" parent="SettingsContainer/SettingsAlignerMasterVolume" unique_id=1124643614]
+layout_mode = 2
+theme = ExtResource("2_1yw23")
+theme_override_font_sizes/font_size = 60
+text = "Master Volume"
+
+[node name="SettingsAlignerMusicVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=347433533]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="MusicVolumeLabel" type="Label" parent="SettingsContainer/SettingsAlignerMusicVolume" unique_id=1560315937]
+layout_mode = 2
+theme = ExtResource("2_1yw23")
+theme_override_font_sizes/font_size = 60
+text = "Music Volume"
+
+[node name="SettingsAlignerSfxVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=31733202]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="SfxVolumeLabel" type="Label" parent="SettingsContainer/SettingsAlignerSfxVolume" unique_id=2115290312]
+layout_mode = 2
+theme = ExtResource("2_1yw23")
+theme_override_font_sizes/font_size = 60
+text = "Sound Effects Volume"
