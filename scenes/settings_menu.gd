@@ -7,7 +7,6 @@ extends Control
 func _on_main_menu_return_button_pressed() -> void:
     get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
-
 func _on_mute_master_volume_button_pressed() -> void:
     AudioEngine.adjust_master_volume(0.0)
     create_tween().tween_property(MasterVolumeSlider, "value", 0.0, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
