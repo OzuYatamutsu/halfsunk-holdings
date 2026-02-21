@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cddbxemjn3aq4"]
 
+[ext_resource type="Script" uid="uid://vq6si4cumolp" path="res://scenes/settings_menu.gd" id="1_t7ar5"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_yelko"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="2_1yw23"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="2_dd8lr"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_t7ar5")
 
 [node name="TitleContainer" type="VBoxContainer" parent="." unique_id=940823956]
 layout_mode = 1
@@ -82,3 +84,5 @@ layout_mode = 2
 theme = ExtResource("2_1yw23")
 theme_override_font_sizes/font_size = 60
 text = "Sound Effects Volume"
+
+[connection signal="pressed" from="ReturnContainer/MainMenuReturnButton" to="." method="_on_main_menu_return_button_pressed"]
