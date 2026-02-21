@@ -150,7 +150,6 @@ alignment = 0
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
-disabled = true
 text = "Settings"
 alignment = 0
 
