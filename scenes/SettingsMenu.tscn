@@ -4,6 +4,16 @@
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_yelko"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="2_1yw23"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="2_dd8lr"]
+[ext_resource type="Texture2D" uid="uid://2p7vtyld5pnk" path="res://components/icon_sound_off.png" id="5_fl0th"]
+[ext_resource type="Texture2D" uid="uid://c4u77qpx74iif" path="res://components/scrollbar_slider.png" id="6_78o0x"]
+[ext_resource type="Texture2D" uid="uid://5mo8jle6nst0" path="res://components/icon_sound_on.png" id="6_nuakw"]
+[ext_resource type="Texture2D" uid="uid://dfchmf64453s2" path="res://components/scrollbar_horizontal.png" id="6_xqqjd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78o0x"]
+content_margin_top = 75.0
+texture = ExtResource("6_xqqjd")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n660j"]
 
 [node name="SettingsMenu" type="Control" unique_id=598024250]
 layout_mode = 3
@@ -57,7 +67,7 @@ theme_override_constants/separation = 50
 
 [node name="SettingsAlignerMasterVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=1718234550]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 300
 
 [node name="MasterVolumeLabel" type="Label" parent="SettingsContainer/SettingsAlignerMasterVolume" unique_id=1124643614]
 layout_mode = 2
@@ -65,9 +75,33 @@ theme = ExtResource("2_1yw23")
 theme_override_font_sizes/font_size = 60
 text = "Master Volume"
 
+[node name="MasterVolumeSliderArea" type="HBoxContainer" parent="SettingsContainer/SettingsAlignerMasterVolume" unique_id=875566588]
+layout_mode = 2
+
+[node name="MuteMasterVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=206100522]
+layout_mode = 2
+icon = ExtResource("5_fl0th")
+flat = true
+
+[node name="MasterVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=1047928685]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("6_78o0x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_n660j")
+value = 75.0
+scrollable = false
+
+[node name="FullMasterVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=869887220]
+layout_mode = 2
+icon = ExtResource("6_nuakw")
+flat = true
+
 [node name="SettingsAlignerMusicVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=347433533]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 326
 
 [node name="MusicVolumeLabel" type="Label" parent="SettingsContainer/SettingsAlignerMusicVolume" unique_id=1560315937]
 layout_mode = 2
@@ -75,14 +109,62 @@ theme = ExtResource("2_1yw23")
 theme_override_font_sizes/font_size = 60
 text = "Music Volume"
 
+[node name="MusicVolumeSliderArea" type="HBoxContainer" parent="SettingsContainer/SettingsAlignerMusicVolume" unique_id=758671576]
+layout_mode = 2
+
+[node name="MuteMusicVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=2040022279]
+layout_mode = 2
+icon = ExtResource("5_fl0th")
+flat = true
+
+[node name="MusicVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=1962351749]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("6_78o0x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_n660j")
+value = 75.0
+scrollable = false
+
+[node name="FullMusicVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=325509332]
+layout_mode = 2
+icon = ExtResource("6_nuakw")
+flat = true
+
 [node name="SettingsAlignerSfxVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=31733202]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 126
 
 [node name="SfxVolumeLabel" type="Label" parent="SettingsContainer/SettingsAlignerSfxVolume" unique_id=2115290312]
 layout_mode = 2
 theme = ExtResource("2_1yw23")
 theme_override_font_sizes/font_size = 60
 text = "Sound Effects Volume"
+
+[node name="SfxVolumeSliderArea" type="HBoxContainer" parent="SettingsContainer/SettingsAlignerSfxVolume" unique_id=1354550016]
+layout_mode = 2
+
+[node name="MuteSfxVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=548629510]
+layout_mode = 2
+icon = ExtResource("5_fl0th")
+flat = true
+
+[node name="SfxVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=1904726797]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("6_78o0x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_n660j")
+value = 75.0
+scrollable = false
+
+[node name="FullSfxVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=338482032]
+layout_mode = 2
+icon = ExtResource("6_nuakw")
+flat = true
 
 [connection signal="pressed" from="ReturnContainer/MainMenuReturnButton" to="." method="_on_main_menu_return_button_pressed"]
