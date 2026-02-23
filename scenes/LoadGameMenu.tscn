@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://cg7ncobqpoowp" path="res://scenes/load_game_menu.gd" id="1_x1pjc"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_tgsb2"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="3_hfr0v"]
+[ext_resource type="Texture2D" uid="uid://n4gg882tp0li" path="res://components/blue_placeholder.png" id="4_hfg0v"]
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="4_m574g"]
+[ext_resource type="Texture2D" uid="uid://dydndeowryd" path="res://components/arrow_right.png" id="6_74fkk"]
 
 [node name="LoadGameMenu" type="Control" unique_id=598024250]
 layout_mode = 3
@@ -54,6 +57,34 @@ anchor_bottom = 0.2
 grow_horizontal = 2
 theme_override_constants/separation = 50
 
-[node name="temp" type="HBoxContainer" parent="LoadGameContainer" unique_id=1718234550]
+[node name="LoadGameFileAligner" type="HBoxContainer" parent="LoadGameContainer" unique_id=1718234550]
 layout_mode = 2
 theme_override_constants/separation = 300
+
+[node name="LoadGameFileIconTemp" type="TextureRect" parent="LoadGameContainer/LoadGameFileAligner" unique_id=979675692]
+layout_mode = 2
+texture = ExtResource("4_hfg0v")
+
+[node name="LoadFileDetailsAligner" type="VBoxContainer" parent="LoadGameContainer/LoadGameFileAligner" unique_id=441930974]
+layout_mode = 2
+alignment = 1
+
+[node name="LoadGameLabel" type="Label" parent="LoadGameContainer/LoadGameFileAligner/LoadFileDetailsAligner" unique_id=14280563]
+layout_mode = 2
+theme = ExtResource("2_tgsb2")
+text = "Autosave"
+
+[node name="LoadGameDayLabel" type="Label" parent="LoadGameContainer/LoadGameFileAligner/LoadFileDetailsAligner" unique_id=1304474596]
+layout_mode = 2
+theme = ExtResource("4_m574g")
+text = "Day 1"
+
+[node name="LoadGameNetWorthLabel" type="Label" parent="LoadGameContainer/LoadGameFileAligner/LoadFileDetailsAligner" unique_id=970969741]
+layout_mode = 2
+theme = ExtResource("4_m574g")
+text = "Net Worth $1,360,241.86"
+
+[node name="LoadGameButton" type="Button" parent="LoadGameContainer/LoadGameFileAligner" unique_id=1454932444]
+layout_mode = 2
+icon = ExtResource("6_74fkk")
+flat = true
