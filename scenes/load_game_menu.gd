@@ -47,15 +47,15 @@ func load_saved_games() -> void:
         savefile = save_game_dir.get_next()
     save_game_dir.list_dir_end()
 
-func _validate_savefile(savegameFilePath: String) -> bool:
-    if !FileAccess.file_exists(savegameFilePath):
+func _validate_savefile(savegame_file_path: String) -> bool:
+    if !FileAccess.file_exists(savegame_file_path):
         return false
 
     # TODO fill this in after determining save file format
     return true
 
 ## Returns an array of the format: [Name, DayCount, Value]
-func _read_savefile(savegameFilePath: String) -> Array[String]:
+func _read_savefile(savegame_file_path: String) -> Array[String]:
     # TODO fill this in after determining save file format
     return ["Autosave", "6", "$1,237,111.87"]
 

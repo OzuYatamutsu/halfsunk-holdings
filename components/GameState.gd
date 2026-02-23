@@ -10,7 +10,7 @@ const STARTING_DEBT: float = 0.0
 const STARTING_NET_WORTH: float = 0.0
 const STARTING_DAY: int = 1
 
-var BUILD_DATE: String = ""
+var BUILD_DATE: String = "20260222"
 var cash: float = 0.0
 var investments: Portfolio = Portfolio.new()
 var debt: float = 0.0
@@ -18,7 +18,8 @@ var net_worth: float = 0.0
 var day_count: int = 1
 
 func _init() -> void:
-    _populate_build_date()
+    # _populate_build_date()
+    pass
 
 func _populate_build_date() -> void:
     var date = Time.get_date_dict_from_system()
