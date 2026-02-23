@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dqmxhplfahgq2"]
+
+[ext_resource type="Script" uid="uid://cg7ncobqpoowp" path="res://scenes/load_game_menu.gd" id="1_x1pjc"]
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_tgsb2"]
+[ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="3_hfr0v"]
+
+[node name="LoadGameMenu" type="Control" unique_id=598024250]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x1pjc")
+
+[node name="TitleContainer" type="VBoxContainer" parent="." unique_id=940823956]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 1.0
+anchor_bottom = 0.02
+grow_horizontal = 2
+
+[node name="TitleLabel" type="Label" parent="TitleContainer" unique_id=1238958405]
+layout_mode = 2
+theme = ExtResource("2_tgsb2")
+theme_override_font_sizes/font_size = 100
+text = "Load Game"
+
+[node name="ReturnContainer" type="VBoxContainer" parent="." unique_id=1993411742]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.95
+anchor_right = 1.0
+anchor_bottom = 0.95
+grow_horizontal = 2
+
+[node name="MainMenuReturnButton" type="Button" parent="ReturnContainer" unique_id=599532545]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_hfr0v")
+text = "< Back to Main Menu"
+alignment = 0
+
+[node name="LoadGameContainer" type="VBoxContainer" parent="." unique_id=1485777906]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.2
+grow_horizontal = 2
+theme_override_constants/separation = 50
+
+[node name="temp" type="HBoxContainer" parent="LoadGameContainer" unique_id=1718234550]
+layout_mode = 2
+theme_override_constants/separation = 300
