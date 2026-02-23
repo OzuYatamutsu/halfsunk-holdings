@@ -59,3 +59,5 @@ theme_override_constants/separation = 50
 [node name="_test_load_game" parent="LoadGamesContainer" unique_id=1739259421 instance=ExtResource("4_37b5w")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[connection signal="pressed" from="ReturnContainer/MainMenuReturnButton" to="." method="_on_main_menu_return_button_pressed"]
