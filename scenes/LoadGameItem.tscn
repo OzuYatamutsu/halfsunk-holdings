@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dpwykohnkp5b5"]
+
+[ext_resource type="Script" uid="uid://df8sgq2ljyo5c" path="res://scenes/load_game_item.gd" id="1_2axgp"]
+[ext_resource type="Texture2D" uid="uid://n4gg882tp0li" path="res://components/blue_placeholder.png" id="1_eu14c"]
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_2axgp"]
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="3_amfgr"]
+[ext_resource type="Texture2D" uid="uid://dydndeowryd" path="res://components/arrow_right.png" id="4_7pr5q"]
+
+[node name="LoadGameFileAligner" type="HBoxContainer" unique_id=1578889761]
+offset_right = 1843.0
+offset_bottom = 341.0
+theme_override_constants/separation = 300
+script = ExtResource("1_2axgp")
+
+[node name="LoadGameFileIconTemp" type="TextureRect" parent="." unique_id=1889605354]
+layout_mode = 2
+texture = ExtResource("1_eu14c")
+
+[node name="LoadFileDetailsAligner" type="VBoxContainer" parent="." unique_id=977375721]
+layout_mode = 2
+alignment = 1
+
+[node name="LoadGameLabel" type="Label" parent="LoadFileDetailsAligner" unique_id=971169117]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_2axgp")
+text = "Autosave"
+
+[node name="LoadGameDayLabel" type="Label" parent="LoadFileDetailsAligner" unique_id=688773419]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_amfgr")
+text = "Day 1"
+
+[node name="LoadGameNetWorthLabel" type="Label" parent="LoadFileDetailsAligner" unique_id=1148037427]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_amfgr")
+text = "Net Worth $1,360,241.86"
+
+[node name="LoadGameButton" type="Button" parent="." unique_id=244954661]
+layout_mode = 2
+icon = ExtResource("4_7pr5q")
+flat = true
