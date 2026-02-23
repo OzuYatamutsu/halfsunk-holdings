@@ -1,5 +1,5 @@
 class_name LoadGameItem
-extends VBoxContainer
+extends HBoxContainer
 
 signal load_game(load_game_path: String)
 

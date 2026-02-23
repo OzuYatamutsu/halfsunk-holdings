@@ -26,26 +26,31 @@ func load_saved_games() -> void:
         save_game_dir = DirAccess.open(SAVE_GAME_PATH)
 
     save_game_dir.list_dir_begin()
-    var savefile = SAVE_GAME_PATH_FOLDER + "/" + save_game_dir.get_next()
+    var savefile = save_game_dir.get_next()
 
-    while (savefile != null):
+    while (savefile):
+        savefile = SAVE_GAME_PATH + "/" + savefile
+
         if !_validate_savefile(savefile):
-            savefile = SAVE_GAME_PATH_FOLDER + "/" + save_game_dir.get_next()
+            savefile = save_game_dir.get_next()
             continue
     
         # Parse game data
         var saveData = _read_savefile(savefile)
         var saveGameItem = LoadGameItemScene.instantiate()
-        
+        LoadGamesContainer.add_child(saveGameItem)
+
         # Create item in the load games list
         saveGameItem.setup(savefile, saveData[0], saveData[1], saveData[2])
         saveGameItem.load_game.connect(_load_game)
-        LoadGamesContainer.add_child(saveGameItem)
-        
-        savefile = SAVE_GAME_PATH_FOLDER + "/" + save_game_dir.get_next()
+
+        savefile = save_game_dir.get_next()
     save_game_dir.list_dir_end()
 
 func _validate_savefile(savegameFilePath: String) -> bool:
+    if !FileAccess.file_exists(savegameFilePath):
+        return false
+
     # TODO fill this in after determining save file format
     return true
 
