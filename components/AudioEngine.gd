@@ -5,6 +5,10 @@ const INITIAL_MASTER_VOLUME: float = 1.0
 const INITIAL_MUSIC_VOLUME: float = 0.75
 const INITIAL_SFX_VOLUME: float = 1.0
 
+var sfx_click: AudioStreamMP3 = AudioStreamMP3.load_from_file(
+    "res://sfx/sfx_click.mp3"
+)
+
 @onready var bgm: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var sfx: AudioStreamPlayer = AudioStreamPlayer.new()
 var _bgm_position: float = 0.0
@@ -75,3 +79,6 @@ func adjust_sfx_volume(value: float) -> void:
         AudioServer.get_bus_index("sfx"),
         linear_to_db(value)
     )
+
+func play_sfx_click() -> void:
+    play_sfx(sfx_click)

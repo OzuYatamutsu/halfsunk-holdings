@@ -15,13 +15,17 @@ func populate_version() -> void:
     })
 
 func _on_new_game_button_pressed() -> void:
+    AudioEngine.play_sfx_click()
     pass # Replace with function body.
 
 func _on_load_game_button_pressed() -> void:
+    AudioEngine.play_sfx_click()
     get_tree().change_scene_to_file("res://scenes/LoadGameMenu.tscn")
 
 func _on_settings_button_pressed() -> void:
+    AudioEngine.play_sfx_click()
     get_tree().change_scene_to_file("res://scenes/SettingsMenu.tscn")
 
 func _on_quit_button_pressed() -> void:
+    AudioEngine.play_sfx_click()
     get_tree().quit()
