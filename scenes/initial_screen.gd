@@ -5,15 +5,22 @@ extends Node2D
 
 func _ready() -> void:
     do_load()
+
+    AudioEngine.play_bgm(AudioEngine.BGM_MAINMENU)
     get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 func do_load() -> void:
+    print("starting preload")
     GameState.clear_state()
 
     AudioEngine.adjust_master_volume(AudioEngine.INITIAL_MASTER_VOLUME)
     AudioEngine.adjust_music_volume(AudioEngine.INITIAL_MUSIC_VOLUME)
     AudioEngine.adjust_sfx_volume(AudioEngine.INITIAL_SFX_VOLUME)
 
-    AudioEngine.play_bgm(
-        AudioStreamMP3.load_from_file("res://bgm/bgm_main_menu.mp3")
-    )
+    print("audio: loading bgm")
+    AudioEngine.load_bgm()
+    
+    print("audio: loading sfx")
+    AudioEngine.load_sfx()
+    
+    print("preload complete")
