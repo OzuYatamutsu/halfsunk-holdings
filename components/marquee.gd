@@ -4,8 +4,8 @@ extends Control
 @export var text: String = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |    "
 @export var interval_secs: float = 10.0
 
-@onready var _label: Label = $Label
-@onready var _label2: Label = $Label2
+@onready var _label: Label = %Label
+@onready var _label2: Label = %Label2
 
 ## Simulates infinite scrolling text using two
 ## repeated labels which loop back on top of
