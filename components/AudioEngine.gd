@@ -1,6 +1,10 @@
 # class_name AudioEngine
 extends Node
 
+const INITIAL_MASTER_VOLUME: float = 1.0
+const INITIAL_MUSIC_VOLUME: float = 0.75
+const INITIAL_SFX_VOLUME: float = 1.0
+
 @onready var bgm: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var sfx: AudioStreamPlayer = AudioStreamPlayer.new()
 var _bgm_position: float = 0.0
