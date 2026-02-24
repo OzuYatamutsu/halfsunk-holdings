@@ -8,9 +8,9 @@ func _ready() -> void:
     load_settings()
 
 func load_settings() -> void:
-    MasterVolumeSlider.value = AudioEngine.get_master_volume()
-    MusicVolumeSlider.value = AudioEngine.get_music_volume()
-    SfxVolumeSlider.value = AudioEngine.get_sfx_volume()
+    MasterVolumeSlider.value = AudioEngine.get_master_volume() * 100
+    MusicVolumeSlider.value = AudioEngine.get_music_volume() * 100
+    SfxVolumeSlider.value = AudioEngine.get_sfx_volume() * 100
 
 func _on_main_menu_return_button_pressed() -> void:
     AudioEngine.play_sfx_click()
