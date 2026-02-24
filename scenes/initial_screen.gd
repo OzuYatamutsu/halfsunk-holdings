@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 ## Initial loading screen, do loading here and then
 ## transition to main menu
