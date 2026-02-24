@@ -17,7 +17,12 @@ This project is licensed under the [Blue Oak Model License 1.0](https://blueoakc
 Bergoom and Fira Code are licensed under the [SIL Open Font License, Version 1.1](https://github.com/dchest/bergoom/blob/main/LICENSE.md). 
 
 Other assets:
-    - [Bird blue flying](https://opengameart.org/content/bird-blue-flying), by Enquest
+- [Bird blue flying](https://opengameart.org/content/bird-blue-flying), by Enquest
+- [Bossa Nova](https://opengameart.org/content/bossa-nova), by Joth
+- [Along the Way](https://opengameart.org/content/along-the-way), by congusbongus
 
 ## Versions
-(will be added upon first release)
+
+### 0.1.0 (2025-05-10)
+
+- Menus and UI, nothing playable yet
