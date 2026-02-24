@@ -5,9 +5,9 @@ const INITIAL_MASTER_VOLUME: float = 1.0
 const INITIAL_MUSIC_VOLUME: float = 0.75
 const INITIAL_SFX_VOLUME: float = 1.0
 
-var sfx_click: AudioStreamMP3 = AudioStreamMP3.load_from_file(
-    "res://sfx/sfx_click.mp3"
-)
+var BGM_MAINMENU: AudioStreamMP3
+var BGM_GAME: AudioStreamMP3
+var SFX_CLICK: AudioStreamMP3
 
 @onready var bgm: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var sfx: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -22,6 +22,13 @@ func _ready() -> void:
     
     bgm.autoplay = false
     sfx.autoplay = false
+
+func load_bgm() -> void:
+    BGM_MAINMENU = AudioStreamMP3.load_from_file("res://bgm/bgm_main_menu.mp3")
+    BGM_GAME = AudioStreamMP3.load_from_file("res://bgm/bgm1.mp3")
+
+func load_sfx() -> void:
+    SFX_CLICK = AudioStreamMP3.load_from_file("res://sfx/sfx_click.mp3")
 
 func play_sfx(_sfx: AudioStreamMP3) -> void:
     _sfx.loop = false
@@ -39,7 +46,6 @@ func pause_bgm() -> void:
 
 func resume_bgm() -> void:
     bgm.play(_bgm_position)
-
 
 func get_master_volume() -> float:
     return AudioServer.get_bus_volume_linear(
@@ -79,6 +85,3 @@ func adjust_sfx_volume(value: float) -> void:
         AudioServer.get_bus_index("sfx"),
         linear_to_db(value)
     )
-
-func play_sfx_click() -> void:
-    play_sfx(sfx_click)
