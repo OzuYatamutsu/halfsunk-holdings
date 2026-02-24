@@ -9,3 +9,6 @@ func _ready() -> void:
 
 func do_load() -> void:
     GameState.clear_state()
+    AudioEngine.play_bgm(
+        AudioStreamMP3.load_from_file("res://bgm/bgm_main_menu.mp3")
+    )
