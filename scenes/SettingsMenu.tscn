@@ -104,7 +104,7 @@ theme_override_icons/grabber_disabled = ExtResource("6_78o0x")
 theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_xqqjd")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_78o0x")
-value = 75.0
+value = 100.0
 scrollable = false
 
 [node name="FullMasterVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=869887220]
@@ -178,7 +178,7 @@ theme_override_icons/grabber_disabled = ExtResource("6_78o0x")
 theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_n660j")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yqf5a")
-value = 75.0
+value = 100.0
 scrollable = false
 
 [node name="FullSfxVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=338482032]
