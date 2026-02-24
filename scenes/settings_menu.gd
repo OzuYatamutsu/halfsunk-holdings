@@ -4,6 +4,14 @@ extends Control
 @onready var MusicVolumeSlider: Slider = get_tree().get_first_node_in_group("MusicVolumeSlider")
 @onready var SfxVolumeSlider: Slider = get_tree().get_first_node_in_group("SfxVolumeSlider")
 
+func _ready() -> void:
+    load_settings()
+
+func load_settings() -> void:
+    MasterVolumeSlider.value = AudioEngine.get_master_volume()
+    MusicVolumeSlider.value = AudioEngine.get_music_volume()
+    SfxVolumeSlider.value = AudioEngine.get_sfx_volume()
+
 func _on_main_menu_return_button_pressed() -> void:
     get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 

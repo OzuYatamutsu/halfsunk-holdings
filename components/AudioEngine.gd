@@ -36,6 +36,22 @@ func pause_bgm() -> void:
 func resume_bgm() -> void:
     bgm.play(_bgm_position)
 
+
+func get_master_volume() -> float:
+    return AudioServer.get_bus_volume_linear(
+        AudioServer.get_bus_index("Master")
+    )
+
+func get_music_volume() -> float:
+    return AudioServer.get_bus_volume_linear(
+        AudioServer.get_bus_index("bgm")
+    )
+
+func get_sfx_volume() -> float:
+    return AudioServer.get_bus_volume_linear(
+        AudioServer.get_bus_index("sfx")
+    )
+
 ## value should be between 0.0 and 1.0
 func adjust_master_volume(value: float) -> void:
     print("audio: adjusted master volume to " + str(value))
@@ -44,6 +60,7 @@ func adjust_master_volume(value: float) -> void:
         linear_to_db(value)
     )
 
+## value should be between 0.0 and 1.0
 func adjust_music_volume(value: float) -> void:
     print("audio: adjusted music volume to " + str(value))
     AudioServer.set_bus_volume_db(
@@ -51,6 +68,7 @@ func adjust_music_volume(value: float) -> void:
         linear_to_db(value)
     )
 
+## value should be between 0.0 and 1.0
 func adjust_sfx_volume(value: float) -> void:
     print("audio: adjusted sfx volume to " + str(value))
     AudioServer.set_bus_volume_db(
