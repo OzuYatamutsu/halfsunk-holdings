@@ -1,5 +1,5 @@
 class_name GameWindow
-extends Control
+extends VBoxContainer
 
 @onready var command_prompt: CommandPrompt = %CommandPrompt
 @onready var marquee: Marquee = %Marquee
