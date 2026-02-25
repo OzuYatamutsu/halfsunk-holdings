@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cfjb1oxl0rt2y"]
+
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="1_toskb"]
+[ext_resource type="Script" uid="uid://cx5mndujpgfk4" path="res://components/dynamic_page.gd" id="1_y0v3g"]
+
+[node name="DynamicPage" type="VBoxContainer" unique_id=458538083]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y0v3g")
+
+[node name="DynamicPageTitle" type="Control" parent="." unique_id=224983049]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="DynamicPageTitle" unique_id=323435960]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+
+[node name="PageTitleLabel" type="Label" parent="DynamicPageTitle" unique_id=994244250]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 790.0
+offset_bottom = 41.0
+theme = ExtResource("1_toskb")
+text = "JINHAI HOLDINGS INC - Investment Screener"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DynamicPageContents" type="Control" parent="." unique_id=1879140546]
+layout_mode = 2
