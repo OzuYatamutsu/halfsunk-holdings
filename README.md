@@ -14,12 +14,14 @@ Pull the repository and open `project.godot` in Godot 4.x or higher.
 ## License
 This project is licensed under the [Blue Oak Model License 1.0](https://blueoakcouncil.org/license/1.0.0).
 
-Bergoom and Fira Code are licensed under the [SIL Open Font License, Version 1.1](https://github.com/dchest/bergoom/blob/main/LICENSE.md). 
+Bergoom and Fira Code are licensed under the [SIL Open Font License, Version 1.1](https://github.com/dchest/bergoom/blob/main/LICENSE.md).
 
 Other assets:
 - [Bird blue flying](https://opengameart.org/content/bird-blue-flying), by Enquest
 - [Bossa Nova](https://opengameart.org/content/bossa-nova), by Joth
 - [Along the Way](https://opengameart.org/content/along-the-way), by congusbongus
+- Calendar icon by smashingstocks
+- Money icon by Freepik
 
 ## Versions
 
