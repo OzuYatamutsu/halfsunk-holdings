@@ -7,4 +7,4 @@ extends HBoxContainer
 ## Updates the UI with the current state
 func update() -> void:
     CalendarDaysLabel.text = str(GameState.day_count)
-    MoneyLabel.text = str(GameState.cash)
+    MoneyLabel.text = "%.2f" % GameState.cash
