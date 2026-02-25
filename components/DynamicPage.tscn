@@ -2,6 +2,44 @@
 
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="1_toskb"]
 [ext_resource type="Script" uid="uid://cx5mndujpgfk4" path="res://components/dynamic_page.gd" id="1_y0v3g"]
+[ext_resource type="Texture2D" uid="uid://60p57klycspm" path="res://components/bluebird_sprite_sheet.png" id="3_hqtwn"]
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="4_ody48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow34m"]
+atlas = ExtResource("3_hqtwn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l72w3"]
+atlas = ExtResource("3_hqtwn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_826wr"]
+atlas = ExtResource("3_hqtwn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucygd"]
+atlas = ExtResource("3_hqtwn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0s0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow34m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l72w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_826wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucygd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="DynamicPage" type="VBoxContainer" unique_id=458538083]
 anchors_preset = 15
@@ -30,9 +68,64 @@ offset_left = 10.0
 offset_right = 790.0
 offset_bottom = 41.0
 theme = ExtResource("1_toskb")
-text = "JINHAI HOLDINGS INC - Investment Screener"
-horizontal_alignment = 1
+text = "HOMEPAGE - Bluebird Browser"
 vertical_alignment = 1
 
 [node name="DynamicPageContents" type="Control" parent="." unique_id=1879140546]
 layout_mode = 2
+
+[node name="AnimatedLogo" type="Control" parent="DynamicPageContents" unique_id=2116471178]
+anchors_preset = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DynamicPageContents/AnimatedLogo" unique_id=2035371475]
+position = Vector2(104.00001, 124)
+scale = Vector2(4.40625, 4.40625)
+sprite_frames = SubResource("SpriteFrames_r0s0w")
+autoplay = "default"
+centered = false
+
+[node name="TitleLabel" type="Label" parent="DynamicPageContents" unique_id=440636115]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 145.0
+offset_right = 635.0
+offset_bottom = 246.0
+theme = ExtResource("4_ody48")
+theme_override_font_sizes/font_size = 100
+text = "Bluebird"
+
+[node name="QuoteLabel" type="Label" parent="DynamicPageContents" unique_id=510855565]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 280.0
+offset_right = 927.0
+offset_bottom = 381.0
+theme = ExtResource("1_toskb")
+text = "\"A smile is a curve that sets everything straight.\""
+
+[node name="QuoteAttribLabel" type="Label" parent="DynamicPageContents" unique_id=518612109]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 323.0
+offset_right = 941.0
+offset_bottom = 424.0
+theme = ExtResource("4_ody48")
+text = "Phyllis Diller, Investment Banker"
+
+[node name="DateLabel" type="Label" parent="DynamicPageContents" unique_id=1613055427]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 280.0
+offset_right = 1884.0
+offset_bottom = 381.0
+theme = ExtResource("1_toskb")
+text = "Monday, Day 1"
+
+[node name="ThankYouLabel" type="Label" parent="DynamicPageContents" unique_id=1384430673]
+layout_mode = 0
+offset_left = 1034.0
+offset_top = 323.0
+offset_right = 1886.0
+offset_bottom = 424.0
+theme = ExtResource("1_toskb")
+text = "Thank you for being a client since CURRENT_YEAR"
