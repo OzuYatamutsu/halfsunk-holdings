@@ -1,11 +1,19 @@
 class_name Marquee
 extends Control
 
-@export var text: String = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |    "
+const DUMMY_TEXT: String = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |    "
+
+@export var text: String = ""
 @export var interval_secs: float = 10.0
+
+## If true, set text = dummy text.
+@export var dummy_mode: bool = true
 
 @onready var _label: Label = %Label
 @onready var _label2: Label = %Label2
+
+## If true, marquee will play only once.
+var should_stop: bool = false
 
 ## Simulates infinite scrolling text using two
 ## repeated labels which loop back on top of
@@ -16,10 +24,32 @@ var _tween: Tween
 var _tween2: Tween
 
 func _ready() -> void:
+    if (dummy_mode):
+        text = DUMMY_TEXT
+    update()
+
+func unset_dummy_mode() -> void:
+    dummy_mode = false
+    set_text("", true)
+
+func set_dummy_mode() -> void:
+    dummy_mode = true
+    set_text(DUMMY_TEXT, false)
+
+## new_should_stop = loops once, !new_should_stop = loops infinitely
+func set_text(new_text: String, new_should_stop: bool) -> void:
+    text = new_text
+    should_stop = new_should_stop
+    update()
+
+func update() -> void:
     _label.text = text
     _label2.text = text
-    _tween = create_tween().set_loops()
-    _tween2 = create_tween().set_loops()
+    _tween = create_tween()
+    _tween2 = create_tween()
+    if (!should_stop):
+        _tween = _tween.set_loops()
+        _tween2 = _tween2.set_loops()
 
     _tween.tween_property(
         _label, "position:x", -_label.size.x, interval_secs
@@ -28,3 +58,11 @@ func _ready() -> void:
     _tween2.tween_property(
         _label2, "position:x", _label.position.x, interval_secs
     ).from(_label2.position.x)
+
+func start():
+    _tween.play()
+    _tween2.play()
+
+func stop():
+    _tween.stop()
+    _tween2.stop()
