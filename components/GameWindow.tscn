@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ckvm4mak3vlgx"]
 
+[ext_resource type="Script" uid="uid://cw17gwwsupfew" path="res://components/game_window.gd" id="1_hrfgc"]
 [ext_resource type="PackedScene" uid="uid://cs2lb7mrudu1" path="res://components/CommandPrompt.tscn" id="1_yhbdw"]
 [ext_resource type="PackedScene" uid="uid://bb5inbf02oqvj" path="res://components/HudStatus.tscn" id="2_80m4s"]
+[ext_resource type="PackedScene" uid="uid://cb8axm8xx5ehk" path="res://components/Marquee.tscn" id="3_rl60s"]
 
 [node name="GameWindow" type="Control" unique_id=1378841170]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hrfgc")
 
 [node name="Header" type="HBoxContainer" parent="." unique_id=525004674]
 layout_mode = 1
@@ -19,6 +22,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 
 [node name="CommandPrompt" parent="Header" unique_id=886323266 instance=ExtResource("1_yhbdw")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="_Spacer" type="Control" parent="Header" unique_id=643411170]
@@ -26,4 +30,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="HudStatus" parent="Header" unique_id=188384256 instance=ExtResource("2_80m4s")]
+unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Marquee" parent="." unique_id=1116417902 instance=ExtResource("3_rl60s")]
+unique_name_in_owner = true
+layout_mode = 1
