@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dvp00iluwmikh" path="res://components/bergoom/Bergoom-Italic.otf" id="4_p01m0"]
 
 [node name="CommandPrompt" type="Control" unique_id=1533773232]
+custom_minimum_size = Vector2(900, 0)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_5mqv2")
