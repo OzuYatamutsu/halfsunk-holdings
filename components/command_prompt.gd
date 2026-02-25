@@ -6,11 +6,27 @@ var COMMAND_LIST: Dictionary[String, Callable] = {
     "NOOP": _handle_noop
 }
 
+@export var IsEnabled: bool = true
+
 @onready var PromptEdit: LineEdit = $PromptEdit
 @onready var NotFoundStatusText: Label = %NotFoundStatusText
+@onready var DisabledFg: ColorRect = %DisabledFg
 
 func _ready() -> void:
     NotFoundStatusText.visible = false
+
+func clear() -> void:
+    PromptEdit.clear()
+
+func disable() -> void:
+    IsEnabled = false
+    PromptEdit.editable = false
+    DisabledFg.visible = true
+
+func enable() -> void:
+    IsEnabled = true
+    PromptEdit.editable = true
+    DisabledFg.visible = false
 
 func _on_prompt_edit_text_submitted(new_text: String) -> void:
     if new_text.length() == 0:
