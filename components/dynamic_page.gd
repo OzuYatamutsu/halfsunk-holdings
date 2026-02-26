@@ -15,4 +15,6 @@ func _ready() -> void:
 
 func actually_ready() -> void:
     PageTitleLabel.text = PageTitle
+    remove_child(DynamicPageContents)
     DynamicPageContents = get_tree().get_first_node_in_group("page_contents")
+    add_child(DynamicPageContents)
