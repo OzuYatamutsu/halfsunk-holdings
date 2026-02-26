@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://8mquse5icw3p"]
+
+[ext_resource type="Script" uid="uid://dtdfpem4uei7b" path="res://pages/start_page.gd" id="1_1jbly"]
+[ext_resource type="Texture2D" uid="uid://60p57klycspm" path="res://components/bluebird_sprite_sheet.png" id="1_37cke"]
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_1jbly"]
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="3_kywqg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow34m"]
+atlas = ExtResource("1_37cke")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l72w3"]
+atlas = ExtResource("1_37cke")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_826wr"]
+atlas = ExtResource("1_37cke")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucygd"]
+atlas = ExtResource("1_37cke")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6apn5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow34m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l72w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_826wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucygd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StartPage" type="Control" unique_id=2136979193 groups=["page_contents"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1jbly")
+
+[node name="AnimatedLogo" type="Control" parent="." unique_id=801811322]
+anchors_preset = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedLogo" unique_id=255371432]
+position = Vector2(104.00001, 124)
+scale = Vector2(4.40625, 4.40625)
+sprite_frames = SubResource("SpriteFrames_6apn5")
+autoplay = "default"
+centered = false
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1680438994]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 145.0
+offset_right = 635.0
+offset_bottom = 246.0
+theme = ExtResource("2_1jbly")
+theme_override_font_sizes/font_size = 100
+text = "Bluebird"
+
+[node name="QuoteLabel" type="Label" parent="." unique_id=2066566163]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 280.0
+offset_right = 927.0
+offset_bottom = 381.0
+theme = ExtResource("3_kywqg")
+text = "\"A smile is a curve that sets everything straight.\""
+
+[node name="QuoteAttribLabel" type="Label" parent="." unique_id=2089746331]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 323.0
+offset_right = 941.0
+offset_bottom = 424.0
+theme = ExtResource("2_1jbly")
+text = "Phyllis Diller, Investment Banker"
+
+[node name="DateLabel" type="Label" parent="." unique_id=1668290505]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 280.0
+offset_right = 1884.0
+offset_bottom = 381.0
+theme = ExtResource("3_kywqg")
+text = "Monday, Day 1"
+
+[node name="ThankYouLabel" type="Label" parent="." unique_id=865019580]
+layout_mode = 0
+offset_left = 1034.0
+offset_top = 323.0
+offset_right = 1886.0
+offset_bottom = 424.0
+theme = ExtResource("3_kywqg")
+text = "Thank you for being a client since CURRENT_YEAR"
