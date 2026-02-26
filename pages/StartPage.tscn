@@ -41,22 +41,32 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="StartPage" type="Control" unique_id=2136979193 groups=["page_contents"]]
+[node name="StartPage" type="Control" unique_id=975098320]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_1jbly")
 
-[node name="AnimatedLogo" type="Control" parent="." unique_id=801811322]
+[node name="DynamicPageContent" type="Control" parent="." unique_id=1981008465]
+anchors_preset = 0
+offset_top = 48.0
+offset_right = 1920.0
+offset_bottom = 48.0
+
+[node name="AnimatedLogo" type="Control" parent="DynamicPageContent" unique_id=1239226736]
 anchors_preset = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedLogo" unique_id=255371432]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DynamicPageContent/AnimatedLogo" unique_id=1983882112]
 position = Vector2(104.00001, 124)
 scale = Vector2(4.40625, 4.40625)
 sprite_frames = SubResource("SpriteFrames_6apn5")
 autoplay = "default"
 centered = false
 
-[node name="TitleLabel" type="Label" parent="." unique_id=1680438994]
+[node name="TitleLabel" type="Label" parent="DynamicPageContent" unique_id=261323712]
 layout_mode = 0
 offset_left = 267.0
 offset_top = 145.0
@@ -66,7 +76,7 @@ theme = ExtResource("2_1jbly")
 theme_override_font_sizes/font_size = 100
 text = "Bluebird"
 
-[node name="QuoteLabel" type="Label" parent="." unique_id=2066566163]
+[node name="QuoteLabel" type="Label" parent="DynamicPageContent" unique_id=390016241]
 layout_mode = 0
 offset_left = 102.0
 offset_top = 280.0
@@ -75,7 +85,7 @@ offset_bottom = 381.0
 theme = ExtResource("3_kywqg")
 text = "\"A smile is a curve that sets everything straight.\""
 
-[node name="QuoteAttribLabel" type="Label" parent="." unique_id=2089746331]
+[node name="QuoteAttribLabel" type="Label" parent="DynamicPageContent" unique_id=812245293]
 layout_mode = 0
 offset_left = 116.0
 offset_top = 323.0
@@ -84,7 +94,7 @@ offset_bottom = 424.0
 theme = ExtResource("2_1jbly")
 text = "Phyllis Diller, Investment Banker"
 
-[node name="DateLabel" type="Label" parent="." unique_id=1668290505]
+[node name="DateLabel" type="Label" parent="DynamicPageContent" unique_id=1434835853]
 layout_mode = 0
 offset_left = 1032.0
 offset_top = 280.0
@@ -93,7 +103,7 @@ offset_bottom = 381.0
 theme = ExtResource("3_kywqg")
 text = "Monday, Day 1"
 
-[node name="ThankYouLabel" type="Label" parent="." unique_id=865019580]
+[node name="ThankYouLabel" type="Label" parent="DynamicPageContent" unique_id=27652682]
 layout_mode = 0
 offset_left = 1034.0
 offset_top = 323.0
