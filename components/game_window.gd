@@ -4,6 +4,7 @@ extends VBoxContainer
 @onready var command_prompt: CommandPrompt = %CommandPrompt
 @onready var marquee: Marquee = %Marquee
 @onready var hud_status: HudStatus = %HudStatus
+@onready var browser: DynamicPage = $DynamicPage
 
 func _ready() -> void:
     command_prompt.enable()

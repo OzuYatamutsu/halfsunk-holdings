@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c8blpnjpauqx2"]
+
+[ext_resource type="Script" uid="uid://bc5ok0e2kpivd" path="res://levels/level_0.gd" id="1_00iop"]
+[ext_resource type="PackedScene" uid="uid://ckvm4mak3vlgx" path="res://components/GameWindow.tscn" id="2_1jtlb"]
+
+[node name="Level0" type="Control" unique_id=1121111685]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_00iop")
+
+[node name="GameWindow" parent="." unique_id=470096987 instance=ExtResource("2_1jtlb")]
+layout_mode = 1
+
+[editable path="GameWindow"]

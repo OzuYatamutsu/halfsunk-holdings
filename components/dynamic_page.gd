@@ -6,15 +6,18 @@ extends VBoxContainer
 ## after these have been assigned.
 
 @onready var PageTitleLabel: Label = $DynamicPageTitle/PageTitleLabel
-@onready var DynamicPageContents: Control = $DynamicPageContents
+@onready var DynamicPageContents: PageContent = $DynamicPageContents
 
 @export var PageTitle: String = ""
 
 func _ready() -> void:
     pass
 
-func actually_ready() -> void:
-    PageTitleLabel.text = PageTitle
+func load_page(path_to_page_content: String) -> void:
+    var page_content: PageContent = load(path_to_page_content).instantiate()
+
     remove_child(DynamicPageContents)
-    DynamicPageContents = get_tree().get_first_node_in_group("page_contents")
+    DynamicPageContents = page_content
     add_child(DynamicPageContents)
+    PageTitle = DynamicPageContents.Title
+    PageTitleLabel.text = PageTitle

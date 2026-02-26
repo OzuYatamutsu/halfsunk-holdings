@@ -1,4 +1,4 @@
-extends DynamicPage
+extends PageContent
 
 func _ready():
-    PageTitle = "HOMEPAGE - Bluebird Browser"
+    Title = "HOMEPAGE - Bluebird Browser"

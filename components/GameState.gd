@@ -10,7 +10,7 @@ const STARTING_DEBT: float = 0.0
 const STARTING_NET_WORTH: float = 0.0
 const STARTING_DAY: int = 1
 
-var BUILD_DATE: String = "20260222"
+var BUILD_DATE: String = "20260226"
 var cash: float = 0.0
 var investments: Portfolio = Portfolio.new()
 var debt: float = 0.0
