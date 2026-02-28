@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://60p57klycspm" path="res://components/bluebird_sprite_sheet.png" id="1_37cke"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_1jbly"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="3_kywqg"]
+[ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="5_kywqg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ow34m"]
 atlas = ExtResource("1_37cke")
@@ -58,6 +59,8 @@ offset_bottom = 48.0
 
 [node name="AnimatedLogo" type="Control" parent="DynamicPageContent" unique_id=1239226736]
 anchors_preset = 0
+offset_top = -84.0
+offset_bottom = -84.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DynamicPageContent/AnimatedLogo" unique_id=1983882112]
 position = Vector2(104.00001, 124)
@@ -69,9 +72,9 @@ centered = false
 [node name="TitleLabel" type="Label" parent="DynamicPageContent" unique_id=261323712]
 layout_mode = 0
 offset_left = 267.0
-offset_top = 145.0
+offset_top = 61.0
 offset_right = 635.0
-offset_bottom = 246.0
+offset_bottom = 162.0
 theme = ExtResource("2_1jbly")
 theme_override_font_sizes/font_size = 100
 text = "Bluebird"
@@ -79,35 +82,118 @@ text = "Bluebird"
 [node name="QuoteLabel" type="Label" parent="DynamicPageContent" unique_id=390016241]
 layout_mode = 0
 offset_left = 102.0
-offset_top = 280.0
+offset_top = 196.0
 offset_right = 927.0
-offset_bottom = 381.0
+offset_bottom = 297.0
 theme = ExtResource("3_kywqg")
 text = "\"A smile is a curve that sets everything straight.\""
 
 [node name="QuoteAttribLabel" type="Label" parent="DynamicPageContent" unique_id=812245293]
 layout_mode = 0
 offset_left = 116.0
-offset_top = 323.0
+offset_top = 239.0
 offset_right = 941.0
-offset_bottom = 424.0
+offset_bottom = 280.0
 theme = ExtResource("2_1jbly")
 text = "Phyllis Diller, Investment Banker"
 
 [node name="DateLabel" type="Label" parent="DynamicPageContent" unique_id=1434835853]
 layout_mode = 0
 offset_left = 1032.0
-offset_top = 280.0
+offset_top = 196.0
 offset_right = 1884.0
-offset_bottom = 381.0
+offset_bottom = 297.0
 theme = ExtResource("3_kywqg")
 text = "Monday, Day 1"
 
 [node name="ThankYouLabel" type="Label" parent="DynamicPageContent" unique_id=27652682]
 layout_mode = 0
 offset_left = 1034.0
-offset_top = 323.0
+offset_top = 239.0
 offset_right = 1886.0
-offset_bottom = 424.0
+offset_bottom = 280.0
 theme = ExtResource("3_kywqg")
 text = "Thank you for being a client since CURRENT_YEAR"
+
+[node name="Status" type="HBoxContainer" parent="DynamicPageContent" unique_id=265987308]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -536.0
+offset_top = 399.0
+offset_right = 533.0
+offset_bottom = 655.0
+grow_horizontal = 2
+theme_override_constants/separation = 200
+
+[node name="StatusLabels" type="VBoxContainer" parent="DynamicPageContent/Status" unique_id=167255833]
+layout_mode = 2
+
+[node name="CashLabel" type="Label" parent="DynamicPageContent/Status/StatusLabels" unique_id=1182812655]
+layout_mode = 2
+theme = ExtResource("2_1jbly")
+theme_override_font_sizes/font_size = 60
+text = "Cash"
+horizontal_alignment = 2
+
+[node name="SecuritiesValueLabel" type="Label" parent="DynamicPageContent/Status/StatusLabels" unique_id=1294886702]
+layout_mode = 2
+theme = ExtResource("2_1jbly")
+theme_override_font_sizes/font_size = 60
+text = "Value of Securities"
+horizontal_alignment = 2
+
+[node name="DebtLabel" type="Label" parent="DynamicPageContent/Status/StatusLabels" unique_id=183159252]
+layout_mode = 2
+theme = ExtResource("2_1jbly")
+theme_override_font_sizes/font_size = 60
+text = "Debt"
+horizontal_alignment = 2
+
+[node name="NetWorthLabel" type="Label" parent="DynamicPageContent/Status/StatusLabels" unique_id=1708111200]
+layout_mode = 2
+theme = ExtResource("2_1jbly")
+theme_override_font_sizes/font_size = 60
+text = "Net Worth"
+horizontal_alignment = 2
+
+[node name="StatusValues" type="VBoxContainer" parent="DynamicPageContent/Status" unique_id=600143314]
+layout_mode = 2
+
+[node name="CashValue" type="Label" parent="DynamicPageContent/Status/StatusValues" unique_id=1612972139]
+layout_mode = 2
+theme = ExtResource("5_kywqg")
+theme_override_font_sizes/font_size = 60
+text = "$1,000,000.00"
+
+[node name="SecuritiesValue" type="Label" parent="DynamicPageContent/Status/StatusValues" unique_id=1784619807]
+layout_mode = 2
+theme = ExtResource("5_kywqg")
+theme_override_font_sizes/font_size = 60
+text = "$0.00"
+
+[node name="DebtValue" type="Label" parent="DynamicPageContent/Status/StatusValues" unique_id=1545930364]
+layout_mode = 2
+theme = ExtResource("5_kywqg")
+theme_override_colors/font_color = Color(0.9401068, 0.22805327, 5.7756904e-07, 1)
+theme_override_font_sizes/font_size = 60
+text = "($2,500,000.00)"
+
+[node name="NetWorthValue" type="Label" parent="DynamicPageContent/Status/StatusValues" unique_id=380052895]
+layout_mode = 2
+theme = ExtResource("5_kywqg")
+theme_override_colors/font_color = Color(0.9411765, 0.22745098, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "($1,500,000.00)"
+
+[node name="ProductiveDayMessage" type="Label" parent="DynamicPageContent" unique_id=1549856572]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 754.0
+offset_right = 1314.0
+offset_bottom = 815.0
+theme = ExtResource("2_1jbly")
+theme_override_font_sizes/font_size = 60
+text = "\"Have a profitable day!\""
+horizontal_alignment = 2
