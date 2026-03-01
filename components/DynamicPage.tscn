@@ -72,21 +72,26 @@ theme = ExtResource("1_toskb")
 text = "HOMEPAGE - Bluebird Browser"
 vertical_alignment = 1
 
-[node name="DynamicPageContents" type="Control" parent="." unique_id=1879140546]
+[node name="DynamicPageScroller" type="ScrollContainer" parent="." unique_id=2140460809]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DynamicPageContents" type="Control" parent="DynamicPageScroller" unique_id=1879140546]
+unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("3_ody48")
 
-[node name="AnimatedLogo" type="Control" parent="DynamicPageContents" unique_id=2116471178]
+[node name="AnimatedLogo" type="Control" parent="DynamicPageScroller/DynamicPageContents" unique_id=2116471178]
 anchors_preset = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DynamicPageContents/AnimatedLogo" unique_id=2035371475]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DynamicPageScroller/DynamicPageContents/AnimatedLogo" unique_id=2035371475]
 position = Vector2(104.00001, 124)
 scale = Vector2(4.40625, 4.40625)
 sprite_frames = SubResource("SpriteFrames_r0s0w")
 autoplay = "default"
 centered = false
 
-[node name="TitleLabel" type="Label" parent="DynamicPageContents" unique_id=440636115]
+[node name="TitleLabel" type="Label" parent="DynamicPageScroller/DynamicPageContents" unique_id=440636115]
 layout_mode = 0
 offset_left = 267.0
 offset_top = 145.0
@@ -96,7 +101,7 @@ theme = ExtResource("4_ody48")
 theme_override_font_sizes/font_size = 100
 text = "Bluebird"
 
-[node name="QuoteLabel" type="Label" parent="DynamicPageContents" unique_id=510855565]
+[node name="QuoteLabel" type="Label" parent="DynamicPageScroller/DynamicPageContents" unique_id=510855565]
 layout_mode = 0
 offset_left = 102.0
 offset_top = 280.0
@@ -105,7 +110,7 @@ offset_bottom = 381.0
 theme = ExtResource("1_toskb")
 text = "\"A smile is a curve that sets everything straight.\""
 
-[node name="QuoteAttribLabel" type="Label" parent="DynamicPageContents" unique_id=518612109]
+[node name="QuoteAttribLabel" type="Label" parent="DynamicPageScroller/DynamicPageContents" unique_id=518612109]
 layout_mode = 0
 offset_left = 116.0
 offset_top = 323.0
@@ -114,7 +119,7 @@ offset_bottom = 424.0
 theme = ExtResource("4_ody48")
 text = "Phyllis Diller, Investment Banker"
 
-[node name="DateLabel" type="Label" parent="DynamicPageContents" unique_id=1613055427]
+[node name="DateLabel" type="Label" parent="DynamicPageScroller/DynamicPageContents" unique_id=1613055427]
 layout_mode = 0
 offset_left = 1032.0
 offset_top = 280.0
@@ -123,7 +128,7 @@ offset_bottom = 381.0
 theme = ExtResource("1_toskb")
 text = "Monday, Day 1"
 
-[node name="ThankYouLabel" type="Label" parent="DynamicPageContents" unique_id=1384430673]
+[node name="ThankYouLabel" type="Label" parent="DynamicPageScroller/DynamicPageContents" unique_id=1384430673]
 layout_mode = 0
 offset_left = 1034.0
 offset_top = 323.0
