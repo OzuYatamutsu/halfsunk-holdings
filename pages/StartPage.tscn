@@ -121,9 +121,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -536.0
-offset_top = 399.0
+offset_top = 345.0
 offset_right = 533.0
-offset_bottom = 655.0
+offset_bottom = 601.0
 grow_horizontal = 2
 theme_override_constants/separation = 200
 
@@ -190,10 +190,20 @@ text = "($1,500,000.00)"
 [node name="ProductiveDayMessage" type="Label" parent="DynamicPageContent" unique_id=1549856572]
 layout_mode = 0
 offset_left = 666.0
-offset_top = 754.0
+offset_top = 700.0
 offset_right = 1314.0
-offset_bottom = 815.0
+offset_bottom = 761.0
 theme = ExtResource("2_1jbly")
 theme_override_font_sizes/font_size = 60
 text = "\"Have a profitable day!\""
-horizontal_alignment = 2
+horizontal_alignment = 1
+
+[node name="EasterEggMessage" type="Label" parent="DynamicPageContent" unique_id=2011225320]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 1400.0
+offset_right = 1508.0
+offset_bottom = 1461.0
+theme = ExtResource("3_kywqg")
+text = "hey stop scrolling and get back to making lots of money!!"
+horizontal_alignment = 1
