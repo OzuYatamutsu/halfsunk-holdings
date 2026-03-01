@@ -17,6 +17,8 @@ const POSITIVE_COLOR_CODE: String = "#cbcb00"
 
 func _ready():
     Title = "HOMEPAGE - Bluebird Browser"
+    PageHeightY = 1800
+    update_scrollable_area()
     populate_data()
 
 func populate_data() -> void:
