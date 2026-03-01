@@ -6,7 +6,8 @@ extends VBoxContainer
 ## after these have been assigned.
 
 @onready var PageTitleLabel: Label = $DynamicPageTitle/PageTitleLabel
-@onready var DynamicPageContents: PageContent = $DynamicPageContents
+@onready var DynamicPageScroller: ScrollContainer = $DynamicPageScroller
+@onready var DynamicPageContents: PageContent = $DynamicPageScroller/DynamicPageContents
 
 @export var PageTitle: String = ""
 
@@ -16,8 +17,8 @@ func _ready() -> void:
 func load_page(path_to_page_content: String) -> void:
     var page_content: PageContent = load(path_to_page_content).instantiate()
 
-    remove_child(DynamicPageContents)
+    DynamicPageScroller.remove_child(DynamicPageContents)
     DynamicPageContents = page_content
-    add_child(DynamicPageContents)
+    DynamicPageScroller.add_child(DynamicPageContents)
     PageTitle = DynamicPageContents.Title
     PageTitleLabel.text = PageTitle

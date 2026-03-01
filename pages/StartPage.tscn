@@ -52,6 +52,7 @@ grow_vertical = 2
 script = ExtResource("1_1jbly")
 
 [node name="DynamicPageContent" type="Control" parent="." unique_id=1981008465]
+unique_name_in_owner = true
 anchors_preset = 0
 offset_top = 48.0
 offset_right = 1920.0
