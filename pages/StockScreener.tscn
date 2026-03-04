@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://wexs55mls8oh"]
+
+[ext_resource type="Script" uid="uid://bcx6a7uddk416" path="res://pages/stock_screener.gd" id="1_l7ifb"]
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="3_0xlaf"]
+[ext_resource type="Texture2D" uid="uid://n4gg882tp0li" path="res://components/blue_placeholder.png" id="4_7hymw"]
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="4_f4a8s"]
+
+[node name="StockScreener" type="Control" unique_id=975098320]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l7ifb")
+
+[node name="DynamicPageContent" type="Control" parent="." unique_id=1981008465]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_top = 48.0
+offset_right = 1920.0
+offset_bottom = 48.0
+
+[node name="FullTickerLabel" type="Label" parent="DynamicPageContent" unique_id=261323712]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 61.0
+offset_right = 276.0
+offset_bottom = 143.0
+theme = ExtResource("3_0xlaf")
+theme_override_font_sizes/font_size = 80
+text = "Jinhai Holdings"
+
+[node name="TickerSymbolLabel" type="Label" parent="DynamicPageContent" unique_id=2093258747]
+layout_mode = 0
+offset_left = 1632.0
+offset_top = 61.0
+offset_right = 1807.0
+offset_bottom = 143.0
+theme = ExtResource("3_0xlaf")
+theme_override_font_sizes/font_size = 80
+text = "JINH"
+
+[node name="ValueContainer" type="HBoxContainer" parent="DynamicPageContent" unique_id=1872750318]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 143.0
+offset_right = 691.0
+offset_bottom = 204.0
+theme_override_constants/separation = 10
+
+[node name="ValueLabel" type="Label" parent="DynamicPageContent/ValueContainer" unique_id=1627501696]
+layout_mode = 2
+theme = ExtResource("4_f4a8s")
+theme_override_font_sizes/font_size = 60
+text = "102.86 "
+
+[node name="UpDownLabel" type="Label" parent="DynamicPageContent/ValueContainer" unique_id=1443936541]
+layout_mode = 2
+theme = ExtResource("4_f4a8s")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "↗"
+
+[node name="NetChangeValueLabel" type="Label" parent="DynamicPageContent/ValueContainer" unique_id=707298321]
+layout_mode = 2
+theme = ExtResource("4_f4a8s")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "2.86"
+
+[node name="NetChangePercentLabel" type="Label" parent="DynamicPageContent/ValueContainer" unique_id=1362787221]
+layout_mode = 2
+theme = ExtResource("4_f4a8s")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "(+2.86%)"
+
+[node name="CompanyCategoryLabel" type="Label" parent="DynamicPageContent" unique_id=1966963832]
+layout_mode = 0
+offset_left = 1347.0
+offset_top = 143.0
+offset_right = 1808.0
+offset_bottom = 204.0
+theme = ExtResource("4_f4a8s")
+theme_override_font_sizes/font_size = 60
+text = "Financial Services"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageContent" unique_id=2112000499]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = 246.0
+offset_right = 240.0
+offset_bottom = 533.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CompanyDescription" type="Label" parent="DynamicPageContent/HBoxContainer" unique_id=2135501478]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+theme = ExtResource("4_f4a8s")
+text = "Jinhai Holdings is a multinational trading firm headquartered in an unincorporated series of islands somewhere in the Pacific Ocean.
+
+Its core product, the Jinhaifund™, is a tax shelter marketed towards disgruntled information technology workers interested in changing careers to the agricultural industry."
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="DynamicPageContent/HBoxContainer" unique_id=1190001602]
+custom_minimum_size = Vector2(756, 0)
+layout_mode = 2
+
+[node name="LoadGameFileIconTemp" type="TextureRect" parent="DynamicPageContent" unique_id=1408608658]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 566.0
+offset_right = 1146.7577
+offset_bottom = 1025.0
+texture = ExtResource("4_7hymw")
+
+[node name="ChartLabelLeft" type="Label" parent="DynamicPageContent" unique_id=475514965]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 0
+offset_left = 113.0
+offset_top = 1050.0
+offset_right = 1137.0
+offset_bottom = 1091.0
+theme = ExtResource("4_f4a8s")
+text = "-7d"
+autowrap_mode = 2
+
+[node name="ChartLabelRight" type="Label" parent="DynamicPageContent" unique_id=470546556]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 0
+offset_left = 1054.0
+offset_top = 1053.0
+offset_right = 2078.0
+offset_bottom = 1094.0
+theme = ExtResource("4_f4a8s")
+text = "today"
+autowrap_mode = 2

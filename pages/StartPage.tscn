@@ -85,7 +85,7 @@ layout_mode = 0
 offset_left = 102.0
 offset_top = 196.0
 offset_right = 927.0
-offset_bottom = 297.0
+offset_bottom = 237.0
 theme = ExtResource("3_kywqg")
 text = "\"A smile is a curve that sets everything straight.\""
 
