@@ -14,7 +14,14 @@ const RANDOM_RANGE_PCTS = [-0.02, 0.02]
 
 @export var ticker_symbol: String = "NEW"
 @export var company_name: String = "New Holdings Co., Ltd."
+@export var company_description: String = "Company description here"
 @export var current_value: float = 0.0
+
+func _init(_ticker: String, _name: String, _base_value: float, _description: String) -> void:
+    ticker_symbol = _ticker
+    company_name = _name
+    current_value = _base_value
+    company_description = _description
 
 func recalculate_value_on_tick(weight: float = 0, force_positive: bool = false,
                                force_negative: bool = false) -> void:
