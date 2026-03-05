@@ -15,12 +15,15 @@ const RANDOM_RANGE_PCTS = [-0.02, 0.02]
 @export var ticker_symbol: String = "NEW"
 @export var company_name: String = "New Holdings Co., Ltd."
 @export var company_description: String = "Company description here"
+@export var company_category: String = "Energy"
 @export var current_value: float = 0.0
+@export var last_delta: float = 0.0
 
-func _init(_ticker: String, _name: String, _base_value: float, _description: String) -> void:
+func _init(_ticker: String, _name: String, _base_value: float, _category: String, _description: String) -> void:
     ticker_symbol = _ticker
     company_name = _name
     current_value = _base_value
+    company_category = _category
     company_description = _description
 
 func recalculate_value_on_tick(weight: float = 0, force_positive: bool = false,
@@ -32,10 +35,10 @@ func recalculate_value_on_tick(weight: float = 0, force_positive: bool = false,
         effective_range[1] + weight if not force_negative else 0.0
     ]
     
-    current_value = Helpers.money_round(
-        current_value * (
-            1.0 + randf_range(effective_range[0], effective_range[1])
-        )
+    var target_value = current_value * (
+        1.0 + randf_range(effective_range[0], effective_range[1])
     )
     
+    last_delta = Helpers.money_round(target_value - current_value)
+    current_value = Helpers.money_round(target_value)
     value_changed.emit()
