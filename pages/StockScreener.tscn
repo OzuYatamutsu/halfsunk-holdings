@@ -96,7 +96,7 @@ layout_mode = 2
 [node name="DescriptionContainer" type="HBoxContainer" parent="DynamicPageContent/InfoboxContainer" unique_id=2112000499]
 layout_mode = 2
 
-[node name="CompanyDescription" type="Label" parent="DynamicPageContent/InfoboxContainer/DescriptionContainer" unique_id=2135501478]
+[node name="CompanyDescriptionLabel" type="Label" parent="DynamicPageContent/InfoboxContainer/DescriptionContainer" unique_id=2135501478]
 custom_minimum_size = Vector2(1024, 0)
 layout_mode = 2
 theme = ExtResource("4_f4a8s")
