@@ -6,9 +6,6 @@ const WORKDAY_OF_WEEK = [
     "Thursday", "Friday"
 ]
 
-const NEGATIVE_COLOR_CODE: String = "#f03a00"
-const POSITIVE_COLOR_CODE: String = "#cbcb00"
-
 @onready var DateLabel: Label = $DynamicPageContent/DateLabel
 @onready var CashValueLabel: Label = $DynamicPageContent/Status/StatusValues/CashValue
 @onready var SecuritiesValueLabel: Label = $DynamicPageContent/Status/StatusValues/SecuritiesValue
@@ -42,12 +39,12 @@ func _populate_securities_value_label() -> void:
 
 func _populate_debt_value_label() -> void:
     DebtValueLabel.text = "($%.2f)" % GameState.debt
-    DebtValueLabel.add_theme_color_override("font_color", Color(NEGATIVE_COLOR_CODE))
+    DebtValueLabel.add_theme_color_override("font_color", Color(SharedConstants.NEGATIVE_COLOR_CODE))
 
 func _populate_networth_value_label() -> void:
     if (GameState.net_worth < 0.0):
         NetWorthValueLabel.text = "($%.2f)" % GameState.net_worth
-        NetWorthValueLabel.add_theme_color_override("font_color", Color(NEGATIVE_COLOR_CODE))
+        NetWorthValueLabel.add_theme_color_override("font_color", Color(SharedConstants.NEGATIVE_COLOR_CODE))
     else:
         NetWorthValueLabel.text = "$%.2f" % GameState.net_worth
-        NetWorthValueLabel.add_theme_color_override("font_color", Color(POSITIVE_COLOR_CODE))
+        NetWorthValueLabel.add_theme_color_override("font_color", Color(SharedConstants.POSITIVE_COLOR_CODE))
