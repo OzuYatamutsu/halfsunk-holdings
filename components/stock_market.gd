@@ -5,7 +5,7 @@ extends Node
 
 ## {ticker: [name, value, description]}
 const _MARKET_DATA: Dictionary[String, Array] = {
-    "JINH": ["Jinhai Holdings", 100.00, "Jinhai Holdings is a multinational trading firm headquartered in an unincorporated series of islands somewhere in the Pacific Ocean.\n\nIts core product, the Jinhaifund™, is a tax shelter marketed towards disgruntled information technology workers interested in changing careers to the agricultural industry."]
+    "JINH": ["Jinhai Holdings", 100.00, "Financial", "Jinhai Holdings is a multinational trading firm headquartered in an unincorporated series of islands somewhere in the Pacific Ocean.\n\nIts core product, the Jinhaifund™, is a tax shelter marketed towards disgruntled information technology workers interested in changing careers to the agricultural industry."]
 }
 
 var _market: Dictionary[String, Stock] = {}
@@ -24,6 +24,7 @@ func _init() -> void:
             _MARKET_DATA[_ticker][0],
             _MARKET_DATA[_ticker][1],
             _MARKET_DATA[_ticker][2],
+            _MARKET_DATA[_ticker][3]
         )
 
 ## Returns null if stock wasn't found
