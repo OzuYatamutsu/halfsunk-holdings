@@ -7,6 +7,7 @@ extends VBoxContainer
 @onready var browser: DynamicPage = $DynamicPage
 
 func _ready() -> void:
+    GameState.game_window = self
     command_prompt.enable()
     hud_status.update()
     marquee.unset_dummy_mode()
