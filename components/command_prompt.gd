@@ -80,7 +80,7 @@ func _handle_info(args: Array[String]) -> void:
     # Check if the stock actually exists in the stock market
     var stock = GameState.stock_market.get_stock(args[0])
     if (!stock):
-        _flash_status_text("Syntax: INFO <stock-ticker>")
+        _flash_status_text("Stock not found!")
         return
 
     # If so, trigger a load of the Stock Screener
