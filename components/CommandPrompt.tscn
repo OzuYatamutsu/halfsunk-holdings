@@ -10,6 +10,7 @@ custom_minimum_size = Vector2(900, 0)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_5mqv2")
+IsEnabled = null
 
 [node name="Border" type="ColorRect" parent="." unique_id=2144716314]
 layout_mode = 0
