@@ -38,8 +38,11 @@ func _populate_data() -> void:
         else SharedConstants.NEGATIVE_COLOR_CODE
     ))
     
-    # TODO
-    # NetChangeValueLabel
-    # NetChangePercentLabel
-    # CompanyCategoryLabel
-    # CompanyDescriptionLabel
+    NetChangeValueLabel.text = "%.2d" % stock.last_delta
+    NetChangePercentLabel.text = "%.2d" % (100.0 * (stock.last_delta / (stock.last_delta + stock.current_value)))
+    NetChangePercentLabel.add_theme_color_override("font_color", Color(
+        SharedConstants.POSITIVE_COLOR_CODE if stock.last_delta >= 0
+        else SharedConstants.NEGATIVE_COLOR_CODE
+    ))
+    CompanyCategoryLabel.text = stock.company_category
+    CompanyDescriptionLabel.text = stock.company_description
