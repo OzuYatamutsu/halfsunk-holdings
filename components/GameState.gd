@@ -4,13 +4,13 @@ extends Node
 signal cash_changed
 signal net_worth_changed
 
-const VERSION_STRING: String = "0.1.5"
+const VERSION_STRING: String = "0.1.6"
 const STARTING_CASH: float = 0.0
 const STARTING_DEBT: float = 0.0
 const STARTING_NET_WORTH: float = 0.0
 const STARTING_DAY: int = 1
 
-var BUILD_DATE: String = "20260305"
+var BUILD_DATE: String = "20260306"
 var cash: float = 0.0
 var investments: Portfolio = Portfolio.new()
 var debt: float = 0.0

@@ -16,10 +16,14 @@ extends PageContent
 @onready var NetChangePercentLabel: Label = $DynamicPageContent/InfoboxContainer/ValueContainer/NetChangePercentLabel
 @onready var CompanyCategoryLabel: Label = $DynamicPageContent/InfoboxContainer/ValueContainer/CompanyCategoryLabel
 @onready var CompanyDescriptionLabel: Label = $DynamicPageContent/InfoboxContainer/DescriptionContainer/CompanyDescriptionLabel
+@onready var OwnedValueLabel: Label = %OwnedValueLabel
+@onready var TotalValueLabel: Label = %TotalValueValueLabel
+@onready var GainLossValueLabel: Label = %GainLossValueLabel
+
 
 func _ready():
     Title = "LOADING - Stock Screener"
-    PageHeightY = 1400
+    PageHeightY = 1200
     ticker_symbol = GameState.switch_page_data_bus
 
     update_scrollable_area()
@@ -55,3 +59,20 @@ func _populate_data() -> void:
     ))
     CompanyCategoryLabel.text = stock.company_category
     CompanyDescriptionLabel.text = stock.company_description
+    OwnedValueLabel.text = ""  # TODO
+    TotalValueLabel.text = ""  # TODO
+    GainLossValueLabel.text = ""  # TODO
+    GainLossValueLabel.add_theme_color_override("font_color", Color(
+        SharedConstants.POSITIVE_COLOR_CODE if float(GainLossValueLabel.text) >= 0
+        else SharedConstants.NEGATIVE_COLOR_CODE
+    ))
+    GainLossValueLabel.text = (
+        SharedConstants.UP_SYMBOL if float(GainLossValueLabel.text) >= 0
+        else SharedConstants.DOWN_SYMBOL
+    ) + GainLossValueLabel.text
+
+func _on_buy_button_pressed() -> void:
+    pass # Replace with function body.
+
+func _on_sell_button_pressed() -> void:
+    pass # Replace with function body.
