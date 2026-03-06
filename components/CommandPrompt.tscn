@@ -10,7 +10,6 @@ custom_minimum_size = Vector2(900, 0)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_5mqv2")
-IsEnabled = null
 
 [node name="Border" type="ColorRect" parent="." unique_id=2144716314]
 layout_mode = 0
@@ -65,5 +64,18 @@ theme = ExtResource("3_8mkog")
 theme_override_colors/font_color = Color(1, 0.05882353, 0.07058824, 1)
 theme_override_fonts/font = ExtResource("4_p01m0")
 text = "Command not found!"
+
+[node name="StatusText" type="Label" parent="." unique_id=1011673217]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 15.0
+offset_top = 78.0
+offset_right = 381.0
+offset_bottom = 119.0
+theme = ExtResource("3_8mkog")
+theme_override_colors/font_color = Color(1, 0.05882353, 0.07058824, 1)
+theme_override_fonts/font = ExtResource("4_p01m0")
+text = "Syntax: INFO <ticker>"
 
 [connection signal="text_submitted" from="PromptEdit" to="." method="_on_prompt_edit_text_submitted"]
