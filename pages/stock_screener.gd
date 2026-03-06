@@ -33,7 +33,7 @@ func _populate_data() -> void:
     Title = ticker_symbol + " - Stock Screener"
     FullTickerLabel.text = stock.company_name
     TickerSymbolLabel.text = stock.ticker_symbol
-    ValueLabel.text = "%.2d" % stock.current_value
+    ValueLabel.text = "%.2f" % stock.current_value
     UpDownLabel.text = (
         SharedConstants.UP_SYMBOL if stock.last_delta >= 0 
         else SharedConstants.DOWN_SYMBOL
@@ -43,8 +43,12 @@ func _populate_data() -> void:
         else SharedConstants.NEGATIVE_COLOR_CODE
     ))
     
-    NetChangeValueLabel.text = "%.2d" % stock.last_delta
-    NetChangePercentLabel.text = "%.2d" % (100.0 * (stock.last_delta / (stock.last_delta + stock.current_value)))
+    NetChangeValueLabel.text = "%.2f" % stock.last_delta
+    NetChangePercentLabel.text = (
+        "("
+        + ("+" if stock.last_delta >= 0 else "-")
+        + "%.2f)" % (100.0 * (stock.last_delta / (stock.last_delta + stock.current_value)))
+    )
     NetChangePercentLabel.add_theme_color_override("font_color", Color(
         SharedConstants.POSITIVE_COLOR_CODE if stock.last_delta >= 0
         else SharedConstants.NEGATIVE_COLOR_CODE
