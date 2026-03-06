@@ -3,7 +3,8 @@ extends Control
 
 ## To add a command handler to the list,
 var COMMAND_LIST: Dictionary[String, Callable] = {
-    "NOOP": _handle_noop
+    "NOOP": _handle_noop,
+    "INFO", _handle_info,
 }
 
 @export var IsEnabled: bool = true
@@ -54,3 +55,7 @@ func _handle_command_not_found() -> void:
 ## This command does nothing
 func _handle_noop(_args: Array[String]) -> void:
     pass
+
+## This command loads the Stock Screener (if the ticker exists)
+func _handle_info(args: Array[String]) -> void:
+    pass  # TODO
