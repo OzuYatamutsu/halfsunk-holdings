@@ -32,6 +32,7 @@ color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 polygon = PackedVector2Array(1, -24, 15, 10, 1, 42)
 
 [node name="PromptEdit" type="LineEdit" parent="." unique_id=1478643658]
+visible = false
 layout_mode = 0
 offset_left = 40.0
 offset_top = 10.0

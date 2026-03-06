@@ -1,6 +1,9 @@
 # StockScreener
 extends PageContent
 
+## Loads ticker symbol from GameState.switch_page_data_bus
+## (as a String).
+
 @export var ticker_symbol: String
 @export var stock: Stock
 
@@ -17,6 +20,8 @@ extends PageContent
 func _ready():
     Title = "LOADING - Stock Screener"
     PageHeightY = 1400
+    ticker_symbol = GameState.switch_page_data_bus
+
     update_scrollable_area()
     _populate_data()
 
