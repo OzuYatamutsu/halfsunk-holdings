@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0ujbjqcyi8u3" path="res://components/modal.gd" id="1_irbis"]
 [ext_resource type="Texture2D" uid="uid://bao3vrvpaeqwi" path="res://components/buy_button_wide_idle_100px.png" id="2_hnphb"]
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_osfx5"]
 [ext_resource type="Texture2D" uid="uid://bo4p3x250sthg" path="res://components/buy_button_wide_pressed_100px.png" id="3_fehkl"]
 [ext_resource type="Texture2D" uid="uid://dhgf7a0wn040o" path="res://components/sell_button_wide_idle_100px.png" id="4_2ulhm"]
 [ext_resource type="Texture2D" uid="uid://dud3xo2gms1xc" path="res://components/sell_button_wide_clicked_100px.png" id="5_y8b2t"]
@@ -40,45 +41,74 @@ initial_position = 1
 size = Vector2i(640, 600)
 
 [node name="InfoContainer" type="VBoxContainer" parent="ModalWindow" unique_id=69046364]
-offset_left = 320.0
-offset_top = 95.0
-offset_right = 320.0
-offset_bottom = 95.0
-
-[node name="CenterContainer" type="CenterContainer" parent="ModalWindow" unique_id=1457177514]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -263.0
-offset_top = 20.0
-offset_right = 263.0
-offset_bottom = 171.0
+offset_left = -193.5
+offset_right = 193.5
+offset_bottom = 86.0
 grow_horizontal = 2
-size_flags_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ModalWindow/CenterContainer" unique_id=133055600]
+[node name="_spacer" type="Control" parent="ModalWindow/InfoContainer" unique_id=524020533]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TickerLabel" type="Label" parent="ModalWindow/InfoContainer" unique_id=707641099]
+layout_mode = 2
+theme = ExtResource("2_osfx5")
+text = "Jinhai Holdings (JINH)"
+horizontal_alignment = 1
+
+[node name="ValueContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=11099910]
 layout_mode = 2
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ModalWindow/CenterContainer/VBoxContainer" unique_id=1452157547]
+[node name="ValueLabel" type="Label" parent="ModalWindow/InfoContainer/ValueContainer" unique_id=645788091]
+layout_mode = 2
+theme = ExtResource("6_osfx5")
+text = "102.86 "
+
+[node name="UpDownLabel" type="Label" parent="ModalWindow/InfoContainer/ValueContainer" unique_id=1566066635]
+layout_mode = 2
+theme = ExtResource("6_osfx5")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+text = "↗"
+
+[node name="NetChangeValueLabel" type="Label" parent="ModalWindow/InfoContainer/ValueContainer" unique_id=665931795]
+layout_mode = 2
+theme = ExtResource("6_osfx5")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+text = "2.86"
+
+[node name="NetChangePercentLabel" type="Label" parent="ModalWindow/InfoContainer/ValueContainer" unique_id=1966315773]
+layout_mode = 2
+theme = ExtResource("6_osfx5")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+text = "(+2.86%)"
+
+[node name="_spacer2" type="Control" parent="ModalWindow/InfoContainer" unique_id=308300511]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1452157547]
 layout_mode = 2
 alignment = 1
 
-[node name="BuyButton" type="TextureButton" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer" unique_id=2110371154]
+[node name="BuyButton" type="TextureButton" parent="ModalWindow/InfoContainer/HBoxContainer" unique_id=2110371154]
 layout_mode = 2
 texture_normal = ExtResource("2_hnphb")
 texture_pressed = ExtResource("3_fehkl")
 
-[node name="SellButton" type="TextureButton" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1330944511]
+[node name="SellButton" type="TextureButton" parent="ModalWindow/InfoContainer/HBoxContainer" unique_id=1330944511]
 layout_mode = 2
 texture_normal = ExtResource("4_2ulhm")
 texture_pressed = ExtResource("5_y8b2t")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ModalWindow/CenterContainer/VBoxContainer" unique_id=1125059864]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1125059864]
 layout_mode = 2
 alignment = 1
 
-[node name="QuantityEdit" type="LineEdit" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=305522189]
+[node name="QuantityEdit" type="LineEdit" parent="ModalWindow/InfoContainer/HBoxContainer2" unique_id=305522189]
 layout_mode = 2
 theme = ExtResource("6_fehkl")
 theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
@@ -86,13 +116,13 @@ placeholder_text = "####"
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="Label" type="Label" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=289377808]
+[node name="Label" type="Label" parent="ModalWindow/InfoContainer/HBoxContainer2" unique_id=289377808]
 layout_mode = 2
 theme = ExtResource("6_osfx5")
 theme_override_font_sizes/font_size = 40
 text = "shares of"
 
-[node name="TickerEdit" type="LineEdit" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=821152721]
+[node name="TickerEdit" type="LineEdit" parent="ModalWindow/InfoContainer/HBoxContainer2" unique_id=821152721]
 layout_mode = 2
 theme = ExtResource("6_fehkl")
 theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
@@ -100,34 +130,32 @@ text = "JINH"
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="ModalWindow/CenterContainer/VBoxContainer" unique_id=1706810805]
+[node name="HBoxContainer3" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1706810805]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer3" unique_id=214770657]
+[node name="Label" type="Label" parent="ModalWindow/InfoContainer/HBoxContainer3" unique_id=214770657]
 layout_mode = 2
 theme = ExtResource("6_osfx5")
 theme_override_font_sizes/font_size = 40
 text = "for a total value of "
 
-[node name="Label2" type="Label" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer3" unique_id=921443490]
+[node name="Label2" type="Label" parent="ModalWindow/InfoContainer/HBoxContainer3" unique_id=921443490]
 layout_mode = 2
 theme = ExtResource("6_fehkl")
 theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 theme_override_font_sizes/font_size = 40
 text = "$12,345.00"
 
-[node name="DoitButton" type="TextureButton" parent="ModalWindow" unique_id=151003261]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -60.0
-offset_right = 160.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="_spacer3" type="Control" parent="ModalWindow/InfoContainer" unique_id=824580405]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1753907561]
+layout_mode = 2
+alignment = 1
+
+[node name="DoitButton" type="TextureButton" parent="ModalWindow/InfoContainer/HBoxContainer4" unique_id=151003261]
+layout_mode = 2
 texture_normal = ExtResource("8_y8b2t")
 texture_pressed = ExtResource("9_osfx5")
