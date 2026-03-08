@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dccrfjyl2pwt3"]
+[gd_resource type="Theme" format=3 uid="uid://dccrfjyl2pwt3"]
 
 [ext_resource type="FontFile" uid="uid://ddecrx7wssdy5" path="res://components/fira_code/FiraCode-Medium.woff2" id="1_r63n3"]
 
