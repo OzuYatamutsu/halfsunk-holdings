@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://b0xn3djcf882s"]
 
 [ext_resource type="Script" uid="uid://0ujbjqcyi8u3" path="res://components/modal.gd" id="1_irbis"]
-[ext_resource type="Texture2D" uid="uid://duii2ao5vr8i5" path="res://components/buy_button_wide_idle.png" id="2_sh3us"]
-[ext_resource type="Texture2D" uid="uid://dmqof7phb4mjl" path="res://components/buy_button_wide_pressed.png" id="3_hnphb"]
-[ext_resource type="Texture2D" uid="uid://ckmutvx5whhex" path="res://components/sell_button_wide_idle.png" id="4_fehkl"]
-[ext_resource type="Texture2D" uid="uid://bl0tqg0408q5m" path="res://components/sell_button_wide_clicked.png" id="5_2ulhm"]
+[ext_resource type="Texture2D" uid="uid://bao3vrvpaeqwi" path="res://components/buy_button_wide_idle_100px.png" id="2_hnphb"]
+[ext_resource type="Texture2D" uid="uid://bo4p3x250sthg" path="res://components/buy_button_wide_pressed_100px.png" id="3_fehkl"]
+[ext_resource type="Texture2D" uid="uid://dhgf7a0wn040o" path="res://components/sell_button_wide_idle_100px.png" id="4_2ulhm"]
+[ext_resource type="Texture2D" uid="uid://dud3xo2gms1xc" path="res://components/sell_button_wide_clicked_100px.png" id="5_y8b2t"]
+[ext_resource type="Theme" uid="uid://dccrfjyl2pwt3" path="res://components/CommandPrompt_theme.tres" id="6_fehkl"]
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="6_osfx5"]
 
 [node name="Modal" type="Control" unique_id=504404833]
 layout_mode = 3
@@ -26,6 +28,7 @@ offset_right = 206.0
 offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0009594, 1.0072175)
 color = Color(0, 0, 0, 0.5019608)
 
 [node name="ModalWindow" type="Window" parent="." unique_id=1985508439]
@@ -34,21 +37,74 @@ title = "TRADE"
 initial_position = 1
 size = Vector2i(640, 600)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ModalWindow" unique_id=133055600]
-offset_right = 40.0
-offset_bottom = 40.0
-alignment = 1
+[node name="CenterContainer" type="CenterContainer" parent="ModalWindow" unique_id=1457177514]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -263.0
+offset_top = 20.0
+offset_right = 263.0
+offset_bottom = 171.0
+grow_horizontal = 2
+size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ModalWindow/VBoxContainer" unique_id=1452157547]
+[node name="VBoxContainer" type="VBoxContainer" parent="ModalWindow/CenterContainer" unique_id=133055600]
 layout_mode = 2
 alignment = 1
 
-[node name="BuyButton" type="TextureButton" parent="ModalWindow/VBoxContainer/HBoxContainer" unique_id=2110371154]
+[node name="HBoxContainer" type="HBoxContainer" parent="ModalWindow/CenterContainer/VBoxContainer" unique_id=1452157547]
 layout_mode = 2
-texture_normal = ExtResource("2_sh3us")
-texture_pressed = ExtResource("3_hnphb")
+alignment = 1
 
-[node name="SellButton" type="TextureButton" parent="ModalWindow/VBoxContainer/HBoxContainer" unique_id=1330944511]
+[node name="BuyButton" type="TextureButton" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer" unique_id=2110371154]
 layout_mode = 2
-texture_normal = ExtResource("4_fehkl")
-texture_pressed = ExtResource("5_2ulhm")
+texture_normal = ExtResource("2_hnphb")
+texture_pressed = ExtResource("3_fehkl")
+
+[node name="SellButton" type="TextureButton" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1330944511]
+layout_mode = 2
+texture_normal = ExtResource("4_2ulhm")
+texture_pressed = ExtResource("5_y8b2t")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ModalWindow/CenterContainer/VBoxContainer" unique_id=1125059864]
+layout_mode = 2
+alignment = 1
+
+[node name="QuantityEdit" type="LineEdit" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=305522189]
+layout_mode = 2
+theme = ExtResource("6_fehkl")
+theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+placeholder_text = "####"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Label" type="Label" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=289377808]
+layout_mode = 2
+theme = ExtResource("6_osfx5")
+theme_override_font_sizes/font_size = 40
+text = "shares of"
+
+[node name="TickerEdit" type="LineEdit" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=821152721]
+layout_mode = 2
+theme = ExtResource("6_fehkl")
+theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+text = "JINH"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ModalWindow/CenterContainer/VBoxContainer" unique_id=1706810805]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer3" unique_id=214770657]
+layout_mode = 2
+theme = ExtResource("6_osfx5")
+theme_override_font_sizes/font_size = 40
+text = "for a total value of "
+
+[node name="Label2" type="Label" parent="ModalWindow/CenterContainer/VBoxContainer/HBoxContainer3" unique_id=921443490]
+layout_mode = 2
+theme = ExtResource("6_fehkl")
+theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+theme_override_font_sizes/font_size = 40
+text = "$12,345.00"
