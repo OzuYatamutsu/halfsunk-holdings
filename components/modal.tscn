@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dud3xo2gms1xc" path="res://components/sell_button_wide_clicked_100px.png" id="5_y8b2t"]
 [ext_resource type="Theme" uid="uid://dccrfjyl2pwt3" path="res://components/CommandPrompt_theme.tres" id="6_fehkl"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="6_osfx5"]
+[ext_resource type="Texture2D" uid="uid://b3fhts3w5q7er" path="res://components/button_doit_fullsize.png" id="8_y8b2t"]
+[ext_resource type="Texture2D" uid="uid://4vyturq0nfnk" path="res://components/button_doit_fullsize_clicked.png" id="9_osfx5"]
 
 [node name="Modal" type="Control" unique_id=504404833]
 layout_mode = 3
@@ -36,6 +38,12 @@ oversampling_override = 1.0
 title = "TRADE"
 initial_position = 1
 size = Vector2i(640, 600)
+
+[node name="InfoContainer" type="VBoxContainer" parent="ModalWindow" unique_id=69046364]
+offset_left = 320.0
+offset_top = 95.0
+offset_right = 320.0
+offset_bottom = 95.0
 
 [node name="CenterContainer" type="CenterContainer" parent="ModalWindow" unique_id=1457177514]
 anchors_preset = 5
@@ -108,3 +116,18 @@ theme = ExtResource("6_fehkl")
 theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 theme_override_font_sizes/font_size = 40
 text = "$12,345.00"
+
+[node name="DoitButton" type="TextureButton" parent="ModalWindow" unique_id=151003261]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -60.0
+offset_right = 160.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_y8b2t")
+texture_pressed = ExtResource("9_osfx5")
