@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://b0xn3djcf882s"]
 
 [ext_resource type="Script" uid="uid://0ujbjqcyi8u3" path="res://components/modal.gd" id="1_irbis"]
-[ext_resource type="Texture2D" uid="uid://bao3vrvpaeqwi" path="res://components/buy_button_wide_idle_100px.png" id="2_hnphb"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_osfx5"]
-[ext_resource type="Texture2D" uid="uid://bo4p3x250sthg" path="res://components/buy_button_wide_pressed_100px.png" id="3_fehkl"]
-[ext_resource type="Texture2D" uid="uid://dhgf7a0wn040o" path="res://components/sell_button_wide_idle_100px.png" id="4_2ulhm"]
-[ext_resource type="Texture2D" uid="uid://dud3xo2gms1xc" path="res://components/sell_button_wide_clicked_100px.png" id="5_y8b2t"]
+[ext_resource type="ButtonGroup" uid="uid://2uxqgb44umyn" path="res://components/buysell_button_group.tres" id="4_lskkh"]
+[ext_resource type="Texture2D" uid="uid://b584qdhqkskge" path="res://components/buy_button_wide_idle_160px.png" id="4_osfx5"]
+[ext_resource type="Texture2D" uid="uid://b5kl6aucbme2r" path="res://components/buy_button_wide_pressed_160px.png" id="5_161dp"]
+[ext_resource type="Texture2D" uid="uid://cmk2qu52rjgj6" path="res://components/sell_button_wide_idle_160px.png" id="6_8hocf"]
 [ext_resource type="Theme" uid="uid://dccrfjyl2pwt3" path="res://components/CommandPrompt_theme.tres" id="6_fehkl"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="6_osfx5"]
+[ext_resource type="Texture2D" uid="uid://ciy5e13v5l3po" path="res://components/sell_button_wide_clicked_160px.png" id="7_lskkh"]
+[ext_resource type="Texture2D" uid="uid://cqg7xqq6y3m53" path="res://components/buy_button_wide_idle_160px_disabled.png" id="7_pdux3"]
 [ext_resource type="Texture2D" uid="uid://b3fhts3w5q7er" path="res://components/button_doit_fullsize.png" id="8_y8b2t"]
 [ext_resource type="Texture2D" uid="uid://4vyturq0nfnk" path="res://components/button_doit_fullsize_clicked.png" id="9_osfx5"]
+[ext_resource type="Texture2D" uid="uid://b3gebtm4s1lm7" path="res://components/sell_button_wide_idle_160px_disabled.png" id="10_5koy6"]
 
 [node name="Modal" type="Control" unique_id=504404833]
 layout_mode = 3
@@ -87,7 +90,7 @@ theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
 text = "(+2.86%)"
 
 [node name="_spacer2" type="Control" parent="ModalWindow/InfoContainer" unique_id=308300511]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1452157547]
@@ -96,13 +99,25 @@ alignment = 1
 
 [node name="BuyButton" type="TextureButton" parent="ModalWindow/InfoContainer/HBoxContainer" unique_id=2110371154]
 layout_mode = 2
-texture_normal = ExtResource("2_hnphb")
-texture_pressed = ExtResource("3_fehkl")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("4_lskkh")
+texture_normal = ExtResource("4_osfx5")
+texture_pressed = ExtResource("5_161dp")
+texture_disabled = ExtResource("7_pdux3")
 
 [node name="SellButton" type="TextureButton" parent="ModalWindow/InfoContainer/HBoxContainer" unique_id=1330944511]
 layout_mode = 2
-texture_normal = ExtResource("4_2ulhm")
-texture_pressed = ExtResource("5_y8b2t")
+disabled = true
+toggle_mode = true
+button_group = ExtResource("4_lskkh")
+texture_normal = ExtResource("6_8hocf")
+texture_pressed = ExtResource("7_lskkh")
+texture_disabled = ExtResource("10_5koy6")
+
+[node name="_spacer4" type="Control" parent="ModalWindow/InfoContainer" unique_id=972940376]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1125059864]
 layout_mode = 2
