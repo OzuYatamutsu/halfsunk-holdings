@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://b0xn3djcf882s"]
 
 [ext_resource type="Script" uid="uid://0ujbjqcyi8u3" path="res://components/modal.gd" id="1_irbis"]
+[ext_resource type="Texture2D" uid="uid://duii2ao5vr8i5" path="res://components/buy_button_wide_idle.png" id="2_sh3us"]
+[ext_resource type="Texture2D" uid="uid://dmqof7phb4mjl" path="res://components/buy_button_wide_pressed.png" id="3_hnphb"]
+[ext_resource type="Texture2D" uid="uid://ckmutvx5whhex" path="res://components/sell_button_wide_idle.png" id="4_fehkl"]
+[ext_resource type="Texture2D" uid="uid://bl0tqg0408q5m" path="res://components/sell_button_wide_clicked.png" id="5_2ulhm"]
 
 [node name="Modal" type="Control" unique_id=504404833]
 layout_mode = 3
@@ -16,10 +20,35 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 206.0
+offset_top = 240.0
+offset_right = 206.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5019608)
 
 [node name="ModalWindow" type="Window" parent="." unique_id=1985508439]
 oversampling_override = 1.0
+title = "TRADE"
 initial_position = 1
+size = Vector2i(640, 600)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ModalWindow" unique_id=133055600]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ModalWindow/VBoxContainer" unique_id=1452157547]
+layout_mode = 2
+alignment = 1
+
+[node name="BuyButton" type="TextureButton" parent="ModalWindow/VBoxContainer/HBoxContainer" unique_id=2110371154]
+layout_mode = 2
+texture_normal = ExtResource("2_sh3us")
+texture_pressed = ExtResource("3_hnphb")
+
+[node name="SellButton" type="TextureButton" parent="ModalWindow/VBoxContainer/HBoxContainer" unique_id=1330944511]
+layout_mode = 2
+texture_normal = ExtResource("4_fehkl")
+texture_pressed = ExtResource("5_2ulhm")
