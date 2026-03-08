@@ -28,14 +28,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 206.0
-offset_top = 240.0
-offset_right = 206.0
-offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0009594, 1.0072175)
-color = Color(0, 0, 0, 0.5019608)
+color = Color(0, 0, 0, 0.9607843)
 
 [node name="ModalWindow" type="Window" parent="." unique_id=1985508439]
 oversampling_override = 1.0
@@ -93,11 +89,11 @@ text = "(+2.86%)"
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1452157547]
+[node name="BuySellButtonGroup" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1452157547]
 layout_mode = 2
 alignment = 1
 
-[node name="BuyButton" type="TextureButton" parent="ModalWindow/InfoContainer/HBoxContainer" unique_id=2110371154]
+[node name="BuyButton" type="TextureButton" parent="ModalWindow/InfoContainer/BuySellButtonGroup" unique_id=2110371154]
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
@@ -106,7 +102,7 @@ texture_normal = ExtResource("4_osfx5")
 texture_pressed = ExtResource("5_161dp")
 texture_disabled = ExtResource("7_pdux3")
 
-[node name="SellButton" type="TextureButton" parent="ModalWindow/InfoContainer/HBoxContainer" unique_id=1330944511]
+[node name="SellButton" type="TextureButton" parent="ModalWindow/InfoContainer/BuySellButtonGroup" unique_id=1330944511]
 layout_mode = 2
 disabled = true
 toggle_mode = true
@@ -119,11 +115,11 @@ texture_disabled = ExtResource("10_5koy6")
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1125059864]
+[node name="QuantitySelector" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1125059864]
 layout_mode = 2
 alignment = 1
 
-[node name="QuantityEdit" type="LineEdit" parent="ModalWindow/InfoContainer/HBoxContainer2" unique_id=305522189]
+[node name="QuantityEdit" type="LineEdit" parent="ModalWindow/InfoContainer/QuantitySelector" unique_id=305522189]
 layout_mode = 2
 theme = ExtResource("6_fehkl")
 theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
@@ -131,13 +127,13 @@ placeholder_text = "####"
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="Label" type="Label" parent="ModalWindow/InfoContainer/HBoxContainer2" unique_id=289377808]
+[node name="SharesOfLebel" type="Label" parent="ModalWindow/InfoContainer/QuantitySelector" unique_id=289377808]
 layout_mode = 2
 theme = ExtResource("6_osfx5")
 theme_override_font_sizes/font_size = 40
 text = "shares of"
 
-[node name="TickerEdit" type="LineEdit" parent="ModalWindow/InfoContainer/HBoxContainer2" unique_id=821152721]
+[node name="TickerEdit" type="LineEdit" parent="ModalWindow/InfoContainer/QuantitySelector" unique_id=821152721]
 layout_mode = 2
 theme = ExtResource("6_fehkl")
 theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
@@ -145,17 +141,17 @@ text = "JINH"
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1706810805]
+[node name="TotalInfo" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1706810805]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ModalWindow/InfoContainer/HBoxContainer3" unique_id=214770657]
+[node name="ForATotalValueOfLabel" type="Label" parent="ModalWindow/InfoContainer/TotalInfo" unique_id=214770657]
 layout_mode = 2
 theme = ExtResource("6_osfx5")
 theme_override_font_sizes/font_size = 40
 text = "for a total value of "
 
-[node name="Label2" type="Label" parent="ModalWindow/InfoContainer/HBoxContainer3" unique_id=921443490]
+[node name="TransactionValueLabel" type="Label" parent="ModalWindow/InfoContainer/TotalInfo" unique_id=921443490]
 layout_mode = 2
 theme = ExtResource("6_fehkl")
 theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
@@ -166,11 +162,11 @@ text = "$12,345.00"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1753907561]
+[node name="ConfirmButtonContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1753907561]
 layout_mode = 2
 alignment = 1
 
-[node name="DoitButton" type="TextureButton" parent="ModalWindow/InfoContainer/HBoxContainer4" unique_id=151003261]
+[node name="DoitButton" type="TextureButton" parent="ModalWindow/InfoContainer/ConfirmButtonContainer" unique_id=151003261]
 layout_mode = 2
 texture_normal = ExtResource("8_y8b2t")
 texture_pressed = ExtResource("9_osfx5")
