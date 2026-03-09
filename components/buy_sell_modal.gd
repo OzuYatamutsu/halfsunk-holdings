@@ -1,6 +1,13 @@
 class_name BuySellModal
 extends Modal
 
+enum Mode {
+    BUY,
+    SELL
+}
+
+var CurrentMode: Mode = Mode.BUY
+
 # "Jinhai Holdings (JINH)"
 @onready var TickerLabel: Label = $ModalWindow/InfoContainer/TickerLabel
 
