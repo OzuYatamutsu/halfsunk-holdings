@@ -14,24 +14,17 @@
 [ext_resource type="Texture2D" uid="uid://4vyturq0nfnk" path="res://components/button_doit_fullsize_clicked.png" id="9_osfx5"]
 [ext_resource type="Texture2D" uid="uid://b3gebtm4s1lm7" path="res://components/sell_button_wide_idle_160px_disabled.png" id="10_5koy6"]
 
-[node name="Modal" type="Control" unique_id=504404833]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Modal" type="CanvasLayer" unique_id=558805024]
 script = ExtResource("1_irbis")
 
 [node name="BgDimEffect" type="ColorRect" parent="." unique_id=1002175299]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0009594, 1.0072175)
-color = Color(0, 0, 0, 0.9607843)
+color = Color(0, 0, 0, 0.7058824)
 
 [node name="ModalWindow" type="Window" parent="." unique_id=1985508439]
 oversampling_override = 1.0
