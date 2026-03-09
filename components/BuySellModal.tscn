@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://dwvu82yn8w2hq"]
+
+[ext_resource type="Script" uid="uid://monjd47tcc3k" path="res://components/buy_sell_modal.gd" id="1_puqte"]
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_c4cyb"]
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="3_mfyxg"]
+[ext_resource type="ButtonGroup" uid="uid://2uxqgb44umyn" path="res://components/buysell_button_group.tres" id="4_mx7lr"]
+[ext_resource type="Texture2D" uid="uid://b584qdhqkskge" path="res://components/buy_button_wide_idle_160px.png" id="5_38gnq"]
+[ext_resource type="Texture2D" uid="uid://b5kl6aucbme2r" path="res://components/buy_button_wide_pressed_160px.png" id="6_ghn42"]
+[ext_resource type="Texture2D" uid="uid://cqg7xqq6y3m53" path="res://components/buy_button_wide_idle_160px_disabled.png" id="7_a1qdr"]
+[ext_resource type="Texture2D" uid="uid://cmk2qu52rjgj6" path="res://components/sell_button_wide_idle_160px.png" id="8_sdsa6"]
+[ext_resource type="Texture2D" uid="uid://ciy5e13v5l3po" path="res://components/sell_button_wide_clicked_160px.png" id="9_8n4f5"]
+[ext_resource type="Texture2D" uid="uid://b3gebtm4s1lm7" path="res://components/sell_button_wide_idle_160px_disabled.png" id="10_p1eqp"]
+[ext_resource type="Theme" uid="uid://dccrfjyl2pwt3" path="res://components/CommandPrompt_theme.tres" id="11_ikru1"]
+[ext_resource type="Texture2D" uid="uid://b3fhts3w5q7er" path="res://components/button_doit_fullsize.png" id="12_u8gwq"]
+[ext_resource type="Texture2D" uid="uid://4vyturq0nfnk" path="res://components/button_doit_fullsize_clicked.png" id="13_job4n"]
+
+[node name="BuySellModal" type="CanvasLayer" unique_id=558805024]
+script = ExtResource("1_puqte")
+
+[node name="BgDimEffect" type="ColorRect" parent="." unique_id=1002175299]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0009594, 1.0072175)
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="ModalWindow" type="Window" parent="." unique_id=1985508439]
+oversampling_override = 1.0
+title = "TRADE"
+initial_position = 1
+size = Vector2i(640, 600)
+
+[node name="InfoContainer" type="VBoxContainer" parent="ModalWindow" unique_id=69046364]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -193.5
+offset_right = 193.5
+offset_bottom = 86.0
+grow_horizontal = 2
+
+[node name="_spacer" type="Control" parent="ModalWindow/InfoContainer" unique_id=524020533]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TickerLabel" type="Label" parent="ModalWindow/InfoContainer" unique_id=707641099]
+layout_mode = 2
+theme = ExtResource("2_c4cyb")
+text = "Jinhai Holdings (JINH)"
+horizontal_alignment = 1
+
+[node name="ValueContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=11099910]
+layout_mode = 2
+alignment = 1
+
+[node name="ValueLabel" type="Label" parent="ModalWindow/InfoContainer/ValueContainer" unique_id=645788091]
+layout_mode = 2
+theme = ExtResource("3_mfyxg")
+text = "102.86 "
+
+[node name="UpDownLabel" type="Label" parent="ModalWindow/InfoContainer/ValueContainer" unique_id=1566066635]
+layout_mode = 2
+theme = ExtResource("3_mfyxg")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+text = "↗"
+
+[node name="NetChangeValueLabel" type="Label" parent="ModalWindow/InfoContainer/ValueContainer" unique_id=665931795]
+layout_mode = 2
+theme = ExtResource("3_mfyxg")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+text = "2.86"
+
+[node name="NetChangePercentLabel" type="Label" parent="ModalWindow/InfoContainer/ValueContainer" unique_id=1966315773]
+layout_mode = 2
+theme = ExtResource("3_mfyxg")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+text = "(+2.86%)"
+
+[node name="_spacer2" type="Control" parent="ModalWindow/InfoContainer" unique_id=308300511]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+
+[node name="BuySellButtonGroup" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1452157547]
+layout_mode = 2
+alignment = 1
+
+[node name="BuyButton" type="TextureButton" parent="ModalWindow/InfoContainer/BuySellButtonGroup" unique_id=2110371154]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("4_mx7lr")
+texture_normal = ExtResource("5_38gnq")
+texture_pressed = ExtResource("6_ghn42")
+texture_disabled = ExtResource("7_a1qdr")
+
+[node name="SellButton" type="TextureButton" parent="ModalWindow/InfoContainer/BuySellButtonGroup" unique_id=1330944511]
+layout_mode = 2
+disabled = true
+toggle_mode = true
+button_group = ExtResource("4_mx7lr")
+texture_normal = ExtResource("8_sdsa6")
+texture_pressed = ExtResource("9_8n4f5")
+texture_disabled = ExtResource("10_p1eqp")
+
+[node name="_spacer4" type="Control" parent="ModalWindow/InfoContainer" unique_id=972940376]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="QuantitySelector" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1125059864]
+layout_mode = 2
+alignment = 1
+
+[node name="QuantityEdit" type="LineEdit" parent="ModalWindow/InfoContainer/QuantitySelector" unique_id=305522189]
+layout_mode = 2
+theme = ExtResource("11_ikru1")
+theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+placeholder_text = "####"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="SharesOfLebel" type="Label" parent="ModalWindow/InfoContainer/QuantitySelector" unique_id=289377808]
+layout_mode = 2
+theme = ExtResource("3_mfyxg")
+theme_override_font_sizes/font_size = 40
+text = "shares of"
+
+[node name="TickerEdit" type="LineEdit" parent="ModalWindow/InfoContainer/QuantitySelector" unique_id=821152721]
+layout_mode = 2
+theme = ExtResource("11_ikru1")
+theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+text = "JINH"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="TotalInfo" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1706810805]
+layout_mode = 2
+alignment = 1
+
+[node name="ForATotalValueOfLabel" type="Label" parent="ModalWindow/InfoContainer/TotalInfo" unique_id=214770657]
+layout_mode = 2
+theme = ExtResource("3_mfyxg")
+theme_override_font_sizes/font_size = 40
+text = "for a total value of "
+
+[node name="TransactionValueLabel" type="Label" parent="ModalWindow/InfoContainer/TotalInfo" unique_id=921443490]
+layout_mode = 2
+theme = ExtResource("11_ikru1")
+theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
+theme_override_font_sizes/font_size = 40
+text = "$12,345.00"
+
+[node name="_spacer3" type="Control" parent="ModalWindow/InfoContainer" unique_id=824580405]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ConfirmButtonContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1753907561]
+layout_mode = 2
+alignment = 1
+
+[node name="DoitButton" type="TextureButton" parent="ModalWindow/InfoContainer/ConfirmButtonContainer" unique_id=151003261]
+layout_mode = 2
+texture_normal = ExtResource("12_u8gwq")
+texture_pressed = ExtResource("13_job4n")
