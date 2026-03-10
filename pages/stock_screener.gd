@@ -28,10 +28,11 @@ func _ready():
 
     update_scrollable_area()
     _populate_data()
+    GameState.delayed_tick.connect(_populate_data)
 
 func _populate_data() -> void:
     assert(ticker_symbol != "")
-    print("stock_screener: looking up " + ticker_symbol)
+    print("stock_screener: refreshing data for " + ticker_symbol)
     stock = GameState.stock_market.get_stock(ticker_symbol)
 
     Title = ticker_symbol + " - Stock Screener"

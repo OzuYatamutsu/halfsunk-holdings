@@ -42,7 +42,9 @@ func _ready() -> void:
     
     ticker = GameState.switch_page_data_bus.split(';').to_upper()[0]
     action = Mode[GameState.switch_page_data_bus.split(';').to_upper()[1]]
+    
     _update_stock_info()
+    GameState.delayed_tick.connect(_update_stock_info)
 
 func _update_stock_info() -> void:
     var stock = GameState.stock_market.get_stock(ticker)
