@@ -10,8 +10,18 @@ signal net_worth_changed
 ## be sent, etc.
 signal tick
 
+## This signal is fired a short time after the
+## tick. Useful for things which consume data
+## updated by tick (to prevent race condition)
+## -- i.e., updating labels.
+signal delayed_tick
+
 ## Unit of time corresponding to one tick.
 const TICK_LENGTH_SECS: float = 5.0
+
+## Unit of time to wait after one tick to fire
+## the delayed_tick event.
+const AFTER_TICK_DELAY_SECS: float = 0.05
 
 const VERSION_STRING: String = "0.1.6"
 const STARTING_CASH: float = 0.0
@@ -26,6 +36,7 @@ var debt: float = 0.0
 var net_worth: float = 0.0
 var day_count: int = 1
 var game_timer: Timer = Timer.new()
+var delayed_tick_timer: Timer = Timer.new()
 
 var game_window: GameWindow
 var stock_market: StockMarket
@@ -57,9 +68,14 @@ func recalculate_net_worth() -> void:
     net_worth_changed.emit()
 
 func _tick_timer_setup() -> void:
-    game_timer = Timer.new()
     game_timer.wait_time = TICK_LENGTH_SECS
     game_timer.connect("timeout", _on_game_timer)
+    delayed_tick_timer.wait_time = AFTER_TICK_DELAY_SECS
+    delayed_tick_timer.one_shot = true
 
 func _on_game_timer() -> void:
     tick.emit()
+    delayed_tick_timer.start()
+
+func _on_delayed_game_timer() -> void:
+    delayed_tick.emit()
