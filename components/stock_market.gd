@@ -26,6 +26,8 @@ func _init() -> void:
             _MARKET_DATA[_ticker][2],
             _MARKET_DATA[_ticker][3]
         )
+    
+    GameState.tick.connect(_on_tick)
 
 ## Returns null if stock wasn't found
 func get_stock(ticker: String) -> Stock:
@@ -35,3 +37,6 @@ func get_stock(ticker: String) -> Stock:
 func update_stock(stock: Stock) -> void:
     _market.erase(stock.ticker_symbol)
     _market[stock.ticker_symbol] = stock
+
+func _on_tick() -> void:
+    pass
