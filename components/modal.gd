@@ -5,3 +5,9 @@ extends CanvasLayer
 ## (and dims the background).
 
 @onready var ModalWindow: Window = $ModalWindow
+
+func _ready() -> void:
+    ModalWindow.close_requested.connect(_on_close_requested)
+    
+func _on_close_requested() -> void:
+    queue_free()
