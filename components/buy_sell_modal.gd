@@ -29,8 +29,8 @@ var action: Mode = Mode.BUY
 @onready var SellButton: TextureButton = $ModalWindow/InfoContainer/BuySellButtonGroup/SellButton
 
 # Buy/Sell quantity group
-@onready var QuantityEdit: TextEdit = $ModalWindow/InfoContainer/QuantitySelector/QuantityEdit
-@onready var TickerEdit: TextEdit = $ModalWindow/InfoContainer/QuantitySelector/TickerEdit
+@onready var QuantityEdit: LineEdit = $ModalWindow/InfoContainer/QuantitySelector/QuantityEdit
+@onready var TickerEdit: LineEdit = $ModalWindow/InfoContainer/QuantitySelector/TickerEdit
 
 # "$12,345.00"
 @onready var TransactionValueLabel: Label = $ModalWindow/InfoContainer/TotalInfo/TransactionValueLabel
@@ -39,9 +39,11 @@ func _ready() -> void:
     # Data bus format:
     # "<ticker>;<action>"
     # e.g. "JINH;BUY"
-    
-    ticker = GameState.switch_page_data_bus.split(';').to_upper()[0]
-    action = Mode[GameState.switch_page_data_bus.split(';').to_upper()[1]]
+
+    super._ready()
+    assert(len(GameState.switch_page_data_bus.split(';')) == 2)
+    ticker = GameState.switch_page_data_bus.split(';')[0].to_upper()
+    action = Mode[GameState.switch_page_data_bus.split(';')[1].to_upper()]
     
     _update_stock_info()
     GameState.delayed_tick.connect(_update_stock_info)
@@ -69,3 +71,7 @@ func _update_stock_info() -> void:
         SharedConstants.POSITIVE_COLOR_CODE if stock.last_delta >= 0
         else SharedConstants.NEGATIVE_COLOR_CODE
     ))
+    BuyButton.disabled = action != Mode.BUY
+    BuyButton.button_pressed = action == Mode.BUY
+    SellButton.disabled = action != Mode.SELL
+    SellButton.button_pressed = action == Mode.SELL
