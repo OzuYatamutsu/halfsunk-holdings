@@ -72,6 +72,8 @@ func _tick_timer_setup() -> void:
     game_timer.connect("timeout", _on_game_timer)
     delayed_tick_timer.wait_time = AFTER_TICK_DELAY_SECS
     delayed_tick_timer.one_shot = true
+    add_child(game_timer)
+    add_child(delayed_tick_timer)
 
 func _on_game_timer() -> void:
     tick.emit()

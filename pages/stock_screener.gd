@@ -73,7 +73,13 @@ func _populate_data() -> void:
     ) + GainLossValueLabel.text
 
 func _on_buy_button_pressed() -> void:
-    pass # Replace with function body.
+    AudioEngine.play_sfx(AudioEngine.SFX_CLICK)
+    GameState.switch_page_data_bus = "%s;%s" % [ticker_symbol, "BUY"]
+    var buy_sell_modal = load("res://components/BuySellModal.tscn").instantiate()
+    get_tree().current_scene.add_child(buy_sell_modal)
 
 func _on_sell_button_pressed() -> void:
-    pass # Replace with function body.
+    AudioEngine.play_sfx(AudioEngine.SFX_CLICK)
+    GameState.switch_page_data_bus = "%s;%s" % [ticker_symbol, "SELL"]
+    var buy_sell_modal = load("res://components/BuySellModal.tscn").instantiate()
+    get_tree().current_scene.add_child(buy_sell_modal)
