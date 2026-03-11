@@ -11,7 +11,7 @@ const _MARKET_DATA: Dictionary[String, Array] = {
 var _market: Dictionary[String, Stock] = {}
 
 func _init() -> void:
-    print("stock_market: initing (" + str(len(_MARKET_DATA)) + "stocks in market)")
+    print("stock_market: initing (" + str(len(_MARKET_DATA)) + " stocks in market)")
 
     # TODO: load from previous data
     # TODO: for now just seed previous data

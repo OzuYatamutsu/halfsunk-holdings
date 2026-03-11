@@ -45,11 +45,11 @@ var stock_market: StockMarket
 var switch_page_data_bus: Variant
 
 func _init() -> void:
-    stock_market = StockMarket.new()
     _tick_timer_setup()
 
 func clear_state() -> void:
     _tick_timer_setup()
+    stock_market = StockMarket.new()
     cash = STARTING_CASH
     investments.clear()
     debt = STARTING_DEBT
