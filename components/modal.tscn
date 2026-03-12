@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0xn3djcf882s"]
 
 [ext_resource type="Script" uid="uid://0ujbjqcyi8u3" path="res://components/modal.gd" id="1_irbis"]
+[ext_resource type="Script" uid="uid://c1587q6vs64xs" path="res://components/modal_window.gd" id="2_wi4na"]
 
 [node name="Modal" type="CanvasLayer" unique_id=558805024]
 script = ExtResource("1_irbis")
@@ -19,3 +20,4 @@ oversampling_override = 1.0
 title = "TRADE"
 initial_position = 1
 size = Vector2i(640, 600)
+script = ExtResource("2_wi4na")
