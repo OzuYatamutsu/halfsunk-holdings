@@ -35,7 +35,7 @@ func _populate_cash_label() -> void:
     CashValueLabel.text = "$%.2f" % GameState.cash
 
 func _populate_securities_value_label() -> void:
-    SecuritiesValueLabel.text = "$%.2f" % GameState.investments.value()
+    SecuritiesValueLabel.text = "$%.2f" % GameState.portfolio.value()
 
 func _populate_debt_value_label() -> void:
     DebtValueLabel.text = "($%.2f)" % GameState.debt

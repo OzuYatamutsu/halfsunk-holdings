@@ -75,7 +75,7 @@ func _populate_data() -> void:
     GainLossValueLabel.text = (
         SharedConstants.UP_SYMBOL if float(GainLossValueLabel.text) >= 0
         else SharedConstants.DOWN_SYMBOL
-    ) + GainLossValueLabel.text
+    ) + " " + GainLossValueLabel.text
 
 func _on_buy_button_pressed() -> void:
     AudioEngine.play_sfx(AudioEngine.SFX_CLICK)
