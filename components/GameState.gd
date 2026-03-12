@@ -71,7 +71,8 @@ func recalculate_net_worth() -> void:
 
 func _tick_timer_setup() -> void:
     game_timer.wait_time = TICK_LENGTH_SECS
-    game_timer.connect("timeout", _on_game_timer)
+    game_timer.timeout.connect(_on_game_timer)
+    delayed_tick_timer.timeout.connect(_on_delayed_game_timer)
     delayed_tick_timer.wait_time = AFTER_TICK_DELAY_SECS
     delayed_tick_timer.one_shot = true
 

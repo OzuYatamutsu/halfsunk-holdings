@@ -62,10 +62,15 @@ func _update_stock_info() -> void:
     ))
     
     NetChangeValueLabel.text = "%.2f" % stock.last_delta
+    NetChangeValueLabel.add_theme_color_override("font_color", Color(
+        SharedConstants.POSITIVE_COLOR_CODE if stock.last_delta >= 0
+        else SharedConstants.NEGATIVE_COLOR_CODE
+    ))
     NetChangePercentLabel.text = (
         "("
-        + ("+" if stock.last_delta >= 0 else "-")
-        + "%.2f)" % (100.0 * (stock.last_delta / (stock.last_delta + stock.current_value)))
+        + ("+" if stock.last_delta >= 0 else "")
+        + "%.2f" % (100.0 * (stock.last_delta / (stock.last_delta + stock.current_value)))
+        + "%)"
     )
     NetChangePercentLabel.add_theme_color_override("font_color", Color(
         SharedConstants.POSITIVE_COLOR_CODE if stock.last_delta >= 0
