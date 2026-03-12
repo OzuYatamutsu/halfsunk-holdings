@@ -31,7 +31,7 @@ const STARTING_DAY: int = 1
 
 var BUILD_DATE: String = "20260306"
 var cash: float = 0.0
-var investments: Portfolio = Portfolio.new()
+var portfolio: Portfolio = Portfolio.new()
 var debt: float = 0.0
 var net_worth: float = 0.0
 var day_count: int = 1
@@ -50,7 +50,7 @@ func _init() -> void:
 func clear_state() -> void:
     stock_market = StockMarket.new()
     cash = STARTING_CASH
-    investments.clear()
+    portfolio.clear()
     debt = STARTING_DEBT
     net_worth = STARTING_NET_WORTH
     day_count = STARTING_DAY
@@ -63,7 +63,7 @@ func end_day() -> void:
     game_timer.stop()
 
 func recalculate_net_worth() -> void:
-    net_worth = cash + investments.value() - debt
+    net_worth = cash + portfolio.value() - debt
     net_worth_changed.emit()
 
 func _tick_timer_setup() -> void:
