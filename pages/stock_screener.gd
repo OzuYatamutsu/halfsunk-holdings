@@ -65,9 +65,9 @@ func _populate_data() -> void:
     ))
     CompanyCategoryLabel.text = stock.company_category
     CompanyDescriptionLabel.text = stock.company_description
-    OwnedValueLabel.text = ""  # TODO
-    TotalValueLabel.text = ""  # TODO
-    GainLossValueLabel.text = ""  # TODO
+    OwnedValueLabel.text = "%s" % GameState.portfolio.how_many_shares(stock.ticker_symbol)
+    TotalValueLabel.text = "%.2f" % GameState.portfolio.value_of_shares(stock.ticker_symbol)
+    GainLossValueLabel.text = "%.2f" % GameState.portfolio.total_delta(stock.ticker_symbol)
     GainLossValueLabel.add_theme_color_override("font_color", Color(
         SharedConstants.POSITIVE_COLOR_CODE if float(GainLossValueLabel.text) >= 0
         else SharedConstants.NEGATIVE_COLOR_CODE
