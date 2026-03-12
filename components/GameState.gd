@@ -45,12 +45,9 @@ var stock_market: StockMarket
 var switch_page_data_bus: Variant
 
 func _init() -> void:
-    add_child(game_timer)
-    add_child(delayed_tick_timer)
     _tick_timer_setup()
 
 func clear_state() -> void:
-    _tick_timer_setup()
     stock_market = StockMarket.new()
     cash = STARTING_CASH
     investments.clear()
@@ -75,6 +72,8 @@ func _tick_timer_setup() -> void:
     delayed_tick_timer.timeout.connect(_on_delayed_game_timer)
     delayed_tick_timer.wait_time = AFTER_TICK_DELAY_SECS
     delayed_tick_timer.one_shot = true
+    add_child(game_timer)
+    add_child(delayed_tick_timer)
 
 func _on_game_timer() -> void:
     tick.emit()

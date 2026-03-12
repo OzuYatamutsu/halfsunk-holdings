@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://monjd47tcc3k" path="res://components/buy_sell_modal.gd" id="1_puqte"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_c4cyb"]
+[ext_resource type="Script" uid="uid://c1587q6vs64xs" path="res://components/modal_window.gd" id="2_mfyxg"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="3_mfyxg"]
 [ext_resource type="ButtonGroup" uid="uid://2uxqgb44umyn" path="res://components/buysell_button_group.tres" id="4_mx7lr"]
 [ext_resource type="Texture2D" uid="uid://b584qdhqkskge" path="res://components/buy_button_wide_idle_160px.png" id="5_38gnq"]
@@ -31,6 +32,7 @@ oversampling_override = 1.0
 title = "TRADE"
 initial_position = 1
 size = Vector2i(640, 600)
+script = ExtResource("2_mfyxg")
 
 [node name="InfoContainer" type="VBoxContainer" parent="ModalWindow" unique_id=69046364]
 anchors_preset = 5

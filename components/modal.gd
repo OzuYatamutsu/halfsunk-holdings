@@ -8,6 +8,10 @@ extends CanvasLayer
 
 func _ready() -> void:
     ModalWindow.close_requested.connect(_on_close_requested)
-    
+
+func _input(event):
+    if event.is_action_pressed("ui_cancel"):
+        ModalWindow.close_requested.emit()
+
 func _on_close_requested() -> void:
     queue_free()
