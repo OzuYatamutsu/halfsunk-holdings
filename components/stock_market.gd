@@ -8,6 +8,10 @@ const _MARKET_DATA: Dictionary[String, Array] = {
     "JINH": ["Jinhai Holdings", 100.00, "Financial", "Jinhai Holdings is a multinational trading firm headquartered in an unincorporated series of islands somewhere in the Pacific Ocean.\n\nIts core product, the Jinhaifund™, is a tax shelter marketed towards disgruntled information technology workers interested in changing careers to the agricultural industry."]
 }
 
+## If not influenced by weight, how much should the stock randomly
+## move on each tick?
+const RANDOM_RANGE_PCTS = [-0.02, 0.02]
+
 var _market: Dictionary[String, Stock] = {}
 
 func _init() -> void:
@@ -38,5 +42,24 @@ func update_stock(stock: Stock) -> void:
     _market.erase(stock.ticker_symbol)
     _market[stock.ticker_symbol] = stock
 
+## Periodically shift values of all stocks in the market.
+func market_random_shift() -> void:
+    for stock: Stock in _market.values():
+        var target_value = Helpers.money_round(
+            stock.current_value * (
+                1.0 + randf_range(RANDOM_RANGE_PCTS[0], RANDOM_RANGE_PCTS[1])
+            )
+        )
+        var last_delta = target_value - stock.current_value
+        
+        print(
+            "stock_market: [random_shift] %s -> %.2f (change %.2f)"
+            % [stock.ticker_symbol, target_value, last_delta]
+        )
+        
+        stock.current_value = target_value
+        stock.last_delta = last_delta
+        update_stock(stock)
+
 func _on_tick() -> void:
-    pass
+    market_random_shift()
