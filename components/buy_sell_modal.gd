@@ -83,6 +83,7 @@ func _update_stock_info() -> void:
     BuyButton.button_pressed = action == Mode.BUY
     SellButton.disabled = action != Mode.SELL
     SellButton.button_pressed = action == Mode.SELL
+    _on_quantity_edit_text_changed(QuantityEdit.text)
 
 func _disable_value_calculation_field() -> void:
     TransactionValueLabel.visible = false
