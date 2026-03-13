@@ -48,6 +48,8 @@ func _init() -> void:
     _tick_timer_setup()
 
 func clear_state() -> void:
+    if stock_market:
+        stock_market.queue_free()
     stock_market = StockMarket.new()
     cash = STARTING_CASH
     portfolio.clear()
