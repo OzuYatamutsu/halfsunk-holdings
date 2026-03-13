@@ -119,6 +119,10 @@ layout_mode = 2
 theme = ExtResource("11_ikru1")
 theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 placeholder_text = "####"
+max_length = 4
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
 caret_blink = true
 caret_blink_interval = 0.5
 
@@ -166,3 +170,5 @@ alignment = 1
 layout_mode = 2
 texture_normal = ExtResource("12_u8gwq")
 texture_pressed = ExtResource("13_job4n")
+
+[connection signal="text_changed" from="ModalWindow/InfoContainer/QuantitySelector/QuantityEdit" to="." method="_on_quantity_edit_text_changed"]

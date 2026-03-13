@@ -6,6 +6,7 @@ enum Mode {
     SELL
 }
 
+var stock: Stock
 var ticker: String = ""
 var action: Mode = Mode.BUY
 
@@ -32,6 +33,7 @@ var action: Mode = Mode.BUY
 @onready var QuantityEdit: LineEdit = $ModalWindow/InfoContainer/QuantitySelector/QuantityEdit
 @onready var TickerEdit: LineEdit = $ModalWindow/InfoContainer/QuantitySelector/TickerEdit
 
+@onready var ForATotalValueOfLabel: Label = $ModalWindow/InfoContainer/TotalInfo/ForATotalValueOfLabel
 # "$12,345.00"
 @onready var TransactionValueLabel: Label = $ModalWindow/InfoContainer/TotalInfo/TransactionValueLabel
 
@@ -45,11 +47,12 @@ func _ready() -> void:
     ticker = GameState.switch_page_data_bus.split(';')[0].to_upper()
     action = Mode[GameState.switch_page_data_bus.split(';')[1].to_upper()]
     
+    _disable_value_calculation_field()
     _update_stock_info()
     GameState.delayed_tick.connect(_update_stock_info)
 
 func _update_stock_info() -> void:
-    var stock = GameState.stock_market.get_stock(ticker)
+    stock = GameState.stock_market.get_stock(ticker)
     TickerLabel.text = "%s (%s)" % [stock.company_name, stock.ticker_symbol]
     ValueLabel.text = "%.2f" % stock.current_value
     UpDownLabel.text = (
@@ -80,3 +83,24 @@ func _update_stock_info() -> void:
     BuyButton.button_pressed = action == Mode.BUY
     SellButton.disabled = action != Mode.SELL
     SellButton.button_pressed = action == Mode.SELL
+
+func _disable_value_calculation_field() -> void:
+    TransactionValueLabel.visible = false
+    ForATotalValueOfLabel.visible = false
+
+func _display_and_update_value_calculation_field(quantity: int) -> void:
+    if !stock:
+        stock = GameState.stock_market.get_stock(ticker)
+    
+    TransactionValueLabel.text = Helpers.currencyify(quantity * stock.current_value)
+    TransactionValueLabel.visible = true
+    ForATotalValueOfLabel.visible = true
+
+func _on_quantity_edit_text_changed(new_text: String) -> void:
+    if !new_text.is_valid_int():
+        _disable_value_calculation_field()
+        return
+
+    _display_and_update_value_calculation_field(
+        new_text.to_int()
+    )
