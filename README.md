@@ -16,6 +16,8 @@ This project is licensed under the [Blue Oak Model License 1.0](https://blueoakc
 
 Bergoom and Fira Code are licensed under the [SIL Open Font License, Version 1.1](https://github.com/dchest/bergoom/blob/main/LICENSE.md).
 
+Easy Charts is licensed under the [MIT license](https://github.com/fenix-hub/godot-engine.easy-charts/blob/main/LICENSE).
+
 Other assets:
 - [Bird blue flying](https://opengameart.org/content/bird-blue-flying), by Enquest
 - [Bossa Nova](https://opengameart.org/content/bossa-nova), by Joth
