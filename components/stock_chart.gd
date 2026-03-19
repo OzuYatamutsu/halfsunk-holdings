@@ -2,7 +2,7 @@ class_name StockChart
 extends Control
 
 ## A stock chart representing historical data.
-## The x axis is time, and the y axis is price.
+## The x axis is timestamp, and the y axis is price.
 
 const CHART_BG_COLOR: Color = Color("#000000")
 const CHART_GRID_COLOR: Color = Color("#283442")
@@ -13,26 +13,35 @@ const CHART_LINE_COLOR: Color = Color("#5c94c6")
 
 var _chart_func: Function
 
+## An array of tuples of the form: [timestamp, value];
+## i.e., the format of Stock.last_values.
+var _historical_data: Array[Array]
+
+func _init(stock: Stock):
+    _historical_data = stock.last_values
+
 func _ready() -> void:
-    # Let's create our @x values
-    var x: PackedFloat32Array = ArrayOperations.multiply_float(range(-10, 11, 1), 0.5)
-
-    # And our y values. It can be an n-size array of arrays.
-    # NOTE: `x.size() == y.size()` or `x.size() == y[n].size()`
-    var y: Array = ArrayOperations.multiply_int(ArrayOperations.cos(x), 20)
-
+    var x_vals: Array[int]
+    var y_vals: Array[float]
     var cp: ChartProperties = _compose_chart_properties()
-    cp.x_scale = 10
-    cp.y_scale = 10
+    
+    for _xy_pair in _historical_data:
+        x_vals.append(_xy_pair[0])
+        y_vals.append(_xy_pair[1])
 
     _chart_func = Function.new(
-        x, y, "", _compose_function_style_params()
+        x_vals, y_vals, "", _compose_function_style_params()
+    )
+
+    _chart_func = Function.new(
+        x_vals, y_vals, "", _compose_function_style_params()
     )
     _Chart.plot([_chart_func], cp)
 
 
-func add_point() -> void:
-    pass  # TODO
+## Pass in a tuple of the form: [timestamp, value].
+func add_point(last_value_record: Array[Variant]) -> void:
+    _chart_func.add_point(last_value_record[0], last_value_record[1])
 
 ## After composing chart properties, other things to modify:
 ## .title, .x_label, .y_label, .x_scale, .y_scale
@@ -45,7 +54,8 @@ func _compose_chart_properties() -> ChartProperties:
     chart_properties.colors.text = Color.WHITE_SMOKE
     chart_properties.draw_bounding_box = false
     chart_properties.interactive = true
-
+    chart_properties.x_scale = 10
+    chart_properties.y_scale = 10
     return chart_properties
 
 
