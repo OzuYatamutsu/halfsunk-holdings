@@ -20,6 +20,7 @@ extends PageContent
 @onready var TotalValueLabel: Label = %TotalValueValueLabel
 @onready var GainLossValueLabel: Label = %GainLossValueLabel
 
+@onready var PriceChart: StockChart = $DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer/StockChart
 
 func _ready():
     Title = "LOADING - Stock Screener"
@@ -76,6 +77,8 @@ func _populate_data() -> void:
         SharedConstants.UP_SYMBOL if float(GainLossValueLabel.text) >= 0
         else SharedConstants.DOWN_SYMBOL
     ) + " " + GainLossValueLabel.text
+
+    PriceChart.add_point(stock.last_values[-1])
 
 func _on_buy_button_pressed() -> void:
     AudioEngine.play_sfx(AudioEngine.SFX_CLICK)
