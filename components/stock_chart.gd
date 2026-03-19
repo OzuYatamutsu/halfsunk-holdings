@@ -10,6 +10,7 @@ const CHART_TICK_COLOR: Color = Color("#283442")
 const CHART_LINE_COLOR: Color = Color("#5c94c6")
 
 @onready var _Chart: Chart = $_Chart
+@onready var _placeholder_image: TextureRect = $_PLACEHOLDER_PREVIEW
 
 var _chart_func: Function
 
@@ -21,6 +22,8 @@ func _init(stock: Stock):
     _historical_data = stock.last_values
 
 func _ready() -> void:
+    _placeholder_image.queue_free()
+
     var x_vals: Array[int]
     var y_vals: Array[float]
     var cp: ChartProperties = _compose_chart_properties()

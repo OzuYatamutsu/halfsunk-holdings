@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bcx6a7uddk416" path="res://pages/stock_screener.gd" id="1_l7ifb"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="3_0xlaf"]
-[ext_resource type="Texture2D" uid="uid://n4gg882tp0li" path="res://components/blue_placeholder.png" id="4_7hymw"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="4_f4a8s"]
+[ext_resource type="PackedScene" uid="uid://rucoajbu4b25" path="res://components/StockChart.tscn" id="5_ktt1q"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="5_l7ifb"]
 
 [node name="StockScreener" type="Control" unique_id=975098320]
@@ -127,27 +127,8 @@ theme_override_constants/separation = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent/Chartbox/ChartInfoArea" unique_id=1215843194]
 layout_mode = 2
 
-[node name="_CHART_PLACEHOLDER1" type="TextureRect" parent="DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer" unique_id=1408608658]
+[node name="StockChart" parent="DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer" unique_id=1175651021 instance=ExtResource("5_ktt1q")]
 layout_mode = 2
-texture = ExtResource("4_7hymw")
-
-[node name="ChartLabelLeft" type="Label" parent="DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer" unique_id=475514965]
-layout_mode = 2
-theme = ExtResource("4_f4a8s")
-text = "-7d"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="DynamicPageContent/Chartbox/ChartInfoArea" unique_id=496196108]
-layout_mode = 2
-
-[node name="_CHART_PLACEHOLDER1" type="TextureRect" parent="DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer2" unique_id=1807712278]
-layout_mode = 2
-texture = ExtResource("4_7hymw")
-
-[node name="ChartLabelRight" type="Label" parent="DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer2" unique_id=470546556]
-layout_mode = 2
-theme = ExtResource("4_f4a8s")
-text = "today"
-horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageContent/Chartbox/ChartInfoArea" unique_id=1205754280]
 layout_mode = 2

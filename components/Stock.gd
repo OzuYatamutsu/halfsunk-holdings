@@ -27,3 +27,6 @@ func _init(_ticker: String, _name: String, _base_value: float, _category: String
     company_description = _description
     last_values = _last_values
     last_update_timestamp = GameState.get_current_timestamp()
+
+    if last_values.size() == 0:
+        last_values = [[GameState.get_current_timestamp(), current_value]]
