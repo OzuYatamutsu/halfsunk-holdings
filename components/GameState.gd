@@ -19,6 +19,10 @@ signal delayed_tick
 ## Unit of time corresponding to one tick.
 const TICK_LENGTH_SECS: float = 5.0
 
+## One tick represents how much time within
+## the game world?
+const TICK_IN_GAME_TIME_MINS: int = 5
+
 ## Unit of time to wait after one tick to fire
 ## the delayed_tick event.
 const AFTER_TICK_DELAY_SECS: float = 0.05
@@ -37,6 +41,7 @@ var net_worth: float = 0.0
 var day_count: int = 1
 var game_timer: Timer = Timer.new()
 var delayed_tick_timer: Timer = Timer.new()
+var tick_count: int = 0
 
 var game_window: GameWindow
 var stock_market: StockMarket
@@ -57,8 +62,10 @@ func clear_state() -> void:
     net_worth = STARTING_NET_WORTH
     day_count = STARTING_DAY
     switch_page_data_bus = ""
+    tick_count = 0
 
 func start_day() -> void:
+    tick_count = 0
     game_timer.start()
 
 func end_day() -> void:
@@ -67,6 +74,13 @@ func end_day() -> void:
 func recalculate_net_worth() -> void:
     net_worth = cash + portfolio.value() - debt
     net_worth_changed.emit()
+
+## A timestamp in the game is of the form: 30258
+## => day 3, tick 0258. One tick represents TICK_LENGTH_SECS
+## amount of real world time, and TICK_IN_GAME_TIME_MINS
+## amount of fictional game time.
+func get_current_timestamp() -> int:
+    return Helpers.to_timestamp(day_count, tick_count)
 
 func _tick_timer_setup() -> void:
     game_timer.wait_time = TICK_LENGTH_SECS
@@ -78,6 +92,7 @@ func _tick_timer_setup() -> void:
     add_child(delayed_tick_timer)
 
 func _on_game_timer() -> void:
+    tick_count += 1
     tick.emit()
     delayed_tick_timer.start()
 

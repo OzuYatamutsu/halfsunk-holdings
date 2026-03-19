@@ -13,12 +13,17 @@ const MAX_HISTORY_LENGTH: int = 500
 @export var company_category: String = "Energy"
 @export var current_value: float = 0.0
 @export var last_delta: float = 0.0
-@export var last_values: Array[float] = []
+@export var last_update_timestamp: int = 0
 
-func _init(_ticker: String, _name: String, _base_value: float, _category: String, _description: String, _last_values: Array[float] = []) -> void:
+## each item is a tuple of: [timestamp, value.]
+## see GameState for an explanation on how timestamp is calculated
+@export var last_values: Array[Array] = []
+
+func _init(_ticker: String, _name: String, _base_value: float, _category: String, _description: String, _last_values: Array[Array] = []) -> void:
     ticker_symbol = _ticker
     company_name = _name
     current_value = _base_value
     company_category = _category
     company_description = _description
     last_values = _last_values
+    last_update_timestamp = GameState.get_current_timestamp()
