@@ -1,6 +1,9 @@
 class_name StockChart
 extends Control
 
+## A stock chart representing historical data.
+## The x axis is time, and the y axis is price.
+
 const CHART_BG_COLOR: Color = Color("#000000")
 const CHART_GRID_COLOR: Color = Color("#283442")
 const CHART_TICK_COLOR: Color = Color("#283442")
@@ -8,8 +11,7 @@ const CHART_LINE_COLOR: Color = Color("#5c94c6")
 
 @onready var _Chart: Chart = $_Chart
 
-# This Chart will plot 3 different functions
-var f1: Function
+var _chart_func: Function
 
 func _ready() -> void:
     # Let's create our @x values
@@ -18,18 +20,19 @@ func _ready() -> void:
     # And our y values. It can be an n-size array of arrays.
     # NOTE: `x.size() == y.size()` or `x.size() == y[n].size()`
     var y: Array = ArrayOperations.multiply_int(ArrayOperations.cos(x), 20)
-    
-    # Let's customize the chart properties, which specify how the chart
-    # should look, plus some additional elements like labels, the scale, etc...
+
     var cp: ChartProperties = _compose_chart_properties()
     cp.x_scale = 10
     cp.y_scale = 10
 
-    # Now let's plot our data
-    _Chart.plot([Function.new(
+    _chart_func = Function.new(
         x, y, "", _compose_function_style_params()
-    )], cp)
+    )
+    _Chart.plot([_chart_func], cp)
 
+
+func add_point() -> void:
+    pass  # TODO
 
 ## After composing chart properties, other things to modify:
 ## .title, .x_label, .y_label, .x_scale, .y_scale

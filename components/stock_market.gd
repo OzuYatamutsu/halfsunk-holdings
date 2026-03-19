@@ -57,11 +57,14 @@ func market_random_shift() -> void:
             % [stock.ticker_symbol, target_value, last_delta]
         )
         
-        stock.last_values.append(stock.current_value)
+        stock.last_values.append([
+            stock.last_update_timestamp, stock.current_value
+        ])
         if stock.last_values.size() > Stock.MAX_HISTORY_LENGTH:
             stock.last_values.pop_front()
         stock.current_value = target_value
         stock.last_delta = last_delta
+        stock.last_update_timestamp = GameState.get_current_timestamp()
         update_stock(stock)
 
 func _on_tick() -> void:
