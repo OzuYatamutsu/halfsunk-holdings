@@ -117,7 +117,7 @@ layout_mode = 2
 layout_mode = 0
 offset_left = 57.0
 offset_top = 521.0
-offset_right = 3141.0
+offset_right = 1839.0
 offset_bottom = 907.0
 
 [node name="ChartInfoArea" type="HBoxContainer" parent="DynamicPageContent/Chartbox" unique_id=1388760049]
@@ -127,7 +127,8 @@ theme_override_constants/separation = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent/Chartbox/ChartInfoArea" unique_id=1215843194]
 layout_mode = 2
 
-[node name="StockChart" parent="DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer" unique_id=1175651021 instance=ExtResource("5_ktt1q")]
+[node name="StockChart" parent="DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer" unique_id=587976061 instance=ExtResource("5_ktt1q")]
+custom_minimum_size = Vector2(900, 450)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageContent/Chartbox/ChartInfoArea" unique_id=1205754280]

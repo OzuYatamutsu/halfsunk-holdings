@@ -21,20 +21,23 @@ extends PageContent
 @onready var GainLossValueLabel: Label = %GainLossValueLabel
 
 @onready var PriceChart: StockChart = $DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer/StockChart
+var _has_been_drawn: bool = false
 
 func _ready():
     Title = "LOADING - Stock Screener"
-    PageHeightY = 1200
+    PageHeightY = 1500
     ticker_symbol = GameState.switch_page_data_bus
+    stock = GameState.stock_market.get_stock(ticker_symbol)
+    PriceChart.update_stock(stock)
 
     update_scrollable_area()
     _populate_data()
+
     GameState.delayed_tick.connect(_populate_data)
 
 func _populate_data() -> void:
     assert(ticker_symbol != "")
     print("stock_screener: refreshing data for " + ticker_symbol)
-    stock = GameState.stock_market.get_stock(ticker_symbol)
 
     Title = ticker_symbol + " - Stock Screener"
     FullTickerLabel.text = stock.company_name
@@ -77,8 +80,13 @@ func _populate_data() -> void:
         SharedConstants.UP_SYMBOL if float(GainLossValueLabel.text) >= 0
         else SharedConstants.DOWN_SYMBOL
     ) + " " + GainLossValueLabel.text
-
-    PriceChart.add_point(stock.last_values[-1])
+    
+    if !_has_been_drawn:
+        PriceChart.draw()
+        _has_been_drawn = true
+    else:
+        PriceChart.add_point([GameState.get_current_timestamp(), stock.current_value])
+        PriceChart.queue_redraw()
 
 func _on_buy_button_pressed() -> void:
     AudioEngine.play_sfx(AudioEngine.SFX_CLICK)
