@@ -1,5 +1,5 @@
 class_name StockChart
-extends Control
+extends MarginContainer
 
 ## A stock chart representing historical data.
 ## The x axis is timestamp, and the y axis is price.
@@ -18,23 +18,21 @@ var _chart_func: Function
 ## i.e., the format of Stock.last_values.
 var _historical_data: Array[Array]
 
-func _init(stock: Stock):
-    _historical_data = stock.last_values
-
 func _ready() -> void:
     _placeholder_image.queue_free()
 
+func update_stock(stock: Stock) -> void:
+    _historical_data = stock.last_values
+
+## Call this to draw the graph after calling set_stock().
+func draw() -> void:
     var x_vals: Array[int]
     var y_vals: Array[float]
     var cp: ChartProperties = _compose_chart_properties()
-    
+
     for _xy_pair in _historical_data:
         x_vals.append(_xy_pair[0])
         y_vals.append(_xy_pair[1])
-
-    _chart_func = Function.new(
-        x_vals, y_vals, "", _compose_function_style_params()
-    )
 
     _chart_func = Function.new(
         x_vals, y_vals, "", _compose_function_style_params()
@@ -45,6 +43,7 @@ func _ready() -> void:
 ## Pass in a tuple of the form: [timestamp, value].
 func add_point(last_value_record: Array[Variant]) -> void:
     _chart_func.add_point(last_value_record[0], last_value_record[1])
+    _Chart.queue_redraw()
 
 ## After composing chart properties, other things to modify:
 ## .title, .x_label, .y_label, .x_scale, .y_scale
@@ -56,9 +55,16 @@ func _compose_chart_properties() -> ChartProperties:
     chart_properties.colors.ticks = CHART_TICK_COLOR
     chart_properties.colors.text = Color.WHITE_SMOKE
     chart_properties.draw_bounding_box = false
-    chart_properties.interactive = true
-    chart_properties.x_scale = 10
-    chart_properties.y_scale = 10
+    chart_properties.interactive = false
+    chart_properties.x_scale = 5
+    chart_properties.y_scale = 5
+    chart_properties.draw_ticks = false
+    chart_properties.draw_grid_box = true
+    chart_properties.show_x_label = true
+    chart_properties.draw_vertical_grid = false
+    chart_properties.show_tick_labels = false
+    chart_properties.y_label = "Price"
+    chart_properties.x_label = "Time"
     return chart_properties
 
 

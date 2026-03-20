@@ -4,8 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_ds8wn"]
 [ext_resource type="Texture2D" uid="uid://cbcebi2ylo7jf" path="res://components/_STOCK_CHART_PLACEHOLDER.png" id="2_gt0cg"]
 
-[node name="StockChart" type="Control" unique_id=1175651021]
-layout_mode = 3
+[node name="StockChart" type="MarginContainer" unique_id=587976061]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,14 +12,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ds8wn")
 
-[node name="_PLACEHOLDER_PREVIEW" type="TextureRect" parent="." unique_id=1318973998]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_gt0cg")
-
 [node name="_Chart" parent="." unique_id=318836299 instance=ExtResource("2_ds8wn")]
-layout_mode = 1
+layout_mode = 2
+
+[node name="_PLACEHOLDER_PREVIEW" type="TextureRect" parent="." unique_id=2109543883]
+layout_mode = 2
+texture = ExtResource("2_gt0cg")
