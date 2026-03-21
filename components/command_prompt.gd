@@ -4,6 +4,7 @@ extends Control
 ## To add a command handler to the list,
 var COMMAND_LIST: Dictionary[String, Callable] = {
     "NOOP": _handle_noop,
+    "START": _handle_start,
     "INFO": _handle_info,
 }
 
@@ -69,6 +70,10 @@ func _flash_status_text(text: String) -> void:
 ## This command does nothing
 func _handle_noop(_args: Array[String]) -> void:
     pass
+
+## This command returns to the start screen
+func _handle_start(_args: Array[String]) -> void:
+    GameState.game_window.browser.load_page("res://pages/StartPage.tscn")
 
 ## This command loads the Stock Screener (if the ticker exists)
 func _handle_info(args: Array[String]) -> void:
