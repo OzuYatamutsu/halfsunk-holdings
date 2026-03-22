@@ -1,7 +1,7 @@
 class_name Marquee
 extends Control
 
-const DUMMY_TEXT: String = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |    "
+const DUMMY_TEXT: String = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |   TIGR 12.68 (↗ 2.01) (+15.85%)   | "
 
 @export var text: String = ""
 @export var interval_secs: float = 10.0
