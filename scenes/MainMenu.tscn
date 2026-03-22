@@ -1,47 +1,25 @@
 [gd_scene format=3 uid="uid://d3blm3xslex1d"]
 
-[ext_resource type="Texture2D" uid="uid://60p57klycspm" path="res://components/bluebird_sprite_sheet.png" id="1_2wh52"]
 [ext_resource type="Script" uid="uid://bodu0kuw22rl2" path="res://scenes/main_menu.gd" id="1_826wr"]
 [ext_resource type="PackedScene" uid="uid://cb8axm8xx5ehk" path="res://components/Marquee.tscn" id="1_l72w3"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_0ykhv"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="2_ow34m"]
+[ext_resource type="Texture2D" uid="uid://deaettnlwyhd0" path="res://components/bb-anim-001.png" id="3_8a8k8"]
+[ext_resource type="Texture2D" uid="uid://dhn6eubjwkx4b" path="res://components/bb-anim-002.png" id="4_7la6k"]
 [ext_resource type="FontFile" uid="uid://cq1pk117rvlqw" path="res://components/fira_code/FiraCode-Light.woff2" id="4_l72w3"]
+[ext_resource type="Texture2D" uid="uid://c8acvdxu5rm10" path="res://components/bb-anim-003.png" id="5_2nypq"]
+[ext_resource type="Texture2D" uid="uid://dqu1ybuy2wwfp" path="res://components/bb-anim-004.png" id="6_bky6r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ow34m"]
-atlas = ExtResource("1_2wh52")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l72w3"]
-atlas = ExtResource("1_2wh52")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_826wr"]
-atlas = ExtResource("1_2wh52")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucygd"]
-atlas = ExtResource("1_2wh52")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mipys"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ow34m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l72w3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_826wr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ucygd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_l4mxc"]
+frames = 4
+speed_scale = 4.0
+frame_0/texture = ExtResource("3_8a8k8")
+frame_1/texture = ExtResource("4_7la6k")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_2nypq")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("6_bky6r")
+frame_3/duration = 1.0
 
 [sub_resource type="Theme" id="Theme_826wr"]
 Label/colors/font_color = Color(0.3529412, 0.45490196, 0.45882353, 1)
@@ -52,7 +30,7 @@ Label/constants/outline_size = 0
 Label/constants/shadow_offset_x = 0
 Label/constants/shadow_offset_y = 0
 Label/constants/shadow_outline_size = 0
-Label/font_sizes/font_size = 40
+Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("4_l72w3")
 Label/styles/focus = null
 Label/styles/normal = null
@@ -68,97 +46,96 @@ script = ExtResource("1_826wr")
 
 [node name="Marquee" parent="." unique_id=715031618 instance=ExtResource("1_l72w3")]
 layout_mode = 1
-offset_top = 9.0
-offset_bottom = 9.0
 
-[node name="MenuTitleCenter" type="CenterContainer" parent="." unique_id=715490309]
+[node name="VBoxContainer" type="MarginContainer" parent="." unique_id=1258641837]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 0.15
-anchor_bottom = 0.5
-offset_top = -102.0
-offset_right = 863.0
-offset_bottom = 102.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
 
-[node name="LogoItems" type="VBoxContainer" parent="MenuTitleCenter" unique_id=1414790989]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1409450627]
 layout_mode = 2
 
-[node name="AnimatedLogo" type="Control" parent="MenuTitleCenter/LogoItems" unique_id=353312994]
+[node name="LogoItems" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1414790989]
 layout_mode = 2
+alignment = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MenuTitleCenter/LogoItems/AnimatedLogo" unique_id=769751805]
-position = Vector2(0, -150)
-scale = Vector2(4.40625, 4.40625)
-sprite_frames = SubResource("SpriteFrames_mipys")
-autoplay = "default"
-frame_progress = 0.33944783
-centered = false
+[node name="AnimatedLogo" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer/LogoItems" unique_id=1192497676]
+layout_mode = 2
+alignment_horizontal = 0
 
-[node name="TitleLabel" type="Label" parent="MenuTitleCenter/LogoItems" unique_id=511414236]
+[node name="AnimatedSprite2D" type="TextureRect" parent="VBoxContainer/HBoxContainer/LogoItems/AnimatedLogo" unique_id=1480750139]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_l4mxc")
+stretch_mode = 6
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HBoxContainer/LogoItems" unique_id=511414236]
 layout_mode = 2
 theme = ExtResource("2_ow34m")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 55
 text = "Halfsunk Holdings"
 
-[node name="SubtitleLabel" type="Label" parent="MenuTitleCenter/LogoItems" unique_id=1069052077]
+[node name="SubtitleLabel" type="Label" parent="VBoxContainer/HBoxContainer/LogoItems" unique_id=1069052077]
 layout_mode = 2
 theme = ExtResource("2_0ykhv")
 text = "Powered by the Bluebird Terminal™"
 
-[node name="BuildInfoLabel" type="Label" parent="MenuTitleCenter/LogoItems" unique_id=1916500260]
+[node name="BuildInfoLabel" type="Label" parent="VBoxContainer/HBoxContainer/LogoItems" unique_id=1916500260]
 layout_mode = 2
 theme = SubResource("Theme_826wr")
 text = "Version 0.0.1      | Build 20260120"
 
-[node name="MenuItemsCenterer" type="CenterContainer" parent="." unique_id=1283325356]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -268.0
-offset_top = -88.0
-offset_bottom = 88.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="MenuItems" type="VBoxContainer" parent="MenuItemsCenterer" unique_id=698351341]
+[node name="_SEPARATOR" type="Control" parent="VBoxContainer/HBoxContainer/LogoItems" unique_id=460358663]
+custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
-theme_override_constants/separation = 10
 
-[node name="NewGameButton" type="Button" parent="MenuItemsCenterer/MenuItems" unique_id=1701388332]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=684511640]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+
+[node name="MenuItems" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer" unique_id=698351341]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/MenuItems" unique_id=1701388332]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
+theme_override_font_sizes/font_size = 20
 text = "Start new game"
 alignment = 0
 
-[node name="LoadGameButton" type="Button" parent="MenuItemsCenterer/MenuItems" unique_id=769047547]
+[node name="LoadGameButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/MenuItems" unique_id=769047547]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
+theme_override_font_sizes/font_size = 20
 text = "Load game"
 alignment = 0
 
-[node name="SettingsButton" type="Button" parent="MenuItemsCenterer/MenuItems" unique_id=1162676458]
+[node name="SettingsButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/MenuItems" unique_id=1162676458]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
+theme_override_font_sizes/font_size = 20
 text = "Settings"
 alignment = 0
 
-[node name="QuitButton" type="Button" parent="MenuItemsCenterer/MenuItems" unique_id=729795984]
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/MenuItems" unique_id=729795984]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_ow34m")
+theme_override_font_sizes/font_size = 20
 text = "Quit"
 alignment = 0
 
-[connection signal="pressed" from="MenuItemsCenterer/MenuItems/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="MenuItemsCenterer/MenuItems/LoadGameButton" to="." method="_on_load_game_button_pressed"]
-[connection signal="pressed" from="MenuItemsCenterer/MenuItems/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MenuItemsCenterer/MenuItems/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/MenuItems/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/MenuItems/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/MenuItems/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/MenuItems/QuitButton" to="." method="_on_quit_button_pressed"]

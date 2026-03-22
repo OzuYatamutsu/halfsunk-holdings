@@ -2,7 +2,7 @@ extends Control
 
 const _build_info_label_format = "Version {version}      | Build {build}"
 
-@onready var BuildInfoLabel: Label = $MenuTitleCenter/LogoItems/BuildInfoLabel
+@onready var BuildInfoLabel: Label = $VBoxContainer/HBoxContainer/LogoItems/BuildInfoLabel
 
 
 func _ready() -> void:
