@@ -8,4 +8,5 @@ extends Control
 ## Call this after updating PageHeightY
 ## to get scrolling to work properly
 func update_scrollable_area() -> void:
-    custom_minimum_size = Vector2(0, PageHeightY)
+    # custom_minimum_size = Vector2(0, PageHeightY)
+    pass  # TODO
