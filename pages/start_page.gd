@@ -6,11 +6,11 @@ const WORKDAY_OF_WEEK = [
     "Thursday", "Friday"
 ]
 
-@onready var DateLabel: Label = $DynamicPageContent/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/DateLabel
-@onready var CashValueLabel: Label = $DynamicPageContent/MarginContainer/VBoxContainer/Status/GridContainer/CashValue
-@onready var SecuritiesValueLabel: Label = $DynamicPageContent/MarginContainer/VBoxContainer/Status/GridContainer/SecuritiesValue
-@onready var DebtValueLabel: Label = $DynamicPageContent/MarginContainer/VBoxContainer/Status/GridContainer/DebtValue
-@onready var NetWorthValueLabel: Label = $DynamicPageContent/MarginContainer/VBoxContainer/Status/GridContainer/NetWorthValue
+@onready var DateLabel: Label = %DateLabel
+@onready var CashValueLabel: Label = %CashValue
+@onready var SecuritiesValueLabel: Label = %SecuritiesValue
+@onready var DebtValueLabel: Label = %DebtValue
+@onready var NetWorthValueLabel: Label = %NetWorthValue
 
 func _ready():
     Title = "HOMEPAGE - Bluebird Browser"
