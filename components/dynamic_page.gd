@@ -8,8 +8,9 @@ extends VBoxContainer
 const KEYBOARD_SCROLL_SPEED: int = 75
 
 @onready var PageTitleLabel: Label = $DynamicPageTitle/PageTitleLabel
-@onready var DynamicPageScroller: ScrollContainer = $DynamicPageScroller
-@onready var DynamicPageContents: PageContent = $DynamicPageScroller/DynamicPageContents
+@onready var DynamicPageScroller: ScrollContainer = %DynamicPageScroller
+@onready var DynamicPageContentsParent: MarginContainer = %DynamicPageScroller/MarginContainer
+@onready var DynamicPageContents: PageContent = %DynamicPageContents
 
 @export var PageTitle: String = ""
 
@@ -19,12 +20,12 @@ func _ready() -> void:
 func load_page(path_to_page_content: String) -> void:
     var page_content: PageContent = load(path_to_page_content).instantiate()
 
-    DynamicPageScroller.remove_child(DynamicPageContents)
+    DynamicPageContentsParent.remove_child(DynamicPageContents)
     DynamicPageContents = page_content
-    DynamicPageScroller.add_child(DynamicPageContents)
+    DynamicPageContentsParent.add_child(DynamicPageContents)
     PageTitle = DynamicPageContents.Title
     PageTitleLabel.text = PageTitle
-    page_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    DynamicPageContents.position = Vector2.ZERO
 
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_up"):
