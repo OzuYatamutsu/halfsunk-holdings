@@ -24,6 +24,7 @@ func load_page(path_to_page_content: String) -> void:
     DynamicPageScroller.add_child(DynamicPageContents)
     PageTitle = DynamicPageContents.Title
     PageTitleLabel.text = PageTitle
+    page_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_up"):
