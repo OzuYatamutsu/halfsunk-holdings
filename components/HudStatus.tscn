@@ -1,42 +1,43 @@
 [gd_scene format=3 uid="uid://bb5inbf02oqvj"]
 
 [ext_resource type="Script" uid="uid://7lak0c35r1kf" path="res://components/hud_status.gd" id="1_rey5j"]
-[ext_resource type="Texture2D" uid="uid://dkbov7piscuo2" path="res://components/icon_calendar.png" id="1_w51bp"]
+[ext_resource type="Texture2D" uid="uid://c3c1fhgviq83t" path="res://components/icon_calendar_50pt.png" id="2_pfpde"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="2_rey5j"]
-[ext_resource type="Texture2D" uid="uid://ci0psp8x0jst6" path="res://components/icon_money.png" id="3_pfpde"]
+[ext_resource type="Texture2D" uid="uid://xhtfbcapdmly" path="res://components/icon_money_50pt.png" id="4_6ycqu"]
 
 [node name="HudStatus" type="HBoxContainer" unique_id=188384256]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 64.0
+offset_right = -1036.0
+offset_bottom = 33.0
 grow_horizontal = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 8
 script = ExtResource("1_rey5j")
 
 [node name="IconCalendar" type="TextureRect" parent="." unique_id=819229403]
 layout_mode = 2
-texture = ExtResource("1_w51bp")
+texture = ExtResource("2_pfpde")
 stretch_mode = 2
 
 [node name="CalendarDaysLabel" type="Label" parent="." unique_id=772008509]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_rey5j")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="IconMoney" type="TextureRect" parent="." unique_id=1891685455]
 layout_mode = 2
-texture = ExtResource("3_pfpde")
+texture = ExtResource("4_6ycqu")
 stretch_mode = 2
 
 [node name="MoneyLabel" type="Label" parent="." unique_id=2141610354]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_rey5j")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 20
 text = "1,000,000.00"
 horizontal_alignment = 1
 vertical_alignment = 1

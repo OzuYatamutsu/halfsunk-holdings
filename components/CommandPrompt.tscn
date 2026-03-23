@@ -6,37 +6,37 @@
 [ext_resource type="FontFile" uid="uid://dvp00iluwmikh" path="res://components/bergoom/Bergoom-Italic.otf" id="4_p01m0"]
 
 [node name="CommandPrompt" type="Control" unique_id=1533773232]
-custom_minimum_size = Vector2(900, 0)
+custom_minimum_size = Vector2(436.195, 0)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_5mqv2")
 
 [node name="Border" type="ColorRect" parent="." unique_id=2144716314]
 layout_mode = 0
-offset_top = -4.0
-offset_right = 886.0
-offset_bottom = 75.0
+offset_right = 438.0
+offset_bottom = 36.0
 color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 
 [node name="Bg" type="ColorRect" parent="." unique_id=1838469546]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 881.0
-offset_bottom = 68.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 436.0
+offset_bottom = 34.0
 color = Color(0, 0, 0, 1)
 
 [node name="Triangle" type="Polygon2D" parent="." unique_id=886357342]
-position = Vector2(4, 27)
+position = Vector2(2.1666665, 10.363638)
+scale = Vector2(0.8333333, 0.34848484)
 color = Color(0.36078432, 0.5803922, 0.7764706, 1)
-polygon = PackedVector2Array(1, -24, 15, 10, 1, 42)
+polygon = PackedVector2Array(1, -24, 8.200001, 21.913042, 1.0000002, 67.82609)
 
 [node name="PromptEdit" type="LineEdit" parent="." unique_id=1478643658]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 10.0
-offset_right = 871.0
-offset_bottom = 60.0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 430.0
+offset_bottom = 32.0
 theme = ExtResource("2_p6ed2")
 placeholder_text = "Enter commands..."
 caret_blink = true
