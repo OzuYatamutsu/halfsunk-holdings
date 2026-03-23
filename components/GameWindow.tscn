@@ -10,19 +10,20 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hrfgc")
 
-[node name="Header" type="HBoxContainer" parent="." unique_id=525004674]
+[node name="Header" type="GridContainer" parent="." unique_id=944235494]
 layout_mode = 2
+columns = 3
 
 [node name="CommandPrompt" parent="Header" unique_id=886323266 instance=ExtResource("1_yhbdw")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="_Spacer" type="Control" parent="Header" unique_id=643411170]
+[node name="_SEPARATOR5" type="Control" parent="Header" unique_id=1000549681]
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 size_flags_horizontal = 3
 

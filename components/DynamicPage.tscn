@@ -56,18 +56,18 @@ layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="DynamicPageTitle" unique_id=323435960]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 25.0
 grow_horizontal = 2
-grow_vertical = 2
 color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 
 [node name="PageTitleLabel" type="Label" parent="DynamicPageTitle" unique_id=994244250]
 layout_mode = 0
 offset_left = 10.0
+offset_top = 2.0
 offset_right = 790.0
-offset_bottom = 41.0
+offset_bottom = 23.0
 theme = ExtResource("1_toskb")
 text = "HOMEPAGE - Bluebird Browser"
 vertical_alignment = 1
@@ -121,18 +121,18 @@ text = "Phyllis Diller, Investment Banker"
 
 [node name="DateLabel" type="Label" parent="DynamicPageScroller/DynamicPageContents" unique_id=1613055427]
 layout_mode = 0
-offset_left = 1032.0
-offset_top = 280.0
-offset_right = 1884.0
-offset_bottom = 381.0
+offset_left = 83.0
+offset_top = 380.0
+offset_right = 935.0
+offset_bottom = 481.0
 theme = ExtResource("1_toskb")
 text = "Monday, Day 1"
 
 [node name="ThankYouLabel" type="Label" parent="DynamicPageScroller/DynamicPageContents" unique_id=1384430673]
 layout_mode = 0
-offset_left = 1034.0
-offset_top = 323.0
-offset_right = 1886.0
-offset_bottom = 424.0
+offset_left = 212.0
+offset_top = 475.0
+offset_right = 1064.0
+offset_bottom = 576.0
 theme = ExtResource("1_toskb")
 text = "Thank you for being a client since CURRENT_YEAR"
