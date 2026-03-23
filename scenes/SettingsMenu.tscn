@@ -4,14 +4,14 @@
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_yelko"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="2_1yw23"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="2_dd8lr"]
-[ext_resource type="Texture2D" uid="uid://2p7vtyld5pnk" path="res://components/icon_sound_off.png" id="5_fl0th"]
-[ext_resource type="Texture2D" uid="uid://c4u77qpx74iif" path="res://components/scrollbar_slider.png" id="6_78o0x"]
-[ext_resource type="Texture2D" uid="uid://5mo8jle6nst0" path="res://components/icon_sound_on.png" id="6_nuakw"]
-[ext_resource type="Texture2D" uid="uid://dfchmf64453s2" path="res://components/scrollbar_horizontal.png" id="6_xqqjd"]
+[ext_resource type="Texture2D" uid="uid://b6e2fvhd314eb" path="res://components/icon_sound_off_50px.png" id="4_xqqjd"]
+[ext_resource type="Texture2D" uid="uid://d1v2fdm0042r" path="res://components/scrollbar_slider_50px.png" id="5_78o0x"]
+[ext_resource type="Texture2D" uid="uid://bujwjn82bwff" path="res://components/scrollbar_horizontal_50px.png" id="6_n660j"]
+[ext_resource type="Texture2D" uid="uid://ckqm00bl0cic5" path="res://components/icon_sound_on_50px.png" id="7_5l02p"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78o0x"]
-content_margin_top = 75.0
-texture = ExtResource("6_xqqjd")
+content_margin_top = 45.0
+texture = ExtResource("6_n660j")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xqqjd"]
 
@@ -34,165 +34,184 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t7ar5")
 
-[node name="TitleContainer" type="VBoxContainer" parent="." unique_id=940823956]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.02
-anchor_top = 0.02
-anchor_right = 1.0
-anchor_bottom = 0.02
-grow_horizontal = 2
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2006869683]
+layout_mode = 0
+offset_right = 243.0
+offset_bottom = 106.0
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
 
-[node name="TitleLabel" type="Label" parent="TitleContainer" unique_id=1238958405]
+[node name="VboxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=940823956]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VboxContainer" unique_id=1238958405]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource("1_yelko")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 55
 text = "Settings"
 
-[node name="ReturnContainer" type="VBoxContainer" parent="." unique_id=1993411742]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.8
-anchor_top = 0.95
-anchor_right = 1.0
-anchor_bottom = 0.95
-grow_horizontal = 2
-
-[node name="MainMenuReturnButton" type="Button" parent="ReturnContainer" unique_id=599532545]
+[node name="_SEPARATOR" type="Control" parent="MarginContainer/VboxContainer" unique_id=1380314917]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_dd8lr")
-text = "< Back to Main Menu"
-alignment = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="SettingsContainer" type="VBoxContainer" parent="." unique_id=1485777906]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.04
-anchor_top = 0.15
-anchor_right = 1.0
-anchor_bottom = 0.2
-grow_horizontal = 2
-theme_override_constants/separation = 50
-
-[node name="SettingsAlignerMasterVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=1718234550]
+[node name="SettingsAlignerMasterVolume" type="GridContainer" parent="MarginContainer/VboxContainer" unique_id=970942069]
 layout_mode = 2
-theme_override_constants/separation = 300
+columns = 3
 
-[node name="MasterVolumeLabel" type="Label" parent="SettingsContainer/SettingsAlignerMasterVolume" unique_id=1124643614]
+[node name="MasterVolumeLabel" type="Label" parent="MarginContainer/VboxContainer/SettingsAlignerMasterVolume" unique_id=1124643614]
 layout_mode = 2
 theme = ExtResource("2_1yw23")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 30
 text = "Master Volume"
 
-[node name="MasterVolumeSliderArea" type="HBoxContainer" parent="SettingsContainer/SettingsAlignerMasterVolume" unique_id=875566588]
+[node name="_SEPARATOR4" type="Control" parent="MarginContainer/VboxContainer/SettingsAlignerMasterVolume" unique_id=806616032]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MasterVolumeSliderArea" type="HBoxContainer" parent="MarginContainer/VboxContainer/SettingsAlignerMasterVolume" unique_id=875566588]
 layout_mode = 2
 
-[node name="MuteMasterVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=206100522]
+[node name="MuteMasterVolumeButton" type="Button" parent="MarginContainer/VboxContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=206100522]
 layout_mode = 2
-icon = ExtResource("5_fl0th")
+icon = ExtResource("4_xqqjd")
 flat = true
 
-[node name="MasterVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=1047928685 groups=["MasterVolumeSlider"]]
-custom_minimum_size = Vector2(750, 0)
+[node name="MasterVolumeSlider" type="HSlider" parent="MarginContainer/VboxContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=1047928685 groups=["MasterVolumeSlider"]]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_icons/grabber = ExtResource("6_78o0x")
-theme_override_icons/grabber_highlight = ExtResource("6_78o0x")
-theme_override_icons/grabber_disabled = ExtResource("6_78o0x")
+theme_override_icons/grabber = ExtResource("5_78o0x")
+theme_override_icons/grabber_highlight = ExtResource("5_78o0x")
+theme_override_icons/grabber_disabled = ExtResource("5_78o0x")
 theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_xqqjd")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_78o0x")
 value = 100.0
 scrollable = false
 
-[node name="FullMasterVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=869887220]
+[node name="FullMasterVolumeButton" type="Button" parent="MarginContainer/VboxContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=869887220]
 layout_mode = 2
-icon = ExtResource("6_nuakw")
+icon = ExtResource("7_5l02p")
 flat = true
 
-[node name="SettingsAlignerMusicVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=347433533]
+[node name="SettingsAlignerMusicVolume" type="GridContainer" parent="MarginContainer/VboxContainer" unique_id=1831990680]
 layout_mode = 2
-theme_override_constants/separation = 326
+columns = 3
 
-[node name="MusicVolumeLabel" type="Label" parent="SettingsContainer/SettingsAlignerMusicVolume" unique_id=1560315937]
+[node name="MusicVolumeLabel" type="Label" parent="MarginContainer/VboxContainer/SettingsAlignerMusicVolume" unique_id=1560315937]
 layout_mode = 2
 theme = ExtResource("2_1yw23")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 30
 text = "Music Volume"
 
-[node name="MusicVolumeSliderArea" type="HBoxContainer" parent="SettingsContainer/SettingsAlignerMusicVolume" unique_id=758671576]
+[node name="_SEPARATOR3" type="Control" parent="MarginContainer/VboxContainer/SettingsAlignerMusicVolume" unique_id=2075223570]
+custom_minimum_size = Vector2(115.36, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MusicVolumeSliderArea" type="HBoxContainer" parent="MarginContainer/VboxContainer/SettingsAlignerMusicVolume" unique_id=758671576]
 layout_mode = 2
 
-[node name="MuteMusicVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=2040022279]
+[node name="MuteMusicVolumeButton" type="Button" parent="MarginContainer/VboxContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=2040022279]
 layout_mode = 2
-icon = ExtResource("5_fl0th")
+icon = ExtResource("4_xqqjd")
 flat = true
 
-[node name="MusicVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=1962351749 groups=["MusicVolumeSlider"]]
-custom_minimum_size = Vector2(750, 0)
+[node name="MusicVolumeSlider" type="HSlider" parent="MarginContainer/VboxContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=1962351749 groups=["MusicVolumeSlider"]]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_icons/grabber = ExtResource("6_78o0x")
-theme_override_icons/grabber_highlight = ExtResource("6_78o0x")
-theme_override_icons/grabber_disabled = ExtResource("6_78o0x")
+theme_override_icons/grabber = ExtResource("5_78o0x")
+theme_override_icons/grabber_highlight = ExtResource("5_78o0x")
+theme_override_icons/grabber_disabled = ExtResource("7_5l02p")
 theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5l02p")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yx3ee")
 value = 75.0
 scrollable = false
 
-[node name="FullMusicVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=325509332]
+[node name="FullMusicVolumeButton" type="Button" parent="MarginContainer/VboxContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=325509332]
 layout_mode = 2
-icon = ExtResource("6_nuakw")
+icon = ExtResource("7_5l02p")
 flat = true
 
-[node name="SettingsAlignerSfxVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=31733202]
+[node name="SettingsAlignerSfxVolume" type="GridContainer" parent="MarginContainer/VboxContainer" unique_id=1083025675]
 layout_mode = 2
-theme_override_constants/separation = 126
+columns = 3
 
-[node name="SfxVolumeLabel" type="Label" parent="SettingsContainer/SettingsAlignerSfxVolume" unique_id=2115290312]
+[node name="SfxVolumeLabel" type="Label" parent="MarginContainer/VboxContainer/SettingsAlignerSfxVolume" unique_id=2115290312]
 layout_mode = 2
 theme = ExtResource("2_1yw23")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 30
 text = "Sound Effects Volume"
 
-[node name="SfxVolumeSliderArea" type="HBoxContainer" parent="SettingsContainer/SettingsAlignerSfxVolume" unique_id=1354550016]
+[node name="_SEPARATOR5" type="Control" parent="MarginContainer/VboxContainer/SettingsAlignerSfxVolume" unique_id=1637090544]
+custom_minimum_size = Vector2(14.87, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="SfxVolumeSliderArea" type="HBoxContainer" parent="MarginContainer/VboxContainer/SettingsAlignerSfxVolume" unique_id=1354550016]
 layout_mode = 2
 
-[node name="MuteSfxVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=548629510]
+[node name="MuteSfxVolumeButton" type="Button" parent="MarginContainer/VboxContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=548629510]
 layout_mode = 2
-icon = ExtResource("5_fl0th")
+icon = ExtResource("4_xqqjd")
 flat = true
 
-[node name="SfxVolumeSlider" type="HSlider" parent="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=1904726797 groups=["SfxVolumeSlider"]]
-custom_minimum_size = Vector2(750, 0)
+[node name="SfxVolumeSlider" type="HSlider" parent="MarginContainer/VboxContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=1904726797 groups=["SfxVolumeSlider"]]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_icons/grabber = ExtResource("6_78o0x")
-theme_override_icons/grabber_highlight = ExtResource("6_78o0x")
-theme_override_icons/grabber_disabled = ExtResource("6_78o0x")
+theme_override_icons/grabber = ExtResource("5_78o0x")
+theme_override_icons/grabber_highlight = ExtResource("5_78o0x")
+theme_override_icons/grabber_disabled = ExtResource("5_78o0x")
 theme_override_styles/slider = SubResource("StyleBoxTexture_78o0x")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_n660j")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yqf5a")
 value = 100.0
 scrollable = false
 
-[node name="FullSfxVolumeButton" type="Button" parent="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=338482032]
+[node name="FullSfxVolumeButton" type="Button" parent="MarginContainer/VboxContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=338482032]
 layout_mode = 2
-icon = ExtResource("6_nuakw")
+icon = ExtResource("7_5l02p")
 flat = true
 
-[connection signal="pressed" from="ReturnContainer/MainMenuReturnButton" to="." method="_on_main_menu_return_button_pressed"]
-[connection signal="pressed" from="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/MuteMasterVolumeButton" to="." method="_on_mute_master_volume_button_pressed"]
-[connection signal="value_changed" from="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
-[connection signal="pressed" from="SettingsContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/FullMasterVolumeButton" to="." method="_on_full_master_volume_button_pressed"]
-[connection signal="pressed" from="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/MuteMusicVolumeButton" to="." method="_on_mute_music_volume_button_pressed"]
-[connection signal="value_changed" from="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
-[connection signal="pressed" from="SettingsContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/FullMusicVolumeButton" to="." method="_on_full_music_volume_button_pressed"]
-[connection signal="pressed" from="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/MuteSfxVolumeButton" to="." method="_on_mute_sfx_volume_button_pressed"]
-[connection signal="value_changed" from="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
-[connection signal="pressed" from="SettingsContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/FullSfxVolumeButton" to="." method="_on_full_sfx_volume_button_pressed"]
+[node name="_SEPARATOR2" type="Control" parent="MarginContainer/VboxContainer" unique_id=1349668446]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ReturnContainer" type="HBoxContainer" parent="MarginContainer/VboxContainer" unique_id=599389874]
+layout_mode = 2
+alignment = 2
+
+[node name="MainMenuReturnButton" type="Button" parent="MarginContainer/VboxContainer/ReturnContainer" unique_id=599532545]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_dd8lr")
+theme_override_font_sizes/font_size = 30
+text = "< Back to Main Menu"
+alignment = 0
+
+[connection signal="pressed" from="MarginContainer/VboxContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/MuteMasterVolumeButton" to="." method="_on_mute_master_volume_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/VboxContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VboxContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea/FullMasterVolumeButton" to="." method="_on_full_master_volume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VboxContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/MuteMusicVolumeButton" to="." method="_on_mute_music_volume_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/VboxContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VboxContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea/FullMusicVolumeButton" to="." method="_on_full_music_volume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VboxContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/MuteSfxVolumeButton" to="." method="_on_mute_sfx_volume_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/VboxContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VboxContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea/FullSfxVolumeButton" to="." method="_on_full_sfx_volume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VboxContainer/ReturnContainer/MainMenuReturnButton" to="." method="_on_main_menu_return_button_pressed"]

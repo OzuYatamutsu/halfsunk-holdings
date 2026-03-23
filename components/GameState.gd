@@ -27,13 +27,13 @@ const TICK_IN_GAME_TIME_MINS: int = 5
 ## the delayed_tick event.
 const AFTER_TICK_DELAY_SECS: float = 0.05
 
-const VERSION_STRING: String = "0.1.6"
+const VERSION_STRING: String = "0.2.1"
 const STARTING_CASH: float = 0.0
 const STARTING_DEBT: float = 0.0
 const STARTING_NET_WORTH: float = 0.0
 const STARTING_DAY: int = 1
 
-var BUILD_DATE: String = "20260306"
+var BUILD_DATE: String = "20260323"
 var cash: float = 0.0
 var portfolio: Portfolio = Portfolio.new()
 var debt: float = 0.0
