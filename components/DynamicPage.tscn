@@ -78,8 +78,9 @@ layout_mode = 2
 script = ExtResource("3_ody48")
 
 [node name="ContentArea" type="VBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents" unique_id=1125436862]
-layout_mode = 0
-offset_right = 1222.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 927.0
 grow_horizontal = 2
 theme_override_constants/separation = 6

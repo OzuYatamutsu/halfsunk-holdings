@@ -60,7 +60,9 @@ func _compose_chart_properties() -> ChartProperties:
     chart_properties.y_scale = 5
     chart_properties.draw_ticks = false
     chart_properties.draw_grid_box = true
-    chart_properties.show_x_label = true
+    chart_properties.show_x_label = false
+    chart_properties.show_y_label = true
+    chart_properties.show_title = false
     chart_properties.draw_vertical_grid = false
     chart_properties.show_tick_labels = false
     chart_properties.y_label = "Price"
@@ -69,7 +71,7 @@ func _compose_chart_properties() -> ChartProperties:
 
 
 func _compose_function_style_params() -> Dictionary:
-    return { 
+    return {
         color = CHART_LINE_COLOR,
         #marker = Function.Marker.CIRCLE,
         type = Function.Type.LINE,
