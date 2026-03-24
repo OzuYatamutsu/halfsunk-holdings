@@ -6,6 +6,7 @@ const WORKDAY_OF_WEEK = [
     "Thursday", "Friday"
 ]
 
+@onready var ContentArea: VBoxContainer = $DynamicPageContent/ContentArea
 @onready var DateLabel: Label = %DateLabel
 @onready var CashValueLabel: Label = %CashValue
 @onready var SecuritiesValueLabel: Label = %SecuritiesValue
@@ -14,7 +15,7 @@ const WORKDAY_OF_WEEK = [
 
 func _ready():
     Title = "HOMEPAGE - Bluebird Browser"
-    PageHeightY = 1800
+    PageHeightY = int(ContentArea.size.y)
     update_scrollable_area()
     populate_data()
 

@@ -38,7 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent" unique_id=1310768381]
+[node name="ContentArea" type="VBoxContainer" parent="DynamicPageContent" unique_id=1310768381]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -46,174 +46,161 @@ offset_bottom = 1172.0
 grow_horizontal = 2
 theme_override_constants/separation = 6
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="DynamicPageContent/VBoxContainer" unique_id=1403359052]
+[node name="HBoxContainer2" type="HBoxContainer" parent="DynamicPageContent/ContentArea" unique_id=1403359052]
 layout_mode = 2
 
-[node name="AnimatedLogo" type="AspectRatioContainer" parent="DynamicPageContent/VBoxContainer/HBoxContainer2" unique_id=831524801]
+[node name="AnimatedLogo" type="AspectRatioContainer" parent="DynamicPageContent/ContentArea/HBoxContainer2" unique_id=831524801]
 layout_mode = 2
 alignment_horizontal = 0
 alignment_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="DynamicPageContent/VBoxContainer/HBoxContainer2/AnimatedLogo" unique_id=1060450604]
+[node name="TextureRect" type="TextureRect" parent="DynamicPageContent/ContentArea/HBoxContainer2/AnimatedLogo" unique_id=1060450604]
 layout_mode = 2
 texture = SubResource("AnimatedTexture_mwvx7")
 stretch_mode = 6
 
-[node name="_SEPARATOR" type="Control" parent="DynamicPageContent/VBoxContainer/HBoxContainer2" unique_id=423935809]
+[node name="_SEPARATOR" type="Control" parent="DynamicPageContent/ContentArea/HBoxContainer2" unique_id=423935809]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="DynamicPageContent/VBoxContainer/HBoxContainer2" unique_id=261323712]
+[node name="TitleLabel" type="Label" parent="DynamicPageContent/ContentArea/HBoxContainer2" unique_id=261323712]
 layout_mode = 2
 theme = ExtResource("2_1jbly")
 theme_override_font_sizes/font_size = 55
 text = "Bluebird"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent/VBoxContainer" unique_id=1292051535]
+[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent/ContentArea" unique_id=1292051535]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageContent/VBoxContainer/VBoxContainer" unique_id=454381494]
+[node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageContent/ContentArea/VBoxContainer" unique_id=454381494]
 layout_mode = 2
 
-[node name="QuoteLabel" type="Label" parent="DynamicPageContent/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=390016241]
+[node name="QuoteLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/HBoxContainer" unique_id=390016241]
 layout_mode = 2
 theme = ExtResource("3_kywqg")
 text = "\"A smile is a curve that sets everything straight.\""
 
-[node name="_SEPARATOR2" type="Control" parent="DynamicPageContent/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=287683090]
+[node name="_SEPARATOR2" type="Control" parent="DynamicPageContent/ContentArea/VBoxContainer/HBoxContainer" unique_id=287683090]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DateLabel" type="Label" parent="DynamicPageContent/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1434835853]
+[node name="DateLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/HBoxContainer" unique_id=1434835853]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_kywqg")
 text = "Monday, Day 1"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="DynamicPageContent/VBoxContainer/VBoxContainer" unique_id=2092460801]
+[node name="HBoxContainer2" type="HBoxContainer" parent="DynamicPageContent/ContentArea/VBoxContainer" unique_id=2092460801]
 layout_mode = 2
 
-[node name="QuoteAttribLabel" type="Label" parent="DynamicPageContent/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=812245293]
+[node name="QuoteAttribLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/HBoxContainer2" unique_id=812245293]
 layout_mode = 2
 theme = ExtResource("2_1jbly")
 text = "Phyllis Diller, Investment Banker"
 
-[node name="_SEPARATOR3" type="Control" parent="DynamicPageContent/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=792528494]
+[node name="_SEPARATOR3" type="Control" parent="DynamicPageContent/ContentArea/VBoxContainer/HBoxContainer2" unique_id=792528494]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ThankYouLabel" type="Label" parent="DynamicPageContent/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=27652682]
+[node name="ThankYouLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/HBoxContainer2" unique_id=27652682]
 layout_mode = 2
 theme = ExtResource("3_kywqg")
 text = "Thank you for being a client since CURRENT_YEAR"
 
-[node name="_SEPARATOR2" type="Control" parent="DynamicPageContent/VBoxContainer" unique_id=716566801]
+[node name="_SEPARATOR2" type="Control" parent="DynamicPageContent/ContentArea" unique_id=716566801]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="Status" type="CenterContainer" parent="DynamicPageContent/VBoxContainer" unique_id=466046097]
-visible = false
+[node name="Status" type="CenterContainer" parent="DynamicPageContent/ContentArea" unique_id=466046097]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="DynamicPageContent/VBoxContainer/Status" unique_id=1205791151]
+[node name="GridContainer" type="GridContainer" parent="DynamicPageContent/ContentArea/Status" unique_id=1205791151]
 layout_mode = 2
 theme_override_constants/h_separation = 40
 columns = 2
 
-[node name="CashLabel" type="Label" parent="DynamicPageContent/VBoxContainer/Status/GridContainer" unique_id=1182812655]
+[node name="CashLabel" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=1182812655]
 layout_mode = 2
 theme = ExtResource("2_1jbly")
-theme_override_font_sizes/font_size = 60
 text = "Cash"
 horizontal_alignment = 2
 
-[node name="CashValue" type="Label" parent="DynamicPageContent/VBoxContainer/Status/GridContainer" unique_id=1612972139]
+[node name="CashValue" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=1612972139]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("5_kywqg")
-theme_override_font_sizes/font_size = 60
 text = "$1,000,000.00"
 
-[node name="SecuritiesValueLabel" type="Label" parent="DynamicPageContent/VBoxContainer/Status/GridContainer" unique_id=1294886702]
+[node name="SecuritiesValueLabel" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=1294886702]
 layout_mode = 2
 theme = ExtResource("2_1jbly")
-theme_override_font_sizes/font_size = 60
 text = "Value of Securities"
 horizontal_alignment = 2
 
-[node name="SecuritiesValue" type="Label" parent="DynamicPageContent/VBoxContainer/Status/GridContainer" unique_id=1784619807]
+[node name="SecuritiesValue" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=1784619807]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("5_kywqg")
-theme_override_font_sizes/font_size = 60
 text = "$0.00"
 
-[node name="DebtLabel" type="Label" parent="DynamicPageContent/VBoxContainer/Status/GridContainer" unique_id=183159252]
+[node name="DebtLabel" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=183159252]
 layout_mode = 2
 theme = ExtResource("2_1jbly")
-theme_override_font_sizes/font_size = 60
 text = "Debt"
 horizontal_alignment = 2
 
-[node name="DebtValue" type="Label" parent="DynamicPageContent/VBoxContainer/Status/GridContainer" unique_id=1545930364]
+[node name="DebtValue" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=1545930364]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("5_kywqg")
 theme_override_colors/font_color = Color(0.9401068, 0.22805327, 5.7756904e-07, 1)
-theme_override_font_sizes/font_size = 60
 text = "($2,500,000.00)"
 
-[node name="NetWorthLabel" type="Label" parent="DynamicPageContent/VBoxContainer/Status/GridContainer" unique_id=1708111200]
+[node name="NetWorthLabel" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=1708111200]
 layout_mode = 2
 theme = ExtResource("2_1jbly")
-theme_override_font_sizes/font_size = 60
 text = "Net Worth"
 horizontal_alignment = 2
 
-[node name="NetWorthValue" type="Label" parent="DynamicPageContent/VBoxContainer/Status/GridContainer" unique_id=380052895]
+[node name="NetWorthValue" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=380052895]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("5_kywqg")
 theme_override_colors/font_color = Color(0.9411765, 0.22745098, 0, 1)
-theme_override_font_sizes/font_size = 60
 text = "($1,500,000.00)"
 
-[node name="CashStatus" type="HBoxContainer" parent="DynamicPageContent/VBoxContainer/Status" unique_id=1762943896]
+[node name="CashStatus" type="HBoxContainer" parent="DynamicPageContent/ContentArea/Status" unique_id=1762943896]
 layout_mode = 2
 alignment = 1
 
-[node name="SecuritiesValueStatus" type="HBoxContainer" parent="DynamicPageContent/VBoxContainer/Status" unique_id=504949818]
+[node name="SecuritiesValueStatus" type="HBoxContainer" parent="DynamicPageContent/ContentArea/Status" unique_id=504949818]
 layout_mode = 2
 alignment = 1
 
-[node name="DebtStatus" type="HBoxContainer" parent="DynamicPageContent/VBoxContainer/Status" unique_id=272300974]
+[node name="DebtStatus" type="HBoxContainer" parent="DynamicPageContent/ContentArea/Status" unique_id=272300974]
 layout_mode = 2
 alignment = 1
 
-[node name="NetWorthStatus" type="HBoxContainer" parent="DynamicPageContent/VBoxContainer/Status" unique_id=1373590495]
+[node name="NetWorthStatus" type="HBoxContainer" parent="DynamicPageContent/ContentArea/Status" unique_id=1373590495]
 layout_mode = 2
 alignment = 1
 
-[node name="_SEPARATOR3" type="Control" parent="DynamicPageContent/VBoxContainer" unique_id=1029238248]
-visible = false
-custom_minimum_size = Vector2(0, 100)
+[node name="_SEPARATOR3" type="Control" parent="DynamicPageContent/ContentArea" unique_id=1029238248]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="ProductiveDayMessage" type="Label" parent="DynamicPageContent/VBoxContainer" unique_id=1549856572]
-visible = false
+[node name="ProductiveDayMessage" type="Label" parent="DynamicPageContent/ContentArea" unique_id=1549856572]
 layout_mode = 2
 theme = ExtResource("2_1jbly")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 35
 text = "\"Have a profitable day!\""
 horizontal_alignment = 1
 
-[node name="_SEPARATOR4" type="Control" parent="DynamicPageContent/VBoxContainer" unique_id=1048885891]
-visible = false
+[node name="_SEPARATOR4" type="Control" parent="DynamicPageContent/ContentArea" unique_id=1048885891]
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 
-[node name="EasterEggMessage" type="Label" parent="DynamicPageContent/VBoxContainer" unique_id=2011225320]
-visible = false
+[node name="EasterEggMessage" type="Label" parent="DynamicPageContent/ContentArea" unique_id=2011225320]
 layout_mode = 2
 theme = ExtResource("3_kywqg")
 text = "hey stop scrolling and get back to making lots of money!!"
