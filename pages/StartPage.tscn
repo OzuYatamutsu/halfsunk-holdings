@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://8mquse5icw3p"]
 
 [ext_resource type="Script" uid="uid://dtdfpem4uei7b" path="res://pages/start_page.gd" id="1_1jbly"]
-[ext_resource type="Texture2D" uid="uid://60p57klycspm" path="res://components/bluebird_sprite_sheet.png" id="1_37cke"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_1jbly"]
 [ext_resource type="Texture2D" uid="uid://deaettnlwyhd0" path="res://components/bb-anim-001.png" id="2_lp2mh"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="3_kywqg"]
@@ -21,42 +20,6 @@ frame_2/duration = 1.0
 frame_3/texture = ExtResource("5_w01kl")
 frame_3/duration = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ow34m"]
-atlas = ExtResource("1_37cke")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l72w3"]
-atlas = ExtResource("1_37cke")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_826wr"]
-atlas = ExtResource("1_37cke")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucygd"]
-atlas = ExtResource("1_37cke")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6apn5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ow34m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l72w3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_826wr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ucygd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="StartPage" type="Control" unique_id=2083273497]
 layout_mode = 3
 anchors_preset = 15
@@ -75,52 +38,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageContent" unique_id=1403359052]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 96.0
+[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent" unique_id=1310768381]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1172.0
+grow_horizontal = 2
+theme_override_constants/separation = 6
 
-[node name="AnimatedLogo" type="AspectRatioContainer" parent="DynamicPageContent/HBoxContainer" unique_id=831524801]
+[node name="HBoxContainer2" type="HBoxContainer" parent="DynamicPageContent/VBoxContainer" unique_id=1403359052]
+layout_mode = 2
+
+[node name="AnimatedLogo" type="AspectRatioContainer" parent="DynamicPageContent/VBoxContainer/HBoxContainer2" unique_id=831524801]
 layout_mode = 2
 alignment_horizontal = 0
 alignment_vertical = 0
 
-[node name="AnimatedSprite2D" type="TextureRect" parent="DynamicPageContent/HBoxContainer/AnimatedLogo" unique_id=1060450604]
+[node name="TextureRect" type="TextureRect" parent="DynamicPageContent/VBoxContainer/HBoxContainer2/AnimatedLogo" unique_id=1060450604]
 layout_mode = 2
 texture = SubResource("AnimatedTexture_mwvx7")
 stretch_mode = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent" unique_id=1310768381]
-visible = false
-layout_mode = 0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 1241.0
-offset_bottom = 1379.0
-theme_override_constants/separation = 6
-
-[node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageContent/VBoxContainer" unique_id=25879159]
+[node name="_SEPARATOR" type="Control" parent="DynamicPageContent/VBoxContainer/HBoxContainer2" unique_id=423935809]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="AnimatedLogo" type="MarginContainer" parent="DynamicPageContent/VBoxContainer/HBoxContainer" unique_id=3643884]
-custom_minimum_size = Vector2(175, 125)
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DynamicPageContent/VBoxContainer/HBoxContainer/AnimatedLogo" unique_id=1983882112]
-scale = Vector2(4.40625, 4.40625)
-sprite_frames = SubResource("SpriteFrames_6apn5")
-autoplay = "default"
-centered = false
-
-[node name="TitleLabel" type="Label" parent="DynamicPageContent/VBoxContainer/HBoxContainer" unique_id=261323712]
+[node name="TitleLabel" type="Label" parent="DynamicPageContent/VBoxContainer/HBoxContainer2" unique_id=261323712]
 layout_mode = 2
 theme = ExtResource("2_1jbly")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 55
 text = "Bluebird"
-
-[node name="_SEPARATOR" type="Control" parent="DynamicPageContent/VBoxContainer" unique_id=423935809]
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent/VBoxContainer" unique_id=1292051535]
 layout_mode = 2
@@ -165,6 +112,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Status" type="CenterContainer" parent="DynamicPageContent/VBoxContainer" unique_id=466046097]
+visible = false
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="DynamicPageContent/VBoxContainer/Status" unique_id=1205791151]
@@ -247,10 +195,12 @@ layout_mode = 2
 alignment = 1
 
 [node name="_SEPARATOR3" type="Control" parent="DynamicPageContent/VBoxContainer" unique_id=1029238248]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="ProductiveDayMessage" type="Label" parent="DynamicPageContent/VBoxContainer" unique_id=1549856572]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_1jbly")
 theme_override_font_sizes/font_size = 60
@@ -258,10 +208,12 @@ text = "\"Have a profitable day!\""
 horizontal_alignment = 1
 
 [node name="_SEPARATOR4" type="Control" parent="DynamicPageContent/VBoxContainer" unique_id=1048885891]
+visible = false
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 
 [node name="EasterEggMessage" type="Label" parent="DynamicPageContent/VBoxContainer" unique_id=2011225320]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_kywqg")
 text = "hey stop scrolling and get back to making lots of money!!"

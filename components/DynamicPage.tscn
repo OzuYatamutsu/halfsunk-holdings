@@ -81,9 +81,9 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 25
 
 [node name="DynamicPageContents" type="Control" parent="DynamicPageScroller/MarginContainer" unique_id=583018812]
 unique_name_in_owner = true
