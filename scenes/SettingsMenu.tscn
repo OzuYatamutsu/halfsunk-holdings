@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cddbxemjn3aq4"]
 
 [ext_resource type="Script" uid="uid://vq6si4cumolp" path="res://scenes/settings_menu.gd" id="1_t7ar5"]
-[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_yelko"]
-[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="2_1yw23"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="2_dd8lr"]
+[ext_resource type="Theme" uid="uid://jmv2ygdb5yo5" path="res://components/TextBlueHeadingMinor.tres" id="2_xqqjd"]
+[ext_resource type="Theme" uid="uid://81b8dlbc3uli" path="res://components/TextWhiteHeadingMinor.tres" id="3_78o0x"]
 [ext_resource type="Texture2D" uid="uid://b6e2fvhd314eb" path="res://components/icon_sound_off_50px.png" id="4_xqqjd"]
 [ext_resource type="Texture2D" uid="uid://d1v2fdm0042r" path="res://components/scrollbar_slider_50px.png" id="5_78o0x"]
 [ext_resource type="Texture2D" uid="uid://bujwjn82bwff" path="res://components/scrollbar_horizontal_50px.png" id="6_n660j"]
@@ -50,7 +50,7 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme = ExtResource("1_yelko")
+theme = ExtResource("2_xqqjd")
 theme_override_font_sizes/font_size = 55
 text = "Settings"
 
@@ -66,7 +66,7 @@ columns = 3
 
 [node name="MasterVolumeLabel" type="Label" parent="MarginContainer/VboxContainer/SettingsAlignerMasterVolume" unique_id=1124643614]
 layout_mode = 2
-theme = ExtResource("2_1yw23")
+theme = ExtResource("3_78o0x")
 theme_override_font_sizes/font_size = 30
 text = "Master Volume"
 
@@ -85,7 +85,7 @@ icon = ExtResource("4_xqqjd")
 flat = true
 
 [node name="MasterVolumeSlider" type="HSlider" parent="MarginContainer/VboxContainer/SettingsAlignerMasterVolume/MasterVolumeSliderArea" unique_id=1047928685 groups=["MasterVolumeSlider"]]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -109,7 +109,7 @@ columns = 3
 
 [node name="MusicVolumeLabel" type="Label" parent="MarginContainer/VboxContainer/SettingsAlignerMusicVolume" unique_id=1560315937]
 layout_mode = 2
-theme = ExtResource("2_1yw23")
+theme = ExtResource("3_78o0x")
 theme_override_font_sizes/font_size = 30
 text = "Music Volume"
 
@@ -128,7 +128,7 @@ icon = ExtResource("4_xqqjd")
 flat = true
 
 [node name="MusicVolumeSlider" type="HSlider" parent="MarginContainer/VboxContainer/SettingsAlignerMusicVolume/MusicVolumeSliderArea" unique_id=1962351749 groups=["MusicVolumeSlider"]]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -152,7 +152,7 @@ columns = 3
 
 [node name="SfxVolumeLabel" type="Label" parent="MarginContainer/VboxContainer/SettingsAlignerSfxVolume" unique_id=2115290312]
 layout_mode = 2
-theme = ExtResource("2_1yw23")
+theme = ExtResource("3_78o0x")
 theme_override_font_sizes/font_size = 30
 text = "Sound Effects Volume"
 
@@ -171,7 +171,7 @@ icon = ExtResource("4_xqqjd")
 flat = true
 
 [node name="SfxVolumeSlider" type="HSlider" parent="MarginContainer/VboxContainer/SettingsAlignerSfxVolume/SfxVolumeSliderArea" unique_id=1904726797 groups=["SfxVolumeSlider"]]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_icons/grabber = ExtResource("5_78o0x")
 theme_override_icons/grabber_highlight = ExtResource("5_78o0x")
