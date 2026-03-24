@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://wexs55mls8oh"]
 
 [ext_resource type="Script" uid="uid://bcx6a7uddk416" path="res://pages/stock_screener.gd" id="1_l7ifb"]
-[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="3_0xlaf"]
+[ext_resource type="Theme" uid="uid://jmv2ygdb5yo5" path="res://components/TextBlueHeadingMinor.tres" id="2_l7ifb"]
+[ext_resource type="Theme" uid="uid://81b8dlbc3uli" path="res://components/TextWhiteHeadingMinor.tres" id="3_ktt1q"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="4_f4a8s"]
 [ext_resource type="PackedScene" uid="uid://rucoajbu4b25" path="res://components/StockChart.tscn" id="5_ktt1q"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="5_l7ifb"]
@@ -17,87 +18,78 @@ script = ExtResource("1_l7ifb")
 
 [node name="DynamicPageContent" type="Control" parent="." unique_id=1981008465]
 unique_name_in_owner = true
-anchors_preset = 0
-offset_top = 48.0
-offset_bottom = 48.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="InfoboxContainer" type="VBoxContainer" parent="DynamicPageContent" unique_id=1895463405]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 16.0
-offset_right = 2113.0
-offset_bottom = 907.0
+[node name="ContentArea" type="VBoxContainer" parent="DynamicPageContent" unique_id=43119494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Header" type="HBoxContainer" parent="DynamicPageContent/InfoboxContainer" unique_id=863341159]
+[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent/ContentArea" unique_id=146407971]
 layout_mode = 2
 
-[node name="FullTickerLabel" type="Label" parent="DynamicPageContent/InfoboxContainer/Header" unique_id=261323712]
+[node name="Header" type="HBoxContainer" parent="DynamicPageContent/ContentArea/VBoxContainer" unique_id=1375894508]
 layout_mode = 2
-theme = ExtResource("3_0xlaf")
-theme_override_font_sizes/font_size = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent/ContentArea/VBoxContainer/Header" unique_id=1113161702]
+layout_mode = 2
+
+[node name="FullTickerLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer" unique_id=261323712]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_l7ifb")
 text = "Jinhai Holdings"
 
-[node name="_spacer" type="Control" parent="DynamicPageContent/InfoboxContainer/Header" unique_id=1670451417]
-custom_minimum_size = Vector2(815, 0)
+[node name="ValueContainer" type="HBoxContainer" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer" unique_id=1872750318]
 layout_mode = 2
+theme_override_constants/separation = 4
 
-[node name="TickerSymbolLabel" type="Label" parent="DynamicPageContent/InfoboxContainer/Header" unique_id=2093258747]
+[node name="ValueLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer/ValueContainer" unique_id=1627501696]
+unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("3_0xlaf")
-theme_override_font_sizes/font_size = 80
-text = "JINH"
-
-[node name="ValueContainer" type="HBoxContainer" parent="DynamicPageContent/InfoboxContainer" unique_id=1872750318]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="ValueLabel" type="Label" parent="DynamicPageContent/InfoboxContainer/ValueContainer" unique_id=1627501696]
-layout_mode = 2
-theme = ExtResource("4_f4a8s")
-theme_override_font_sizes/font_size = 60
+theme = ExtResource("3_ktt1q")
 text = "102.86 "
 
-[node name="UpDownLabel" type="Label" parent="DynamicPageContent/InfoboxContainer/ValueContainer" unique_id=1443936541]
+[node name="UpDownLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer/ValueContainer" unique_id=1443936541]
+unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("4_f4a8s")
+theme = ExtResource("3_ktt1q")
 theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
-theme_override_font_sizes/font_size = 60
 text = "↗"
 
-[node name="NetChangeValueLabel" type="Label" parent="DynamicPageContent/InfoboxContainer/ValueContainer" unique_id=707298321]
+[node name="NetChangeValueLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer/ValueContainer" unique_id=707298321]
+unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("4_f4a8s")
+theme = ExtResource("3_ktt1q")
 theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
-theme_override_font_sizes/font_size = 60
 text = "2.86"
 
-[node name="NetChangePercentLabel" type="Label" parent="DynamicPageContent/InfoboxContainer/ValueContainer" unique_id=1362787221]
+[node name="NetChangePercentLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer/ValueContainer" unique_id=1362787221]
+unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("4_f4a8s")
+theme = ExtResource("3_ktt1q")
 theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
-theme_override_font_sizes/font_size = 60
 text = "(+2.86%)"
 
-[node name="_spacer" type="Control" parent="DynamicPageContent/InfoboxContainer/ValueContainer" unique_id=342148177]
-custom_minimum_size = Vector2(750, 0)
+[node name="_spacer" type="Control" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer/ValueContainer" unique_id=342148177]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="_SEPARATOR3" type="Control" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer" unique_id=736961627]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="CompanyCategoryLabel" type="Label" parent="DynamicPageContent/InfoboxContainer/ValueContainer" unique_id=1966963832]
-layout_mode = 2
-theme = ExtResource("4_f4a8s")
-theme_override_font_sizes/font_size = 60
-text = "Financial Services"
-horizontal_alignment = 2
-
-[node name="_Separator" type="Control" parent="DynamicPageContent/InfoboxContainer" unique_id=1002547985]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="DescriptionContainer" type="HBoxContainer" parent="DynamicPageContent/InfoboxContainer" unique_id=2112000499]
-layout_mode = 2
-
-[node name="CompanyDescriptionLabel" type="Label" parent="DynamicPageContent/InfoboxContainer/DescriptionContainer" unique_id=2135501478]
-custom_minimum_size = Vector2(1024, 0)
+[node name="CompanyDescriptionLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer" unique_id=2135501478]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme = ExtResource("4_f4a8s")
 text = "Jinhai Holdings is a multinational trading firm headquartered in an unincorporated series of islands somewhere in the Pacific Ocean.
@@ -105,109 +97,123 @@ text = "Jinhai Holdings is a multinational trading firm headquartered in an unin
 Its core product, the Jinhaifund™, is a tax shelter marketed towards disgruntled information technology workers interested in changing careers to the agricultural industry."
 autowrap_mode = 2
 
-[node name="Control" type="Control" parent="DynamicPageContent/InfoboxContainer/DescriptionContainer" unique_id=1190001602]
-custom_minimum_size = Vector2(756, 0)
+[node name="_SEPARATOR2" type="Control" parent="DynamicPageContent/ContentArea/VBoxContainer/Header" unique_id=48091162]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="DynamicPageContent/ContentArea/VBoxContainer/Header" unique_id=1996267239]
 layout_mode = 2
 
-[node name="_Separator2" type="Control" parent="DynamicPageContent/InfoboxContainer" unique_id=310092488]
-custom_minimum_size = Vector2(0, 45)
+[node name="TickerSymbolLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer2" unique_id=2093258747]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_l7ifb")
+text = "JINH"
+horizontal_alignment = 2
+
+[node name="CompanyCategoryLabel" type="Label" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer2" unique_id=1966963832]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_ktt1q")
+text = "Financial Services"
+horizontal_alignment = 2
+
+[node name="StockChart" parent="DynamicPageContent/ContentArea/VBoxContainer/Header/VBoxContainer2" unique_id=587976061 instance=ExtResource("5_ktt1q")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 250)
 layout_mode = 2
 
-[node name="Chartbox" type="VBoxContainer" parent="DynamicPageContent" unique_id=1744196611]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 521.0
-offset_right = 1839.0
-offset_bottom = 907.0
+[node name="_Separator" type="Control" parent="DynamicPageContent/ContentArea" unique_id=1002547985]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
-[node name="ChartInfoArea" type="HBoxContainer" parent="DynamicPageContent/Chartbox" unique_id=1388760049]
+[node name="ChartInfoArea" type="HBoxContainer" parent="DynamicPageContent/ContentArea" unique_id=1388760049]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent/Chartbox/ChartInfoArea" unique_id=1215843194]
+[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageContent/ContentArea/ChartInfoArea" unique_id=1215843194]
 layout_mode = 2
 
-[node name="StockChart" parent="DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer" unique_id=587976061 instance=ExtResource("5_ktt1q")]
-custom_minimum_size = Vector2(900, 450)
+[node name="_Separator5" type="Control" parent="DynamicPageContent/ContentArea/ChartInfoArea" unique_id=1703417204]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageContent/Chartbox/ChartInfoArea" unique_id=1205754280]
+[node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageContent/ContentArea/ChartInfoArea" unique_id=1205754280]
 layout_mode = 2
 theme_override_constants/separation = 35
 alignment = 1
 
-[node name="_Separator5" type="Control" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer" unique_id=1703417204]
-custom_minimum_size = Vector2(150, 45)
+[node name="CurrentStateInfoBoxLabels" type="VBoxContainer" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer" unique_id=1688283163]
 layout_mode = 2
 
-[node name="CurrentStateInfoBoxLabels" type="VBoxContainer" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer" unique_id=1688283163]
-layout_mode = 2
-
-[node name="_Separator3" type="Control" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=2141849210]
+[node name="_Separator3" type="Control" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=2141849210]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 
-[node name="OwnedLabel" type="Label" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=1745371847]
+[node name="OwnedLabel" type="Label" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=1745371847]
 layout_mode = 2
 theme = ExtResource("4_f4a8s")
 text = "Owned"
 
-[node name="TotalValueLabel" type="Label" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=1951219637]
+[node name="TotalValueLabel" type="Label" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=1951219637]
 layout_mode = 2
 theme = ExtResource("4_f4a8s")
 text = "Total Value"
 
-[node name="GainLossLabel" type="Label" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=171198794]
+[node name="GainLossLabel" type="Label" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=171198794]
 layout_mode = 2
 theme = ExtResource("4_f4a8s")
 text = "Gain/Loss"
 
-[node name="_Separator4" type="Control" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=916759527]
+[node name="_Separator4" type="Control" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=916759527]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 
-[node name="BuyButton" type="Button" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=813987268]
+[node name="BuyButton" type="Button" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels" unique_id=813987268]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("5_l7ifb")
+theme_override_font_sizes/font_size = 20
 text = "Buy"
+flat = true
 
-[node name="CurrentStateInfoBoxValues" type="VBoxContainer" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer" unique_id=2093920275]
+[node name="CurrentStateInfoBoxValues" type="VBoxContainer" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer" unique_id=2093920275]
 layout_mode = 2
 
-[node name="_Separator4" type="Control" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=1180774669]
+[node name="_Separator4" type="Control" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=1180774669]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 
-[node name="OwnedValueLabel" type="Label" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=751509065]
+[node name="OwnedValueLabel" type="Label" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=751509065]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_f4a8s")
 text = "100"
 
-[node name="TotalValueValueLabel" type="Label" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=584520089]
+[node name="TotalValueValueLabel" type="Label" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=584520089]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_f4a8s")
 text = "$10,286.00"
 
-[node name="GainLossValueLabel" type="Label" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=1164788162]
+[node name="GainLossValueLabel" type="Label" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=1164788162]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_f4a8s")
 theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
 text = "↗ $286.00"
 
-[node name="_Separator5" type="Control" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=607053770]
+[node name="_Separator5" type="Control" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=607053770]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 
-[node name="SellButton" type="Button" parent="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=313638101]
+[node name="SellButton" type="Button" parent="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues" unique_id=313638101]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("5_l7ifb")
+theme_override_font_sizes/font_size = 20
 text = "Sell
 "
 
-[connection signal="pressed" from="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels/BuyButton" to="." method="_on_buy_button_pressed"]
-[connection signal="pressed" from="DynamicPageContent/Chartbox/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxLabels/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="DynamicPageContent/ContentArea/ChartInfoArea/HBoxContainer/CurrentStateInfoBoxValues/SellButton" to="." method="_on_sell_button_pressed"]

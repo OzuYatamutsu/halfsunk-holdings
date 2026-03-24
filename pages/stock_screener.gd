@@ -7,20 +7,20 @@ extends PageContent
 @export var ticker_symbol: String
 @export var stock: Stock
 
-@onready var FullTickerLabel: Label = $DynamicPageContent/InfoboxContainer/Header/FullTickerLabel
-@onready var TickerSymbolLabel: Label = $DynamicPageContent/InfoboxContainer/Header/TickerSymbolLabel
-@onready var ValueLabel: Label = $DynamicPageContent/InfoboxContainer/ValueContainer/ValueLabel
-@onready var UpDownLabel: Label = $DynamicPageContent/InfoboxContainer/ValueContainer/UpDownLabel
+@onready var FullTickerLabel: Label = %FullTickerLabel
+@onready var TickerSymbolLabel: Label = %TickerSymbolLabel
+@onready var ValueLabel: Label = %ValueLabel
+@onready var UpDownLabel: Label = %UpDownLabel
 
-@onready var NetChangeValueLabel: Label = $DynamicPageContent/InfoboxContainer/ValueContainer/NetChangeValueLabel
-@onready var NetChangePercentLabel: Label = $DynamicPageContent/InfoboxContainer/ValueContainer/NetChangePercentLabel
-@onready var CompanyCategoryLabel: Label = $DynamicPageContent/InfoboxContainer/ValueContainer/CompanyCategoryLabel
-@onready var CompanyDescriptionLabel: Label = $DynamicPageContent/InfoboxContainer/DescriptionContainer/CompanyDescriptionLabel
+@onready var NetChangeValueLabel: Label = %NetChangeValueLabel
+@onready var NetChangePercentLabel: Label = %NetChangePercentLabel
+@onready var CompanyCategoryLabel: Label = %CompanyCategoryLabel
+@onready var CompanyDescriptionLabel: Label = %CompanyDescriptionLabel
 @onready var OwnedValueLabel: Label = %OwnedValueLabel
 @onready var TotalValueLabel: Label = %TotalValueValueLabel
 @onready var GainLossValueLabel: Label = %GainLossValueLabel
 
-@onready var PriceChart: StockChart = $DynamicPageContent/Chartbox/ChartInfoArea/VBoxContainer/StockChart
+@onready var PriceChart: StockChart = %StockChart
 var _has_been_drawn: bool = false
 
 func _ready():
