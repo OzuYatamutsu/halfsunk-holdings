@@ -2,45 +2,32 @@
 
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="1_toskb"]
 [ext_resource type="Script" uid="uid://cx5mndujpgfk4" path="res://components/dynamic_page.gd" id="1_y0v3g"]
-[ext_resource type="Texture2D" uid="uid://60p57klycspm" path="res://components/bluebird_sprite_sheet.png" id="3_hqtwn"]
 [ext_resource type="Script" uid="uid://dlh2sf1lb7o1x" path="res://components/dynamic_page_contents.gd" id="3_ody48"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="4_ody48"]
+[ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="9_fhmea"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ow34m"]
-atlas = ExtResource("3_hqtwn")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ody48"]
+load_path = "res://.godot/imported/bb-anim-001.png-416f13bb3cea7cbcc335f24f7bfccb60.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l72w3"]
-atlas = ExtResource("3_hqtwn")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r0s0w"]
+load_path = "res://.godot/imported/bb-anim-002.png-02eac4aafa26fc2b9abeb6b806369cb1.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_826wr"]
-atlas = ExtResource("3_hqtwn")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vx4ve"]
+load_path = "res://.godot/imported/bb-anim-003.png-3292229867c75255cdc37136b6b92347.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucygd"]
-atlas = ExtResource("3_hqtwn")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_swe1o"]
+load_path = "res://.godot/imported/bb-anim-004.png-01c74cb79ac4e73a1e89205b85943b41.ctex"
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_r0s0w"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ow34m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l72w3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_826wr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ucygd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1qvo3"]
+frames = 4
+speed_scale = 4.0
+frame_0/texture = SubResource("CompressedTexture2D_ody48")
+frame_1/texture = SubResource("CompressedTexture2D_r0s0w")
+frame_1/duration = 1.0
+frame_2/texture = SubResource("CompressedTexture2D_vx4ve")
+frame_2/duration = 1.0
+frame_3/texture = SubResource("CompressedTexture2D_swe1o")
+frame_3/duration = 1.0
 
 [node name="DynamicPage" type="VBoxContainer" unique_id=458538083]
 anchors_preset = 15
@@ -90,62 +77,169 @@ unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("3_ody48")
 
-[node name="AnimatedLogo" type="Control" parent="DynamicPageScroller/MarginContainer/DynamicPageContents" unique_id=2116471178]
-anchors_preset = 0
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 477.0
-offset_bottom = 151.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/AnimatedLogo" unique_id=2035371475]
-position = Vector2(104.00001, 124)
-scale = Vector2(4.40625, 4.40625)
-sprite_frames = SubResource("SpriteFrames_r0s0w")
-autoplay = "default"
-centered = false
-
-[node name="TitleLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents" unique_id=440636115]
+[node name="ContentArea" type="VBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents" unique_id=1125436862]
 layout_mode = 0
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 477.0
-offset_bottom = 151.0
+offset_right = 1222.0
+offset_bottom = 927.0
+grow_horizontal = 2
+theme_override_constants/separation = 6
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea" unique_id=601703299]
+layout_mode = 2
+
+[node name="AnimatedLogo" type="AspectRatioContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/HBoxContainer2" unique_id=98395413]
+layout_mode = 2
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/HBoxContainer2/AnimatedLogo" unique_id=1102890543]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_1qvo3")
+stretch_mode = 6
+
+[node name="_SEPARATOR" type="Control" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/HBoxContainer2" unique_id=2122345934]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/HBoxContainer2" unique_id=1668680445]
+layout_mode = 2
 theme = ExtResource("4_ody48")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 55
 text = "Bluebird"
 
-[node name="QuoteLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents" unique_id=510855565]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 90.0
-offset_right = 477.0
-offset_bottom = 111.0
+[node name="VBoxContainer" type="VBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea" unique_id=486992894]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/VBoxContainer" unique_id=1666571640]
+layout_mode = 2
+
+[node name="QuoteLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/VBoxContainer/HBoxContainer" unique_id=752936082]
+layout_mode = 2
 theme = ExtResource("1_toskb")
 text = "\"A smile is a curve that sets everything straight.\""
 
-[node name="QuoteAttribLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents" unique_id=518612109]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 90.0
-offset_right = 477.0
-offset_bottom = 111.0
-theme = ExtResource("4_ody48")
-text = "Phyllis Diller, Investment Banker"
+[node name="_SEPARATOR2" type="Control" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/VBoxContainer/HBoxContainer" unique_id=1698975154]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="DateLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents" unique_id=1613055427]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 90.0
-offset_right = 477.0
-offset_bottom = 111.0
+[node name="DateLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/VBoxContainer/HBoxContainer" unique_id=1220625905]
+unique_name_in_owner = true
+layout_mode = 2
 theme = ExtResource("1_toskb")
 text = "Monday, Day 1"
 
-[node name="ThankYouLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents" unique_id=1384430673]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 90.0
-offset_right = 477.0
-offset_bottom = 111.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/VBoxContainer" unique_id=1751569760]
+layout_mode = 2
+
+[node name="QuoteAttribLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/VBoxContainer/HBoxContainer2" unique_id=1270543739]
+layout_mode = 2
+theme = ExtResource("4_ody48")
+text = "Phyllis Diller, Investment Banker"
+
+[node name="_SEPARATOR3" type="Control" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/VBoxContainer/HBoxContainer2" unique_id=1317041413]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ThankYouLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/VBoxContainer/HBoxContainer2" unique_id=694163514]
+layout_mode = 2
 theme = ExtResource("1_toskb")
 text = "Thank you for being a client since CURRENT_YEAR"
+
+[node name="_SEPARATOR2" type="Control" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea" unique_id=560733468]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Status" type="CenterContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea" unique_id=1457698603]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status" unique_id=368664409]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+columns = 2
+
+[node name="CashLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status/GridContainer" unique_id=2118019655]
+layout_mode = 2
+theme = ExtResource("4_ody48")
+text = "Cash"
+horizontal_alignment = 2
+
+[node name="CashValue" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status/GridContainer" unique_id=1963383886]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_fhmea")
+text = "$1,000,000.00"
+
+[node name="SecuritiesValueLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status/GridContainer" unique_id=267011720]
+layout_mode = 2
+theme = ExtResource("4_ody48")
+text = "Value of Securities"
+horizontal_alignment = 2
+
+[node name="SecuritiesValue" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status/GridContainer" unique_id=1275810582]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_fhmea")
+text = "$0.00"
+
+[node name="DebtLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status/GridContainer" unique_id=644626358]
+layout_mode = 2
+theme = ExtResource("4_ody48")
+text = "Debt"
+horizontal_alignment = 2
+
+[node name="DebtValue" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status/GridContainer" unique_id=871170762]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_fhmea")
+theme_override_colors/font_color = Color(0.9401068, 0.22805327, 5.7756904e-07, 1)
+text = "($2,500,000.00)"
+
+[node name="NetWorthLabel" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status/GridContainer" unique_id=505422333]
+layout_mode = 2
+theme = ExtResource("4_ody48")
+text = "Net Worth"
+horizontal_alignment = 2
+
+[node name="NetWorthValue" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status/GridContainer" unique_id=507483317]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_fhmea")
+theme_override_colors/font_color = Color(0.9411765, 0.22745098, 0, 1)
+text = "($1,500,000.00)"
+
+[node name="CashStatus" type="HBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status" unique_id=1722625068]
+layout_mode = 2
+alignment = 1
+
+[node name="SecuritiesValueStatus" type="HBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status" unique_id=29098767]
+layout_mode = 2
+alignment = 1
+
+[node name="DebtStatus" type="HBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status" unique_id=1879636068]
+layout_mode = 2
+alignment = 1
+
+[node name="NetWorthStatus" type="HBoxContainer" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea/Status" unique_id=394548994]
+layout_mode = 2
+alignment = 1
+
+[node name="_SEPARATOR3" type="Control" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea" unique_id=351025856]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ProductiveDayMessage" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea" unique_id=1032299701]
+layout_mode = 2
+theme = ExtResource("4_ody48")
+theme_override_font_sizes/font_size = 35
+text = "\"Have a profitable day!\""
+horizontal_alignment = 1
+
+[node name="_SEPARATOR4" type="Control" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea" unique_id=1398436484]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="EasterEggMessage" type="Label" parent="DynamicPageScroller/MarginContainer/DynamicPageContents/ContentArea" unique_id=842214773]
+layout_mode = 2
+theme = ExtResource("1_toskb")
+text = "hey stop scrolling and get back to making lots of money!!"
+horizontal_alignment = 1
