@@ -7,6 +7,8 @@ extends PageContent
 @export var ticker_symbol: String
 @export var stock: Stock
 
+@onready var ContentArea: VBoxContainer = $DynamicPageContent/ContentArea
+
 @onready var FullTickerLabel: Label = %FullTickerLabel
 @onready var TickerSymbolLabel: Label = %TickerSymbolLabel
 @onready var ValueLabel: Label = %ValueLabel
@@ -25,7 +27,7 @@ var _has_been_drawn: bool = false
 
 func _ready():
     Title = "LOADING - Stock Screener"
-    PageHeightY = 1500
+    PageHeightY = int(ContentArea.size.y)
     ticker_symbol = GameState.switch_page_data_bus
     stock = GameState.stock_market.get_stock(ticker_symbol)
     PriceChart.update_stock(stock)
@@ -84,9 +86,9 @@ func _populate_data() -> void:
     if !_has_been_drawn:
         PriceChart.draw()
         _has_been_drawn = true
-    else:
-        PriceChart.add_point([GameState.get_current_timestamp(), stock.current_value])
-        PriceChart.queue_redraw()
+
+    PriceChart.add_point([GameState.get_current_timestamp(), stock.current_value])
+    PriceChart.queue_redraw()
 
 func _on_buy_button_pressed() -> void:
     AudioEngine.play_sfx(AudioEngine.SFX_CLICK)
