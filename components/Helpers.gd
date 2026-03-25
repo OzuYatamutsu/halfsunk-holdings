@@ -11,7 +11,7 @@ static func money_round(x: float) -> float:
 static func currencyify(raw_number: float) -> String:
     var is_negative: bool = (raw_number < 0)
     var number_as_string: String = "%.2f" % [raw_number]
-    number_as_string.replace("-", "")
+    number_as_string = number_as_string.replace("-", "")
     
     if raw_number < 1000.00 && raw_number > -1000.00:
         return (
