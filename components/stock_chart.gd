@@ -26,8 +26,8 @@ func update_stock(stock: Stock) -> void:
 
 ## Call this to draw the graph after calling set_stock().
 func draw() -> void:
-    var x_vals: Array[int]
-    var y_vals: Array[float]
+    var x_vals: Array[int] = []
+    var y_vals: Array[float] = []
     var cp: ChartProperties = _compose_chart_properties()
 
     for _xy_pair in _historical_data:
@@ -42,6 +42,7 @@ func draw() -> void:
 
 ## Pass in a tuple of the form: [timestamp, value].
 func add_point(last_value_record: Array[Variant]) -> void:
+    assert(_chart_func != null)
     _chart_func.add_point(last_value_record[0], last_value_record[1])
     _Chart.queue_redraw()
 

@@ -15,10 +15,11 @@ func buy(stock: String, quantity: int) -> void:
         GameState.stock_market.get_stock(stock).current_value * quantity
     )
 
-func sell(stock: String) -> void:
+func sell(stock: String, quantity: int) -> void:
     assert(stock in _portfolio, "tried to sell a stock not in the portfolio!")
-    
-    _portfolio[stock] -= 1
+
+    _portfolio[stock] -= quantity
+    # TODO update lots
     if _portfolio[stock] <= 0:
         _portfolio.erase(stock)
         _lots.erase(stock)

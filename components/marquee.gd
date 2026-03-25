@@ -43,6 +43,13 @@ func set_text(new_text: String, new_should_stop: bool) -> void:
     update()
 
 func update() -> void:
+    if _tween:
+        _tween.stop()
+        _tween.kill()
+    if _tween2:
+        _tween2.stop()
+        _tween2.kill()
+
     _label.text = text
     _label2.text = text
     _tween = create_tween()

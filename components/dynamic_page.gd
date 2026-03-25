@@ -19,8 +19,10 @@ func _ready() -> void:
 
 func load_page(path_to_page_content: String) -> void:
     var page_content: PageContent = load(path_to_page_content).instantiate()
+    var _old_page_content = DynamicPageContents
+    DynamicPageContentsParent.remove_child(_old_page_content)
+    _old_page_content.queue_free()
 
-    DynamicPageContentsParent.remove_child(DynamicPageContents)
     DynamicPageContents = page_content
     DynamicPageContentsParent.add_child(DynamicPageContents)
     PageTitle = DynamicPageContents.Title
