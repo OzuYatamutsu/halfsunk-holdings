@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b76h2x7uwel37"]
+
+[ext_resource type="Script" uid="uid://w6e81xdgecpk" path="res://components/chat_window_modal.gd" id="1_w67ps"]
+[ext_resource type="Script" uid="uid://c1587q6vs64xs" path="res://components/modal_window.gd" id="2_rboj7"]
+
+[node name="ChatWindowModal" type="CanvasLayer" unique_id=558805024]
+script = ExtResource("1_w67ps")
+
+[node name="BgDimEffect" type="ColorRect" parent="." unique_id=1002175299]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0009594, 1.0072175)
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="ModalWindow" type="Window" parent="." unique_id=1985508439]
+oversampling_override = 1.0
+title = "CHAT"
+initial_position = 1
+size = Vector2i(700, 400)
+script = ExtResource("2_rboj7")
+
+[node name="InfoContainer" type="VBoxContainer" parent="ModalWindow" unique_id=69046364]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -193.5
+offset_right = 193.5
+offset_bottom = 86.0
+grow_horizontal = 2
