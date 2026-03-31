@@ -27,6 +27,15 @@ Other assets:
 
 ## Versions
 
+### 0.2.4 (2026-03-31)
+
+- Can trade stock (just the one)
+- Can manage stock portfolio
+- Stock market moves randomly
+- Command system and page browser
+- Start page and stock screener
+- Sfx and music
+
 ### 0.1.0 (2025-05-10)
 
 - Menus and UI, nothing playable yet
