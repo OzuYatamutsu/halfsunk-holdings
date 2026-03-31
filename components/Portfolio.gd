@@ -21,6 +21,7 @@ func buy(stock: String, quantity: int) -> void:
 
 func sell(stock: String, quantity: int) -> void:
     assert(stock in _portfolio, "tried to sell a stock not in the portfolio!")
+    assert(_portfolio[stock] >= quantity)
 
     _portfolio[stock] -= quantity
 
@@ -31,6 +32,10 @@ func sell(stock: String, quantity: int) -> void:
         quantity_to_process -= _current_lot[0]
         
         if quantity_to_process < 0:
+            _current_lot[1] = (
+                (_current_lot[1] / _current_lot[0])
+                * abs(quantity_to_process)
+            )
             _current_lot[0] = abs(quantity_to_process)
             _lots[stock].push_front(_current_lot)
             quantity_to_process = 0
@@ -44,6 +49,7 @@ func sell(stock: String, quantity: int) -> void:
 
 func clear() -> void:
     _portfolio.clear()
+    _lots.clear()
 
 func how_many_shares(stock: String) -> int:
     if stock not in _portfolio:
@@ -77,6 +83,8 @@ func total_delta_percent(stock: String) -> float:
         return 0.0
     for _lot in _lots[stock]:
         _total_basis += _lot[1]  # (basis)
+    if _total_basis == 0.0:
+        return 100.0
 
     return (_total_delta / _total_basis) * 100
 
