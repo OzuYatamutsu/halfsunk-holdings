@@ -14,6 +14,7 @@
 [ext_resource type="Theme" uid="uid://dccrfjyl2pwt3" path="res://components/CommandPrompt_theme.tres" id="11_ikru1"]
 [ext_resource type="Texture2D" uid="uid://cb624j20xhbys" path="res://components/button_doit_50pt.png" id="13_sdsa6"]
 [ext_resource type="Texture2D" uid="uid://tjnvjrv67i7n" path="res://components/button_doit_50pt_clicked.png" id="14_8n4f5"]
+[ext_resource type="Texture2D" uid="uid://fj5hu33hphai" path="res://components/button_doit_50pt_disabled.png" id="15_mfyxg"]
 
 [node name="BuySellModal" type="CanvasLayer" unique_id=558805024]
 script = ExtResource("1_puqte")
@@ -167,5 +168,7 @@ alignment = 1
 layout_mode = 2
 texture_normal = ExtResource("13_sdsa6")
 texture_pressed = ExtResource("14_8n4f5")
+texture_disabled = ExtResource("15_mfyxg")
 
 [connection signal="text_changed" from="ModalWindow/InfoContainer/QuantitySelector/QuantityEdit" to="." method="_on_quantity_edit_text_changed"]
+[connection signal="pressed" from="ModalWindow/InfoContainer/ConfirmButtonContainer/DoitButton" to="." method="_on_doit_button_pressed"]

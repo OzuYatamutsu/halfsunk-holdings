@@ -36,6 +36,7 @@ var action: Mode = Mode.BUY
 @onready var ForATotalValueOfLabel: Label = $ModalWindow/InfoContainer/TotalInfo/ForATotalValueOfLabel
 # "$12,345.00"
 @onready var TransactionValueLabel: Label = $ModalWindow/InfoContainer/TotalInfo/TransactionValueLabel
+@onready var doit_button: TextureButton = $ModalWindow/InfoContainer/ConfirmButtonContainer/DoitButton
 
 func _ready() -> void:
     # Data bus format:
@@ -83,7 +84,10 @@ func _update_stock_info() -> void:
     BuyButton.button_pressed = action == Mode.BUY
     SellButton.disabled = action != Mode.SELL
     SellButton.button_pressed = action == Mode.SELL
+
     _on_quantity_edit_text_changed(QuantityEdit.text)
+    doit_button.disabled = !_validate_transaction()
+
 
 func _disable_value_calculation_field() -> void:
     TransactionValueLabel.visible = false
@@ -97,6 +101,18 @@ func _display_and_update_value_calculation_field(quantity: int) -> void:
     TransactionValueLabel.visible = true
     ForATotalValueOfLabel.visible = true
 
+
+func _validate_transaction() -> bool:
+    var shares_owned: int = GameState.portfolio.how_many_shares(stock.ticker_symbol)
+    var quantity: int = int(QuantityEdit.text)
+    var value: float = stock.current_value
+
+    if action == Mode.BUY and GameState.cash < (quantity * value):
+        return false
+    if action == Mode.SELL and shares_owned < quantity:
+        return false
+    return true
+
 func _on_quantity_edit_text_changed(new_text: String) -> void:
     if !new_text.is_valid_int():
         _disable_value_calculation_field()
@@ -105,3 +121,12 @@ func _on_quantity_edit_text_changed(new_text: String) -> void:
     _display_and_update_value_calculation_field(
         new_text.to_int()
     )
+
+
+func _on_doit_button_pressed() -> void:
+    AudioEngine.play_sfx(AudioEngine.SFX_BUYSELL)
+
+    if !_validate_transaction():
+        return
+
+    pass # Replace with function body.
