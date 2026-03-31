@@ -1,5 +1,5 @@
 class_name ChatWindowModal
-extends CanvasLayer
+extends Modal
 
 const ChatMessageComponent: PackedScene = preload("res://components/chat_message.tscn")
 
