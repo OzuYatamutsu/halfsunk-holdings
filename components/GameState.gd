@@ -51,6 +51,7 @@ var switch_page_data_bus: Variant
 
 func _init() -> void:
     _tick_timer_setup()
+    tick.connect(recalculate_net_worth)
 
 func clear_state() -> void:
     if stock_market:

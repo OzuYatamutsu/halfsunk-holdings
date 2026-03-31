@@ -69,6 +69,17 @@ func total_delta(stock: String) -> float:
         * _portfolio[stock]
     ) - total_basis
 
+func total_delta_percent(stock: String) -> float:
+    var _total_basis: float = 0.0
+    var _total_delta = total_delta(stock)
+
+    if _total_delta == 0:
+        return 0.0
+    for _lot in _lots[stock]:
+        _total_basis += _lot[1]  # (basis)
+
+    return (_total_delta / _total_basis)
+
 func value() -> float:
     var _value = 0.0
 
