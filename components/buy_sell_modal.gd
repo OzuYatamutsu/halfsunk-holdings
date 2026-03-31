@@ -110,6 +110,8 @@ func _validate_transaction() -> bool:
         return false
     if action == Mode.SELL and shares_owned < quantity:
         return false
+    if quantity <= 0:
+        return false
     return true
 
 
