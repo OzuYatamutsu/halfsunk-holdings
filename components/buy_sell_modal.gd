@@ -120,12 +120,21 @@ func _execute_transaction() -> void:
     if action == Mode.BUY:
         GameState.portfolio.buy(stock.ticker_symbol, quantity)
         GameState.cash -= (quantity * value)
+        print(
+            "bought %s shares of %s for a value of %s" \
+            % [quantity, stock.ticker_symbol, (quantity * value)]
+        )
     elif action == Mode.SELL:
         GameState.portfolio.sell(stock.ticker_symbol, quantity)
         GameState.cash += (quantity * value)
+        print(
+            "sold %s shares of %s for a value of %s" \
+            % [quantity, stock.ticker_symbol, (quantity * value)]
+        )
 
     GameState.cash_changed.emit()
     GameState.recalculate_net_worth()
+    _update_stock_info()
 
 
 func _on_quantity_edit_text_changed(new_text: String) -> void:
@@ -147,3 +156,4 @@ func _on_doit_button_pressed() -> void:
     # OK, transaction is valid! Do it!
     AudioEngine.play_sfx(AudioEngine.SFX_BUYSELL)
     _execute_transaction()
+    ModalWindow.close_requested.emit()
