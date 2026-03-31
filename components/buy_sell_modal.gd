@@ -86,7 +86,6 @@ func _update_stock_info() -> void:
     SellButton.button_pressed = action == Mode.SELL
 
     _on_quantity_edit_text_changed(QuantityEdit.text)
-    doit_button.disabled = !_validate_transaction()
 
 
 func _disable_value_calculation_field() -> void:
@@ -119,10 +118,10 @@ func _execute_transaction() -> void:
     var value: float = stock.current_value
 
     if action == Mode.BUY:
-        GameState.portfolio.buy(stock.ticker, quantity)
+        GameState.portfolio.buy(stock.ticker_symbol, quantity)
         GameState.cash -= (quantity * value)
     elif action == Mode.SELL:
-        GameState.portfolio.sell(stock.ticker, quantity)
+        GameState.portfolio.sell(stock.ticker_symbol, quantity)
         GameState.cash += (quantity * value)
 
     GameState.cash_changed.emit()
@@ -137,6 +136,8 @@ func _on_quantity_edit_text_changed(new_text: String) -> void:
     _display_and_update_value_calculation_field(
         new_text.to_int()
     )
+
+    doit_button.disabled = !_validate_transaction()
 
 
 func _on_doit_button_pressed() -> void:
