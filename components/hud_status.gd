@@ -5,7 +5,11 @@ extends HBoxContainer
 @onready var MoneyLabel: Label = %MoneyLabel
 
 
+func _ready():
+    GameState.cash_changed.connect(update)
+
+
 ## Updates the UI with the current state
 func update() -> void:
     CalendarDaysLabel.text = str(GameState.day_count)
-    MoneyLabel.text = "%.2f" % GameState.cash
+    MoneyLabel.text = Helpers.currencyify(GameState.cash)
