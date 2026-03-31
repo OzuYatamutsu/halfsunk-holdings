@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0dxkvj1rfuve" path="res://components/chat_user_icon_100px.png" id="3_pcxhg"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="4_a5shb"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="5_e80v2"]
+[ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="6_a5shb"]
 
 [node name="ChatWindowModal" type="CanvasLayer" unique_id=558805024]
 script = ExtResource("1_w67ps")
@@ -55,3 +56,85 @@ text = "Jeff Someguy"
 layout_mode = 2
 theme = ExtResource("5_e80v2")
 text = "Investment Banker at Jinhai Holdings"
+
+[node name="Divider" type="Control" parent="ModalWindow/InfoContainer" unique_id=1956389463]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ModalWindow/InfoContainer/Divider" unique_id=2037048637]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+
+[node name="ChatContainer" type="MarginContainer" parent="ModalWindow/InfoContainer" unique_id=352102740]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+
+[node name="ChatMessages" type="VBoxContainer" parent="ModalWindow/InfoContainer/ChatContainer" unique_id=187193159]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ChatMessage" type="GridContainer" parent="ModalWindow/InfoContainer/ChatContainer/ChatMessages" unique_id=1937089714]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="Timestamp" type="Label" parent="ModalWindow/InfoContainer/ChatContainer/ChatMessages/ChatMessage" unique_id=99715740]
+layout_mode = 2
+theme = ExtResource("4_a5shb")
+text = "10:31:32"
+
+[node name="Message" type="Label" parent="ModalWindow/InfoContainer/ChatContainer/ChatMessages/ChatMessage" unique_id=1100042703]
+layout_mode = 2
+theme = ExtResource("5_e80v2")
+text = "hey here's some bad investment advice"
+
+[node name="_SEPARATOR3" type="Control" parent="ModalWindow/InfoContainer" unique_id=1536684964]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Divider2" type="Control" parent="ModalWindow/InfoContainer" unique_id=1995325242]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ModalWindow/InfoContainer/Divider2" unique_id=1254048353]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+
+[node name="YesNoContainer" type="MarginContainer" parent="ModalWindow/InfoContainer" unique_id=1014356289]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="HBoxContainer" type="GridContainer" parent="ModalWindow/InfoContainer/YesNoContainer" unique_id=914492700]
+layout_mode = 2
+columns = 3
+
+[node name="YesButton" type="Button" parent="ModalWindow/InfoContainer/YesNoContainer/HBoxContainer" unique_id=864743243]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_a5shb")
+text = "Yes"
+flat = true
+
+[node name="_SEPARATOR4" type="Control" parent="ModalWindow/InfoContainer/YesNoContainer/HBoxContainer" unique_id=422104645]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="NoButton" type="Button" parent="ModalWindow/InfoContainer/YesNoContainer/HBoxContainer" unique_id=1383063665]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_a5shb")
+text = "No"
+flat = true
