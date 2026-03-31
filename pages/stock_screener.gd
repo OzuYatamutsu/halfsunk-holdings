@@ -76,7 +76,7 @@ func _populate_data() -> void:
     CompanyDescriptionLabel.text = stock.company_description
     OwnedValueLabel.text = "%s" % GameState.portfolio.how_many_shares(stock.ticker_symbol)
     TotalValueLabel.text = Helpers.currencyify(GameState.portfolio.value_of_shares(stock.ticker_symbol))
-    GainLossValueLabel.text = Helpers.currencyify(GameState.portfolio.total_delta(stock.ticker_symbol))
+    GainLossValueLabel.text = Helpers.currencyify(GameState.portfolio.total_delta(stock.ticker_symbol), true)
     GainLossValueLabel.add_theme_color_override("font_color", Color(
         SharedConstants.POSITIVE_COLOR_CODE if !loss_overall
         else SharedConstants.NEGATIVE_COLOR_CODE
@@ -85,10 +85,6 @@ func _populate_data() -> void:
         SharedConstants.UP_SYMBOL if !loss_overall
         else SharedConstants.DOWN_SYMBOL
     ) + " " + GainLossValueLabel.text
-
-    # Dirty hack to remove the extra parens from currencyify
-    GainLossValueLabel.text = GainLossValueLabel.text.replace("(", "")
-    GainLossValueLabel.text = GainLossValueLabel.text.replace(")", "")
 
     GainLossValueLabel.text += (
         " ("

@@ -47,10 +47,12 @@ func _ready() -> void:
     assert(len(GameState.switch_page_data_bus.split(';')) == 2)
     ticker = GameState.switch_page_data_bus.split(';')[0].to_upper()
     action = Mode[GameState.switch_page_data_bus.split(';')[1].to_upper()]
-    
+
+    doit_button.disabled = true
     _disable_value_calculation_field()
     _update_stock_info()
     GameState.delayed_tick.connect(_update_stock_info)
+
 
 func _update_stock_info() -> void:
     stock = GameState.stock_market.get_stock(ticker)

@@ -44,7 +44,7 @@ func _populate_debt_value_label() -> void:
     DebtValueLabel.add_theme_color_override("font_color", Color(SharedConstants.NEGATIVE_COLOR_CODE))
 
 func _populate_networth_value_label() -> void:
-    NetWorthValueLabel.text = Helpers.currencyify(GameState.portfolio.value() + GameState.cash)
+    NetWorthValueLabel.text = Helpers.currencyify(GameState.net_worth)
 
     if (GameState.net_worth < 0.0):
         NetWorthValueLabel.add_theme_color_override("font_color", Color(SharedConstants.NEGATIVE_COLOR_CODE))

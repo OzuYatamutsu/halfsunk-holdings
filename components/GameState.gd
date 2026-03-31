@@ -51,7 +51,6 @@ var switch_page_data_bus: Variant
 
 func _init() -> void:
     _tick_timer_setup()
-    tick.connect(recalculate_net_worth)
 
 func clear_state() -> void:
     if stock_market:
@@ -107,4 +106,5 @@ func _on_game_timer() -> void:
 
 
 func _on_delayed_game_timer() -> void:
+    recalculate_net_worth()
     delayed_tick.emit()
