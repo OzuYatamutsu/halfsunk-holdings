@@ -120,11 +120,9 @@ func _execute_transaction() -> void:
 
     if action == Mode.BUY:
         GameState.portfolio.buy(stock.ticker, quantity)
-
         GameState.cash -= (quantity * value)
     elif action == Mode.SELL:
         GameState.portfolio.sell(stock.ticker, quantity)
-
         GameState.cash += (quantity * value)
 
     GameState.cash_changed.emit()

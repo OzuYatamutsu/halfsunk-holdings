@@ -4,6 +4,9 @@ extends Node
 ## A collection of stocks, etc. (not cash)
 
 var _portfolio: Dictionary[String, int] = {}
+
+## maps ticker symbol to array of [quantity, total value] arrays for each lot.
+## example format: {"JINH": [[10, 100.0], 
 var _lots: Dictionary[String, Array] = {}
 
 func buy(stock: String, quantity: int) -> void:
@@ -11,15 +14,30 @@ func buy(stock: String, quantity: int) -> void:
         _portfolio[stock] = 0
         _lots[stock] = []
     _portfolio[stock] += quantity
-    _lots[stock].append(
+    _lots[stock].append([
+        quantity,
         GameState.stock_market.get_stock(stock).current_value * quantity
-    )
+    ])
 
 func sell(stock: String, quantity: int) -> void:
     assert(stock in _portfolio, "tried to sell a stock not in the portfolio!")
 
     _portfolio[stock] -= quantity
-    # TODO update lots
+
+    # update lots via FIFO
+    var quantity_to_process = quantity
+    while quantity_to_process > 0:
+        var _current_lot = _lots[stock].pop_front()
+        quantity_to_process -= _current_lot[0]
+        
+        if quantity_to_process < 0:
+            _current_lot[0] = abs(quantity_to_process)
+            _lots[stock].push_front(_current_lot)
+            quantity_to_process = 0
+            break
+        elif quantity_to_process >= 0:
+            continue
+
     if _portfolio[stock] <= 0:
         _portfolio.erase(stock)
         _lots.erase(stock)
