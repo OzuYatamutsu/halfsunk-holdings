@@ -33,19 +33,19 @@ func _populate_date_label() -> void:
     ]
 
 func _populate_cash_label() -> void:
-    CashValueLabel.text = "$%.2f" % GameState.cash
+    CashValueLabel.text = Helpers.currencyify(GameState.cash)
 
 func _populate_securities_value_label() -> void:
-    SecuritiesValueLabel.text = "$%.2f" % GameState.portfolio.value()
+    SecuritiesValueLabel.text = Helpers.currencyify(GameState.portfolio.value())
 
 func _populate_debt_value_label() -> void:
-    DebtValueLabel.text = "($%.2f)" % GameState.debt
+    DebtValueLabel.text = Helpers.currencyify(GameState.debt)
     DebtValueLabel.add_theme_color_override("font_color", Color(SharedConstants.NEGATIVE_COLOR_CODE))
 
 func _populate_networth_value_label() -> void:
+    NetWorthValueLabel.text = Helpers.currencyify(GameState.net_worth)
+
     if (GameState.net_worth < 0.0):
-        NetWorthValueLabel.text = "($%.2f)" % GameState.net_worth
         NetWorthValueLabel.add_theme_color_override("font_color", Color(SharedConstants.NEGATIVE_COLOR_CODE))
     else:
-        NetWorthValueLabel.text = "$%.2f" % GameState.net_worth
         NetWorthValueLabel.add_theme_color_override("font_color", Color(SharedConstants.POSITIVE_COLOR_CODE))
