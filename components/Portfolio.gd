@@ -62,8 +62,8 @@ func total_delta(stock: String) -> float:
         return 0.0
     if stock not in _lots:
         return 0.0
-    for _basis in _lots[stock]:
-        total_basis += _basis
+    for _lot in _lots[stock]:
+        total_basis += _lot[1]  # (basis)
     return (
         GameState.stock_market.get_stock(stock).current_value
         * _portfolio[stock]
