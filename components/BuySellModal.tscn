@@ -137,7 +137,9 @@ layout_mode = 2
 theme = ExtResource("11_ikru1")
 theme_override_colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 text = "JINH"
+max_length = 4
 editable = false
+expand_to_text_length = true
 caret_blink = true
 caret_blink_interval = 0.5
 
