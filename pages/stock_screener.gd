@@ -37,6 +37,7 @@ func _ready():
 
     GameState.delayed_tick.connect(_populate_data)
 
+
 func _populate_data() -> void:
     assert(ticker_symbol != "")
     print("stock_screener: refreshing data for " + ticker_symbol)
@@ -53,7 +54,7 @@ func _populate_data() -> void:
         SharedConstants.POSITIVE_COLOR_CODE if stock.last_delta >= 0
         else SharedConstants.NEGATIVE_COLOR_CODE
     ))
-    
+
     NetChangeValueLabel.text = "%.2f" % stock.last_delta
     NetChangeValueLabel.add_theme_color_override("font_color", Color(
         SharedConstants.POSITIVE_COLOR_CODE if stock.last_delta >= 0
