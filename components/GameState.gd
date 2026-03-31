@@ -75,6 +75,7 @@ func start_day() -> void:
 func end_day() -> void:
     game_timer.stop()
 
+
 func recalculate_net_worth() -> void:
     net_worth = cash + portfolio.value() - debt
     net_worth_changed.emit()

@@ -113,6 +113,24 @@ func _validate_transaction() -> bool:
         return false
     return true
 
+
+func _execute_transaction() -> void:
+    var quantity: int = int(QuantityEdit.text)
+    var value: float = stock.current_value
+
+    if action == Mode.BUY:
+        GameState.portfolio.buy(stock.ticker, quantity)
+
+        GameState.cash -= (quantity * value)
+    elif action == Mode.SELL:
+        GameState.portfolio.sell(stock.ticker, quantity)
+
+        GameState.cash += (quantity * value)
+
+    GameState.cash_changed.emit()
+    GameState.recalculate_net_worth()
+
+
 func _on_quantity_edit_text_changed(new_text: String) -> void:
     if !new_text.is_valid_int():
         _disable_value_calculation_field()
@@ -124,9 +142,9 @@ func _on_quantity_edit_text_changed(new_text: String) -> void:
 
 
 func _on_doit_button_pressed() -> void:
-    AudioEngine.play_sfx(AudioEngine.SFX_BUYSELL)
-
     if !_validate_transaction():
         return
 
-    pass # Replace with function body.
+    # OK, transaction is valid! Do it!
+    AudioEngine.play_sfx(AudioEngine.SFX_BUYSELL)
+    _execute_transaction()
