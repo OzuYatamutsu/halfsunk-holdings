@@ -36,7 +36,7 @@ func _ready():
     _populate_data()
 
     GameState.delayed_tick.connect(_populate_data)
-
+    GameState.net_worth_changed.connect(_populate_data)
 
 func _populate_data() -> void:
     assert(ticker_symbol != "")
