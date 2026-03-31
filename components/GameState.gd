@@ -75,12 +75,14 @@ func recalculate_net_worth() -> void:
     net_worth = cash + portfolio.value() - debt
     net_worth_changed.emit()
 
+
 ## A timestamp in the game is of the form: 30258
 ## => day 3, tick 0258. One tick represents TICK_LENGTH_SECS
 ## amount of real world time, and TICK_IN_GAME_TIME_MINS
 ## amount of fictional game time.
 func get_current_timestamp() -> int:
     return Helpers.to_timestamp(day_count, tick_count)
+
 
 func _tick_timer_setup() -> void:
     game_timer.wait_time = TICK_LENGTH_SECS
@@ -91,10 +93,12 @@ func _tick_timer_setup() -> void:
     add_child(game_timer)
     add_child(delayed_tick_timer)
 
+
 func _on_game_timer() -> void:
     tick_count += 1
     tick.emit()
     delayed_tick_timer.start()
+
 
 func _on_delayed_game_timer() -> void:
     delayed_tick.emit()

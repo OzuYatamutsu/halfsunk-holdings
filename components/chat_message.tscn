@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c0c0c47pwmow8"]
+
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_j21d3"]
+[ext_resource type="Script" uid="uid://bb3414gn2dru5" path="res://components/chat_message.gd" id="1_rcdwj"]
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="2_rcdwj"]
+
+[node name="ChatMessage" type="GridContainer" unique_id=1153042146]
+theme_override_constants/h_separation = 10
+columns = 2
+script = ExtResource("1_rcdwj")
+
+[node name="Timestamp" type="Label" parent="." unique_id=114752595]
+layout_mode = 2
+theme = ExtResource("1_j21d3")
+text = "10:31:32"
+
+[node name="Message" type="Label" parent="." unique_id=771565499]
+layout_mode = 2
+theme = ExtResource("2_rcdwj")
+text = "hey here's some bad investment advice"

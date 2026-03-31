@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="4_a5shb"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="5_e80v2"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="6_a5shb"]
+[ext_resource type="PackedScene" uid="uid://c0c0c47pwmow8" path="res://components/chat_message.tscn" id="6_e80v2"]
 
 [node name="ChatWindowModal" type="CanvasLayer" unique_id=558805024]
 script = ExtResource("1_w67ps")
@@ -80,20 +81,8 @@ theme_override_constants/margin_right = 15
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ChatMessage" type="GridContainer" parent="ModalWindow/InfoContainer/ChatContainer/ChatMessages" unique_id=1937089714]
+[node name="_test_chat_message" parent="ModalWindow/InfoContainer/ChatContainer/ChatMessages" unique_id=1153042146 instance=ExtResource("6_e80v2")]
 layout_mode = 2
-theme_override_constants/h_separation = 10
-columns = 2
-
-[node name="Timestamp" type="Label" parent="ModalWindow/InfoContainer/ChatContainer/ChatMessages/ChatMessage" unique_id=99715740]
-layout_mode = 2
-theme = ExtResource("4_a5shb")
-text = "10:31:32"
-
-[node name="Message" type="Label" parent="ModalWindow/InfoContainer/ChatContainer/ChatMessages/ChatMessage" unique_id=1100042703]
-layout_mode = 2
-theme = ExtResource("5_e80v2")
-text = "hey here's some bad investment advice"
 
 [node name="_SEPARATOR3" type="Control" parent="ModalWindow/InfoContainer" unique_id=1536684964]
 layout_mode = 2
@@ -138,3 +127,6 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("6_a5shb")
 text = "No"
 flat = true
+
+[connection signal="pressed" from="ModalWindow/InfoContainer/YesNoContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="ModalWindow/InfoContainer/YesNoContainer/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]
