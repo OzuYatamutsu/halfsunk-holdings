@@ -27,7 +27,7 @@ const TICK_IN_GAME_TIME_MINS: int = 5
 ## the delayed_tick event.
 const AFTER_TICK_DELAY_SECS: float = 0.05
 
-const VERSION_STRING: String = "0.2.3"
+const VERSION_STRING: String = "0.2.4"
 const STARTING_CASH: float = 1000.0
 const STARTING_DEBT: float = 0.0
 const STARTING_NET_WORTH: float = 1000.0
