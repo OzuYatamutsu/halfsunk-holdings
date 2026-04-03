@@ -8,17 +8,17 @@ static func money_round(x: float) -> float:
 
 
 ## Formats a float to currency string (xxxx.xxx -> "$x,xxx.xx")
-static func currencyify(raw_number: float, omit_parens=false) -> String:
+static func currencyify(raw_number: float, omit_parens=false, omit_dollar_sign=false) -> String:
     var is_negative: bool = (raw_number < 0)
     var number_as_string: String = "%.2f" % [raw_number]
     number_as_string = number_as_string.replace("-", "")
     
     if raw_number < 1000.00 && raw_number > -1000.00:
         if omit_parens:
-            return "$%s" % [number_as_string]
+            return ("$" if !omit_dollar_sign else "") + "%s" % [number_as_string]
         return (
-            "($%s)" % [number_as_string] if is_negative
-            else "$%s" % [number_as_string]
+            "(" + ("$" if !omit_dollar_sign else "") + "%s)" % [number_as_string] if is_negative
+            else ("$" if !omit_dollar_sign else "") + "%s" % [number_as_string]
         )
     
     var output_string: String = ""
@@ -32,9 +32,9 @@ static func currencyify(raw_number: float, omit_parens=false) -> String:
 
     # Insert negative numbers
     if is_negative and !omit_parens:
-        output_string = "($%s)" % [output_string]
+        output_string = "(" + ("$" if !omit_dollar_sign else "") + "%s)" % [output_string]
     else:
-        output_string = "$%s" % [output_string]
+        output_string = ("$" if !omit_dollar_sign else "") + "%s" % [output_string]
     return output_string
 
 

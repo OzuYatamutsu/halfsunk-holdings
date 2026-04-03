@@ -35,10 +35,11 @@ func _init(_ticker: String, _name: String, _base_value: float, _category: String
         ]
 
 func _to_string() -> String:
-    return "%s %s %.2f (%s%.2f\\%)" % [
+    return "%s %s %s %s (%s%s" % [
         ticker_symbol,
+        Helpers.currencyify(current_value, false, true),
         SharedConstants.UP_SYMBOL if last_delta >= 0 else SharedConstants.DOWN_SYMBOL,
-        Helpers.currencyify(abs(last_delta), true),
+        Helpers.currencyify(abs(last_delta), true, true),
         "+" if last_delta >= 0 else "",
-        Helpers.currencyify(abs(last_delta / current_value - last_delta), true)
-    ]
+        Helpers.currencyify(abs(last_delta / current_value - last_delta), true, true)
+    ] + '%)'
