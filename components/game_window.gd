@@ -12,4 +12,6 @@ func _ready() -> void:
     hud_status.update()
 
     marquee.unset_dummy_mode()
+    marquee.set_text_from_stock_market_data()
+    marquee.start()
     GameState.delayed_tick.connect(marquee.set_text_from_stock_market_data)

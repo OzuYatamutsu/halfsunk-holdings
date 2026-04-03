@@ -29,7 +29,7 @@ func _ready() -> void:
     update()
 
 func set_text_from_stock_market_data() -> void:
-    text = "    |   ".join(GameState.stock_market.get_all_to_string())
+    set_text("    |   ".join(GameState.stock_market.get_all_to_string()), false)
 
 func unset_dummy_mode() -> void:
     dummy_mode = false
@@ -43,31 +43,34 @@ func set_dummy_mode() -> void:
 func set_text(new_text: String, new_should_stop: bool) -> void:
     text = new_text
     should_stop = new_should_stop
-    update()
+    update(false)
 
-func update() -> void:
-    if _tween:
+func update(should_restart_tween=true) -> void:
+    if _tween and should_restart_tween:
         _tween.stop()
         _tween.kill()
-    if _tween2:
+    if _tween2 and should_restart_tween:
         _tween2.stop()
         _tween2.kill()
 
     _label.text = text
     _label2.text = text
-    _tween = create_tween()
-    _tween2 = create_tween()
+    
+    if !_tween or !_tween.is_running():
+        _tween = create_tween()
+        _tween.tween_property(
+            _label, "position:x", -_label.size.x, interval_secs
+        ).from(_label.position.x)
+    if !_tween2 or !_tween2.is_running():
+        _tween2 = create_tween()
+        _tween2.tween_property(
+            _label2, "position:x", _label.position.x, interval_secs
+        ).from(_label2.position.x)
+
     if (!should_stop):
         _tween = _tween.set_loops()
         _tween2 = _tween2.set_loops()
 
-    _tween.tween_property(
-        _label, "position:x", -_label.size.x, interval_secs
-    ).from(_label.position.x)
-
-    _tween2.tween_property(
-        _label2, "position:x", _label.position.x, interval_secs
-    ).from(_label2.position.x)
 
 func start():
     _tween.play()
