@@ -10,4 +10,6 @@ func _ready() -> void:
     GameState.game_window = self
     command_prompt.enable()
     hud_status.update()
+
     marquee.unset_dummy_mode()
+    GameState.delayed_tick.connect(marquee.set_text_from_stock_market_data)
