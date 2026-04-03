@@ -12,6 +12,7 @@ var action: Mode = Mode.BUY
 
 # "Jinhai Holdings (JINH)"
 @onready var TickerLabel: Label = $ModalWindow/InfoContainer/TickerLabel
+@onready var ticker_edit: LineEdit = %TickerEdit
 
 # "100.24"
 @onready var ValueLabel: Label = $ModalWindow/InfoContainer/ValueContainer/ValueLabel
@@ -57,6 +58,7 @@ func _ready() -> void:
 func _update_stock_info() -> void:
     stock = GameState.stock_market.get_stock(ticker)
     TickerLabel.text = "%s (%s)" % [stock.company_name, stock.ticker_symbol]
+    ticker_edit.text = stock.ticker_symbol
     ValueLabel.text = "%.2f" % stock.current_value
     UpDownLabel.text = (
         SharedConstants.UP_SYMBOL if stock.last_delta >= 0 
