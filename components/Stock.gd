@@ -33,3 +33,12 @@ func _init(_ticker: String, _name: String, _base_value: float, _category: String
             [GameState.get_current_timestamp() - 1, current_value],
             [GameState.get_current_timestamp(), current_value],
         ]
+
+func _to_string() -> String:
+    return "%s %s %.2f (%s%.2f\\%)" % [
+        ticker_symbol,
+        SharedConstants.UP_SYMBOL if last_delta >= 0 else SharedConstants.DOWN_SYMBOL,
+        Helpers.currencyify(abs(last_delta), true),
+        "+" if last_delta >= 0 else "",
+        Helpers.currencyify(abs(last_delta / current_value - last_delta), true)
+    ]
