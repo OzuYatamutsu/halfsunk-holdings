@@ -3,10 +3,10 @@ extends Node
 
 ## The StockMarket contains info on all Stock objects.
 
-## {ticker: [name, value, description]}
+## {ticker: [name, value, category, description]}
 const _MARKET_DATA: Dictionary[String, Array] = {
     "JINH": ["Jinhai Holdings", 100.00, "Financial", "Jinhai Holdings is a multinational trading firm headquartered in an unincorporated series of islands somewhere in the Pacific Ocean.\n\nIts core product, the Jinhaifund™, is a tax shelter marketed towards disgruntled information technology workers interested in changing careers to the agricultural industry."],
-    "CAT": ["Feline Mega Capital", 51.00, "Financial", "Feline Mega Capital is a publically owned investment manager, primarily providing services to rich institutional investors.\n\nIt spends 5% of its annual budget on cigars, caviar, and lasagna."],
+    "CAT": ["Feline Mega Capital", 51.00, "Financial", "Feline Mega Capital is a publicly owned investment manager, primarily providing services to rich institutional investors.\n\nIt spends 5% of its annual budget on cigars, caviar, and lasagna."],
     "DOG": ["Canine Energy", 26.00, "Energy", "Canine engages in the exploration and exploitation of crude oil, natural gas, and aromatics.\n\nStandard equipment for its prospectors include big boots and a giant hat."],
     "BIRD": ["Avian Express", 88.00, "Logistics", "Avian Express provides transportation, shipping, and business services through its network of 20,000 logistics centers.\n\nAvailable shipping options (in order of descending cost) include Bulky, Turbo, Standard, and \"Whatever's Cheapest\"."],
     "LZRD": ["TopScale Home Goods", 14.00, "Retail", "TopScale operates as a home improvement retailer, selling building materials, home improvement products, and roof shingles.\n\nIt previously offered general contracting services, but this was swiftly discontinued following the Great Swampening of 2007."],
