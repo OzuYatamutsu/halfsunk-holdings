@@ -28,6 +28,9 @@ func _ready() -> void:
         text = DUMMY_TEXT
     update()
 
+func set_text_from_stock_market_data() -> void:
+    text = "    |   ".join(GameState.stock_market.get_all_to_string())
+
 func unset_dummy_mode() -> void:
     dummy_mode = false
     set_text("", true)
