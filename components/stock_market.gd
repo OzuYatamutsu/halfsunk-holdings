@@ -72,5 +72,8 @@ func market_random_shift() -> void:
         stock.last_update_timestamp = GameState.get_current_timestamp()
         update_stock(stock)
 
+func get_all_to_string() -> Array[String]:
+    return _market.values().map(func(_stock): return _stock._to_string())
+
 func _on_tick() -> void:
     market_random_shift()
