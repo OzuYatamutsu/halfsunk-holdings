@@ -20,6 +20,8 @@ Bergoom and Fira Code are licensed under the [SIL Open Font License, Version 1.1
 
 Easy Charts is licensed under the [MIT license](https://github.com/fenix-hub/godot-engine.easy-charts/blob/main/LICENSE).
 
+godot-marquee is licensed under the [MIT license](https://github.com/markeel/godot-marquee/blob/main/LICENSE).
+
 Other assets:
 - [Bird blue flying](https://opengameart.org/content/bird-blue-flying), by Enquest
 - [Bossa Nova](https://opengameart.org/content/bossa-nova), by Joth

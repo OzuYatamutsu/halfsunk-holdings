@@ -34,6 +34,10 @@ SharedConstants="*uid://c6fr7k0xv87xv"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/easy_charts/plugin.cfg", "res://addons/marquee/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
