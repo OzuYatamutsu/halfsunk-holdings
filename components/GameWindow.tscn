@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cw17gwwsupfew" path="res://components/game_window.gd" id="1_hrfgc"]
 [ext_resource type="PackedScene" uid="uid://cs2lb7mrudu1" path="res://components/CommandPrompt.tscn" id="1_yhbdw"]
 [ext_resource type="PackedScene" uid="uid://bb5inbf02oqvj" path="res://components/HudStatus.tscn" id="2_80m4s"]
-[ext_resource type="PackedScene" uid="uid://cb8axm8xx5ehk" path="res://components/Marquee.tscn" id="3_rl60s"]
+[ext_resource type="PackedScene" uid="uid://cb8axm8xx5ehk" path="res://components/TickerTape.tscn" id="3_rl60s"]
 [ext_resource type="PackedScene" uid="uid://cfjb1oxl0rt2y" path="res://components/DynamicPage.tscn" id="4_kq4po"]
 
 [node name="GameWindow" type="VBoxContainer" unique_id=470096987]

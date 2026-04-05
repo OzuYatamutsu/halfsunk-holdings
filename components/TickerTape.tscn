@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_b66nl"]
 [ext_resource type="Script" uid="uid://06avs308fdt7" path="res://components/marquee.gd" id="1_g0725"]
 
-[node name="Marquee" type="Control" unique_id=1116417902]
+[node name="TickerTape" type="Control" unique_id=1116417902]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
