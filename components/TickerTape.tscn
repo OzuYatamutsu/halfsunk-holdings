@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cb8axm8xx5ehk"]
 
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_b66nl"]
-[ext_resource type="Script" uid="uid://06avs308fdt7" path="res://components/marquee.gd" id="1_g0725"]
+[ext_resource type="Script" uid="uid://06avs308fdt7" path="res://components/ticker_tape.gd" id="1_g0725"]
 [ext_resource type="Script" uid="uid://yff6875bwtes" path="res://addons/marquee/marquee.gd" id="3_vi5yg"]
 
 [node name="TickerTape" type="Control" unique_id=1116417902]
