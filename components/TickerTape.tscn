@@ -2,7 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_b66nl"]
 [ext_resource type="Script" uid="uid://06avs308fdt7" path="res://components/marquee.gd" id="1_g0725"]
-[ext_resource type="Script" uid="uid://yff6875bwtes" path="res://addons/marquee/marquee.gd" id="3_vi5yg"]
 
 [node name="TickerTape" type="Control" unique_id=1116417902]
 layout_mode = 3
@@ -33,19 +32,21 @@ grow_vertical = 2
 size_flags_vertical = 3
 color = Color(0, 0.07450981, 0.20392157, 1)
 
-[node name="Marquee" type="Control" parent="MarqueeAligner" unique_id=41514089]
+[node name="Label" type="Label" parent="MarqueeAligner" unique_id=966048541]
 unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(1373, 21)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_top = 6.0
+offset_right = 1373.0
+offset_bottom = 27.0
 theme = ExtResource("1_b66nl")
-script = ExtResource("3_vi5yg")
-delay = 0.0
-duration = 10.0
-lines = Array[String](["CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |   TIGR 12.68 (↗ 2.01) (+15.85%)   | ", "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |   TIGR 12.68 (↗ 2.01) (+15.85%)   | "])
-metadata/_custom_type_script = "uid://yff6875bwtes"
+text = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |   TIGR 12.68 (↗ 2.01) (+15.85%)    |"
+
+[node name="Label2" type="Label" parent="MarqueeAligner" unique_id=1429622922]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1383.0
+offset_top = 6.0
+offset_right = 2756.0
+offset_bottom = 27.0
+theme = ExtResource("1_b66nl")
+text = "CAT 223.25 ↗ 22.05 (+10.96%)  |   BIRD 415.28 ↗ 22.05 (+5.61%)  |   DOG 15.26 ↘ 1.06 (−6.50%)    |   LZRD 225.14 ↗ 15.45 (+7.37%)    |   TIGR 12.68 (↗ 2.01) (+15.85%)    |"
