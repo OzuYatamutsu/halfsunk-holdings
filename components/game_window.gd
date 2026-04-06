@@ -11,6 +11,6 @@ func _ready() -> void:
     command_prompt.enable()
     hud_status.update()
 
-    marquee.set_text_from_stock_market_data()
+    await marquee.set_text_from_stock_market_data()
     marquee.start()
     GameState.delayed_tick.connect(marquee.set_text_from_stock_market_data)
