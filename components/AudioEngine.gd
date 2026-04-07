@@ -9,6 +9,8 @@ var BGM_MAINMENU: AudioStreamMP3
 var BGM_GAME: AudioStreamMP3
 var SFX_CLICK: AudioStreamMP3
 var SFX_BUYSELL: AudioStreamMP3
+var SFX_MESSAGE_RECEIVED: AudioStreamMP3
+var SFX_MESSAGE_SENT: AudioStreamMP3
 
 @onready var bgm: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var sfx: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -31,6 +33,8 @@ func load_bgm() -> void:
 func load_sfx() -> void:
     SFX_CLICK = AudioStreamMP3.load_from_file("res://sfx/sfx_click.mp3")
     SFX_BUYSELL = AudioStreamMP3.load_from_file("res://sfx/sfx_cha_ching.mp3")
+    SFX_MESSAGE_RECEIVED = AudioStreamMP3.load_from_file("res://sfx/sfx_chat_message_received.mp3")
+    SFX_MESSAGE_SENT = AudioStreamMP3.load_from_file("res://sfx/sfx_chat_message_sent.mp3")
 
 func play_sfx(_sfx: AudioStreamMP3) -> void:
     _sfx.loop = false
