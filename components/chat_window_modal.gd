@@ -17,12 +17,11 @@ func preload_chat_messages(messages: Array[String]) -> void:
     for message in messages:
         var _message: ChatMessage = ChatMessageComponent.instantiate()
         var _timestamp = message.split(" ")[0]
-
-        _message.timestamp = _timestamp
-        _message.message.text = message.replace(_timestamp + " ", "")
-        
         chat_messages.add_child(_message)
 
+        _message.timestamp.text = _timestamp
+        _message.message.text = message.replace(_timestamp + " ", "")
+        
 
 func _on_yes_button_pressed() -> void:
     pass  # TODO
