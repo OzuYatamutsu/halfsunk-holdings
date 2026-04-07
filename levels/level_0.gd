@@ -1,24 +1,8 @@
-extends Control
-
-var _events: Dictionary[int, Callable] = {10: _event_chat_message}
-
-@onready var window: GameWindow = $GameWindow
+extends Level
 
 func _ready() -> void:
-    AudioEngine.play_bgm(AudioEngine.BGM_GAME)
-    GameState.clear_state()
-    GameState.start_day()
-    GameState.tick.connect(_on_tick)
-    window.browser.load_page("res://pages/StartPage.tscn")
-
-func _on_tick() -> void:
-    if GameState.tick_count in _events:
-        print(
-            "event: firing %s" % [
-                _events[GameState.tick_count].get_method()
-            ]
-        )
-        _events[GameState.tick_count].call()
+    super()
+    _events = {1: _event_chat_message}
 
 func _event_chat_message() -> void:
     pass  # TODO
