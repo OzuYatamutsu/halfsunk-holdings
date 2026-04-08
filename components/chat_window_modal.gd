@@ -11,7 +11,7 @@ const ChatMessageComponent: PackedScene = preload("res://components/chat_message
 @export var UserProfilePath: String = "res://components/chat_user_icon_100px.png"
 
 ## Pass in a sorted array (oldest to recent) of the form: 
-## ["10:01:32 message string", "23:59:59 string2", ...]
+## ["10:01:32/message string", "23:59:59/string2", ...]
 @export var ChatMessages: Array[String] = []
 
 ## Delegate for what happens when yes button is pressed
@@ -66,14 +66,14 @@ func preload_chat_messages() -> void:
         add_message(message)
 
 
-## Should be of the form: "10:01:32 message string"
+## Should be of the form: "10:01:32/message string"
 func add_message(message: String) -> void:
     var _message: ChatMessage = ChatMessageComponent.instantiate()
-    var _timestamp = message.split(" ")[0]
+    var _timestamp = message.split("/")[0]
     chat_messages.add_child(_message)
 
     _message.timestamp.text = _timestamp
-    _message.message.text = message.replace(_timestamp + " ", "")
+    _message.message.text = message.replace(_timestamp + "/", "")
 
 
 func _on_yes_button_pressed() -> void:
