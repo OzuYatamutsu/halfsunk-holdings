@@ -27,13 +27,15 @@ const TICK_IN_GAME_TIME_MINS: int = 5
 ## the delayed_tick event.
 const AFTER_TICK_DELAY_SECS: float = 0.05
 
-const VERSION_STRING: String = "0.2.4"
+const BUILD_DATE: String = "20260408"
+const VERSION_STRING: String = "0.2.6"
+
+const START_TIME_SECS: int = 30600
 const STARTING_CASH: float = 1000.0
 const STARTING_DEBT: float = 0.0
 const STARTING_NET_WORTH: float = 1000.0
 const STARTING_DAY: int = 1
 
-var BUILD_DATE: String = "20260331"
 var cash: float = 0.0
 var portfolio: Portfolio = Portfolio.new()
 var debt: float = 0.0
@@ -87,6 +89,28 @@ func recalculate_net_worth() -> void:
 ## amount of fictional game time.
 func get_current_timestamp() -> int:
     return Helpers.to_timestamp(day_count, tick_count)
+
+
+## game timestamp of 10001 => "Day 1, 08:30:05"
+func get_current_timestamp_humanized() -> String:
+    var realworld_time_secs = (
+        START_TIME_SECS 
+        + (tick_count * TICK_IN_GAME_TIME_MINS * 60)
+    )
+
+    return "Day %s, %s" % [
+        day_count,
+        _realworld_time_secs_to_timestring(realworld_time_secs)
+    ]
+
+
+func _realworld_time_secs_to_timestring(realworld_time_secs: int) -> String:
+    @warning_ignore("integer_division")
+    return "%02d:%02d:%02d" % [
+        realworld_time_secs / 3600,
+        (realworld_time_secs % 3600) / 60,
+        realworld_time_secs % 60
+    ]
 
 
 func _tick_timer_setup() -> void:
