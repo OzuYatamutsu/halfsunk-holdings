@@ -30,11 +30,18 @@ const ChatMessageComponent: PackedScene = preload("res://components/chat_message
 @onready var _chat_user_title: Label = %ChatUserTitle
 
 
+static func Create(script_path: String) -> ChatWindowModal:
+    var instance: ChatWindowModal = load("res://components/ChatWindowModal.tscn").instantiate()
+    instance.set_script(load(script_path))
+    return instance
+
+
 func _ready() -> void:
     _test_chat_message.queue_free()
     update_user_info()
     update_button_options()
     preload_chat_messages()
+    AudioEngine.play_sfx(AudioEngine.SFX_MESSAGE_RECEIVED)
 
 
 func update_user_info() -> void:
@@ -45,7 +52,7 @@ func update_user_info() -> void:
 
 func update_button_options() -> void:
     yes_button.text = ButtonOptions[0]
-    if ButtonOptions.size() > 1:
+    if ButtonOptions.size() == 1:
         no_button.visible = false
         no_button.disabled = true
     else:
