@@ -111,6 +111,7 @@ layout_mode = 2
 columns = 3
 
 [node name="YesButton" type="Button" parent="ModalWindow/InfoContainer/YesNoContainer/HBoxContainer" unique_id=864743243]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("6_a5shb")
@@ -122,6 +123,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="NoButton" type="Button" parent="ModalWindow/InfoContainer/YesNoContainer/HBoxContainer" unique_id=1383063665]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("6_a5shb")

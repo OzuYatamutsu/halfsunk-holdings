@@ -3,12 +3,30 @@ extends Modal
 
 const ChatMessageComponent: PackedScene = preload("res://components/chat_message.tscn")
 
+## Controls what the text on the bottom will be.
+## If only one item is set, the other button will be disabled.
+@export var ButtonOptions: Array[String] = ["Yes", "No"]
+
 @onready var chat_messages: VBoxContainer = $ModalWindow/InfoContainer/ChatContainer/ChatMessages
 @onready var _test_chat_message: ChatMessage = $ModalWindow/InfoContainer/ChatContainer/ChatMessages/_test_chat_message
+@onready var yes_button: Button = %YesButton
+@onready var no_button: Button = %NoButton
 
 
 func _ready() -> void:
     _test_chat_message.queue_free()
+    update_button_options()
+
+
+func update_button_options() -> void:
+    yes_button.text = ButtonOptions[0]
+    if ButtonOptions.size() > 1:
+        no_button.visible = false
+        no_button.disabled = true
+    else:
+        no_button.text = ButtonOptions[1]
+        no_button.visible = true
+        no_button.disabled = false
 
 
 ## Pass in a sorted array (oldest to recent) of the form: 
