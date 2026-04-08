@@ -14,6 +14,12 @@ const ChatMessageComponent: PackedScene = preload("res://components/chat_message
 ## ["10:01:32 message string", "23:59:59 string2", ...]
 @export var ChatMessages: Array[String] = []
 
+## Delegate for what happens when yes button is pressed
+@export var YesAction: Callable
+
+## Delegate for what happens when no button is pressed
+@export var NoAction: Callable
+
 @onready var chat_messages: VBoxContainer = $ModalWindow/InfoContainer/ChatContainer/ChatMessages
 @onready var _test_chat_message: ChatMessage = $ModalWindow/InfoContainer/ChatContainer/ChatMessages/_test_chat_message
 @onready var yes_button: Button = %YesButton
@@ -64,8 +70,10 @@ func add_message(message: String) -> void:
 
 
 func _on_yes_button_pressed() -> void:
-    pass  # TODO
+    assert(YesAction != null)
+    YesAction.call()
 
 
 func _on_no_button_pressed() -> void:
-    pass  # TODO
+    assert(NoAction != null)
+    NoAction.call()
