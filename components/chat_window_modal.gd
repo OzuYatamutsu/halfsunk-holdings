@@ -84,3 +84,12 @@ func _on_yes_button_pressed() -> void:
 func _on_no_button_pressed() -> void:
     assert(NoAction != null)
     NoAction.call()
+
+
+## Use this to assign no action to a button
+func noop_action() -> void:
+    pass
+
+
+func wait_secs(wait_time: float) -> void:
+    await get_tree().create_timer(wait_time).timeout

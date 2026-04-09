@@ -13,5 +13,8 @@ func _input(event):
     if event.is_action_pressed("ui_cancel"):
         ModalWindow.close_requested.emit()
 
+func close() -> void:
+    ModalWindow.close_requested.emit()
+
 func _on_close_requested() -> void:
     queue_free()
