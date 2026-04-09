@@ -53,6 +53,9 @@ func update_user_info() -> void:
 
 
 func update_button_options() -> void:
+    assert(ButtonOptions != null)
+    assert(ButtonOptions.size() > 0)
+
     yes_button.text = ButtonOptions[0]
     if ButtonOptions.size() == 1:
         no_button.visible = false
