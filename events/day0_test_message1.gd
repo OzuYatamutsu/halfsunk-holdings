@@ -1,5 +1,6 @@
 extends ChatWindowModal
 
+
 func _ready() -> void:
     ButtonOptions = ["OK!"]
     UserName = "Awre Twelve"
@@ -12,5 +13,29 @@ func _ready() -> void:
 
     super._ready()
 
+
 func _0_on_yes_button_pressed() -> void:
-    pass
+    ButtonOptions = ["..."]
+    YesAction = noop_action
+    update_button_options()
+
+    add_message("%s/don't pay us $5,000 by the end of the week")
+    await wait_secs(0.5)
+    
+
+func _1_on_wait() -> void:
+    add_message("%s/and we take everything!! muhahaha!!")
+    ButtonOptions = ["That's a lot of money!"]
+    YesAction = _2_on_yes_button_pressed
+    update_button_options()
+
+
+func _2_on_yes_button_pressed() -> void:
+    add_message("%s/not my problem lmao")
+    ButtonOptions = ["OK..."]
+    YesAction = _3_on_yes_button_pressed
+    update_button_options()
+
+
+func _3_on_yes_button_pressed() -> void:
+    close()
