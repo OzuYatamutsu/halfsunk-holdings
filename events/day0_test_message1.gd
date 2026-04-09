@@ -7,7 +7,7 @@ func _ready() -> void:
     UserTitle = "Hedge Fund Manager at Corvid Group"
     UserProfilePath = "res://components/pfp_awre_twelve.png"
     ChatMessages = [
-        "%s/hi want some terrible investment advice" % [GameState.get_current_timestamp_humanized()]
+        "%TS/hi want some terrible investment advice"
     ]
     YesAction = _0_on_yes_button_pressed
 
@@ -19,19 +19,19 @@ func _0_on_yes_button_pressed() -> void:
     YesAction = noop_action
     update_button_options()
 
-    add_message("%s/don't pay us $5,000 by the end of the week")
+    add_message("%TS/don't pay us $5,000 by the end of the week")
     await wait_secs(0.5)
     
 
 func _1_on_wait() -> void:
-    add_message("%s/and we take everything!! muhahaha!!")
+    add_message("%TS/and we take everything!! muhahaha!!")
     ButtonOptions = ["That's a lot of money!"]
     YesAction = _2_on_yes_button_pressed
     update_button_options()
 
 
 func _2_on_yes_button_pressed() -> void:
-    add_message("%s/not my problem lmao")
+    add_message("%TS/not my problem lmao")
     ButtonOptions = ["OK..."]
     YesAction = _3_on_yes_button_pressed
     update_button_options()

@@ -66,13 +66,16 @@ func preload_chat_messages() -> void:
         add_message(message)
 
 
-## Should be of the form: "10:01:32/message string"
+## Should be of the form: "%TS/message string"
+## %TS will be replaced with the current timestamp
 func add_message(message: String) -> void:
     var _message: ChatMessage = ChatMessageComponent.instantiate()
     var _timestamp = message.split("/")[0]
     chat_messages.add_child(_message)
 
-    _message.timestamp.text = _timestamp
+    _message.timestamp.text = _timestamp.replace(
+        "%TS", GameState.get_current_timestamp_humanized()
+    )
     _message.message.text = message.replace(_timestamp + "/", "")
 
 
