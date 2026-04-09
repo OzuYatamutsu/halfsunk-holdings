@@ -91,7 +91,7 @@ func get_current_timestamp() -> int:
     return Helpers.to_timestamp(day_count, tick_count)
 
 
-## game timestamp of 10001 => "Day 1, 08:30:05"
+## game timestamp of 10001 => "Day 1, 08:35:00"
 func get_current_timestamp_humanized() -> String:
     var realworld_time_secs = (
         START_TIME_SECS 

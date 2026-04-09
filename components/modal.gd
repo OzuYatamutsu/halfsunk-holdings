@@ -21,4 +21,6 @@ func close() -> void:
     ModalWindow.close_requested.emit()
 
 func _on_close_requested() -> void:
+    if IgnoreCloseRequests:
+        return
     queue_free()
