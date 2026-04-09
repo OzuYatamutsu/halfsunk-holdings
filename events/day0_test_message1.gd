@@ -2,6 +2,7 @@ extends ChatWindowModal
 
 
 func _ready() -> void:
+    IgnoreCloseRequests = true
     ButtonOptions = ["OK!"]
     UserName = "Awre Twelve"
     UserTitle = "Hedge Fund Manager at Corvid Group"
@@ -20,7 +21,8 @@ func _0_on_yes_button_pressed() -> void:
     update_button_options()
 
     add_message("%TS/don't pay us $5,000 by the end of the week")
-    await wait_secs(0.5)
+    await wait_secs(1)
+    _1_on_wait()
     
 
 func _1_on_wait() -> void:
@@ -38,4 +40,5 @@ func _2_on_yes_button_pressed() -> void:
 
 
 func _3_on_yes_button_pressed() -> void:
+    IgnoreCloseRequests = false
     close()

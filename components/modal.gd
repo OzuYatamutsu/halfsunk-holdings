@@ -6,6 +6,10 @@ extends CanvasLayer
 
 @onready var ModalWindow: Window = $ModalWindow
 
+## If true, ignores attempts to close the window
+@export var IgnoreCloseRequests: bool = false
+
+
 func _ready() -> void:
     ModalWindow.close_requested.connect(_on_close_requested)
 

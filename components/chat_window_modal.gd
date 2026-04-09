@@ -37,6 +37,8 @@ static func Create(script_path: String) -> ChatWindowModal:
 
 
 func _ready() -> void:
+    super._ready()
+
     _test_chat_message.queue_free()
     update_user_info()
     update_button_options()
