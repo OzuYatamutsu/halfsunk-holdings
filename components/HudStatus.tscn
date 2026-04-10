@@ -8,7 +8,7 @@
 [node name="HudStatus" type="HBoxContainer" unique_id=188384256]
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -1036.0
+offset_right = -953.0
 offset_bottom = 33.0
 grow_horizontal = 2
 theme_override_constants/separation = 8
@@ -24,8 +24,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_rey5j")
 theme_override_font_sizes/font_size = 20
-text = "1"
-horizontal_alignment = 1
+text = "Day 1, 08:30:00"
 vertical_alignment = 1
 
 [node name="IconMoney" type="TextureRect" parent="." unique_id=1891685455]
