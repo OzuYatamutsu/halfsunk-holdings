@@ -72,6 +72,7 @@ func start_day() -> void:
     net_worth_changed.emit()
     game_window.hud_status.update()
 
+
 func end_day() -> void:
     game_timer.stop()
 

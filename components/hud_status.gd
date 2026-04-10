@@ -7,9 +7,11 @@ extends HBoxContainer
 
 func _ready():
     GameState.cash_changed.connect(update)
+    GameState.net_worth_changed.connect(update)
+    GameState.delayed_tick.connect(update)
 
 
 ## Updates the UI with the current state
 func update() -> void:
-    CalendarDaysLabel.text = str(GameState.day_count)
+    CalendarDaysLabel.text = GameState.get_current_timestamp_humanized()
     MoneyLabel.text = Helpers.currencyify(GameState.cash)
