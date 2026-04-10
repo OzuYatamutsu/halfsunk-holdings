@@ -61,6 +61,7 @@ func clear_state() -> void:
     portfolio.clear()
     net_worth = STARTING_NET_WORTH
     day_count = STARTING_DAY
+    target = 0.0
     switch_page_data_bus = ""
     tick_count = 0
 
