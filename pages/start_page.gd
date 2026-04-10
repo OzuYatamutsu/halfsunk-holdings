@@ -10,8 +10,8 @@ const WORKDAY_OF_WEEK = [
 @onready var DateLabel: Label = %DateLabel
 @onready var CashValueLabel: Label = %CashValue
 @onready var SecuritiesValueLabel: Label = %SecuritiesValue
-@onready var DebtValueLabel: Label = %DebtValue
 @onready var NetWorthValueLabel: Label = %NetWorthValue
+@onready var TargetValueLabel: Label = %TargetValue
 
 func _ready():
     Title = "HOMEPAGE - Bluebird Browser"
@@ -24,7 +24,7 @@ func populate_data() -> void:
     _populate_date_label()
     _populate_cash_label()
     _populate_securities_value_label()
-    _populate_debt_value_label()
+    _populate_target_value_label()
     _populate_networth_value_label()
 
 func _populate_date_label() -> void:
@@ -39,9 +39,9 @@ func _populate_cash_label() -> void:
 func _populate_securities_value_label() -> void:
     SecuritiesValueLabel.text = Helpers.currencyify(GameState.portfolio.value())
 
-func _populate_debt_value_label() -> void:
-    DebtValueLabel.text = Helpers.currencyify(GameState.debt)
-    DebtValueLabel.add_theme_color_override("font_color", Color(SharedConstants.NEGATIVE_COLOR_CODE))
+func _populate_target_value_label() -> void:
+    TargetValueLabel.text = Helpers.currencyify(GameState.target, true, false)
+    TargetValueLabel.add_theme_color_override("font_color", Color(SharedConstants.NEGATIVE_COLOR_CODE))
 
 func _populate_networth_value_label() -> void:
     NetWorthValueLabel.text = Helpers.currencyify(GameState.net_worth)
