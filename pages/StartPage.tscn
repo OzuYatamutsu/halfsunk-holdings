@@ -143,19 +143,6 @@ layout_mode = 2
 theme = ExtResource("5_kywqg")
 text = "$0.00"
 
-[node name="DebtLabel" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=183159252]
-layout_mode = 2
-theme = ExtResource("2_1jbly")
-text = "Debt"
-horizontal_alignment = 2
-
-[node name="DebtValue" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=1545930364]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("5_kywqg")
-theme_override_colors/font_color = Color(0.9401068, 0.22805327, 5.7756904e-07, 1)
-text = "($2,500,000.00)"
-
 [node name="NetWorthLabel" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=1708111200]
 layout_mode = 2
 theme = ExtResource("2_1jbly")
@@ -166,8 +153,20 @@ horizontal_alignment = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("5_kywqg")
-theme_override_colors/font_color = Color(0.9411765, 0.22745098, 0, 1)
-text = "($1,500,000.00)"
+text = "$1,000,000.00"
+
+[node name="TargetLabel" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=183159252]
+layout_mode = 2
+theme = ExtResource("2_1jbly")
+text = "Target"
+horizontal_alignment = 2
+
+[node name="TargetValue" type="Label" parent="DynamicPageContent/ContentArea/Status/GridContainer" unique_id=1545930364]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("5_kywqg")
+theme_override_colors/font_color = Color(0.9401068, 0.22805327, 5.7756904e-07, 1)
+text = "$2,500,000.00"
 
 [node name="CashStatus" type="HBoxContainer" parent="DynamicPageContent/ContentArea/Status" unique_id=1762943896]
 layout_mode = 2

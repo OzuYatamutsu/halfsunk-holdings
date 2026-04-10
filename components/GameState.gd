@@ -27,19 +27,18 @@ const TICK_IN_GAME_TIME_MINS: int = 5
 ## the delayed_tick event.
 const AFTER_TICK_DELAY_SECS: float = 0.05
 
-const BUILD_DATE: String = "20260408"
-const VERSION_STRING: String = "0.2.6"
+const BUILD_DATE: String = "20260410"
+const VERSION_STRING: String = "0.3.1"
 
 const START_TIME_SECS: int = 30600
 const STARTING_CASH: float = 1000.0
-const STARTING_DEBT: float = 0.0
 const STARTING_NET_WORTH: float = 1000.0
 const STARTING_DAY: int = 1
 
 var cash: float = 0.0
 var portfolio: Portfolio = Portfolio.new()
-var debt: float = 0.0
 var net_worth: float = 0.0
+var target: float = 0.0
 var day_count: int = 1
 var game_timer: Timer = Timer.new()
 var delayed_tick_timer: Timer = Timer.new()
@@ -60,7 +59,6 @@ func clear_state() -> void:
     stock_market = StockMarket.new()
     cash = STARTING_CASH
     portfolio.clear()
-    debt = STARTING_DEBT
     net_worth = STARTING_NET_WORTH
     day_count = STARTING_DAY
     switch_page_data_bus = ""
@@ -79,7 +77,7 @@ func end_day() -> void:
 
 
 func recalculate_net_worth() -> void:
-    net_worth = cash + portfolio.value() - debt
+    net_worth = cash + portfolio.value()
     net_worth_changed.emit()
 
 
