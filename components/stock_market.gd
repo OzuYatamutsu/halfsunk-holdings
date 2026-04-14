@@ -12,7 +12,8 @@ const _MARKET_DATA: Dictionary[String, Array] = {
     "LZRD": ["TopScale Home Goods", 14.00, "Retail", "TopScale operates as a home improvement retailer, selling building materials, home improvement products, and roof shingles.\n\nIt previously offered general contracting services, but this was swiftly discontinued following the Great Swampening of 2007."],
     "TIGR": ["Tiger Electronics", 67.00, "Consumer Goods", "Tiger Electronics is the world's leading provider of rice cookers that sing to you.\n\nThat's all they make."],
     "EZBV": ["Easy InBev", 75.00, "Consumer Goods", "Easy InBev BE/ER is a leading producer of alcoholic beverages you can find on the bottom shelf of your local grocery store."],
-    "CBLT": ["Cobalt Biotech", 28.00, "Healthcare", "Cobalt Biotech engages in the research and development of pharmaceuticals and augments that help you become your fursona irl."]
+    "CBLT": ["Cobalt Biotech", 28.00, "Healthcare", "Cobalt Biotech engages in the research and development of pharmaceuticals and augments that help you become your fursona irl."],
+    "MSTR": ["Gila Monster Speculatives", 1.00, "Financial", "WARNING: LATE FILING\nWARNING: CAVEAT EMPTOR\n\nGila Monster Speculatives engages in speculative, high-frequency \"investments\" in digital currencies, digital tokens, and digitally generated animal JPEGs."]
 }
 
 ## If not influenced by weight, how much should the stock randomly
