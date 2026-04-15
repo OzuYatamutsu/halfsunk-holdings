@@ -23,6 +23,10 @@ enum Phase {
     CLOSE = 3
 }
 
+
+const PREMARKET_START_ANIM: PackedScene = preload("res://components/PremarketStartAnim.tscn")
+
+
 ## Events are called at the start of each phase.
 ## Events are ordered. To have multiple events occur
 ## in a phase, pass in a callable which calls another
@@ -33,14 +37,45 @@ var events: Dictionary[Phase, Callable] = {}
 ## Which day of the week is this level?
 var day: DayOfWeek
 
+## What phase are we currently on?
+var phase: Phase
+
 
 func _ready() -> void:
     pass
 
 
+func start_next_phase() -> void:
+    if (!phase):
+        print("phase transition: start -> premarket")
+        phase = Phase.PREMARKET
+        on_premarket_start()
+    elif (phase == Phase.PREMARKET):
+        print("phase transition: premarket -> marketopen")
+        on_premarket_end()
+        phase = Phase.MARKETOPEN
+        on_marketopen_start()
+    elif (phase == Phase.MARKETOPEN):
+        print("phase transition: marketopen -> aftermarket")
+        on_marketopen_end()
+        phase = Phase.AFTERMARKET
+        on_aftermarket_start()
+    elif (phase == Phase.AFTERMARKET):
+        print("phase transition: aftermarket -> close")
+        phase = Phase.CLOSE
+        on_close_start()
+    elif (phase == Phase.CLOSE):
+        print("phase transition: close -> end")
+        on_close_end()
+
 func on_premarket_start() -> void:
     GameState.clear_state()
     GameState.start_day()
+    
+    # Play starting animation
+    var _anim: PremarketStartAnim = PREMARKET_START_ANIM.instantiate()
+    get_tree().add_child(_anim)
+    await _anim.animation_finished
 
     if Phase.PREMARKET in events:
         events[Phase.PREMARKET].call()
