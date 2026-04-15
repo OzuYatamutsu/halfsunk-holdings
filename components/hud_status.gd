@@ -7,7 +7,6 @@ extends HBoxContainer
 
 func _ready():
     GameState.cash_changed.connect(update)
-    GameState.delayed_tick.connect(update)
 
 
 ## Updates the UI with the current state

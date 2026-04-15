@@ -51,7 +51,6 @@ func _ready() -> void:
     doit_button.disabled = true
     _disable_value_calculation_field()
     _update_stock_info()
-    GameState.delayed_tick.connect(_update_stock_info)
 
 
 func _update_stock_info() -> void:

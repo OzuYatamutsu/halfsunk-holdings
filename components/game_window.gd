@@ -13,4 +13,3 @@ func _ready() -> void:
 
     await marquee.set_text_from_stock_market_data()
     marquee.start()
-    GameState.delayed_tick.connect(marquee.set_text_from_stock_market_data)
