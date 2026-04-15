@@ -7,13 +7,6 @@ extends Node
 ## within each phase are met.
 
 
-## Events are called at the start of each phase.
-## Events are ordered. To have multiple events occur
-## in a phase, pass in a callable which calls another
-## callable at the end of execution.
-var events: Dictionary[Phase, Callable] = {}
-
-
 enum DayOfWeek {
     MONDAY = 0,
     TUESDAY = 1,
@@ -29,6 +22,16 @@ enum Phase {
     AFTERMARKET = 2,
     CLOSE = 3
 }
+
+## Events are called at the start of each phase.
+## Events are ordered. To have multiple events occur
+## in a phase, pass in a callable which calls another
+## callable at the end of execution.
+var events: Dictionary[Phase, Callable] = {}
+
+
+## Which day of the week is this level?
+var day: DayOfWeek
 
 
 func _ready() -> void:
