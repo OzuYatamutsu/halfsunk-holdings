@@ -36,9 +36,3 @@ static func currencyify(raw_number: float, omit_parens=false, omit_dollar_sign=f
     else:
         output_string = ("$" if !omit_dollar_sign else "") + "%s" % [output_string]
     return output_string
-
-
-## Converts a day + tick_count into a timestamp.
-## See GameState for an explanation of timestamp.
-static func to_timestamp(day_num: int, tick_count: int) -> int:
-    return (day_num * 10000) + tick_count

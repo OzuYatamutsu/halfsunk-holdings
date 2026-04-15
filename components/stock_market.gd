@@ -38,8 +38,6 @@ func _init() -> void:
             _MARKET_DATA[_ticker][2],
             _MARKET_DATA[_ticker][3]
         )
-    
-    GameState.tick.connect(_on_tick)
 
 ## Returns null if stock wasn't found
 func get_stock(ticker: String) -> Stock:
@@ -80,6 +78,3 @@ func get_all_to_string() -> Array[String]:
     for _stock in _market.values():
         stock_data.append(_stock._to_string())
     return stock_data
-
-func _on_tick() -> void:
-    market_random_shift()

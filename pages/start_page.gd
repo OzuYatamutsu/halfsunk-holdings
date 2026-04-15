@@ -16,7 +16,6 @@ const WORKDAY_OF_WEEK = [
 func _ready():
     Title = "HOMEPAGE - Bluebird Browser"
     PageHeightY = int(ContentArea.size.y)
-    GameState.delayed_tick.connect(populate_data)
     update_scrollable_area()
     populate_data()
 
