@@ -25,6 +25,9 @@ enum Phase {
 
 
 const PREMARKET_START_ANIM: PackedScene = preload("res://components/PremarketStartAnim.tscn")
+const MARKETOPEN_START_ANIM = ""  # TODO
+const AFTERMARKET_START_ANIM = ""  # TODO
+const CLOSE_START_ANIM = ""  # TODO
 
 
 ## Events are called at the start of each phase.
@@ -42,7 +45,8 @@ var phase: Phase
 
 
 func _ready() -> void:
-    pass
+    GameState.current_day = self
+    start_next_phase()
 
 
 func start_next_phase() -> void:

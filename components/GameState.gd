@@ -16,6 +16,7 @@ var cash: float = 0.0
 var portfolio: Portfolio = Portfolio.new()
 var net_worth: float = 0.0
 var target: float = 0.0
+var current_day: Day
 var day_count: int = 1
 
 var game_window: GameWindow
@@ -24,8 +25,10 @@ var stock_market: StockMarket
 ## Use this to pass data between pages.
 var switch_page_data_bus: Variant
 
+
 func _init() -> void:
     pass
+
 
 func clear_state() -> void:
     if stock_market:
@@ -37,6 +40,8 @@ func clear_state() -> void:
     day_count = STARTING_DAY
     target = 0.0
     switch_page_data_bus = ""
+    current_day = null
+
 
 func start_day() -> void:
     cash_changed.emit()
