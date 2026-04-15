@@ -1,8 +1,6 @@
 class_name Level
 extends Control
 
-var _events: Dictionary[int, Callable] = {}
-
 @onready var window: GameWindow = %GameWindow
 
 func _ready() -> void:

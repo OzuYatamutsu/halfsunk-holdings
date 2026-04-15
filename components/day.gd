@@ -31,7 +31,14 @@ enum Phase {
 }
 
 
+func _ready() -> void:
+    pass
+
+
 func on_premarket_start() -> void:
+    GameState.clear_state()
+    GameState.start_day()
+
     if Phase.PREMARKET in events:
         events[Phase.PREMARKET].call()
 
