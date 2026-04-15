@@ -2,10 +2,10 @@ extends Day
 
 
 func _ready() -> void:
-    super()
-
+    day = Day.DayOfWeek.MONDAY
     events = {Day.Phase.PREMARKET: _event_chat_message}
 
+    super()
 
 func on_marketopen_start() -> void:
     super()
