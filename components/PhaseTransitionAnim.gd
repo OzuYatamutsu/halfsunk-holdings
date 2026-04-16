@@ -1,4 +1,4 @@
-class_name PremarketStartAnim
+class_name PhaseTransitionAnim
 extends CanvasLayer
 
 signal animation_complete
