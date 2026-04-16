@@ -50,13 +50,10 @@ func start_day() -> void:
     current_day.action_taken.connect(
         game_window.hud_status.update
     )
-    
 
     cash_changed.emit()
     net_worth_changed.emit()
     game_window.hud_status.update()
-    
-
 
 
 func end_day() -> void:
@@ -68,6 +65,29 @@ func recalculate_net_worth() -> void:
     net_worth_changed.emit()
 
 
-## game timestamp of 10001 => "Day 1, 08:35:00"
+func get_time() -> String:
+    if (!current_day):
+        return "08:00"
+    if (current_day.phase == Day.Phase.PREMARKET):
+        return "08:30"
+    elif (current_day.phase == Day.Phase.MARKETOPEN):
+        return "%s:00" % [str(
+            Day.MARKETOPEN_START_HOUR + current_day.action_count
+        ).pad_zeros(2)]
+    elif (current_day.phase == Day.Phase.AFTERMARKET):
+        return "17:00"
+    else:  # Day.Phase.CLOSE
+        return "18:00"
+
+
+## 112
+func get_current_timestamp() -> int:
+    if (current_day):
+        return (day_count * 100) + current_day.action_count
+    else:
+        return (day_count * 100)
+
+
+## "Day 1, 12:00"
 func get_current_timestamp_humanized() -> String:
-    return "Day 0, 00:00:00"  # TODO
+    return "Day %s, %s" % [day_count, get_time()]
