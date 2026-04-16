@@ -36,6 +36,7 @@ const CLOSE_START_ANIM: PackedScene = preload("res://components/CloseStartAnim.t
 ## How many actions are in Phase.MARKETOPEN?
 const MARKETOPEN_ACTION_COUNT: int = 8
 
+const MARKETOPEN_START_HOUR: int = 9
 const MARKETOPEN_PHASE_TRANSITION_DELAY_SECS: float = 0.5
 
 
@@ -58,7 +59,6 @@ var action_count: int = 0
 
 func _ready() -> void:
     GameState.current_day = self
-    start_next_phase()
 
 
 func start_next_phase() -> void:

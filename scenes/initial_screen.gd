@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func do_load() -> void:
     print("starting preload")
-    GameState.clear_state()
 
     AudioEngine.adjust_master_volume(AudioEngine.INITIAL_MASTER_VOLUME)
     AudioEngine.adjust_music_volume(AudioEngine.INITIAL_MUSIC_VOLUME)

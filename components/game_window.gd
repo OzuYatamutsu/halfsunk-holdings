@@ -11,5 +11,5 @@ func _ready() -> void:
     command_prompt.enable()
     hud_status.update()
 
-    await marquee.set_text_from_stock_market_data()
-    marquee.start()
+    # await marquee.set_text_from_stock_market_data()
+    # marquee.start()
