@@ -25,9 +25,9 @@ enum Phase {
 
 
 const PREMARKET_START_ANIM: PackedScene = preload("res://components/PremarketStartAnim.tscn")
-const MARKETOPEN_START_ANIM = ""  # TODO
-const AFTERMARKET_START_ANIM = ""  # TODO
-const CLOSE_START_ANIM = ""  # TODO
+const MARKETOPEN_START_ANIM: PackedScene = preload("res://components/MarketOpenStartAnim.tscn")
+const AFTERMARKET_START_ANIM: PackedScene = preload("res://components/AfterMarketStartAnim.tscn")
+const CLOSE_START_ANIM: PackedScene = preload("res://components/CloseStartAnim.tscn")
 
 
 ## Events are called at the start of each phase.
@@ -77,7 +77,7 @@ func on_premarket_start() -> void:
     GameState.start_day()
     
     # Play starting animation
-    var _anim: PremarketStartAnim = PREMARKET_START_ANIM.instantiate()
+    var _anim: PhaseTransitionAnim = PREMARKET_START_ANIM.instantiate()
     get_tree().add_child(_anim)
     await _anim.animation_finished
 
@@ -90,6 +90,11 @@ func on_premarket_end() -> void:
 
 
 func on_marketopen_start() -> void:
+    # Play starting animation
+    var _anim: PhaseTransitionAnim = MARKETOPEN_START_ANIM.instantiate()
+    get_tree().add_child(_anim)
+    await _anim.animation_finished
+
     if Phase.MARKETOPEN in events:
         events[Phase.MARKETOPEN].call()
 
@@ -99,6 +104,11 @@ func on_marketopen_end() -> void:
 
 
 func on_aftermarket_start() -> void:
+    # Play starting animation
+    var _anim: PhaseTransitionAnim = AFTERMARKET_START_ANIM.instantiate()
+    get_tree().add_child(_anim)
+    await _anim.animation_finished
+
     if Phase.AFTERMARKET in events:
         events[Phase.MARKETOPEN].call()
     
@@ -108,6 +118,11 @@ func on_aftermarket_end() -> void:
 
 
 func on_close_start() -> void:
+    # Play starting animation
+    var _anim: PhaseTransitionAnim = CLOSE_START_ANIM.instantiate()
+    get_tree().add_child(_anim)
+    await _anim.animation_finished
+
     if Phase.CLOSE in events:
         events[Phase.CLOSE].call()
 
