@@ -23,11 +23,20 @@ enum Phase {
     CLOSE = 3
 }
 
+## Emitted after an action is taken in Phase.MARKETOPEN.
+signal action_taken
+
 
 const PREMARKET_START_ANIM: PackedScene = preload("res://components/PremarketStartAnim.tscn")
 const MARKETOPEN_START_ANIM: PackedScene = preload("res://components/MarketOpenStartAnim.tscn")
 const AFTERMARKET_START_ANIM: PackedScene = preload("res://components/AfterMarketStartAnim.tscn")
 const CLOSE_START_ANIM: PackedScene = preload("res://components/CloseStartAnim.tscn")
+
+
+## How many actions are in Phase.MARKETOPEN?
+const MARKETOPEN_ACTION_COUNT: int = 8
+
+const MARKETOPEN_PHASE_TRANSITION_DELAY_SECS: float = 0.5
 
 
 ## Events are called at the start of each phase.
@@ -36,12 +45,15 @@ const CLOSE_START_ANIM: PackedScene = preload("res://components/CloseStartAnim.t
 ## callable at the end of execution.
 var events: Dictionary[Phase, Callable] = {}
 
-
 ## Which day of the week is this level?
 var day: DayOfWeek
 
 ## What phase are we currently on?
 var phase: Phase
+
+## What's our current action count?
+## (Only relevant in Phase.MARKETOPEN)
+var action_count: int = 0
 
 
 func _ready() -> void:
@@ -71,6 +83,24 @@ func start_next_phase() -> void:
     elif (phase == Phase.CLOSE):
         print("phase transition: close -> end")
         on_close_end()
+
+
+## Take an action and advance time forward.
+## Only done in Phase.MARKETOPEN.
+func take_action():
+    assert(phase == Phase.MARKETOPEN)
+    
+    action_count += 1
+    action_taken.emit()
+    
+    # Gives some time for things to update, then
+    # phase transition if necessary
+    await get_tree().create_timer(
+        MARKETOPEN_PHASE_TRANSITION_DELAY_SECS
+    ).timeout
+    if action_count == MARKETOPEN_ACTION_COUNT:
+        start_next_phase()
+
 
 func on_premarket_start() -> void:
     GameState.clear_state()
