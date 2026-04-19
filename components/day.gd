@@ -98,10 +98,13 @@ func start_next_phase() -> void:
 ## Only done in Phase.MARKETOPEN.
 func take_action():
     assert(phase == Phase.MARKETOPEN)
-    
+
     action_count += 1
+    print("actions taken: %s/%s" % [
+        action_count, MARKETOPEN_ACTION_COUNT
+    ])
     action_taken.emit()
-    
+
     # Gives some time for things to update, then
     # phase transition if necessary
     await get_tree().create_timer(
