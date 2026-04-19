@@ -1,8 +1,11 @@
 class_name Modal
 extends CanvasLayer
 
+
 ## A Modal is drawn on top of other components drawn on screen
 ## (and dims the background).
+
+const _FREE_DELAY_SECS: float = 0.5
 
 @onready var ModalWindow: Window = $ModalWindow
 
@@ -23,4 +26,8 @@ func close() -> void:
 func _on_close_requested() -> void:
     if IgnoreCloseRequests:
         return
+    
+    # Delayed close
+    visible = false
+    await get_tree().create_timer(_FREE_DELAY_SECS).timeout
     queue_free()

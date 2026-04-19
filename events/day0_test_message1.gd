@@ -42,4 +42,5 @@ func _2_on_yes_button_pressed() -> void:
 
 func _3_on_yes_button_pressed() -> void:
     IgnoreCloseRequests = false
+    GameState.current_day.last_event_finished.emit()
     close()
