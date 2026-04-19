@@ -6,6 +6,7 @@ func _ready() -> void:
     events = {Day.Phase.PREMARKET: _event_chat_message}
 
     super()
+    start_next_phase()
 
 func on_marketopen_start() -> void:
     super()
