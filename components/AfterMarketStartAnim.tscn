@@ -62,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_58o0v")
 theme_override_font_sizes/font_size = 40
-text = "PREMARKET (placeholder animation)"
+text = "AFTERMARKET (placeholder animation)"
 horizontal_alignment = 1
 vertical_alignment = 1
 

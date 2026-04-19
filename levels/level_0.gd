@@ -8,13 +8,14 @@ func _ready() -> void:
     super()
     start_next_phase()
 
-func on_marketopen_start() -> void:
+func on_premarket_start() -> void:
     super()
 
     AudioEngine.play_bgm(AudioEngine.BGM_GAME)
-    GameState.game_window.browser.load_page(
-        "res://pages/StartPage.tscn"
-    )
+
+
+func on_marketopen_start() -> void:
+    super()
 
 
 func _event_chat_message() -> void:

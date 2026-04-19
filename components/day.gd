@@ -17,11 +17,16 @@ enum DayOfWeek {
 
 
 enum Phase {
+    START = -1,
     PREMARKET = 0,
     MARKETOPEN = 1,
     AFTERMARKET = 2,
     CLOSE = 3
 }
+
+## Emitted after the last event fires in Phase.PREMARKET
+## or Phase.AFTERMARKET.
+signal last_event_finished
 
 ## Emitted after an action is taken in Phase.MARKETOPEN.
 signal action_taken
@@ -50,7 +55,7 @@ var events: Dictionary[Phase, Callable] = {}
 var day: DayOfWeek
 
 ## What phase are we currently on?
-var phase: Phase
+var phase: Phase = Phase.START
 
 ## What's our current action count?
 ## (Only relevant in Phase.MARKETOPEN)
@@ -59,10 +64,11 @@ var action_count: int = 0
 
 func _ready() -> void:
     GameState.current_day = self
+    last_event_finished.connect(start_next_phase)
 
 
 func start_next_phase() -> void:
-    if (!phase):
+    if (phase == Phase.START):
         print("phase transition: start -> premarket")
         phase = Phase.PREMARKET
         on_premarket_start()
@@ -122,8 +128,8 @@ func on_premarket_end() -> void:
 func on_marketopen_start() -> void:
     # Play starting animation
     var _anim: PhaseTransitionAnim = MARKETOPEN_START_ANIM.instantiate()
-    get_tree().add_child(_anim)
-    await _anim.animation_finished
+    get_tree().current_scene.add_child(_anim)
+    await _anim.animation_complete
 
     if Phase.MARKETOPEN in events:
         events[Phase.MARKETOPEN].call()
@@ -136,8 +142,8 @@ func on_marketopen_end() -> void:
 func on_aftermarket_start() -> void:
     # Play starting animation
     var _anim: PhaseTransitionAnim = AFTERMARKET_START_ANIM.instantiate()
-    get_tree().add_child(_anim)
-    await _anim.animation_finished
+    get_tree().current_scene.add_child(_anim)
+    await _anim.animation_complete
 
     if Phase.AFTERMARKET in events:
         events[Phase.MARKETOPEN].call()
@@ -150,8 +156,8 @@ func on_aftermarket_end() -> void:
 func on_close_start() -> void:
     # Play starting animation
     var _anim: PhaseTransitionAnim = CLOSE_START_ANIM.instantiate()
-    get_tree().add_child(_anim)
-    await _anim.animation_finished
+    get_tree().current_scene.add_child(_anim)
+    await _anim.animation_complete
 
     if Phase.CLOSE in events:
         events[Phase.CLOSE].call()

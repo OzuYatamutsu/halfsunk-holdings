@@ -20,6 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_eudgq"]
 resource_name = "on_load"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -62,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_ntr6b")
 theme_override_font_sizes/font_size = 40
-text = "PREMARKET (placeholder animation)"
+text = "MARKETOPEN (placeholder animation)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
