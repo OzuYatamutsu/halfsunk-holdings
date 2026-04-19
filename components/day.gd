@@ -66,6 +66,9 @@ func _ready() -> void:
     GameState.current_day = self
     last_event_finished.connect(start_next_phase)
 
+    last_event_finished.connect(GameState.game_window.hud_status.update)
+    action_taken.connect(GameState.game_window.hud_status.update)
+
 
 func start_next_phase() -> void:
     if (phase == Phase.START):
