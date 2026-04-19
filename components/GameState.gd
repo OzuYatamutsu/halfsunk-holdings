@@ -40,7 +40,6 @@ func clear_state() -> void:
     day_count = STARTING_DAY
     target = 0.0
     switch_page_data_bus = ""
-    current_day = null
 
 
 func start_day() -> void:

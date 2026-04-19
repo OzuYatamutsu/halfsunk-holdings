@@ -108,8 +108,8 @@ func on_premarket_start() -> void:
     
     # Play starting animation
     var _anim: PhaseTransitionAnim = PREMARKET_START_ANIM.instantiate()
-    get_tree().add_child(_anim)
-    await _anim.animation_finished
+    get_tree().current_scene.add_child(_anim)
+    await _anim.animation_complete
 
     if Phase.PREMARKET in events:
         events[Phase.PREMARKET].call()

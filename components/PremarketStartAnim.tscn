@@ -20,6 +20,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_eudgq"]
 resource_name = "on_load"
+length = 2.0
+step = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
