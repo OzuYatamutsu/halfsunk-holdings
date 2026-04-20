@@ -31,6 +31,10 @@ signal last_event_finished
 ## Emitted after an action is taken in Phase.MARKETOPEN.
 signal action_taken
 
+## Emitted ACTION_DELAY_SECS after action_taken in Phase.MARKETOPEN.
+## (i.e., for ui updates)
+signal delayed_action_taken
+
 
 const PREMARKET_START_ANIM: PackedScene = preload("res://components/PremarketStartAnim.tscn")
 const MARKETOPEN_START_ANIM: PackedScene = preload("res://components/MarketOpenStartAnim.tscn")
@@ -42,8 +46,7 @@ const CLOSE_START_ANIM: PackedScene = preload("res://components/CloseStartAnim.t
 const MARKETOPEN_ACTION_COUNT: int = 8
 
 const MARKETOPEN_START_HOUR: int = 9
-const MARKETOPEN_PHASE_TRANSITION_DELAY_SECS: float = 0.5
-
+const ACTION_DELAY_SECS: float = 0.10
 
 ## Events are called at the start of each phase.
 ## Events are ordered. To have multiple events occur
@@ -68,6 +71,7 @@ func _ready() -> void:
 
     last_event_finished.connect(GameState.game_window.hud_status.update)
     action_taken.connect(GameState.game_window.hud_status.update)
+    delayed_action_taken.connect(GameState.game_window.marquee.set_text_from_stock_market_data)
 
 
 func start_next_phase() -> void:
@@ -103,13 +107,11 @@ func take_action():
     print("actions taken: %s/%s" % [
         action_count, MARKETOPEN_ACTION_COUNT
     ])
-    action_taken.emit()
 
-    # Gives some time for things to update, then
-    # phase transition if necessary
-    await get_tree().create_timer(
-        MARKETOPEN_PHASE_TRANSITION_DELAY_SECS
-    ).timeout
+    action_taken.emit()
+    await get_tree().create_timer(ACTION_DELAY_SECS).timeout
+    delayed_action_taken.emit()
+
     if action_count == MARKETOPEN_ACTION_COUNT:
         start_next_phase()
 

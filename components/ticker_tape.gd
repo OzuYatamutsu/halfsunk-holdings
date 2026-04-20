@@ -24,6 +24,7 @@ func _ready():
     await _apply_text()
     _reset_positions()
 
+
 func set_text_from_stock_market_data() -> void:
     _running = false
 

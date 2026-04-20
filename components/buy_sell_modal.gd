@@ -138,6 +138,7 @@ func _execute_transaction() -> void:
 
     GameState.cash_changed.emit()
     GameState.recalculate_net_worth()
+    GameState.current_day.take_action()
     _update_stock_info()
 
 
