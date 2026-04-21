@@ -170,6 +170,15 @@ func on_close_start() -> void:
     if Phase.CLOSE in events:
         events[Phase.CLOSE].call()
 
+    # Immediately transition to ending close
+    call_deferred("start_next_phase")
+
 
 func on_close_end() -> void:
-    pass
+    # Clean up day counters
+    action_count = 0
+    phase = Phase.START
+    day = ((day + 1) % DayOfWeek.size()) as DayOfWeek
+    
+    # start the next day
+    start_next_phase()
