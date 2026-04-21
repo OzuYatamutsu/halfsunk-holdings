@@ -154,7 +154,7 @@ func on_aftermarket_start() -> void:
     await _anim.animation_complete
 
     if Phase.AFTERMARKET in events:
-        events[Phase.MARKETOPEN].call()
+        events[Phase.AFTERMARKET].call()
     
 
 func on_aftermarket_end() -> void:
