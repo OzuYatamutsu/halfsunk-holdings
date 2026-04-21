@@ -5,7 +5,7 @@ extends CanvasLayer
 ## A Modal is drawn on top of other components drawn on screen
 ## (and dims the background).
 
-const _FREE_DELAY_SECS: float = 0.5
+const _FREE_DELAY_SECS: float = 0.05
 
 @onready var ModalWindow: Window = $ModalWindow
 
