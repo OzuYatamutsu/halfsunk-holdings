@@ -3,6 +3,9 @@ extends Day
 
 
 func _ready() -> void:
+    # First day of week
+    GameState.clear_state()
+
     day = Day.DayOfWeek.MONDAY
     events = {
         Day.Phase.PREMARKET: _event_chat_message,
