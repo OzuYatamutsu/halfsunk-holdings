@@ -23,6 +23,11 @@ func on_aftermarket_start() -> void:
 
     AudioEngine.pause_bgm()
 
+func on_close_end() -> void:
+    super()
+    
+    get_tree().change_scene_to_file("res://days/day0002.tscn")
+
 
 func _event_chat_message() -> void:
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
