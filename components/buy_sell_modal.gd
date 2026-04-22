@@ -118,6 +118,10 @@ func _validate_transaction() -> bool:
 
 
 func _execute_transaction() -> void:
+    if (GameState.current_day.phase != Day.Phase.MARKETOPEN):
+        print("Ignoring _execute_transaction, incompatible phase")
+        return
+
     var quantity: int = int(QuantityEdit.text)
     var value: float = stock.current_value
 
