@@ -175,10 +175,4 @@ func on_close_start() -> void:
 
 
 func on_close_end() -> void:
-    # Clean up day counters
-    action_count = 0
-    phase = Phase.START
-    day = ((day + 1) % DayOfWeek.size()) as DayOfWeek
-    
-    # start the next day
-    start_next_phase()
+    pass
