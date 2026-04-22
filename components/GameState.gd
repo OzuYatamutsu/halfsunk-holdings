@@ -43,11 +43,9 @@ func clear_state() -> void:
 
 
 func start_day() -> void:
+    switch_page_data_bus = ""
     current_day.action_taken.connect(
         stock_market.on_action_taken
-    )
-    current_day.action_taken.connect(
-        game_window.hud_status.update
     )
 
     cash_changed.emit()

@@ -91,6 +91,7 @@ func start_next_phase() -> void:
         on_aftermarket_start()
     elif (phase == Phase.AFTERMARKET):
         print("phase transition: aftermarket -> close")
+        on_aftermarket_end()
         phase = Phase.CLOSE
         on_close_start()
     elif (phase == Phase.CLOSE):
@@ -117,7 +118,6 @@ func take_action():
 
 
 func on_premarket_start() -> void:
-    GameState.clear_state()
     GameState.start_day()
     
     # Play starting animation
@@ -127,6 +127,8 @@ func on_premarket_start() -> void:
 
     if Phase.PREMARKET in events:
         events[Phase.PREMARKET].call()
+    else:
+        last_event_finished.emit()
 
 
 func on_premarket_end() -> void:
@@ -155,7 +157,9 @@ func on_aftermarket_start() -> void:
 
     if Phase.AFTERMARKET in events:
         events[Phase.AFTERMARKET].call()
-    
+    else:
+        last_event_finished.emit()
+
 
 func on_aftermarket_end() -> void:
     pass
@@ -175,4 +179,4 @@ func on_close_start() -> void:
 
 
 func on_close_end() -> void:
-    pass
+    GameState.day_count += 1
