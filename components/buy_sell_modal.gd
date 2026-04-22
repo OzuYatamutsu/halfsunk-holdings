@@ -48,6 +48,7 @@ func _ready() -> void:
     ticker = GameState.switch_page_data_bus.split(';')[0].to_upper()
     action = Mode[GameState.switch_page_data_bus.split(';')[1].to_upper()]
 
+    QuantityEdit.grab_focus()
     doit_button.disabled = true
     _disable_value_calculation_field()
     _update_stock_info()
@@ -166,3 +167,7 @@ func _on_doit_button_pressed() -> void:
     AudioEngine.play_sfx(AudioEngine.SFX_BUYSELL)
     _execute_transaction()
     ModalWindow.close_requested.emit()
+
+
+func _on_quantity_edit_text_submitted(_new_text: String) -> void:
+    _on_doit_button_pressed()

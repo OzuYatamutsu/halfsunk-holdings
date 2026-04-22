@@ -174,4 +174,5 @@ texture_pressed = ExtResource("14_8n4f5")
 texture_disabled = ExtResource("15_mfyxg")
 
 [connection signal="text_changed" from="ModalWindow/InfoContainer/QuantitySelector/QuantityEdit" to="." method="_on_quantity_edit_text_changed"]
+[connection signal="text_submitted" from="ModalWindow/InfoContainer/QuantitySelector/QuantityEdit" to="." method="_on_quantity_edit_text_submitted"]
 [connection signal="pressed" from="ModalWindow/InfoContainer/ConfirmButtonContainer/DoitButton" to="." method="_on_doit_button_pressed"]
