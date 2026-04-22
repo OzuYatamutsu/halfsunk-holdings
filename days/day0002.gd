@@ -4,7 +4,9 @@ extends Day
 
 func _ready() -> void:
     day = Day.DayOfWeek.TUESDAY
-    events = {}
+    events = {
+        Day.Phase.PREMARKET: _event_chat_message
+    }
 
     super()
     start_next_phase()
@@ -20,3 +22,10 @@ func on_aftermarket_start() -> void:
 
 func on_close_end() -> void:
     super()
+
+
+func _event_chat_message() -> void:
+    var chat_window: ChatWindowModal = ChatWindowModal.Create(
+        "res://events/day1_test_message1.gd"
+    )
+    GameState.game_window.add_child(chat_window)
