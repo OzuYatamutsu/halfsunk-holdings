@@ -14,7 +14,7 @@ const _MARKET_DATA: Dictionary[String, Array] = {
     "EZBV": ["Easy InBev", 75.00, "Consumer Goods", "Easy InBev BE/ER is a leading producer of alcoholic beverages you can find on the bottom shelf of your local grocery store."],
     "CBLT": ["Cobalt Biotech", 28.00, "Healthcare", "Cobalt Biotech engages in the research and development of pharmaceuticals and augments that help you become your fursona irl."],
     "MSTR": ["Gila Monster Speculatives", 1.00, "Financial", "WARNING: LATE FILING\nWARNING: CAVEAT EMPTOR\n\nGila Monster Speculatives engages in speculative, high-frequency \"investments\" in digital currencies, digital tokens, and digitally generated animal JPEGs."],
-    "CRW": ["Corvid Auto Group", 249.00, "Leasing Services", "Corvid Auto Group provides car, truck, air services, and ancilliary services.\n\nMake sure to fill up your tank before returning your hot air balloon!"],
+    "CRW": ["Corvid Auto Group", 249.00, "Leasing Services", "Corvid Auto Group provides car, truck, air services, and ancillary services.\n\nMake sure to fill up your tank before returning your hot air balloon!"],
     "SNEK": ["Snake Biolabs", 12.00, "Healthcare", "Snake Biolabs, a biotechnology company, distributes vaccination kits for the prevention and management of the B Virus.\n\nThe B Virus makes you into baby (terminal)"]
 }
 
