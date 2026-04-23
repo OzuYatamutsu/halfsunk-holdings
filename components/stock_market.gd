@@ -15,7 +15,7 @@ const _MARKET_DATA: Dictionary[String, Array] = {
     "CBLT": ["Cobalt Biotech", 28.00, "Healthcare", "Cobalt Biotech engages in the research and development of pharmaceuticals and augments that help you become your fursona irl."],
     "MSTR": ["Gila Monster Speculatives", 1.00, "Financial", "WARNING: LATE FILING\nWARNING: CAVEAT EMPTOR\n\nGila Monster Speculatives engages in speculative, high-frequency \"investments\" in digital currencies, digital tokens, and digitally generated animal JPEGs."],
     "CRW": ["Corvid Auto Group", 249.00, "Leasing Services", "Corvid Auto Group provides car, truck, air services, and ancilliary services.\n\nMake sure to fill up your tank before returning your hot air balloon!"],
-    "SNEK": ["Snake Biolabs", 0.00, "Healthcare", "Snake Biolabs, a biotechnology company, distributes vaccination kits for the prevention and management of the B Virus.\n\nThe B Virus makes you into baby (terminal)"]
+    "SNEK": ["Snake Biolabs", 12.00, "Healthcare", "Snake Biolabs, a biotechnology company, distributes vaccination kits for the prevention and management of the B Virus.\n\nThe B Virus makes you into baby (terminal)"]
 }
 
 ## If not influenced by weight, how much should the stock randomly
