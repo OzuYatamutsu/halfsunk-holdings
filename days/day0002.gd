@@ -3,7 +3,7 @@ extends Day
 
 
 func _ready() -> void:
-    day = Day.DayOfWeek.TUESDAY
+    day = Day.DayOfWeek.FRIDAY
     events = {
         Day.Phase.PREMARKET: _event_chat_message
     }

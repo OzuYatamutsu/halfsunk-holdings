@@ -6,7 +6,7 @@ func _ready() -> void:
     # First day of week
     GameState.clear_state()
 
-    day = Day.DayOfWeek.MONDAY
+    day = Day.DayOfWeek.THURSDAY
     events = {
         Day.Phase.PREMARKET: _event_chat_message,
         Day.Phase.AFTERMARKET: _event_postmarket_chat_messages
