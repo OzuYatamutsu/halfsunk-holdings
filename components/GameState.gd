@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 
 
-const BUILD_DATE: String = "20260414"
-const VERSION_STRING: String = "0.4.1"
+const BUILD_DATE: String = "20260423"
+const VERSION_STRING: String = "0.4.2"
 
 const STARTING_CASH: float = 1000.0
 const STARTING_NET_WORTH: float = 1000.0
@@ -87,3 +87,18 @@ func get_current_timestamp_humanized() -> String:
         return "%s, %s" % [Day.DayOfWeek.keys()[current_day.day], get_time()]
     else:
         return "Day %s, %s" % [day_count, get_time()]
+
+
+## Call this to trigger an end of week state
+func end_of_week() -> void:
+    # TODO: load scene with animations, e.g.,
+    # TODO:   counting down net worth against target
+    # TODO: compare net worth against target;
+    # TODO:   if < target, go to a losing state
+    # TODO:   if >= target, go to a winning state
+    # TODO: if winning state, zero out all investments
+    # TODO:   (they're being sold to pay off the target)
+    # TODO: if losing state, play a losing animation,
+    # TODO:   show total score, and show buttons
+    # TODO:    to restart the week or quit
+    pass  # TODO
