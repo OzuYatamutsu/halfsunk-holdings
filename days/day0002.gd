@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func on_premarket_start() -> void:
     super()
+    GameState.game_window.browser.load_page("res://pages/StartPage.tscn")
 
 
 func on_aftermarket_start() -> void:
