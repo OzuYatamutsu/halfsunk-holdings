@@ -73,12 +73,12 @@ func get_time() -> String:
         return "18:00"
 
 
-## 112
+## e.g. day 1, action 5 = 5, day 2, action 2 = 10
 func get_current_timestamp() -> int:
     if (current_day):
-        return (day_count * 100) + current_day.action_count
+        return (day_count * Day.MARKETOPEN_ACTION_COUNT) + current_day.action_count
     else:
-        return (day_count * 100)
+        return (day_count * Day.MARKETOPEN_ACTION_COUNT)
 
 
 ## "Monday, 12:00"
