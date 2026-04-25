@@ -91,14 +91,19 @@ func get_current_timestamp_humanized() -> String:
 
 ## Call this to trigger an end of week state
 func end_of_week() -> void:
-    # TODO: load scene with animations, e.g.,
-    # TODO:   counting down net worth against target
-    # TODO: compare net worth against target;
-    # TODO:   if < target, go to a losing state
-    # TODO:   if >= target, go to a winning state
-    # TODO: if winning state, zero out all investments
-    # TODO:   (they're being sold to pay off the target)
-    # TODO: if losing state, play a losing animation,
-    # TODO:   show total score, and show buttons
-    # TODO:    to restart the week or quit
-    pass  # TODO
+    print("end of week calcuation start")
+
+    # Scene with end of week animations
+    var _end_of_week_anim: PhaseTransitionAnim = load("res://components/EndOfWeekAnim.tscn").instantiate()
+    current_day.add_child(_end_of_week_anim)
+    await _end_of_week_anim.animation_complete
+    
+    print("net worth: %.2d, target: %.2d" % [net_worth, target])
+    if (target < net_worth):
+        print("entering eow losing state")
+        # TODO: play a losing animation
+        # TODO: show total score, buttons to restart the week or quite
+    else:
+        print("entering eow winning state")
+        # TODO: zero out all investments
+        # TODO: start next week
