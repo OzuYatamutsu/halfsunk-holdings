@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bxr2utykaf6u"]
+
+[ext_resource type="Script" uid="uid://ch63op5sxxsfa" path="res://components/game_over_modal.gd" id="1_t2sm0"]
+[ext_resource type="Script" uid="uid://c1587q6vs64xs" path="res://components/modal_window.gd" id="2_vok30"]
+
+[node name="GameOverModal" type="CanvasLayer" unique_id=558805024]
+script = ExtResource("1_t2sm0")
+
+[node name="BgDimEffect" type="ColorRect" parent="." unique_id=1002175299]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0009594, 1.0072175)
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="ModalWindow" type="Window" parent="." unique_id=1985508439]
+oversampling_override = 1.0
+title = "GAME OVER"
+initial_position = 1
+size = Vector2i(700, 400)
+script = ExtResource("2_vok30")
+
+[node name="InfoContainer" type="VBoxContainer" parent="ModalWindow" unique_id=69046364]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
