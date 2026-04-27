@@ -101,9 +101,5 @@ func end_of_week() -> void:
     print("net worth: %.2d, target: %.2d" % [net_worth, target])
     if (target < net_worth):
         print("entering eow losing state")
-        # TODO: play a losing animation
-        # TODO: show total score, buttons to restart the week or quite
     else:
         print("entering eow winning state")
-        # TODO: zero out all investments
-        # TODO: start next week
