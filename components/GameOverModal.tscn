@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ch63op5sxxsfa" path="res://components/game_over_modal.gd" id="1_t2sm0"]
 [ext_resource type="Script" uid="uid://c1587q6vs64xs" path="res://components/modal_window.gd" id="2_vok30"]
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="5_femwi"]
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="6_3id0x"]
+[ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="8_ud7ju"]
 
 [node name="GameOverModal" type="CanvasLayer" unique_id=558805024]
 script = ExtResource("1_t2sm0")
@@ -28,3 +31,79 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="_spacer" type="Control" parent="ModalWindow/InfoContainer" unique_id=1647234454]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="ModalWindow/InfoContainer" unique_id=65733746]
+layout_mode = 2
+theme = ExtResource("5_femwi")
+theme_override_font_sizes/font_size = 40
+text = "NOTICE OF TERMINATION"
+horizontal_alignment = 1
+
+[node name="GameOverSubtitle" type="Label" parent="ModalWindow/InfoContainer" unique_id=289215542]
+layout_mode = 2
+theme = ExtResource("6_3id0x")
+text = "\"You're fired!!!\""
+horizontal_alignment = 1
+
+[node name="_spacer2" type="Control" parent="ModalWindow/InfoContainer" unique_id=1090029715]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ScoreSummaryGridContainer" type="GridContainer" parent="ModalWindow/InfoContainer" unique_id=1639925743]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="TotalScoreLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=1920041613]
+layout_mode = 2
+theme = ExtResource("5_femwi")
+text = "Total score"
+horizontal_alignment = 2
+
+[node name="TotalScoreValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=61507488]
+layout_mode = 2
+theme = ExtResource("6_3id0x")
+text = "3,000,000.00"
+
+[node name="JobHeldForLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=1228592002]
+layout_mode = 2
+theme = ExtResource("5_femwi")
+text = "Job had for"
+horizontal_alignment = 2
+
+[node name="JobHeldForValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=47149893]
+layout_mode = 2
+theme = ExtResource("6_3id0x")
+text = "13 days"
+
+[node name="_spacer3" type="Control" parent="ModalWindow/InfoContainer" unique_id=1442267441]
+custom_minimum_size = Vector2(0, 115)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=959260380]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MainMenuButton" type="Button" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=1258140683]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("8_ud7ju")
+theme_override_font_sizes/font_size = 20
+text = "Try again!"
+alignment = 0
+
+[node name="_spacer4" type="Control" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=1176235812]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=1237839086]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("8_ud7ju")
+theme_override_font_sizes/font_size = 20
+text = "Retire..."
+alignment = 0
