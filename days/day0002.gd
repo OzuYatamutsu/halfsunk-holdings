@@ -23,6 +23,8 @@ func on_aftermarket_start() -> void:
 
 func on_close_end() -> void:
     super()
+    
+    GameState.end_of_week()
 
 
 func _event_chat_message() -> void:
