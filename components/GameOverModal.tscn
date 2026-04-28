@@ -65,6 +65,7 @@ text = "Total score"
 horizontal_alignment = 2
 
 [node name="TotalScoreValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=61507488]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("6_3id0x")
 text = "3,000,000.00"
@@ -76,6 +77,7 @@ text = "Job had for"
 horizontal_alignment = 2
 
 [node name="JobHeldForValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=47149893]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("6_3id0x")
 text = "13 days"
