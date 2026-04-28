@@ -15,6 +15,7 @@ const STARTING_DAY: int = 1
 var cash: float = 0.0
 var portfolio: Portfolio = Portfolio.new()
 var net_worth: float = 0.0
+var total_score: float = 0.0
 var target: float = 0.0
 var current_day: Day
 var day_count: int = 1
@@ -92,6 +93,7 @@ func get_current_timestamp_humanized() -> String:
 ## Call this to trigger an end of week state
 func end_of_week() -> void:
     print("end of week calcuation start")
+    total_score += net_worth
 
     # Scene with end of week animations
     var _end_of_week_anim: PhaseTransitionAnim = load("res://components/EndOfWeekAnim.tscn").instantiate()
