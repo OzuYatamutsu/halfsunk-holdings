@@ -16,7 +16,6 @@ func _handle_losing_state() -> void:
     # TODO: play a losing animation
     var _gameOverModal: GameOverModal = load("res://components/GameOverModal.tscn").instantiate()
     add_child(_gameOverModal)
-    pass  # TODO
 
 func _handle_winning_state() -> void:
     # TODO: zero out all investments
