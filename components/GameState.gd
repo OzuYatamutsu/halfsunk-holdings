@@ -92,7 +92,7 @@ func get_current_timestamp_humanized() -> String:
 
 ## Call this to trigger an end of week state
 func end_of_week() -> void:
-    print("end of week calcuation start")
+    print("end of week calculation start")
     total_score += net_worth
 
     # Scene with end of week animations
@@ -111,3 +111,5 @@ func end_of_week() -> void:
         net_worth = 0.0
         target = 0.0
         portfolio.clear()
+        
+        # TODO: save stock prices to StockMarket
