@@ -18,6 +18,5 @@ func _handle_losing_state() -> void:
     add_child(_gameOverModal)
 
 func _handle_winning_state() -> void:
-    # TODO: zero out all investments
-    # TODO: start next week
+    # TODO: play a winning animation
     pass  # TODO
