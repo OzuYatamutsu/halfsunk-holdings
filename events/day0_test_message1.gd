@@ -19,9 +19,9 @@ func _0_on_yes_button_pressed() -> void:
     ButtonOptions = ["..."]
     YesAction = noop_action
     update_button_options()
-    GameState.target = 5000.00
+    GameState.target = 1200.00
 
-    add_message("%TS/don't pay us $5,000 by the end of the week")
+    add_message("%TS/don't pay us $1,200 by the end of the week")
     await wait_secs(1)
     _1_on_wait()
     
