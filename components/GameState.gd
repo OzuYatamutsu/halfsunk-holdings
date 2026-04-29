@@ -105,3 +105,9 @@ func end_of_week() -> void:
         print("entering eow losing state")
     else:
         print("entering eow winning state")
+        
+        # Clear out all investments in prep for next week
+        cash = 0.0
+        net_worth = 0.0
+        target = 0.0
+        portfolio.clear()
