@@ -10,11 +10,13 @@ const VERSION_STRING: String = "0.4.3"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
+const SAVE_GAME_PREFIX: String = "save"
 
 const STARTING_CASH: float = 1000.0
 const STARTING_NET_WORTH: float = 1000.0
 const STARTING_DAY: int = 1
 
+var save_slot: int = 0
 var cash: float = 0.0
 var portfolio: Portfolio = Portfolio.new()
 var net_worth: float = 0.0
@@ -115,7 +117,7 @@ func end_of_week() -> void:
         target = 0.0
         portfolio.clear()
         
-        # TODO: save stock prices to StockMarket
+        save_game()
 
 
 func _ensure_savegame_dir() -> void:
@@ -128,5 +130,10 @@ func _ensure_savegame_dir() -> void:
     save_game_dir = DirAccess.open(GameState.SAVE_GAME_PATH)
 
 
-func save_game():
+## Games will be saved in ${SAVE_GAME_PATH}/${SAVE_PREFIX}_${save_slot}.
+func save_game() -> void:
+    var full_save_path = "%s/%s_%s" % [SAVE_GAME_PATH, SAVE_GAME_PREFIX, save_slot]
+    
+    # TODO save StockMarket prices
+    # TODO save state
     pass  # TODO
