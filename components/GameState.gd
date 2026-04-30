@@ -134,6 +134,7 @@ func _ensure_savegame_dir() -> void:
 func save_game() -> void:
     var full_save_path = "%s/%s_%s" % [SAVE_GAME_PATH, SAVE_GAME_PREFIX, save_slot]
     
+    # TODO save GameState
     # TODO save StockMarket prices
-    # TODO save state
+    # TODO save anything else
     pass  # TODO
