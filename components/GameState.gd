@@ -5,8 +5,11 @@ signal cash_changed
 signal net_worth_changed
 
 
-const BUILD_DATE: String = "20260423"
-const VERSION_STRING: String = "0.4.2"
+const BUILD_DATE: String = "20260430"
+const VERSION_STRING: String = "0.4.3"
+const SAVE_GAME_PATH_ROOT: String = "user://"
+const SAVE_GAME_PATH_FOLDER: String = "savegames"
+const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
 
 const STARTING_CASH: float = 1000.0
 const STARTING_NET_WORTH: float = 1000.0
@@ -28,7 +31,7 @@ var switch_page_data_bus: Variant
 
 
 func _init() -> void:
-    pass
+    _ensure_savegame_dir()
 
 
 func clear_state() -> void:
@@ -113,3 +116,17 @@ func end_of_week() -> void:
         portfolio.clear()
         
         # TODO: save stock prices to StockMarket
+
+
+func _ensure_savegame_dir() -> void:
+    var save_game_dir = DirAccess.open(GameState.SAVE_GAME_PATH)
+    if save_game_dir != null:
+        return
+
+    print("Save game dir doesn't exist, creating")
+    DirAccess.open(GameState.SAVE_GAME_PATH_ROOT).make_dir(GameState.SAVE_GAME_PATH_FOLDER)
+    save_game_dir = DirAccess.open(GameState.SAVE_GAME_PATH)
+
+
+func save_game():
+    pass  # TODO
