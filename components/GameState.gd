@@ -130,11 +130,15 @@ func _ensure_savegame_dir() -> void:
     save_game_dir = DirAccess.open(GameState.SAVE_GAME_PATH)
 
 
+func serialize() -> String:
+    return JSON.stringify(JSON.from_native(self, false))
+
+
 ## Games will be saved in ${SAVE_GAME_PATH}/${SAVE_PREFIX}_${save_slot}.
 func save_game() -> void:
     var full_save_path = "%s/%s_%s" % [SAVE_GAME_PATH, SAVE_GAME_PREFIX, save_slot]
     
-    # TODO save GameState
+    var _gamestate_data = serialize()
     # TODO save StockMarket prices
     # TODO save anything else
     pass  # TODO
