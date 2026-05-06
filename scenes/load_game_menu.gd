@@ -29,12 +29,12 @@ func load_saved_games() -> void:
             continue
     
         # Parse game data
-        var saveData = _read_savefile(savefile)
+        var saveDataHeader = _read_savefile_header(savefile)
         var saveGameItem = LoadGameItemScene.instantiate()
         LoadGamesContainer.add_child(saveGameItem)
 
         # Create item in the load games list
-        saveGameItem.setup(savefile, saveData[0], saveData[1], saveData[2])
+        saveGameItem.setup(savefile, saveDataHeader[0], saveDataHeader[1], saveDataHeader[2])
         saveGameItem.load_game.connect(_load_game)
 
         savefile = save_game_dir.get_next()
@@ -49,10 +49,10 @@ func _validate_savefile(savegame_file_path: String) -> bool:
     return true
 
 
-## Returns an array of the format: [Name, DayCount, Value]
-func _read_savefile(savegame_file_path: String) -> Array[String]:
-    # TODO fill this in after determining save file format
-    return ["Autosave", "6", "$1,237,111.87"]
+## Returns an array of the format: [name of savefile, day count, day of week, total_score]
+func _read_savefile_header(savegame_file_path: String) -> Array[String]:
+    # TODO
+    return ["Autosave", "6", "Monday", "$1,237,111.87"]
 
 
 func _load_game(load_game_path: String):

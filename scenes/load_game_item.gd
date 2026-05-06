@@ -9,11 +9,11 @@ signal load_game(load_game_path: String)
 
 @export var LoadGamePath: String
 
-func setup(loadGamePath: String, label: String, day: String, netWorth: String) -> void:
+func setup(loadGamePath: String, saveGameName: String, dayCount: String, dayOfWeek: String, totalScore: String) -> void:
     LoadGamePath = loadGamePath
-    LoadGameLabel.text = label
-    LoadGameDayLabel.text = day
-    LoadGameNetWorthLabel.text = netWorth
+    LoadGameLabel.text = saveGameName
+    LoadGameDayLabel.text = "%s, day %s" % [dayOfWeek, dayCount]
+    LoadGameNetWorthLabel.text = totalScore
 
 func _on_load_game_button_pressed() -> void:
     load_game.emit(LoadGamePath)
