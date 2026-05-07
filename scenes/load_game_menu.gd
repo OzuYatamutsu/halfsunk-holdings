@@ -51,8 +51,23 @@ func _validate_savefile(savegame_file_path: String) -> bool:
 
 ## Returns an array of the format: [name of savefile, day count, day of week, total_score]
 func _read_savefile_header(savegame_file_path: String) -> Array[String]:
-    # TODO
-    return ["Autosave", "6", "Monday", "$1,237,111.87"]
+    var save_name = savegame_file_path.get_file().get_basename()
+    var save_file = FileAccess.open(savegame_file_path, FileAccess.READ)
+    var header = save_file.get_line()
+    if len(header.split(" ")) != 3:
+        return ["MALFORMED_SAVE", "0", "Monday", "$0.00"]
+    header = header.split()
+    
+    var day_count = header[0]
+    var day_of_week = Day.DayOfWeek.keys()[header[1]]
+    var total_score = Helpers.currencyify(header[2])
+
+    return [
+        save_name,
+        day_count,
+        day_of_week,
+        total_score
+    ]
 
 
 func _load_game(load_game_path: String):
