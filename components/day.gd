@@ -73,6 +73,8 @@ func _ready() -> void:
     action_taken.connect(GameState.game_window.hud_status.update)
     action_taken.connect(GameState.stock_market.on_action_taken)
     delayed_action_taken.connect(GameState.game_window.marquee.set_text_from_stock_market_data)
+    GameState.save_game()
+
 
 func start_next_phase() -> void:
     if (phase == Phase.START):
