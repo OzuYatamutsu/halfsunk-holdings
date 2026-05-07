@@ -138,6 +138,7 @@ func save_game() -> void:
     var _gamestate_data: Variant = JSON.from_native(self, true)
     var _stockmarket_data: Variant = JSON.from_native(self, true)
 
-    # TODO: open save file at full_save_path
-    # TODO: write header
-    # TODO: write data
+    var save_file = FileAccess.open(full_save_path, FileAccess.WRITE)
+    save_file.store_line(_save_data_header)
+    save_file.store_line(JSON.stringify(_gamestate_data))
+    save_file.store_line(JSON.stringify(_stockmarket_data))
