@@ -181,4 +181,5 @@ func on_close_start() -> void:
 
 
 func on_close_end() -> void:
+    GameState.total_score = GameState.net_worth
     GameState.day_count += 1
