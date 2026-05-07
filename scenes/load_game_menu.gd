@@ -34,7 +34,7 @@ func load_saved_games() -> void:
         LoadGamesContainer.add_child(saveGameItem)
 
         # Create item in the load games list
-        saveGameItem.setup(savefile, saveDataHeader[0], saveDataHeader[1], saveDataHeader[2])
+        saveGameItem.setup(savefile, saveDataHeader[0], saveDataHeader[1], saveDataHeader[2], saveDataHeader[3])
         saveGameItem.load_game.connect(_load_game)
 
         savefile = save_game_dir.get_next()
@@ -51,21 +51,20 @@ func _validate_savefile(savegame_file_path: String) -> bool:
 
 ## Returns an array of the format: [name of savefile, day count, day of week, total_score]
 func _read_savefile_header(savegame_file_path: String) -> Array[String]:
-    var save_name = savegame_file_path.get_file().get_basename()
+    var save_name: String = savegame_file_path.get_file().get_basename()
     var save_file = FileAccess.open(savegame_file_path, FileAccess.READ)
-    var header = save_file.get_line()
+    var header: String = save_file.get_line()
     if len(header.split(" ")) != 3:
         return ["MALFORMED_SAVE", "0", "Monday", "$0.00"]
-    header = header.split()
     
-    var day_count = header[0]
-    var day_of_week = Day.DayOfWeek.keys()[header[1]]
-    var total_score = Helpers.currencyify(header[2])
+    var day_count = int(header.split(" ")[0])
+    var day_of_week = Day.DayOfWeek.keys()[int(header.split(" ")[1])]
+    var total_score: String = Helpers.currencyify(float(header.split(" ")[2]))
 
     return [
         save_name,
-        day_count,
-        day_of_week,
+        str(day_count),
+        str(day_of_week),
         total_score
     ]
 
