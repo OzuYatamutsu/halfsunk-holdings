@@ -128,6 +128,7 @@ func _ensure_savegame_dir() -> void:
     DirAccess.open(GameState.SAVE_GAME_PATH_ROOT).make_dir(GameState.SAVE_GAME_PATH_FOLDER)
     save_game_dir = DirAccess.open(GameState.SAVE_GAME_PATH)
 
+
 ## Games will be saved in ${SAVE_GAME_PATH}/${SAVE_PREFIX}_${save_slot}.
 func save_game() -> void:
     var full_save_path = "%s/%s_%s" % [SAVE_GAME_PATH, SAVE_GAME_PREFIX, save_slot]
@@ -142,3 +143,50 @@ func save_game() -> void:
     save_file.store_line(_save_data_header)
     save_file.store_line(JSON.stringify(_gamestate_data))
     save_file.store_line(JSON.stringify(_stockmarket_data))
+
+
+func load_game(save_game_path: String) -> void:
+    print("Loading game from %s..." % [save_game_path])
+
+    var save_file = FileAccess.open(save_game_path, FileAccess.READ)
+
+    # Read lines
+    var save_data_header: String = save_file.get_line()
+    var gamestate_json: String = save_file.get_line()
+    var stockmarket_json: String = save_file.get_line()
+
+    # Parse header
+    var header_parts = save_data_header.split(" ")
+
+    if header_parts.size() >= 3:
+        day_count = int(header_parts[0])
+        current_day.day = header_parts[1]
+        total_score = float(header_parts[2])
+    else:
+        push_error("Invalid save header format")
+
+    print(
+        "[load_game] day %s, dow %s, total_score %s" % [
+            day_count, current_day.day, total_score
+        ]
+    )
+
+    print("[load_game] restoring gamestate")
+    var gamestate: Variant = JSON.parse_string(gamestate_json)
+    save_slot = gamestate.save_slot
+    cash = gamestate.cash
+    portfolio = gamestate.portfolio
+    net_worth = gamestate.net_worth
+    total_score = gamestate.total_score
+    target = gamestate.target
+    current_day = gamestate.day
+    day_count = gamestate.day_count
+    print("[load_game] restored gamestate")
+
+    print("[load_game] restoring stockmarket")
+    var stockmarket = JSON.parse_string(stockmarket_json)
+    stock_market = stockmarket
+    print("[load_game] restored stockmarket")
+
+    print("[load_game] game data restored, loading level")
+    get_tree().change_scene_to_node(GameState.current_day)
