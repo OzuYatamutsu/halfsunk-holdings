@@ -35,7 +35,7 @@ func load_saved_games() -> void:
 
         # Create item in the load games list
         saveGameItem.setup(savefile, saveDataHeader[0], saveDataHeader[1], saveDataHeader[2], saveDataHeader[3])
-        saveGameItem.load_game.connect(_load_game)
+        saveGameItem.load_game.connect(GameState.load_game)
 
         savefile = save_game_dir.get_next()
     save_game_dir.list_dir_end()
@@ -71,4 +71,7 @@ func _read_savefile_header(savegame_file_path: String) -> Array[String]:
 
 func _load_game(load_game_path: String):
     print("Loading saved game: " + load_game_path)
+    
+    
+    
     pass  # TODO implement
