@@ -9,6 +9,7 @@ var _portfolio: Dictionary[String, int] = {}
 ## example format: {"JINH": [[10, 100.0], 
 var _lots: Dictionary[String, Array] = {}
 
+
 func buy(stock: String, quantity: int) -> void:
     if stock not in _portfolio:
         _portfolio[stock] = 0
@@ -18,6 +19,7 @@ func buy(stock: String, quantity: int) -> void:
         quantity,
         GameState.stock_market.get_stock(stock).current_value * quantity
     ])
+
 
 func sell(stock: String, quantity: int) -> void:
     assert(stock in _portfolio, "tried to sell a stock not in the portfolio!")
@@ -47,20 +49,24 @@ func sell(stock: String, quantity: int) -> void:
         _portfolio.erase(stock)
         _lots.erase(stock)
 
+
 func clear() -> void:
     _portfolio.clear()
     _lots.clear()
+
 
 func how_many_shares(stock: String) -> int:
     if stock not in _portfolio:
         return 0
     return _portfolio[stock]
 
+
 func value_of_shares(stock: String) -> float:
     return (
         GameState.stock_market.get_stock(stock).current_value
         * how_many_shares(stock)
     )
+
 
 func total_delta(stock: String) -> float:
     var total_basis: float = 0.0
@@ -75,6 +81,7 @@ func total_delta(stock: String) -> float:
         * _portfolio[stock]
     ) - total_basis
 
+
 func total_delta_percent(stock: String) -> float:
     var _total_basis: float = 0.0
     var _total_delta = total_delta(stock)
@@ -88,6 +95,7 @@ func total_delta_percent(stock: String) -> float:
 
     return (_total_delta / _total_basis) * 100
 
+
 func value() -> float:
     var _value = 0.0
 
@@ -97,3 +105,19 @@ func value() -> float:
             * GameState.stock_market.get_stock(_stock).current_value
         )
     return _value
+
+
+func serialize() -> String:
+    return JSON.stringify({
+        "portfolio": JSON.stringify(_portfolio),
+        "lots": JSON.stringify(_lots)
+    })
+
+
+static func deserialize(json: String) -> Portfolio:
+    var _data_obj = JSON.parse_string(json)
+    var __portfolio: Portfolio = Portfolio.new()
+    __portfolio._portfolio = JSON.parse_string(_data_obj.portfolio)
+    __portfolio._lots = JSON.parse_string(_data_obj.lots)
+    
+    return __portfolio
