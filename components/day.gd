@@ -1,6 +1,6 @@
 class_name Day
 extends Node
-
+ 
 ## A Day is split into four phases, PreMarket, MarketOpen,
 ## AfterMarket, and Close. Events occur during each
 ## day during each phase, and time advances when conditions
@@ -183,3 +183,25 @@ func on_close_start() -> void:
 func on_close_end() -> void:
     GameState.total_score = GameState.net_worth
     GameState.day_count += 1
+
+
+func serialize() -> String:
+    return JSON.stringify({
+        "class": get_script().resource_path,
+        "day": int(day),
+        "phase": int(phase),
+        "action_count": action_count
+    })
+
+
+static func deserialize(json: String) -> Day:
+    var _data_obj = JSON.parse_string(json)
+    
+    # Regenerates events
+    var _day: Day = load(_data_obj).new()
+    
+    _day.day = _data_obj.day as DayOfWeek
+    _day.phase = _data_obj.phase as Phase
+    _day.action_count = _data_obj.action_count
+    
+    return _day
