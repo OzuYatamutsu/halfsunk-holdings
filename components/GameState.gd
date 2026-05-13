@@ -149,13 +149,9 @@ func load_game(save_game_path: String) -> void:
     print("Loading game from %s..." % [save_game_path])
 
     var save_file = FileAccess.open(save_game_path, FileAccess.READ)
-
-    # Read lines
     var save_data_header: String = save_file.get_line()
     var gamestate_json: String = save_file.get_line()
     var stockmarket_json: String = save_file.get_line()
-
-    # Parse header
     var header_parts = save_data_header.split(" ")
 
     if header_parts.size() >= 3:

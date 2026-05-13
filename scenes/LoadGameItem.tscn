@@ -45,3 +45,5 @@ text = "Net Worth $1,360,241.86"
 layout_mode = 2
 icon = ExtResource("5_2axgp")
 flat = true
+
+[connection signal="pressed" from="LoadGameButton" to="." method="_on_load_game_button_pressed"]
