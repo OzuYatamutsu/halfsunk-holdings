@@ -43,3 +43,31 @@ func _to_string() -> String:
         "+" if last_delta >= 0 else "",
         Helpers.currencyify(abs(last_delta / current_value - last_delta), true, true)
     ] + '%)'
+
+
+func serialize() -> String:
+    return JSON.stringify({
+        "ticker_symbol": ticker_symbol,
+        "company_name": company_name,
+        "company_description": company_description,
+        "company_category": company_category,
+        "current_value": current_value,
+        "last_delta": last_delta,
+        "last_update_timestamp": last_update_timestamp,
+        "last_values": JSON.stringify(last_values)
+    })
+
+
+static func deserialize(json: String) -> Stock:
+    var _data_obj = JSON.parse_string(json)
+    var _stock: Stock = Stock.new(
+        _data_obj["ticker_symbol"],
+        _data_obj["company_name"],
+        _data_obj["current_value"],
+        _data_obj["company_category"],
+        _data_obj["company_description"],
+        JSON.parse_string(_data_obj["last_values"])
+    )
+    _stock.last_delta = _data_obj["last_delta"]
+    _stock.last_update_timestamp = _data_obj["last_update_timestamp"]
+    return _stock
