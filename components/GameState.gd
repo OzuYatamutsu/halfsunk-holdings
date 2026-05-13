@@ -131,11 +131,17 @@ func _ensure_savegame_dir() -> void:
 
 ## Games will be saved in ${SAVE_GAME_PATH}/${SAVE_PREFIX}_${save_slot}.
 func save_game() -> void:
+    # TODO WIP
     var full_save_path = "%s/%s_%s" % [SAVE_GAME_PATH, SAVE_GAME_PREFIX, save_slot]
     print("Saving game to %s..." % [full_save_path])
 
     # Save data
     var _save_data_header: String = "%s %s %s" % [day_count, current_day.day, total_score]
+    var _current_day_data: String = current_day.serialize()
+    
+    
+    
+    
     var _gamestate_data: Variant = JSON.from_native(self, true)
     var _stockmarket_data: Variant = JSON.from_native(self, true)
 
@@ -146,6 +152,7 @@ func save_game() -> void:
 
 
 func load_game(save_game_path: String) -> void:
+    # TODO WIP
     print("Loading game from %s..." % [save_game_path])
 
     var save_file = FileAccess.open(save_game_path, FileAccess.READ)
@@ -186,3 +193,17 @@ func load_game(save_game_path: String) -> void:
 
     print("[load_game] game data restored, loading level")
     get_tree().change_scene_to_node(GameState.current_day)
+
+
+func serialize() -> String:
+    return JSON.stringify({
+        "save_slot": save_slot,
+        "cash": cash,
+        "portfolio": portfolio.serialize(),
+        "net_worth": net_worth,
+        "total_score": total_score,
+        "target": target,
+        "current_day": current_day.serialize(),
+        "day_count": day_count,
+        "stock_market": stock_market.serialize()
+    })
