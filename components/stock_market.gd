@@ -85,3 +85,23 @@ func get_all_to_string() -> Array[String]:
 
 func on_action_taken() -> void:
     market_random_shift()
+
+
+func serialize() -> String:
+    var _data = {"market": {}}
+
+    for _ticker in _market:
+        _data["market"][_ticker] = _market[_ticker].serialize()
+
+    return JSON.stringify(_data)
+
+
+static func deserialize(json: String) -> StockMarket:
+    var _data_obj = JSON.parse_string(json)
+    var _stock_market = StockMarket.new()
+
+    _stock_market._market = {}
+    for _ticker in _data_obj["market"]:
+        _stock_market._market[_ticker] = Stock.deserialize(_data_obj["market"][_ticker])
+
+    return _stock_market
