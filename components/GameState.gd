@@ -131,24 +131,17 @@ func _ensure_savegame_dir() -> void:
 
 ## Games will be saved in ${SAVE_GAME_PATH}/${SAVE_PREFIX}_${save_slot}.
 func save_game() -> void:
-    # TODO WIP
     var full_save_path = "%s/%s_%s" % [SAVE_GAME_PATH, SAVE_GAME_PREFIX, save_slot]
+    var save_file = FileAccess.open(full_save_path, FileAccess.WRITE)
     print("Saving game to %s..." % [full_save_path])
 
     # Save data
     var _save_data_header: String = "%s %s %s" % [day_count, current_day.day, total_score]
-    var _current_day_data: String = current_day.serialize()
-    
-    
-    
-    
-    var _gamestate_data: Variant = JSON.from_native(self, true)
-    var _stockmarket_data: Variant = JSON.from_native(self, true)
+    var _gamestate_data: String = serialize()
 
-    var save_file = FileAccess.open(full_save_path, FileAccess.WRITE)
     save_file.store_line(_save_data_header)
-    save_file.store_line(JSON.stringify(_gamestate_data))
-    save_file.store_line(JSON.stringify(_stockmarket_data))
+    save_file.store_line(_gamestate_data)
+    print("Saved.")
 
 
 func load_game(save_game_path: String) -> void:
