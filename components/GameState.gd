@@ -145,46 +145,20 @@ func save_game() -> void:
 
 
 func load_game(save_game_path: String) -> void:
-    # TODO WIP
+    var save_file = FileAccess.open(save_game_path, FileAccess.READ)
     print("Loading game from %s..." % [save_game_path])
 
-    var save_file = FileAccess.open(save_game_path, FileAccess.READ)
-    var save_data_header: String = save_file.get_line()
-    var gamestate_json: String = save_file.get_line()
-    var stockmarket_json: String = save_file.get_line()
-    var header_parts = save_data_header.split(" ")
-
-    if header_parts.size() >= 3:
-        day_count = int(header_parts[0])
-        current_day.day = header_parts[1]
-        total_score = float(header_parts[2])
-    else:
-        push_error("Invalid save header format")
+    var _save_data_header: String = save_file.get_line()
+    var _gamestate_data: String = save_file.get_line()
 
     print(
         "[load_game] day %s, dow %s, total_score %s" % [
-            day_count, current_day.day, total_score
+            _save_data_header[0], _save_data_header[1], _save_data_header[2]
         ]
     )
 
-    print("[load_game] restoring gamestate")
-    var gamestate: Variant = JSON.parse_string(gamestate_json)
-    save_slot = gamestate.save_slot
-    cash = gamestate.cash
-    portfolio = gamestate.portfolio
-    net_worth = gamestate.net_worth
-    total_score = gamestate.total_score
-    target = gamestate.target
-    current_day = gamestate.day
-    day_count = gamestate.day_count
-    print("[load_game] restored gamestate")
-
-    print("[load_game] restoring stockmarket")
-    var stockmarket = JSON.parse_string(stockmarket_json)
-    stock_market = stockmarket
-    print("[load_game] restored stockmarket")
-
-    print("[load_game] game data restored, loading level")
+    deserialize(JSON.parse_string(_gamestate_data))
+    print("[load_game] restored gamestate, loading level...")
     get_tree().change_scene_to_node(GameState.current_day)
 
 
@@ -200,3 +174,17 @@ func serialize() -> String:
         "day_count": day_count,
         "stock_market": stock_market.serialize()
     })
+
+
+func deserialize(json: String) -> void:
+    var _data_obj = JSON.parse_string(json)
+
+    save_slot = _data_obj["save_slot"]
+    cash = _data_obj["cash"]
+    portfolio = Portfolio.deserialize(_data_obj["portfolio"])
+    net_worth = _data_obj["net_worth"]
+    total_score = _data_obj["total_score"]
+    target = _data_obj["target"]
+    current_day = Day.deserialize(_data_obj["current_day"])
+    day_count = _data_obj["day_count"]
+    stock_market = StockMarket.deserialize(_data_obj["stock_market"])
