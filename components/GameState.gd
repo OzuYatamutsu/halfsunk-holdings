@@ -161,7 +161,7 @@ func load_game(save_game_path: String) -> void:
 
     deserialize(_gamestate_data)
     print("[load_game] restored gamestate, loading level...")
-    get_tree().change_scene_to_node(GameState.current_day)
+    get_tree().change_scene_to_file(GameState.current_day.scene_path)
 
 
 func serialize() -> String:
