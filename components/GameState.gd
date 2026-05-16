@@ -153,7 +153,9 @@ func load_game(save_game_path: String) -> void:
 
     print(
         "[load_game] day %s, dow %s, total_score %s" % [
-            _save_data_header[0], _save_data_header[1], _save_data_header[2]
+            _save_data_header[0],
+            _save_data_header[1],
+            _save_data_header[2]
         ]
     )
 

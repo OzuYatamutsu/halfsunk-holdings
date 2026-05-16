@@ -17,9 +17,11 @@ const MAX_HISTORY_LENGTH: int = 500
 
 ## each item is a tuple of: [timestamp, value.]
 ## see GameState for an explanation on how timestamp is calculated
-@export var last_values: Array[Array] = []
+## actual type is Array[Array] but can't properly annotate due to
+## deserialization typing issues
+@export var last_values: Array = []
 
-func _init(_ticker: String, _name: String, _base_value: float, _category: String, _description: String, _last_values: Array[Array] = []) -> void:
+func _init(_ticker: String, _name: String, _base_value: float, _category: String, _description: String, _last_values: Array = []) -> void:
     ticker_symbol = _ticker
     company_name = _name
     current_value = _base_value
