@@ -202,7 +202,7 @@ static func deserialize(json: String) -> Day:
     var _data_obj = JSON.parse_string(json)
 
     # Regenerates events
-    var _day: Day = load(_data_obj["class"]).new()
+    var _day: Day = load(_data_obj.class).new()
 
     _day.day = _data_obj.day as DayOfWeek
     _day.phase = _data_obj.phase as Phase

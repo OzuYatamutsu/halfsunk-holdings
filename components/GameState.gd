@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 
 
-const BUILD_DATE: String = "20260430"
-const VERSION_STRING: String = "0.4.3"
+const BUILD_DATE: String = "20260516"
+const VERSION_STRING: String = "0.4.4"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -181,12 +181,12 @@ func serialize() -> String:
 func deserialize(json: String) -> void:
     var _data_obj = JSON.parse_string(json)
 
-    save_slot = _data_obj["save_slot"]
-    cash = _data_obj["cash"]
-    portfolio = Portfolio.deserialize(_data_obj["portfolio"])
-    net_worth = _data_obj["net_worth"]
-    total_score = _data_obj["total_score"]
-    target = _data_obj["target"]
-    current_day = Day.deserialize(_data_obj["current_day"])
-    day_count = _data_obj["day_count"]
-    stock_market = StockMarket.deserialize(_data_obj["stock_market"])
+    save_slot = _data_obj.save_slot
+    cash = _data_obj.cash
+    portfolio = Portfolio.deserialize(_data_obj.portfolio)
+    net_worth = _data_obj.net_worth
+    total_score = _data_obj.total_score
+    target = _data_obj.target
+    current_day = Day.deserialize(_data_obj.current_day)
+    day_count = _data_obj.day_count
+    stock_market = StockMarket.deserialize(_data_obj.stock_market)
