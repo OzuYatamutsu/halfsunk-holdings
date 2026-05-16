@@ -100,7 +100,7 @@ static func deserialize(json: String) -> StockMarket:
     var _data_obj = JSON.parse_string(json)
     var _stock_market = StockMarket.new()
 
-    for _ticker in _data_obj["market"]:
-        _stock_market._market[_ticker] = Stock.deserialize(_data_obj["market"][_ticker])
+    for _ticker in _data_obj.market:
+        _stock_market._market[_ticker] = Stock.deserialize(_data_obj.market[_ticker])
 
     return _stock_market

@@ -63,12 +63,12 @@ func serialize() -> String:
 static func deserialize(json: String) -> Stock:
     var _data_obj = JSON.parse_string(json)
     var _stock: Stock = Stock.new(
-        _data_obj["ticker_symbol"],
-        _data_obj["company_name"],
-        _data_obj["current_value"],
-        _data_obj["company_category"],
-        _data_obj["company_description"],
-        JSON.parse_string(_data_obj["last_values"])
+        _data_obj.ticker_symbol,
+        _data_obj.company_name,
+        _data_obj.current_value,
+        _data_obj.company_category,
+        _data_obj.company_description,
+        JSON.parse_string(_data_obj.last_values)
     )
     _stock.last_delta = _data_obj["last_delta"]
     _stock.last_update_timestamp = _data_obj["last_update_timestamp"]
