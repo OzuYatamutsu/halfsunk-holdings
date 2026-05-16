@@ -3,11 +3,15 @@ extends Node
 
 ## A collection of stocks, etc. (not cash)
 
-var _portfolio: Dictionary[String, int] = {}
+## Dictionary[String, int]
+## Can't type it due to issues during deserialization
+var _portfolio: Dictionary = {}
 
 ## maps ticker symbol to array of [quantity, total value] arrays for each lot.
 ## example format: {"JINH": [[10, 100.0], 
-var _lots: Dictionary[String, Array] = {}
+## Dictionary[String, Array]
+## Can't type it due to issues during deserialization
+var _lots: Dictionary = {}
 
 
 func buy(stock: String, quantity: int) -> void:
