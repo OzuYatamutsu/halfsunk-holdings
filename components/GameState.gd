@@ -44,6 +44,7 @@ func clear_state() -> void:
     portfolio.clear()
     net_worth = STARTING_NET_WORTH
     day_count = STARTING_DAY
+    total_score = 0.0
     target = 0.0
     switch_page_data_bus = ""
 
@@ -105,7 +106,7 @@ func end_of_week() -> void:
     await _end_of_week_anim.animation_complete
     
     print("net worth: %.2d, target: %.2d" % [net_worth, target])
-    if (target < net_worth):
+    if (net_worth < target):
         print("entering eow losing state")
     else:
         print("entering eow winning state")
@@ -153,9 +154,9 @@ func load_game(save_game_path: String) -> void:
 
     print(
         "[load_game] day %s, dow %s, total_score %s" % [
-            _save_data_header[0],
-            _save_data_header[1],
-            _save_data_header[2]
+            _save_data_header.split(" ")[0],
+            _save_data_header.split(" ")[1],
+            _save_data_header.split(" ")[2]
         ]
     )
 

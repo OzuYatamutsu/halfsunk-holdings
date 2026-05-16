@@ -6,6 +6,7 @@ extends Modal
 
 
 func _ready() -> void:
+    super._ready()
     total_score_value.text = Helpers.currencyify(GameState.total_score, false, false)
     job_held_for_value.text = "%s days" % [GameState.day_count - 1]
 
