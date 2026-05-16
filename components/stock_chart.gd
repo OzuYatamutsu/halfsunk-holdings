@@ -16,7 +16,7 @@ var _chart_func: Function
 
 ## An array of tuples of the form: [timestamp, value];
 ## i.e., the format of Stock.last_values.
-var _historical_data: Array[Array]
+var _historical_data: Array
 
 func _ready() -> void:
     _placeholder_image.queue_free()

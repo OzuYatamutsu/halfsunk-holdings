@@ -48,6 +48,8 @@ const MARKETOPEN_ACTION_COUNT: int = 8
 const MARKETOPEN_START_HOUR: int = 9
 const ACTION_DELAY_SECS: float = 0.10
 
+var scene_path: String
+
 ## Events are called at the start of each phase.
 ## Events are ordered. To have multiple events occur
 ## in a phase, pass in a callable which calls another
@@ -66,6 +68,8 @@ var action_count: int = 0
 
 
 func _ready() -> void:
+    if (!scene_path):
+        scene_path = scene_file_path
     GameState.current_day = self
     last_event_finished.connect(start_next_phase)
 
@@ -74,7 +78,6 @@ func _ready() -> void:
     action_taken.connect(GameState.stock_market.on_action_taken)
     delayed_action_taken.connect(GameState.game_window.marquee.set_text_from_stock_market_data)
     GameState.save_game()
-
 
 func start_next_phase() -> void:
     if (phase == Phase.START):
@@ -187,6 +190,7 @@ func on_close_end() -> void:
 
 func serialize() -> String:
     return JSON.stringify({
+        "scene_path": scene_file_path,
         "class": get_script().resource_path,
         "day": int(day),
         "phase": int(phase),
@@ -203,5 +207,6 @@ static func deserialize(json: String) -> Day:
     _day.day = _data_obj.day as DayOfWeek
     _day.phase = _data_obj.phase as Phase
     _day.action_count = _data_obj.action_count
-    
+    _day.scene_path = _data_obj.scene_path
+
     return _day
