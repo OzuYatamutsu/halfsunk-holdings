@@ -73,7 +73,7 @@ text = "3,000,000.00"
 [node name="JobHeldForLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=1228592002]
 layout_mode = 2
 theme = ExtResource("5_femwi")
-text = "Job had for"
+text = "Job held for"
 horizontal_alignment = 2
 
 [node name="JobHeldForValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=47149893]

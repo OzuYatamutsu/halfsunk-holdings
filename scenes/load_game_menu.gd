@@ -44,8 +44,9 @@ func load_saved_games() -> void:
 func _validate_savefile(savegame_file_path: String) -> bool:
     if !FileAccess.file_exists(savegame_file_path):
         return false
+    if _read_savefile_header(savegame_file_path)[0] == "MALFORMED_SAVE":
+        return false
 
-    # TODO fill this in after determining save file format
     return true
 
 
@@ -56,7 +57,7 @@ func _read_savefile_header(savegame_file_path: String) -> Array[String]:
     var header: String = save_file.get_line()
     if len(header.split(" ")) != 3:
         return ["MALFORMED_SAVE", "0", "Monday", "$0.00"]
-    
+
     var day_count = int(header.split(" ")[0])
     var day_of_week = Day.DayOfWeek.keys()[int(header.split(" ")[1])]
     var total_score: String = Helpers.currencyify(float(header.split(" ")[2]))
@@ -67,11 +68,3 @@ func _read_savefile_header(savegame_file_path: String) -> Array[String]:
         str(day_of_week),
         total_score
     ]
-
-
-func _load_game(load_game_path: String):
-    print("Loading saved game: " + load_game_path)
-    
-    
-    
-    pass  # TODO implement

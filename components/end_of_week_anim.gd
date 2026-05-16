@@ -4,8 +4,9 @@ var is_losing_state: bool
 
 
 func _ready() -> void:
+    super._ready()
     is_losing_state = GameState.target >= GameState.net_worth
-    
+
     if (is_losing_state):
         _handle_losing_state()
     else:
