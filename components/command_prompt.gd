@@ -6,6 +6,8 @@ var COMMAND_LIST: Dictionary[String, Callable] = {
     "NOOP": _handle_noop,
     "START": _handle_start,
     "INFO": _handle_info,
+    "BUY": _handle_buy,
+    "SELL": _handle_sell
 }
 
 @export var IsEnabled: bool = true
@@ -71,9 +73,11 @@ func _flash_status_text(text: String) -> void:
 func _handle_noop(_args: Array[String]) -> void:
     pass
 
+
 ## This command returns to the start screen
 func _handle_start(_args: Array[String]) -> void:
     GameState.game_window.browser.load_page("res://pages/StartPage.tscn")
+
 
 ## This command loads the Stock Screener (if the ticker exists)
 func _handle_info(args: Array[String]) -> void:
@@ -91,3 +95,27 @@ func _handle_info(args: Array[String]) -> void:
     # If so, trigger a load of the Stock Screener
     GameState.switch_page_data_bus = args[0]
     GameState.game_window.browser.load_page("res://pages/StockScreener.tscn")
+
+
+## This command loads the buy modal for the given ticker
+func _handle_buy(args: Array[String]) -> void:
+    # Check if the command is malformed
+    if (len(args) != 1):
+        _flash_status_text("Syntax: BUY <stock-ticker>")
+        return
+
+    GameState.switch_page_data_bus = "%s;%s" % [args[0], "BUY"]
+    var buy_sell_modal = load("res://components/BuySellModal.tscn").instantiate()
+    get_tree().current_scene.add_child(buy_sell_modal)
+
+
+## This command loads the sell modal for the given ticker
+func _handle_sell(args: Array[String]) -> void:
+    # Check if the command is malformed
+    if (len(args) != 1):
+        _flash_status_text("Syntax: SELL <stock-ticker>")
+        return
+
+    GameState.switch_page_data_bus = "%s;%s" % [args[0], "SELL"]
+    var buy_sell_modal = load("res://components/BuySellModal.tscn").instantiate()
+    get_tree().current_scene.add_child(buy_sell_modal)
