@@ -6,6 +6,7 @@ extends CanvasLayer
 ## (and dims the background).
 
 const _FREE_DELAY_SECS: float = 0.05
+const _MODAL_GROUP: String = "_modal"
 
 @onready var ModalWindow: Window = $ModalWindow
 
@@ -14,7 +15,11 @@ const _FREE_DELAY_SECS: float = 0.05
 
 
 func _ready() -> void:
+    # Ensure only one modal is active
+    if get_tree().get_first_node_in_group(_MODAL_GROUP):
+        get_tree().get_first_node_in_group(_MODAL_GROUP).queue_free()
     ModalWindow.close_requested.connect(_on_close_requested)
+    add_to_group(_MODAL_GROUP)
 
 func _input(event):
     if event.is_action_pressed("ui_cancel"):
