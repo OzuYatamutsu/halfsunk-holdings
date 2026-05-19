@@ -100,11 +100,13 @@ func _populate_data() -> void:
     PriceChart.add_point([GameState.get_current_timestamp(), stock.current_value])
     PriceChart.queue_redraw()
 
+
 func _on_buy_button_pressed() -> void:
     AudioEngine.play_sfx(AudioEngine.SFX_CLICK)
     GameState.switch_page_data_bus = "%s;%s" % [ticker_symbol, "BUY"]
     var buy_sell_modal = load("res://components/BuySellModal.tscn").instantiate()
     get_tree().current_scene.add_child(buy_sell_modal)
+
 
 func _on_sell_button_pressed() -> void:
     AudioEngine.play_sfx(AudioEngine.SFX_CLICK)

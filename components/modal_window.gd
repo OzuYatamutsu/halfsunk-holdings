@@ -7,5 +7,6 @@ func _input(event: InputEvent) -> void:
         close_requested.emit()
     if event.is_action_pressed("ui_accept"):
         # Enter key should default to whatever
-        # the yes option is
-        get_parent()._on_yes_button_pressed()
+        # the yes option is in dialog modals
+        if get_parent() is ChatWindowModal:
+            get_parent()._on_yes_button_pressed()
