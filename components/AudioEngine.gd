@@ -11,10 +11,12 @@ var SFX_CLICK: AudioStreamMP3
 var SFX_BUYSELL: AudioStreamMP3
 var SFX_MESSAGE_RECEIVED: AudioStreamMP3
 var SFX_MESSAGE_SENT: AudioStreamMP3
+var SFX_WATCH_BEEP: AudioStreamMP3
 
 @onready var bgm: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var sfx: AudioStreamPlayer = AudioStreamPlayer.new()
 var _bgm_position: float = 0.0
+
 
 func _ready() -> void:
     add_child(bgm)
@@ -26,47 +28,58 @@ func _ready() -> void:
     bgm.autoplay = false
     sfx.autoplay = false
 
+
 func load_bgm() -> void:
     BGM_MAINMENU = AudioStreamMP3.load_from_file("res://bgm/bgm_main_menu.mp3")
     BGM_GAME = AudioStreamMP3.load_from_file("res://bgm/bgm1.mp3")
+
 
 func load_sfx() -> void:
     SFX_CLICK = AudioStreamMP3.load_from_file("res://sfx/sfx_click.mp3")
     SFX_BUYSELL = AudioStreamMP3.load_from_file("res://sfx/sfx_cha_ching.mp3")
     SFX_MESSAGE_RECEIVED = AudioStreamMP3.load_from_file("res://sfx/sfx_chat_message_received.mp3")
     SFX_MESSAGE_SENT = AudioStreamMP3.load_from_file("res://sfx/sfx_chat_message_sent.mp3")
+    SFX_WATCH_BEEP = AudioStreamMP3.load_from_file("res://sfx/sfx_watch_beep.mp3")
+
 
 func play_sfx(_sfx: AudioStreamMP3) -> void:
     _sfx.loop = false
     sfx.stream = _sfx
     sfx.play()
 
+
 func play_bgm(_bgm: AudioStreamMP3) -> void:
     _bgm.loop = true
     bgm.stream = _bgm
     bgm.play()
 
+
 func pause_bgm() -> void:
     _bgm_position = bgm.get_playback_position()
     bgm.stop()
 
+
 func resume_bgm() -> void:
     bgm.play(_bgm_position)
+
 
 func get_master_volume() -> float:
     return AudioServer.get_bus_volume_linear(
         AudioServer.get_bus_index("Master")
     )
 
+
 func get_music_volume() -> float:
     return AudioServer.get_bus_volume_linear(
         AudioServer.get_bus_index("bgm")
     )
 
+
 func get_sfx_volume() -> float:
     return AudioServer.get_bus_volume_linear(
         AudioServer.get_bus_index("sfx")
     )
+
 
 ## value should be between 0.0 and 1.0
 func adjust_master_volume(value: float) -> void:
@@ -76,6 +89,7 @@ func adjust_master_volume(value: float) -> void:
         linear_to_db(value)
     )
 
+
 ## value should be between 0.0 and 1.0
 func adjust_music_volume(value: float) -> void:
     print("audio: adjusted music volume to " + str(value))
@@ -83,6 +97,7 @@ func adjust_music_volume(value: float) -> void:
         AudioServer.get_bus_index("bgm"),
         linear_to_db(value)
     )
+
 
 ## value should be between 0.0 and 1.0
 func adjust_sfx_volume(value: float) -> void:
