@@ -58,6 +58,7 @@ func _handle_command_not_found() -> void:
         NotFoundStatusText.visible = false
     )
 
+
 ## Flash status text for a tiny amount of time
 func _flash_status_text(text: String) -> void:
     StatusText.text = text
