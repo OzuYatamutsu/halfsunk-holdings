@@ -16,9 +16,25 @@ func _ready() -> void:
     _impostor_hud_status.set_anchors_preset(Control.LayoutPreset.PRESET_TOP_WIDE)
     _impostor_hud_status.position = Vector2(0, 0)
     add_child(_impostor_hud_status)
+    _blink_fake_impostor_hud_status()
 
     AudioEngine.play_sfx(AudioEngine.SFX_WATCH_BEEP)
     animation_player.play("on_load")
+
+
+func _blink_fake_impostor_hud_status() -> void:
+    var tween = create_tween()
+    tween.set_loops()
+    tween.tween_callback(func(): _impostor_hud_status.visible = true)
+    tween.tween_interval(0.4)
+    tween.tween_callback(func(): _impostor_hud_status.visible = false)
+    tween.tween_interval(0.4)
+    tween.tween_callback(func(): _impostor_hud_status.visible = true)
+    tween.tween_interval(0.4)
+    tween.tween_callback(func(): _impostor_hud_status.visible = false)
+    tween.tween_interval(0.4)
+    tween.tween_callback(func(): _impostor_hud_status.visible = true)
+    tween.tween_interval(0.4)
 
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
