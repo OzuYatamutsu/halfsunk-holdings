@@ -15,6 +15,8 @@ func _ready():
 
 ## Updates the UI with the current state
 func update() -> void:
+    if (GameState.is_in_phase_transition):
+        return
     CalendarDaysLabel.text = GameState.get_current_timestamp_humanized()
     MoneyLabel.text = Helpers.currencyify(GameState.cash)
 

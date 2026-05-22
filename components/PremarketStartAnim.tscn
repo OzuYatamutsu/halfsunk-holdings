@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7gbqbcg0cx2f"]
 
-[ext_resource type="Script" uid="uid://u0suwv3o2k14" path="res://components/PhaseTransitionAnim.gd" id="1_ifb2x"]
+[ext_resource type="Script" uid="uid://cxb5yb1fx8pvc" path="res://components/premarket_start_anim.gd" id="1_ukktg"]
 
 [sub_resource type="Animation" id="Animation_ifb2x"]
 length = 0.001
@@ -66,7 +66,7 @@ _data = {
 
 [node name="PremarketStartAnim" type="CanvasLayer" unique_id=456519578]
 layer = 2
-script = ExtResource("1_ifb2x")
+script = ExtResource("1_ukktg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=806128699]
 unique_name_in_owner = true
