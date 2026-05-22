@@ -6,11 +6,14 @@ signal animation_complete
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var hud_status: HudStatus
 var _impostor_hud_status: HudStatus
+var days_arbitrary_text: String
+
 
 func _ready() -> void:
+    GameState.is_in_phase_transition = true
     hud_status = GameState.game_window.hud_status
-    hud_status.set_days_arbitrary("PREMARKET")
-    
+    hud_status.set_days_arbitrary(days_arbitrary_text)
+
     _impostor_hud_status = hud_status.duplicate()
     _impostor_hud_status.alignment = BoxContainer.ALIGNMENT_END
     _impostor_hud_status.set_anchors_preset(Control.LayoutPreset.PRESET_TOP_WIDE)
@@ -38,6 +41,8 @@ func _blink_fake_impostor_hud_status() -> void:
 
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+    GameState.is_in_phase_transition = false
     remove_child(_impostor_hud_status)
     hud_status.update()
     animation_complete.emit()
+    queue_free()
