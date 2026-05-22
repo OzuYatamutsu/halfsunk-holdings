@@ -52,5 +52,5 @@ func _input(event: InputEvent) -> void:
                     emit_signal("point_entered", point, function)
                     return
         # Mouse is not in any point's box
-		emit_signal("point_exited", focused_bar_midpoint, function)
-		focused_bar_midpoint = null
+        emit_signal("point_exited", focused_bar_midpoint, function)
+        focused_bar_midpoint = null
