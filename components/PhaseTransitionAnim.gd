@@ -4,7 +4,7 @@ extends CanvasLayer
 signal animation_complete
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var hud_status: HudStatus
+var hud_status: HudStatus
 var _impostor_hud_status: HudStatus
 var days_arbitrary_text: String
 
@@ -43,6 +43,7 @@ func _blink_fake_impostor_hud_status() -> void:
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
     GameState.is_in_phase_transition = false
     remove_child(_impostor_hud_status)
+    _impostor_hud_status.queue_free()
     hud_status.update()
     animation_complete.emit()
     queue_free()

@@ -1,12 +1,9 @@
 class_name HudStatus
 extends HBoxContainer
 
-const FRONT_LAYER = 10
-const DEFAULT_LAYER = 1
-
 @onready var CalendarDaysLabel: Label = %CalendarDaysLabel
 @onready var MoneyLabel: Label = %MoneyLabel
-@onready var icon_money: TextureRect = $IconMoney
+@onready var IconMoney: TextureRect = $IconMoney
 
 
 func _ready():
@@ -27,10 +24,10 @@ func set_days_arbitrary(text: String) -> void:
 
 
 func hide_money_label() -> void:
-    icon_money.visible = false
+    IconMoney.visible = false
     MoneyLabel.visible = false
 
 
 func show_money_label() -> void:
-    icon_money.visible = true
+    IconMoney.visible = true
     MoneyLabel.visible = true
