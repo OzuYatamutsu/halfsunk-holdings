@@ -65,7 +65,6 @@ _data = {
 }
 
 [node name="PremarketStartAnim" type="CanvasLayer" unique_id=456519578]
-layer = 2
 script = ExtResource("1_ukktg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=806128699]
