@@ -5,13 +5,15 @@ extends Control
 
 @onready var label: Label = %Label
 
-var _tween = create_tween()
 var _is_active: bool = false
 var _marquee_queue: Array[String] = []
 
 
 func _ready() -> void:
-    _tween.finished.connect(_on_marquee_finished)
+    label.position = Vector2(
+        get_viewport_rect().size.x,
+        label.position.y
+    )
 
 
 func queue_text(text: String) -> void:
@@ -25,9 +27,16 @@ func set_text(text: String) -> void:
     label.text = text
 
 
+func queue_text_from_stock_market_data() -> void:
+    queue_text(
+        "    |   ".join(GameState.stock_market.get_all_to_string())
+    )
+
+
 func start_marquee() -> void:    
     _is_active = true
 
+    var _tween = create_tween()
     var y := label.position.y
     
     # Start just off the right side
@@ -43,6 +52,8 @@ func start_marquee() -> void:
         -label.size.x,
         ((get_viewport_rect().size.x + label.size.x) / speed_px_per_sec)
     ).set_trans(Tween.TRANS_LINEAR)
+
+    _tween.finished.connect(_on_marquee_finished)
 
 
 func _on_marquee_finished() -> void:

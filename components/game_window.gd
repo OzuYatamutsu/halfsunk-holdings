@@ -10,5 +10,3 @@ func _ready() -> void:
     GameState.game_window = self
     command_prompt.enable()
     hud_status.update()
-
-    marquee.queue_text("TEST TEST")  # TODO
