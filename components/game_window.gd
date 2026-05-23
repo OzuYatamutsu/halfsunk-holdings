@@ -2,7 +2,7 @@ class_name GameWindow
 extends VBoxContainer
 
 @onready var command_prompt: CommandPrompt = %CommandPrompt
-@onready var marquee: FakeTickerTape = %TickerTape  # TODO
+@onready var marquee: TickerTape = %TickerTape  # TODO
 @onready var hud_status: HudStatus = %HudStatus
 @onready var browser: DynamicPage = $DynamicPage
 
