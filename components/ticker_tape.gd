@@ -37,7 +37,6 @@ func start_marquee() -> void:
     _is_active = true
 
     var _tween = create_tween()
-    var y := label.position.y
     
     # Start just off the right side
     label.position = Vector2(
