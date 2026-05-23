@@ -1,7 +1,7 @@
 class_name TickerTape
 extends Control
 
-@export var speed_px_per_sec: float = 100.0
+@export var speed_px_per_sec: float = 250.0
 
 @onready var label: Label = %Label
 
@@ -17,6 +17,7 @@ func _ready() -> void:
 func queue_text(text: String) -> void:
     _marquee_queue.append(text)
     if (!_is_active):
+        set_text(_marquee_queue.pop_front())
         start_marquee()
 
 

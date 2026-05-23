@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="1_b66nl"]
 [ext_resource type="Script" uid="uid://8owysjwp8xkn" path="res://components/ticker_tape.gd" id="1_g0725"]
 
-[node name="TickerTape" type="Control" unique_id=1116417902]
+[node name="TickerTape" type="Control" unique_id=1451432658]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,9 +12,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g0725")
 
-[node name="MarqueeAligner" type="Control" parent="." unique_id=961444676]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=453818372]
+layer = 10
+
+[node name="MarqueeAligner" type="Control" parent="CanvasLayer" unique_id=961444676]
 custom_minimum_size = Vector2(0, 35)
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -22,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Border" type="ColorRect" parent="MarqueeAligner" unique_id=1302720884]
+[node name="Border" type="ColorRect" parent="CanvasLayer/MarqueeAligner" unique_id=1302720884]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +35,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 color = Color(0, 0.07450981, 0.20392157, 1)
 
-[node name="Label" type="Label" parent="MarqueeAligner" unique_id=966048541]
+[node name="Label" type="Label" parent="CanvasLayer/MarqueeAligner" unique_id=966048541]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = 6.0
