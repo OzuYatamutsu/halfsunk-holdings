@@ -24,6 +24,7 @@ enum Phase {
     CLOSE = 3
 }
 
+
 ## Emitted after the last event fires in Phase.PREMARKET
 ## or Phase.AFTERMARKET.
 signal last_event_finished
@@ -76,8 +77,10 @@ func _ready() -> void:
     last_event_finished.connect(GameState.game_window.hud_status.update)
     action_taken.connect(GameState.game_window.hud_status.update)
     action_taken.connect(GameState.stock_market.on_action_taken)
+    action_taken.connect(on_action_taken)
     delayed_action_taken.connect(GameState.game_window.marquee.queue_text_from_stock_market_data)
     GameState.save_game()
+
 
 func start_next_phase() -> void:
     if (phase == Phase.START):
@@ -148,6 +151,12 @@ func on_marketopen_start() -> void:
 
     if Phase.MARKETOPEN in events:
         events[Phase.MARKETOPEN].call()
+
+
+## Override this function to describe logic which should occur
+## during each action in market open.
+func on_action_taken() -> void:
+    pass  # TODO
 
 
 func on_marketopen_end() -> void:
