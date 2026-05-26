@@ -15,6 +15,14 @@ func _ready() -> void:
     super()
     start_next_phase()
 
+
+func on_action_taken() -> void:
+    PriceChangeEvent.new(
+        "JINH", 1.15,
+        "Wow! People are very interested in JINHAI HOLDINGS all of a sudden!"
+    ).fire()
+
+
 func on_premarket_start() -> void:
     super()
 
