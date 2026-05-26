@@ -43,4 +43,6 @@ func fire() -> void:
     stock.current_value = targetValue
     stock.last_delta = delta
     stock.last_update_timestamp = GameState.get_current_timestamp()
+
     GameState.stock_market.update_stock(stock)
+    GameState.game_window.marquee.queue_text(description)
