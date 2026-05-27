@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func on_action_taken() -> void:
     PriceChangeEvent.new(
-        ["JINH"], 1.15,
+        {"JINH": 1.15},
         "Wow! People are very interested in JINHAI HOLDINGS all of a sudden!"
     ).fire()
 
