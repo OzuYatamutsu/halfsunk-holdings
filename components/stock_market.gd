@@ -17,7 +17,7 @@ const _MARKET_DATA: Dictionary[String, Array] = {
     "MSTR": ["Gila Monster Speculatives", 1.00, "Financial", "WARNING: LATE FILING\nWARNING: CAVEAT EMPTOR\n\nGila Monster Speculatives engages in speculative, high-frequency \"investments\" in digital currencies, digital tokens, and digitally generated animal JPEGs."],
     "CRW": ["Corvid Auto Group", 249.00, "Leasing Services", "Corvid Auto Group provides car, truck, air services, and ancillaries you can't afford...\n\nMake sure to fill up your tank before returning your hot air balloon!"],
     "SNEK": ["Snake Biolabs", 12.00, "Healthcare", "Snake Biolabs, a biotechnology company, distributes vaccination kits for the prevention and management of the B Virus.\n\nThe B Virus makes you into baby (terminal)"],
-    "XMAU": ["Feline Misdirexion 3x Gold Miner ETN", 33.00, "'Tracks' the daily performance of the current floating rate of company scrip at the quarry store."]
+    "XMAU": ["Feline Misdirexion 3x Gold Miner ETN", 33.00, "Commodities", "'Tracks' the daily performance of the current floating rate of company scrip at the quarry store."]
 }
 
 ## If not influenced by weight, how much should the stock randomly
