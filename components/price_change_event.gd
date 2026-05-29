@@ -47,3 +47,4 @@ func fire() -> void:
 
         GameState.stock_market.update_stock(stock)
         GameState.game_window.marquee.queue_text(description)
+    GameState.game_window.marquee.queue_text_from_stock_market_data()
