@@ -27,7 +27,7 @@ static var NewInflationNumbersGood = PriceChangeEvent.new(
 
 static var PoliticianIceCreamSubsidy = PriceChangeEvent.new(
     # Increase the price of all cat stocks
-    {"CAT": 1.05, "TIGR": 1.05, "EZBV": 1.10, "EZBD": 1.10, "XMAU": 1.35}, "A local politician has introduce a new subsidy on ice cream! Dairy enjoyers rejoice!"
+    {"CAT": 1.05, "TIGR": 1.05, "EZBV": 1.10, "EZBD": 1.10, "XMAU": 1.35}, "A local politician has introduced a new subsidy on ice cream! Dairy enjoyers rejoice!"
 )
 
 static var DogCryptoInsiderTrading = PriceChangeEvent.new(
@@ -74,15 +74,11 @@ static var InformationalPlot2 = PriceChangeEvent.new(
 
 static var InformationalPlot3 = PriceChangeEvent.new(
     # No change
-    {}, "CELEBRITY NEWS: 'How I travel without my child, and why you should too! (Just sell them!)"
+    {}, "CELEBRITY NEWS: 'How I travel without my child, and why you should too! (Just sell them!)'"
 )
 
 
 static var EventsNotFired: Array[PriceChangeEvent]
-
-
-func _ready() -> void:
-    repopulateEvents()
 
 
 ## Reset events schedule.
