@@ -43,6 +43,41 @@ var DogPlotThwarted = PriceChangeEvent.new(
     {"DOG": 0.90}, "A nasty price collusion plot by DOGS was discovered by the Chief Investigator! Better luck next time!!"
 )
 
+var CarExplosionTest = PriceChangeEvent.new(
+    {"CRW": 0.70}, "Disaster! Corvid Auto's new car exploded at the test track!!"
+)
+
+var CrimePlot1 = PriceChangeEvent.new(
+    # Everything goes down
+    {"JINH": 0.95, "CAT": 0.95, "DOG": 0.95, "BIRD": 0.95, "LZRD": 0.95, "TIGR": 0.95, "EZBV": 0.95, "EZBD": 0.95, "CBLT": 0.95, "MSTR": 0.95, "CRW": 0.95, "SNEK": 0.95, "XMAU": 0.95}, "The GANG OF EXTORTIONISTS sent a letter to the central government, and it's scary!!"
+)
+
+var CrimePlot2 = PriceChangeEvent.new(
+    # Gold goes down a lot
+    {"XMAU": 0.60}, "The central government arrested an official with 999 million dollars of gold smuggled in his house!"
+)
+
+var CrimePlot3 = PriceChangeEvent.new(
+    # No change
+    {}, "The mastermind behind a recent failed attack plot against a famous concert apologized in federal court today."
+)
+
+var InformationalPlot1 = PriceChangeEvent.new(
+    # No change
+    {}, "MOON NEWS: A rare BLUE MOON rises this weekend!"
+)
+
+var InformationalPlot2 = PriceChangeEvent.new(
+    # No change
+    {}, "Cleaning your fan? Experts say avoid this common mistake! ..."
+)
+
+var InformationalPlot3 = PriceChangeEvent.new(
+    # No change
+    {}, "CELEBRITY NEWS: 'How I travel without my child, and why you should too! (Just sell them!)"
+)
+
+
 var EventsNotFired: Array[PriceChangeEvent]
 
 
@@ -56,7 +91,9 @@ func repopulateEvents() -> void:
         NationalMilkDay, NationalDogDay,
         NewInflationNumbersBad, NewInflationNumbersGood,
         PoliticianIceCreamSubsidy, DogCryptoInsiderTrading,
-        CrowFactoryRelease, DogPlotThwarted, 
+        CrowFactoryRelease, DogPlotThwarted, CarExplosionTest,
+        CrimePlot1, CrimePlot2, CrimePlot3, InformationalPlot1,
+        InformationalPlot2, InformationalPlot3
     ]
 
 
