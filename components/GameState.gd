@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 
 
-const BUILD_DATE: String = "20260525"
-const VERSION_STRING: String = "0.4.10"
+const BUILD_DATE: String = "20260529"
+const VERSION_STRING: String = "0.4.11"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -48,6 +48,8 @@ func clear_state() -> void:
     total_score = 0.0
     target = 0.0
     switch_page_data_bus = ""
+
+    PriceMovementsRandom.repopulateEvents()
 
 
 func start_day() -> void:
