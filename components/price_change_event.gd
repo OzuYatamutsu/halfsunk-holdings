@@ -46,5 +46,5 @@ func fire() -> void:
         stock.last_update_timestamp = GameState.get_current_timestamp()
 
         GameState.stock_market.update_stock(stock)
-        GameState.game_window.marquee.queue_text(description)
+    GameState.game_window.marquee.queue_text(description)
     GameState.game_window.marquee.queue_text_from_stock_market_data()
