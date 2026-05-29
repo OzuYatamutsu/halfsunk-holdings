@@ -17,7 +17,8 @@ func _ready() -> void:
 
 
 func queue_text(text: String) -> void:
-    _marquee_queue.append(text)
+    if (!_marquee_queue.has(text)):
+        _marquee_queue.append(text)
     if (!_is_active):
         set_text(_marquee_queue.pop_front())
         start_marquee()
