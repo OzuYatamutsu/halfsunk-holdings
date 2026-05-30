@@ -99,6 +99,6 @@ static func deserialize(json: String) -> Stock:
         JSON.parse_string(_data_obj.last_values)
     )
     _stock.last_delta = _data_obj["last_delta"]
-    _stock.last_delta_pct = _data_obj["last_delta_pct"]
+    _stock.last_delta_pct = _data_obj.get("last_delta_pct", 0)
     _stock.last_update_timestamp = _data_obj["last_update_timestamp"]
     return _stock
