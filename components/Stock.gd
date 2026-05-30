@@ -13,6 +13,7 @@ const MAX_HISTORY_LENGTH: int = 500
 @export var company_category: String = "Energy"
 @export var current_value: float = 0.0
 @export var last_delta: float = 0.0
+@export var last_delta_pct: float = 0.0
 @export var last_update_timestamp: int = 0
 
 ## each item is a tuple of: [timestamp, value.]
@@ -20,6 +21,7 @@ const MAX_HISTORY_LENGTH: int = 500
 ## actual type is Array[Array] but can't properly annotate due to
 ## deserialization typing issues
 @export var last_values: Array = []
+
 
 func _init(_ticker: String, _name: String, _base_value: float, _category: String, _description: String, _last_values: Array = []) -> void:
     ticker_symbol = _ticker
@@ -35,6 +37,31 @@ func _init(_ticker: String, _name: String, _base_value: float, _category: String
             [GameState.get_current_timestamp() - 1, current_value],
             [GameState.get_current_timestamp(), current_value],
         ]
+
+
+func update_price(new_price: float) -> void:
+    var _last_delta: float = new_price - current_value
+    var _change_pct: float = 100 * (last_delta / current_value)
+    
+    print(
+        "stock: %s -> %.2f (delta: %.2f, pct: %.2f)"
+        % [ticker_symbol, new_price, last_delta, last_delta_pct]
+    )
+    
+    # Update last values graph
+    last_values.append([
+        last_update_timestamp, current_value
+    ])
+    
+    if last_values.size() > MAX_HISTORY_LENGTH:
+        last_values.pop_front()
+
+    # Commit values change
+    current_value = new_price
+    last_delta = _last_delta
+    last_delta_pct = _change_pct
+    last_update_timestamp = GameState.get_current_timestamp()
+
 
 func _to_string() -> String:
     return "%s %s %s %s (%s%s" % [
