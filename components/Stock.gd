@@ -41,7 +41,7 @@ func _init(_ticker: String, _name: String, _base_value: float, _category: String
 
 func update_price(new_price: float) -> void:
     var _last_delta: float = new_price - current_value
-    var _change_pct: float = 100 * (last_delta / current_value)
+    var _change_pct: float = 100 * (_last_delta / current_value)
     
     print(
         "stock: %s -> %.2f (delta: %.2f, pct: %.2f)"
