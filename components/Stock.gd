@@ -44,8 +44,8 @@ func update_price(new_price: float) -> void:
     var _change_pct: float = 100 * (_last_delta / current_value)
     
     print(
-        "stock: %s -> %.2f (delta: %.2f, pct: %.2f)"
-        % [ticker_symbol, new_price, last_delta, last_delta_pct]
+        "[price change]: %s %.2f -> %.2f (delta: %.2f, pct: %.2f)"
+        % [ticker_symbol, current_value, new_price, _last_delta, _change_pct]
     )
     
     # Update last values graph
