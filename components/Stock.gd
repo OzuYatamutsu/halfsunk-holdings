@@ -70,7 +70,7 @@ func _to_string() -> String:
         SharedConstants.UP_SYMBOL if last_delta >= 0 else SharedConstants.DOWN_SYMBOL,
         Helpers.currencyify(abs(last_delta), true, true),
         "+" if last_delta >= 0 else "",
-        Helpers.currencyify(abs(last_delta / current_value - last_delta), true, true)
+        Helpers.currencyify(abs(last_delta_pct), true, true)
     ] + '%)'
 
 
