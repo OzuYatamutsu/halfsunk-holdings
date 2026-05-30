@@ -60,21 +60,8 @@ func market_random_shift() -> void:
                 1.0 + randf_range(RANDOM_RANGE_PCTS[0], RANDOM_RANGE_PCTS[1])
             )
         )
-        var last_delta = target_value - stock.current_value
-        
-        print(
-            "stock_market: [random_shift] %s -> %.2f (change %.2f)"
-            % [stock.ticker_symbol, target_value, last_delta]
-        )
-        
-        stock.last_values.append([
-            stock.last_update_timestamp, stock.current_value
-        ])
-        if stock.last_values.size() > Stock.MAX_HISTORY_LENGTH:
-            stock.last_values.pop_front()
-        stock.current_value = target_value
-        stock.last_delta = last_delta
-        stock.last_update_timestamp = GameState.get_current_timestamp()
+
+        stock.update_price(target_value)
         update_stock(stock)
 
 

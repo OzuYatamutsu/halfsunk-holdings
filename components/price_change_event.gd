@@ -30,21 +30,8 @@ func fire() -> void:
         var targetValue: float = Helpers.money_round(
             stock.current_value * changePercent
         )
-        var delta: float = targetValue - stock.current_value
-        print(
-            "event: [price_change_event] %s -> %.2f (change %.2f)"
-            % [ticker, targetValue, delta]
-        )
-        
-        stock.last_values.append([
-            stock.last_update_timestamp, stock.current_value
-        ])
-        if stock.last_values.size() > Stock.MAX_HISTORY_LENGTH:
-            stock.last_values.pop_front()
-        stock.current_value = targetValue
-        stock.last_delta = delta
-        stock.last_update_timestamp = GameState.get_current_timestamp()
-
+        stock.update_price(targetValue)
         GameState.stock_market.update_stock(stock)
+
     GameState.game_window.marquee.queue_text(description)
     GameState.game_window.marquee.queue_text_from_stock_market_data()
