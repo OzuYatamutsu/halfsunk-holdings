@@ -17,9 +17,12 @@ func _ready() -> void:
 
 
 func on_action_taken() -> void:
+    if RandomEventsEmitter.hasUnfiredRandomEvents():
+        GameState.game_window.add_child(RandomEventsEmitter.returnRandomEvent())
+        return
     if PriceMovementsRandom.hasUnfiredRandomEvents():
         PriceMovementsRandom.returnRandomEvent().fire()
-
+    
 
 func on_premarket_start() -> void:
     super()
