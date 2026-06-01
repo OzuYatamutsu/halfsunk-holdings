@@ -6,10 +6,9 @@ extends Node
 ## in any day.
 
 
-static var CatInsideTrading01: ChatWindowModal = load(
+static var CatInsideTrading01: ChatWindowModal = ChatWindowModal.Create(
     "res://events/cm_random_cat_inside_trading01.gd"
-).instantiate()
-
+)
 
 static var EventsNotFired: Array[ChatWindowModal]
 
