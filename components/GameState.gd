@@ -50,6 +50,7 @@ func clear_state() -> void:
     switch_page_data_bus = ""
 
     PriceMovementsRandom.repopulateEvents()
+    RandomEventsEmitter.repopulateEvents()
 
 
 func start_day() -> void:
