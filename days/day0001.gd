@@ -22,7 +22,7 @@ func on_action_taken() -> void:
         return
     if PriceMovementsRandom.hasUnfiredRandomEvents():
         PriceMovementsRandom.returnRandomEvent().fire()
-    
+
 
 func on_premarket_start() -> void:
     super()

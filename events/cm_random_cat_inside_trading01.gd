@@ -29,6 +29,7 @@ func _1_on_wait() -> void:
     add_message("%TS/are you in??")
     ButtonOptions = ["Yeah!", "Uh...yeah..."]
     YesAction = _2_on_yes_button_pressed
+    NoAction = _2_on_yes_button_pressed
     update_button_options()
 
 
@@ -41,5 +42,4 @@ func _2_on_yes_button_pressed() -> void:
 
 func _3_on_yes_button_pressed() -> void:
     IgnoreCloseRequests = false
-    GameState.current_day.last_event_finished.emit()
     close()
