@@ -6,11 +6,8 @@ extends Node
 ## in any day.
 
 
-static var CatInsideTrading01: ChatWindowModal = ChatWindowModal.Create(
-    "res://events/cm_random_cat_inside_trading01.gd"
-)
-
-static var EventsNotFired: Array[ChatWindowModal]
+static var CatInsideTrading01: String = "res://events/cm_random_cat_inside_trading01.gd"
+static var EventsNotFired: Array[String]
 
 
 ## Reset events schedule.
@@ -28,4 +25,6 @@ static func hasUnfiredRandomEvents() -> bool:
 ## Returns a random, unfired event. 
 static func returnRandomEvent() -> ChatWindowModal:
     EventsNotFired.shuffle()
-    return EventsNotFired.pop_front()
+    return ChatWindowModal.Create(
+        EventsNotFired.pop_front()
+    )
