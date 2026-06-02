@@ -38,8 +38,8 @@ func _on_prompt_edit_text_submitted(new_text: String) -> void:
     if new_text.length() == 0:
         return
 
-    var command = new_text.split(" ")[0]
-    var command_args = new_text.split(" ")
+    var command = new_text.to_upper().split(" ")[0]
+    var command_args = new_text.to_upper().split(" ")
     command_args.remove_at(0)
 
     if !(command in COMMAND_LIST):
