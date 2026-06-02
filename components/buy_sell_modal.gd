@@ -44,9 +44,19 @@ func _ready() -> void:
     # e.g. "JINH;BUY"
 
     super._ready()
-    assert(len(GameState.switch_page_data_bus.split(';')) == 2)
+    assert(len(GameState.switch_page_data_bus.split(';')) >= 2)
     ticker = GameState.switch_page_data_bus.split(';')[0].to_upper()
     action = Mode[GameState.switch_page_data_bus.split(';')[1].to_upper()]
+    
+    var _quantity = (
+        int(GameState.switch_page_data_bus.split(';')[2])
+        if GameState.switch_page_data_bus.split(';').size() == 3
+        else 0
+    )
+    
+    if _quantity > 0:
+        QuantityEdit.text = str(_quantity)
+        _on_quantity_edit_text_changed(QuantityEdit.text)
 
     QuantityEdit.grab_focus()
     doit_button.disabled = true
