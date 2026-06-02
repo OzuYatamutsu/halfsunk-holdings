@@ -18,6 +18,8 @@ func _ready():
     PageHeightY = int(ContentArea.size.y)
     update_scrollable_area()
     populate_data()
+    GameState.current_day.action_taken.connect(populate_data)
+
 
 func populate_data() -> void:
     _populate_date_label()
