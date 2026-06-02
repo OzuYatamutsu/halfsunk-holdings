@@ -101,8 +101,8 @@ func _handle_info(args: Array[String]) -> void:
 ## This command loads the buy modal for the given ticker
 func _handle_buy(args: Array[String]) -> void:
     # Check if the command is malformed
-    if (len(args) != 1):
-        _flash_status_text("Syntax: BUY <stock-ticker>")
+    if (len(args) < 1):
+        _flash_status_text("Syntax: BUY <stock-ticker> [quantity]")
         return
 
     # Check if the stock actually exists in the stock market
@@ -111,7 +111,10 @@ func _handle_buy(args: Array[String]) -> void:
         _flash_status_text("Stock not found!")
         return
 
-    GameState.switch_page_data_bus = "%s;%s" % [args[0], "BUY"]
+    # Parse optional arg
+    var quantity = args[1] if args.size() == 2 else "0"
+
+    GameState.switch_page_data_bus = "%s;%s;%s" % [args[0], "BUY", quantity]
     var buy_sell_modal = load("res://components/BuySellModal.tscn").instantiate()
     get_tree().current_scene.add_child(buy_sell_modal)
 
@@ -119,8 +122,8 @@ func _handle_buy(args: Array[String]) -> void:
 ## This command loads the sell modal for the given ticker
 func _handle_sell(args: Array[String]) -> void:
     # Check if the command is malformed
-    if (len(args) != 1):
-        _flash_status_text("Syntax: SELL <stock-ticker>")
+    if (len(args) < 1):
+        _flash_status_text("Syntax: SELL <stock-ticker> [quantity]")
         return
 
     # Check if the stock actually exists in the stock market
@@ -129,6 +132,9 @@ func _handle_sell(args: Array[String]) -> void:
         _flash_status_text("Stock not found!")
         return
 
-    GameState.switch_page_data_bus = "%s;%s" % [args[0], "SELL"]
+    # Parse optional arg
+    var quantity = args[1] if args.size() == 2 else "0"
+
+    GameState.switch_page_data_bus = "%s;%s;%s" % [args[0], "SELL", quantity]
     var buy_sell_modal = load("res://components/BuySellModal.tscn").instantiate()
     get_tree().current_scene.add_child(buy_sell_modal)
