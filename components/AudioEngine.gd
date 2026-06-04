@@ -12,6 +12,7 @@ var SFX_BUYSELL: AudioStreamMP3
 var SFX_MESSAGE_RECEIVED: AudioStreamMP3
 var SFX_MESSAGE_SENT: AudioStreamMP3
 var SFX_WATCH_BEEP: AudioStreamMP3
+var SFX_UPDATE: AudioStreamMP3
 
 @onready var bgm: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var sfx: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -40,7 +41,8 @@ func load_sfx() -> void:
     SFX_MESSAGE_RECEIVED = AudioStreamMP3.load_from_file("res://sfx/sfx_chat_message_received.mp3")
     SFX_MESSAGE_SENT = AudioStreamMP3.load_from_file("res://sfx/sfx_chat_message_sent.mp3")
     SFX_WATCH_BEEP = AudioStreamMP3.load_from_file("res://sfx/sfx_watch_beep.mp3")
-
+    SFX_UPDATE = AudioStreamMP3.load_from_file("res://sfx/sfx_update.mp3")
+    
 
 func play_sfx(_sfx: AudioStreamMP3) -> void:
     _sfx.loop = false
