@@ -4,6 +4,7 @@ extends Node
 const INITIAL_MASTER_VOLUME: float = 1.0
 const INITIAL_MUSIC_VOLUME: float = 0.75
 const INITIAL_SFX_VOLUME: float = 1.0
+const DUCK_SFX_PERCENT: float = 0.4
 
 var BGM_MAINMENU: AudioStreamMP3
 var BGM_GAME: AudioStreamMP3
@@ -13,6 +14,9 @@ var SFX_MESSAGE_RECEIVED: AudioStreamMP3
 var SFX_MESSAGE_SENT: AudioStreamMP3
 var SFX_WATCH_BEEP: AudioStreamMP3
 var SFX_UPDATE: AudioStreamMP3
+
+var _bgm_duck_active: bool = false
+var _bgm_duck_previous_volume: float
 
 @onready var bgm: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var sfx: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -28,6 +32,8 @@ func _ready() -> void:
     
     bgm.autoplay = false
     sfx.autoplay = false
+
+    sfx.finished.connect(_on_sfx_finished)
 
 
 func load_bgm() -> void:
@@ -45,6 +51,8 @@ func load_sfx() -> void:
     
 
 func play_sfx(_sfx: AudioStreamMP3) -> void:
+    _duck_bgm()
+
     _sfx.loop = false
     sfx.stream = _sfx
     sfx.play()
@@ -107,4 +115,37 @@ func adjust_sfx_volume(value: float) -> void:
     AudioServer.set_bus_volume_db(
         AudioServer.get_bus_index("sfx"),
         linear_to_db(value)
+    )
+
+
+## Temporarily reduce BGM volume during SFX
+func _duck_bgm() -> void:
+    if _bgm_duck_active:
+        return
+    _bgm_duck_active = true
+
+    var bus = AudioServer.get_bus_index("bgm")
+    _bgm_duck_previous_volume = get_music_volume()
+
+    create_tween().tween_method(
+        func(v): AudioServer.set_bus_volume_db(bus, linear_to_db(v)),
+        _bgm_duck_previous_volume,
+        _bgm_duck_previous_volume * DUCK_SFX_PERCENT,
+        0.1
+    )
+
+
+## Restore BGM volume after sfx finished
+func _on_sfx_finished() -> void:
+    if not _bgm_duck_active:
+        return
+    _bgm_duck_active = false
+
+    var bus = AudioServer.get_bus_index("bgm")
+
+    create_tween().tween_method(
+        func(v): AudioServer.set_bus_volume_db(bus, linear_to_db(v)),
+        get_music_volume(),
+        _bgm_duck_previous_volume,
+        0.2
     )
