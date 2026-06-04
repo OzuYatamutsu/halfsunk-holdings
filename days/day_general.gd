@@ -24,7 +24,17 @@ func _ready() -> void:
 
 
 func on_action_taken() -> void:
-    pass  # TODO
+    # If we have random chat events to fire, do so if
+    # we pass the random check.
+    if (RandomEventsEmitter.hasUnfiredRandomEvents()):
+        if (randf() <= random_chat_message_chance_pct):
+            RandomEventsEmitter.returnRandomEvent().fire()
+    
+    # Otherwise, if we have random price movements to fire,
+    # do so if we pass the random check.
+    elif (PriceMovementsRandom.hasUnfiredRandomEvents()):
+        if (randf() <= random_price_movement_chance_pct):
+            PriceMovementsRandom.returnRandomEvent().fire()
 
 
 func on_premarket_start() -> void:
