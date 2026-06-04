@@ -46,6 +46,10 @@ func _ready() -> void:
     AudioEngine.play_sfx(AudioEngine.SFX_MESSAGE_RECEIVED)
 
 
+func fire() -> void:
+    GameState.game_window.add_child(self)
+
+
 func update_user_info() -> void:
     _chat_user_profile.texture = load(UserProfilePath)
     _chat_user_name.text = UserName

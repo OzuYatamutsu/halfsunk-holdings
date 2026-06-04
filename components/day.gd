@@ -68,6 +68,16 @@ var phase: Phase = Phase.START
 var action_count: int = 0
 
 
+## If we set up a chance for a random chat message
+## to fire, what's the chance of it happening?
+var random_chat_message_chance_pct: float = 0.20
+
+
+## If we set up a chance for a price movement event
+## to fire, what's the chance of it happening?
+var random_price_movement_chance_pct: float = 0.20
+
+
 func _ready() -> void:
     if (!scene_path):
         scene_path = scene_file_path
