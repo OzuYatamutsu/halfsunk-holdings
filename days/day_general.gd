@@ -12,29 +12,10 @@ func _ready() -> void:
         # First day of week
         GameState.clear_state()
 
-    events = {
-        Day.Phase.PREMARKET: null,
-        Day.Phase.MARKETOPEN: null,
-        Day.Phase.AFTERMARKET: null,
-        Day.Phase.CLOSE: null
-    }
+    events = {}
 
     super()
     start_next_phase()
-
-
-func on_action_taken() -> void:
-    # If we have random chat events to fire, do so if
-    # we pass the random check.
-    if (RandomEventsEmitter.hasUnfiredRandomEvents()):
-        if (randf() <= random_chat_message_chance_pct):
-            RandomEventsEmitter.returnRandomEvent().fire()
-    
-    # Otherwise, if we have random price movements to fire,
-    # do so if we pass the random check.
-    elif (PriceMovementsRandom.hasUnfiredRandomEvents()):
-        if (randf() <= random_price_movement_chance_pct):
-            PriceMovementsRandom.returnRandomEvent().fire()
 
 
 func on_premarket_start() -> void:
@@ -45,6 +26,20 @@ func on_premarket_start() -> void:
 func on_premarket_end() -> void:
     super()
     pass  # TODO
+
+
+func on_action_taken() -> void:
+    # If we have random chat events to fire, do so if
+    # we pass the random check.
+    if (RandomEventsEmitter.hasUnfiredRandomEvents()):
+        if (randf() <= random_chat_message_chance_pct):
+            RandomEventsEmitter.returnRandomEvent().fire()
+
+    # Otherwise, if we have random price movements to fire,
+    # do so if we pass the random check.
+    elif (PriceMovementsRandom.hasUnfiredRandomEvents()):
+        if (randf() <= random_price_movement_chance_pct):
+            PriceMovementsRandom.returnRandomEvent().fire()
 
 
 func on_aftermarket_start() -> void:
