@@ -20,12 +20,10 @@ func _ready() -> void:
 
 func on_premarket_start() -> void:
     super()
-    pass  # TODO
 
 
 func on_premarket_end() -> void:
     super()
-    pass  # TODO
 
 
 func on_action_taken() -> void:
@@ -45,9 +43,7 @@ func on_action_taken() -> void:
 func on_aftermarket_start() -> void:
     super()
     AudioEngine.pause_bgm()
-    pass  # TODO
 
 
 func on_close_end() -> void:
     super()
-    pass  # TODO
