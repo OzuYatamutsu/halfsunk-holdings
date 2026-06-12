@@ -1,4 +1,4 @@
-# general day
+class_name GeneralDay
 extends Day
 
 
