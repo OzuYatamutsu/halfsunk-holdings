@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ch5b25vub3hg4"]
+
+[ext_resource type="Script" uid="uid://ceefjgv8jjjsk" path="res://components/day.gd" id="1_fac5h"]
+[ext_resource type="PackedScene" uid="uid://ckvm4mak3vlgx" path="res://components/GameWindow.tscn" id="2_qgt2e"]
+
+[node name="day_layout" type="Node" unique_id=1507617708]
+script = ExtResource("1_fac5h")
+metadata/_custom_type_script = "uid://ceefjgv8jjjsk"
+
+[node name="GameWindow" parent="." unique_id=470096987 instance=ExtResource("2_qgt2e")]
+unique_name_in_owner = true
+
+[editable path="GameWindow"]
