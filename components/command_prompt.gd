@@ -17,22 +17,31 @@ var COMMAND_LIST: Dictionary[String, Callable] = {
 @onready var StatusText: Label = %StatusText
 @onready var DisabledFg: ColorRect = %DisabledFg
 
+
 func _ready() -> void:
     NotFoundStatusText.visible = false
     StatusText.visible = false
 
+
 func clear() -> void:
     PromptEdit.clear()
+
 
 func disable() -> void:
     IsEnabled = false
     PromptEdit.editable = false
     DisabledFg.visible = true
 
+
 func enable() -> void:
     IsEnabled = true
     PromptEdit.editable = true
     DisabledFg.visible = false
+
+
+func focus():
+    PromptEdit.call_deferred("grab_focus")
+
 
 func _on_prompt_edit_text_submitted(new_text: String) -> void:
     if new_text.length() == 0:
