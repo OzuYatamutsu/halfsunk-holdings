@@ -140,7 +140,7 @@ func on_premarket_start() -> void:
     
     # Play starting animation
     var _anim: PhaseTransitionAnim = PREMARKET_START_ANIM.instantiate()
-    get_tree().current_scene.add_child(_anim)
+    add_child(_anim)
     await _anim.animation_complete
 
     if Phase.PREMARKET in events:
@@ -156,7 +156,7 @@ func on_premarket_end() -> void:
 func on_marketopen_start() -> void:
     # Play starting animation
     var _anim: PhaseTransitionAnim = MARKETOPEN_START_ANIM.instantiate()
-    get_tree().current_scene.add_child(_anim)
+    add_child(_anim)
     await _anim.animation_complete
 
     if Phase.MARKETOPEN in events:
@@ -176,7 +176,7 @@ func on_marketopen_end() -> void:
 func on_aftermarket_start() -> void:
     # Play starting animation
     var _anim: PhaseTransitionAnim = AFTERMARKET_START_ANIM.instantiate()
-    get_tree().current_scene.add_child(_anim)
+    add_child(_anim)
     await _anim.animation_complete
 
     if Phase.AFTERMARKET in events:
@@ -192,7 +192,7 @@ func on_aftermarket_end() -> void:
 func on_close_start() -> void:
     # Play starting animation
     var _anim: PhaseTransitionAnim = CLOSE_START_ANIM.instantiate()
-    get_tree().current_scene.add_child(_anim)
+    add_child(_anim)
     await _anim.animation_complete
 
     if Phase.CLOSE in events:

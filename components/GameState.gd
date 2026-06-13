@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 
 
-const BUILD_DATE: String = "20260612"
-const VERSION_STRING: String = "0.4.17"
+const BUILD_DATE: String = "20260613"
+const VERSION_STRING: String = "0.4.18"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -51,6 +51,17 @@ func clear_state() -> void:
 
     PriceMovementsRandom.repopulateEvents()
     RandomEventsEmitter.repopulateEvents()
+
+
+func load_day(path_to_day_gd: String) -> void:
+    var new_scene: Node = load("res://days/day_layout.tscn").instantiate()
+    new_scene.set_script(load(path_to_day_gd))
+
+    # Manual load
+    get_tree().current_scene.queue_free()
+    await get_tree().process_frame
+    get_tree().current_scene = new_scene
+    get_tree().root.add_child(new_scene)
 
 
 func start_day() -> void:

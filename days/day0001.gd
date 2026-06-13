@@ -45,8 +45,7 @@ func on_aftermarket_start() -> void:
 func on_close_end() -> void:
     super()
 
-    get_tree().change_scene_to_file("res://days/day0002.tscn")
-
+    GameState.load_day("res://days/day_infinite.gd")
 
 func _event_chat_message() -> void:
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
