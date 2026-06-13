@@ -62,6 +62,7 @@ func load_day(path_to_day_gd: String) -> void:
     await get_tree().process_frame
     get_tree().current_scene = new_scene
     get_tree().root.add_child(new_scene)
+    get_tree().current_scene = new_scene
 
 
 func start_day() -> void:
