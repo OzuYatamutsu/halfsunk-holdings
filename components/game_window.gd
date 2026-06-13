@@ -10,3 +10,8 @@ func _ready() -> void:
     GameState.game_window = self
     command_prompt.enable()
     hud_status.update()
+
+
+func _input(event):
+    if event.is_action_pressed("ui_accept"):
+        command_prompt.focus()
