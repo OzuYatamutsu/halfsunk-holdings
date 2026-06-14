@@ -23,6 +23,7 @@ var net_worth: float = 0.0
 var total_score: float = 0.0
 var target: float = 0.0
 var current_day: Day
+var day_of_week: Day.DayOfWeek
 var day_count: int = 1
 var is_in_phase_transition: bool = false
 

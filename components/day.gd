@@ -82,6 +82,7 @@ func _ready() -> void:
     if (!scene_path):
         scene_path = scene_file_path
     GameState.current_day = self
+    GameState.day_of_week = day
     last_event_finished.connect(start_next_phase)
 
     last_event_finished.connect(GameState.game_window.hud_status.update)
