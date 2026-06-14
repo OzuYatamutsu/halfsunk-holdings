@@ -7,11 +7,12 @@ extends GeneralDay
 
 
 func _ready() -> void:
+    super()
+    
     # Advance forwards by one day
-    GameState.current_day.day = clamp(
-        GameState.current_day.day + 1,
+    day = clamp(
+        GameState.day_of_week + 1,
         DayOfWeek.MONDAY,
         DayOfWeek.FRIDAY
     )
-    
-    super()
+    GameState.day_of_week = day
