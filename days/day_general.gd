@@ -20,7 +20,9 @@ func _ready() -> void:
 
 func on_premarket_start() -> void:
     super()
-
+    AudioEngine.play_bgm(AudioEngine.BGM_GAME)
+    GameState.game_window.browser.load_page("res://pages/StartPage.tscn")
+    
 
 func on_premarket_end() -> void:
     super()
