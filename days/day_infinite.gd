@@ -13,6 +13,18 @@ func _ready() -> void:
         DayOfWeek.MONDAY,
         DayOfWeek.FRIDAY
     )
+    
+    # If we're at the end of the week,
+    # loop back around to Monday
+    if day == GameState.day_of_week:
+        day = DayOfWeek.MONDAY
+    
     GameState.day_of_week = day
 
     super()
+
+
+func on_close_end() -> void:
+    super()
+
+    GameState.load_day("res://days/day_infinite.gd")
