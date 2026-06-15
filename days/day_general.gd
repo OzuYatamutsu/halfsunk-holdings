@@ -8,10 +8,6 @@ extends Day
 
 
 func _ready() -> void:
-    if (GameState.day_of_week == Day.DayOfWeek.MONDAY):
-        # First day of week
-        GameState.clear_state()
-
     events = {}
 
     super()
