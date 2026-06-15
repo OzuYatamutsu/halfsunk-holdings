@@ -207,6 +207,9 @@ func on_close_end() -> void:
     GameState.total_score = GameState.net_worth
     GameState.day_count += 1
 
+    if (GameState.day_of_week == DayOfWeek.FRIDAY):
+        GameState.end_of_week()
+
 
 func serialize() -> String:
     return JSON.stringify({
