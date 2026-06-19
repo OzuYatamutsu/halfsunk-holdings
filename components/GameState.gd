@@ -3,7 +3,7 @@ extends Node
 
 signal cash_changed
 signal net_worth_changed
-
+signal end_of_week_calc_done
 
 const BUILD_DATE: String = "20260615"
 const VERSION_STRING: String = "0.4.19"
@@ -119,7 +119,7 @@ func end_of_week() -> void:
 
     # Scene with end of week animations
     var _end_of_week_anim: PhaseTransitionAnim = load("res://components/EndOfWeekAnim.tscn").instantiate()
-    current_day.add_child(_end_of_week_anim)
+    get_tree().current_scene.add_child(_end_of_week_anim)
     await _end_of_week_anim.animation_complete
     
     print("net worth: %.2d, target: %.2d" % [net_worth, target])
@@ -135,6 +135,9 @@ func end_of_week() -> void:
         portfolio.clear()
         
         save_game()
+    
+    print("eow calculation done")
+    end_of_week_calc_done.emit()
 
 
 func _ensure_savegame_dir() -> void:
