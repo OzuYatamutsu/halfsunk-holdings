@@ -30,7 +30,7 @@ func populate_data() -> void:
 
 func _populate_date_label() -> void:
     DateLabel.text = "%s, Day %s" % [
-        WORKDAY_OF_WEEK[(GameState.day_count - 1) % 5],
+        WORKDAY_OF_WEEK[GameState.day_of_week],
         GameState.day_count
     ]
 
