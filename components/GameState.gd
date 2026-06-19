@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 signal end_of_week_calc_done
 
-const BUILD_DATE: String = "20260615"
-const VERSION_STRING: String = "0.4.19"
+const BUILD_DATE: String = "20260619"
+const VERSION_STRING: String = "0.4.21"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -22,6 +22,7 @@ var portfolio: Portfolio = Portfolio.new()
 var net_worth: float = 0.0
 var total_score: float = 0.0
 var target: float = 0.0
+var _old_target: float = 0.0
 var current_day: Day
 var day_of_week: Day.DayOfWeek
 var day_count: int = 1
@@ -129,10 +130,12 @@ func end_of_week() -> void:
         print("entering eow winning state")
         
         # Clear out all investments in prep for next week
-        cash = 0.0
+        cash = STARTING_CASH
         net_worth = 0.0
+        _old_target = target
         target = 0.0
         portfolio.clear()
+        recalculate_net_worth()
         
         save_game()
     
