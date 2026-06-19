@@ -6,7 +6,7 @@ signal net_worth_changed
 signal end_of_week_calc_done
 
 const BUILD_DATE: String = "20260619"
-const VERSION_STRING: String = "0.4.21"
+const VERSION_STRING: String = "0.4.22"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -62,7 +62,6 @@ func load_day(path_to_day_gd: String) -> void:
     # Manual load
     get_tree().current_scene.queue_free()
     await get_tree().process_frame
-    get_tree().current_scene = new_scene
     get_tree().root.add_child(new_scene)
     get_tree().current_scene = new_scene
 
@@ -123,7 +122,7 @@ func end_of_week() -> void:
     get_tree().current_scene.add_child(_end_of_week_anim)
     await _end_of_week_anim.animation_complete
     
-    print("net worth: %.2d, target: %.2d" % [net_worth, target])
+    print("net worth: %.2f, target: %.2f" % [net_worth, target])
     if (net_worth < target):
         print("entering eow losing state")
     else:
@@ -185,7 +184,7 @@ func load_game(save_game_path: String) -> void:
 
     deserialize(_gamestate_data)
     print("[load_game] restored gamestate, loading level...")
-    get_tree().change_scene_to_file(GameState.current_day.scene_path)
+    load_day(GameState.current_day.scene_path)
 
 
 func serialize() -> String:

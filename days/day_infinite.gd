@@ -42,4 +42,5 @@ func on_close_end() -> void:
     
 
 func _on_end_of_week_complete():
+    GameState.end_of_week_calc_done.disconnect(_on_end_of_week_complete)
     GameState.load_day("res://days/day_infinite.gd")
