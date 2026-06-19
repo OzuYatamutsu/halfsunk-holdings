@@ -35,4 +35,11 @@ func _ready() -> void:
 func on_close_end() -> void:
     super()
 
+    if GameState.day_of_week != DayOfWeek.FRIDAY:
+        GameState.load_day("res://days/day_infinite.gd")
+    else:
+        GameState.end_of_week_calc_done.connect(_on_end_of_week_complete)
+    
+
+func _on_end_of_week_complete():
     GameState.load_day("res://days/day_infinite.gd")
