@@ -1,69 +1,111 @@
 [gd_scene format=3 uid="uid://c2iseh2jy1e5l"]
 
 [ext_resource type="Script" uid="uid://cx444qvfatx3t" path="res://components/end_of_week_anim.gd" id="1_vgoo6"]
+[ext_resource type="Script" uid="uid://c1587q6vs64xs" path="res://components/modal_window.gd" id="2_ofy65"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_x608h"]
-
-[sub_resource type="Animation" id="Animation_ifb2x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_eudgq"]
-resource_name = "on_load"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uorcq"]
-_data = {
-&"RESET": SubResource("Animation_ifb2x"),
-&"on_load": SubResource("Animation_eudgq")
-}
+[ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="4_g255w"]
+[ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="5_stvnb"]
 
 [node name="EndOfWeekAnim" type="CanvasLayer" unique_id=456519578]
 script = ExtResource("1_vgoo6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=806128699]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_uorcq")
+[node name="BgDimEffect" type="ColorRect" parent="." unique_id=1931625319]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0009594, 1.0072175)
+color = Color(0, 0, 0, 0.7058824)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1009173691]
+[node name="ModalWindow" type="Window" parent="." unique_id=612267650]
+oversampling_override = 1.0
+title = "END OF WEEK"
+initial_position = 1
+size = Vector2i(700, 400)
+script = ExtResource("2_ofy65")
+
+[node name="InfoContainer" type="VBoxContainer" parent="ModalWindow" unique_id=354845648]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="TextureRect" unique_id=1022329723]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="_spacer" type="Control" parent="ModalWindow/InfoContainer" unique_id=2127118262]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="ModalWindow/InfoContainer" unique_id=1324950896]
+layout_mode = 2
 theme = ExtResource("2_x608h")
 theme_override_font_sizes/font_size = 40
-text = "ENDOFWEEK (placeholder animation)"
+text = "END OF WEEK"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="GameOverSubtitle" type="Label" parent="ModalWindow/InfoContainer" unique_id=88684425]
+layout_mode = 2
+theme = ExtResource("4_g255w")
+text = "TODO TODO"
+horizontal_alignment = 1
+
+[node name="_spacer2" type="Control" parent="ModalWindow/InfoContainer" unique_id=1369187782]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ScoreSummaryGridContainer" type="GridContainer" parent="ModalWindow/InfoContainer" unique_id=288507048]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="TotalScoreLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=166884603]
+layout_mode = 2
+theme = ExtResource("2_x608h")
+text = "Total score"
+horizontal_alignment = 2
+
+[node name="TotalScoreValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=9641938]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_g255w")
+text = "3,000,000.00"
+
+[node name="JobHeldForLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=989791687]
+layout_mode = 2
+theme = ExtResource("2_x608h")
+text = "Job held for"
+horizontal_alignment = 2
+
+[node name="JobHeldForValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=881249272]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_g255w")
+text = "13 days"
+
+[node name="_spacer3" type="Control" parent="ModalWindow/InfoContainer" unique_id=2142845054]
+custom_minimum_size = Vector2(0, 115)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1866330482]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MainMenuButton" type="Button" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=1115621263]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_stvnb")
+theme_override_font_sizes/font_size = 20
+text = "Try again!"
+alignment = 0
+
+[node name="_spacer4" type="Control" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=225495118]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=1808816583]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_stvnb")
+theme_override_font_sizes/font_size = 20
+text = "Retire..."
+alignment = 0
