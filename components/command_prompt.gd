@@ -7,7 +7,8 @@ var COMMAND_LIST: Dictionary[String, Callable] = {
     "START": _handle_start,
     "INFO": _handle_info,
     "BUY": _handle_buy,
-    "SELL": _handle_sell
+    "SELL": _handle_sell,
+    "_DEBUG_ENDDAY": _handle_debug_endday
 }
 
 @export var IsEnabled: bool = true
@@ -148,3 +149,9 @@ func _handle_sell(args: Array[String]) -> void:
     GameState.switch_page_data_bus = "%s;%s;%s" % [args[0], "SELL", quantity]
     var buy_sell_modal = load("res://components/BuySellModal.tscn").instantiate()
     get_tree().current_scene.add_child(buy_sell_modal)
+
+
+## debug command: this command immediately skips the marketopen phase.
+func _handle_debug_endday(_args: Array[String]) -> void:
+    print("debug command: ending day immediately!!")
+    GameState.current_day.start_next_phase()
