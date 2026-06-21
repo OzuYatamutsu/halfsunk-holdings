@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 signal end_of_week_calc_done
 
-const BUILD_DATE: String = "20260619"
-const VERSION_STRING: String = "0.4.22"
+const BUILD_DATE: String = "20260621"
+const VERSION_STRING: String = "0.4.23"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -137,9 +137,11 @@ func end_of_week() -> void:
         recalculate_net_worth()
         
         save_game()
+        
+        # Only emit this if we want to continue
+        end_of_week_calc_done.emit()
     
     print("eow calculation done")
-    end_of_week_calc_done.emit()
 
 
 func _ensure_savegame_dir() -> void:
