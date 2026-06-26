@@ -9,6 +9,8 @@
 [node name="EndOfWeekAnim" type="CanvasLayer" unique_id=456519578]
 script = ExtResource("1_vgoo6")
 
+[node name="ScoreAnimator" type="AnimationPlayer" parent="." unique_id=1563084596]
+
 [node name="BgDimEffect" type="ColorRect" parent="." unique_id=1931625319]
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,17 +38,18 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="GameOverLabel" type="Label" parent="ModalWindow/InfoContainer" unique_id=1324950896]
+[node name="EndOfWeekLabel" type="Label" parent="ModalWindow/InfoContainer" unique_id=1324950896]
 layout_mode = 2
 theme = ExtResource("2_x608h")
 theme_override_font_sizes/font_size = 40
 text = "END OF WEEK"
 horizontal_alignment = 1
 
-[node name="GameOverSubtitle" type="Label" parent="ModalWindow/InfoContainer" unique_id=88684425]
+[node name="EndOfWeekDaysValue" type="Label" parent="ModalWindow/InfoContainer" unique_id=88684425]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_g255w")
-text = "TODO TODO"
+text = "Day 3"
 horizontal_alignment = 1
 
 [node name="_spacer2" type="Control" parent="ModalWindow/InfoContainer" unique_id=1369187782]
@@ -58,54 +61,82 @@ layout_mode = 2
 size_flags_horizontal = 4
 columns = 2
 
-[node name="TotalScoreLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=166884603]
+[node name="InvestmentsLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=166884603]
 layout_mode = 2
 theme = ExtResource("2_x608h")
-text = "Total score"
+text = "Investments"
 horizontal_alignment = 2
 
-[node name="TotalScoreValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=9641938]
+[node name="InvestmentsValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=1567643481]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_g255w")
-text = "3,000,000.00"
+text = "1,234.56"
 
-[node name="JobHeldForLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=989791687]
+[node name="CashLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=1027743141]
 layout_mode = 2
 theme = ExtResource("2_x608h")
-text = "Job held for"
+text = "Cash"
 horizontal_alignment = 2
 
-[node name="JobHeldForValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=881249272]
+[node name="CashValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=648957264]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_g255w")
-text = "13 days"
+text = "123.45"
+
+[node name="NetWorthLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=1008231441]
+layout_mode = 2
+theme = ExtResource("2_x608h")
+text = "Net worth"
+horizontal_alignment = 2
+
+[node name="NetWorthValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=9641938]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_g255w")
+text = "1,358.01"
+
+[node name="TargetLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=1207074018]
+layout_mode = 2
+theme = ExtResource("2_x608h")
+text = "Target"
+horizontal_alignment = 2
+
+[node name="TargetValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=2120324744]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_g255w")
+theme_override_colors/font_color = Color(0.9411765, 0.22745098, 0, 1)
+text = "1,100.00"
+
+[node name="BonusLabel" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=989791687]
+layout_mode = 2
+theme = ExtResource("2_x608h")
+text = "Bonus"
+horizontal_alignment = 2
+
+[node name="BonusValue" type="Label" parent="ModalWindow/InfoContainer/ScoreSummaryGridContainer" unique_id=881249272]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_g255w")
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0, 1)
+text = "+258.01"
 
 [node name="_spacer3" type="Control" parent="ModalWindow/InfoContainer" unique_id=2142845054]
-custom_minimum_size = Vector2(0, 115)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
 [node name="ButtonContainer" type="HBoxContainer" parent="ModalWindow/InfoContainer" unique_id=1866330482]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="MainMenuButton" type="Button" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=1115621263]
+[node name="ContinueButton" type="Button" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=1808816583]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("5_stvnb")
 theme_override_font_sizes/font_size = 20
-text = "Try again!"
+text = "Continue"
 alignment = 0
 
-[node name="_spacer4" type="Control" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=225495118]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="QuitButton" type="Button" parent="ModalWindow/InfoContainer/ButtonContainer" unique_id=1808816583]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("5_stvnb")
-theme_override_font_sizes/font_size = 20
-text = "Retire..."
-alignment = 0
+[connection signal="pressed" from="ModalWindow/InfoContainer/ButtonContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
