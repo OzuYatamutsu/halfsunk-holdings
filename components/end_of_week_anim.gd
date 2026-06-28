@@ -10,10 +10,12 @@ var is_losing_state: bool
 @onready var net_worth_value: Label = %NetWorthValue
 @onready var target_value: Label = %TargetValue
 @onready var bonus_value: Label = %BonusValue
+@onready var next_level_scene: String
 
 
 func _ready() -> void:
     super._ready()
+    next_level_scene = GameState.switch_page_data_bus
     _populate_data()
 
     is_losing_state = GameState.target > GameState.net_worth
@@ -50,4 +52,4 @@ func _handle_winning_state() -> void:
 
 
 func _on_continue_button_pressed() -> void:
-    pass # Replace with function body.
+    GameState.load_day(next_level_scene)
