@@ -14,12 +14,23 @@ var is_losing_state: bool
 
 func _ready() -> void:
     super._ready()
+    _populate_data()
+
     is_losing_state = GameState.target > GameState.net_worth
 
     if (is_losing_state):
         _handle_losing_state()
     else:
         _handle_winning_state()
+
+
+func _populate_data() -> void:
+    end_of_week_days_value.text = str(GameState.day_count)
+    investments_value.text = Helpers.currencyify(GameState.portfolio.value())
+    cash_value.text = Helpers.currencyify(GameState.cash)
+    net_worth_value.text = Helpers.currencyify(GameState.net_worth)
+    target_value.text = Helpers.currencyify(GameState.target)
+    bonus_value.text = Helpers.currencyify(GameState.net_worth - GameState.target)
 
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
