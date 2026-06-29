@@ -6,10 +6,19 @@
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="4_g255w"]
 [ext_resource type="Theme" uid="uid://csa8elv675yta" path="res://components/TextStatus_theme.tres" id="5_stvnb"]
 
+[sub_resource type="Animation" id="Animation_ofy65"]
+resource_name = "on_load"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g255w"]
+_data = {
+&"on_load": SubResource("Animation_ofy65")
+}
+
 [node name="EndOfWeekAnim" type="CanvasLayer" unique_id=456519578]
 script = ExtResource("1_vgoo6")
 
 [node name="ScoreAnimator" type="AnimationPlayer" parent="." unique_id=1563084596]
+libraries/ = SubResource("AnimationLibrary_g255w")
 
 [node name="BgDimEffect" type="ColorRect" parent="." unique_id=1931625319]
 anchors_preset = 15
