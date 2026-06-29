@@ -23,7 +23,8 @@ func _ready() -> void:
     _blink_fake_impostor_hud_status()
 
     AudioEngine.play_sfx(AudioEngine.SFX_WATCH_BEEP)
-    animation_player.play("on_load")
+    if !is_in_end_of_week_calculation:
+        animation_player.play("on_load")
 
 
 func _blink_fake_impostor_hud_status() -> void:
@@ -45,6 +46,10 @@ func _blink_fake_impostor_hud_status() -> void:
 
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+    transition()
+
+
+func transition():
     GameState.is_in_phase_transition = false
     remove_child(_impostor_hud_status)
     _impostor_hud_status.queue_free()

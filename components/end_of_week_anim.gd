@@ -2,7 +2,7 @@ extends PhaseTransitionAnim
 
 var is_losing_state: bool
 
-
+@onready var modal_window: Window = %ModalWindow
 
 @onready var end_of_week_days_value: Label = %EndOfWeekDaysValue
 @onready var investments_value: Label = %InvestmentsValue
@@ -15,6 +15,7 @@ var is_losing_state: bool
 
 func _ready() -> void:
     animation_player = $ScoreAnimator
+    is_in_end_of_week_calculation = true
     days_arbitrary_text = "END OF WEEK"
     super._ready()
 
@@ -39,20 +40,19 @@ func _populate_data() -> void:
 
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
-    # TODO test
     animation_complete.emit()
 
 
 func _handle_losing_state() -> void:
-    # TODO: play a losing animation
+    modal_window.queue_free()
     var _gameOverModal: GameOverModal = load("res://components/GameOverModal.tscn").instantiate()
     add_child(_gameOverModal)
 
 
 func _handle_winning_state() -> void:
-    # TODO: play a winning animation
-    pass  # TODO
+    pass
 
 
 func _on_continue_button_pressed() -> void:
-    GameState.load_day(next_level_scene)
+    transition()
+    # GameState.load_day(next_level_scene)
