@@ -15,8 +15,9 @@ var is_losing_state: bool
 
 func _ready() -> void:
     animation_player = $ScoreAnimator
-
+    days_arbitrary_text = "END OF WEEK"
     super._ready()
+
     next_level_scene = GameState.switch_page_data_bus
     _populate_data()
 

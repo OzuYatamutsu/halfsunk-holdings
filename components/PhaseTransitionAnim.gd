@@ -7,6 +7,7 @@ signal animation_complete
 var hud_status: HudStatus
 var _impostor_hud_status: HudStatus
 var days_arbitrary_text: String
+var is_in_end_of_week_calculation: bool = false
 
 
 func _ready() -> void:
@@ -27,7 +28,10 @@ func _ready() -> void:
 
 func _blink_fake_impostor_hud_status() -> void:
     var tween = create_tween()
-    tween.set_loops()
+    if is_in_end_of_week_calculation:
+        tween.set_loops(1)
+    else:
+        tween.set_loops()
     tween.tween_callback(func(): _impostor_hud_status.visible = true)
     tween.tween_interval(0.4)
     tween.tween_callback(func(): _impostor_hud_status.visible = false)
