@@ -29,7 +29,7 @@ func _ready() -> void:
 
 
 func _populate_data() -> void:
-    end_of_week_days_value.text = str(GameState.day_count)
+    end_of_week_days_value.text = "End of day " + str(GameState.day_count - 1)
     investments_value.text = Helpers.currencyify(GameState.portfolio.value())
     cash_value.text = Helpers.currencyify(GameState.cash)
     net_worth_value.text = Helpers.currencyify(GameState.net_worth)
