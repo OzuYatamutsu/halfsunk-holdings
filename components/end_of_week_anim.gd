@@ -2,7 +2,7 @@ extends PhaseTransitionAnim
 
 var is_losing_state: bool
 
-@onready var score_animator: AnimationPlayer = $ScoreAnimator
+
 
 @onready var end_of_week_days_value: Label = %EndOfWeekDaysValue
 @onready var investments_value: Label = %InvestmentsValue
@@ -14,6 +14,8 @@ var is_losing_state: bool
 
 
 func _ready() -> void:
+    animation_player = $ScoreAnimator
+
     super._ready()
     next_level_scene = GameState.switch_page_data_bus
     _populate_data()
