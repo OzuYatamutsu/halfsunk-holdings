@@ -30,6 +30,7 @@ scale = Vector2(1.0009594, 1.0072175)
 color = Color(0, 0, 0, 0.7058824)
 
 [node name="ModalWindow" type="Window" parent="." unique_id=612267650]
+unique_name_in_owner = true
 oversampling_override = 1.0
 title = "END OF WEEK"
 initial_position = 1
