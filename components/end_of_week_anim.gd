@@ -14,7 +14,6 @@ var is_losing_state: bool
 
 
 func _ready() -> void:
-    animation_player = $ScoreAnimator
     is_in_end_of_week_calculation = true
     days_arbitrary_text = "END OF WEEK"
     super._ready()

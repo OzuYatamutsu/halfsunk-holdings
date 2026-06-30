@@ -17,7 +17,8 @@ _data = {
 [node name="EndOfWeekAnim" type="CanvasLayer" unique_id=456519578]
 script = ExtResource("1_vgoo6")
 
-[node name="ScoreAnimator" type="AnimationPlayer" parent="." unique_id=1563084596]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1563084596]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_g255w")
 
 [node name="BgDimEffect" type="ColorRect" parent="." unique_id=1931625319]
