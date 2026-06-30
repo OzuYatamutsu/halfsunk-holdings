@@ -29,6 +29,15 @@ Other assets:
 
 ## Versions
 
+### 0.4.26 (2026-06-30)
+
+- Weekly score targets
+- Working save/load feature
+- Event-based time system
+- Chat messages with gameplay effects
+- Random events with gameplay effects
+- Technically playable
+
 ### 0.2.4 (2026-03-31)
 
 - Can trade stock (just the one)
