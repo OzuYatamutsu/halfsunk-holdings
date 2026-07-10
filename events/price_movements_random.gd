@@ -62,6 +62,46 @@ static var CrimePlot3 = PriceChangeEvent.new(
     {}, "The mastermind behind a recent failed attack plot against a famous concert apologized in federal court today."
 )
 
+static var HighSalaryInvestment1 = PriceChangeEvent.new(
+    # JINH, CAT, MSTR all drop by 10%
+    {"JINH": 0.90, "CAT": 0.90, "MSTR": 0.90}, "Investment managers report record high salaries, and investors are real mad!"
+)
+
+static var AlcoholLust1 = PriceChangeEvent.new(
+    # EZBV increases 10%
+    {"EZBV": 1.10}, "Latest consumer report -- we LOVE drinking ALCOHOL!"
+)
+
+static var ComfySleepEvent1 = PriceChangeEvent.new(
+    # EZBD increases 10%
+    {"EZBD": 1.10}, "Leading scientists express support for a comfy night's sleep..."
+)
+
+static var SummerOfFurnishingsEvent1 = PriceChangeEvent.new(
+    # LZRD increases 10%
+    {"LZRD": 1.10}, "Top style magazine declares this summer to be the summer of home furnishings!"
+)
+
+static var BiotechEscape1 = PriceChangeEvent.new(
+    # CBLT decreases 20%, MSTR, LZRD, and SNEK decreases 10%
+    {"CBLT": 0.80, "MSTR": 0.90, "LZRD": 0.90, "SNEK": 0.90}, "Virus escapes biotech lab, but only affects reptiles"
+)
+
+static var FailClinicalTrials1 = PriceChangeEvent.new(
+    # CBLT decreases 10%
+    {"CBLT": 0.90}, "Latest drug that turns you into your fursona fails stage 2 clinical trials"
+)
+
+static var CanineEnergySleep1 = PriceChangeEvent.new(
+    # DOG decreases 10%
+    {"DOG": 0.90}, "Why do people keep falling asleep after drinking CANINE ENERGY'S latest soft drink?"
+)
+
+static var AvianPoopFine1 = PriceChangeEvent.new(
+    # BIRD decreases 10%
+    {"BIRD": 0.90}, "Avian Express fined $1.3B over waste dumping concerns over its delivery routes"
+)
+
 static var InformationalPlot1 = PriceChangeEvent.new(
     # No change
     {}, "MOON NEWS: A rare BLUE MOON rises this weekend!"
@@ -112,10 +152,12 @@ static func repopulateEvents() -> void:
         NewInflationNumbersBad, NewInflationNumbersGood,
         PoliticianIceCreamSubsidy, DogCryptoInsiderTrading,
         CrowFactoryRelease, DogPlotThwarted, CarExplosionTest,
-        CrimePlot1, CrimePlot2, CrimePlot3, InformationalPlot1,
-        InformationalPlot2, InformationalPlot3, InformationalPlot4,
-        InformationalPlot5, InformationalPlot6, InformationalPlot7,
-        InformationalPlot8
+        CrimePlot1, CrimePlot2, CrimePlot3, HighSalaryInvestment1,
+        AlcoholLust1, ComfySleepEvent1, SummerOfFurnishingsEvent1,
+        BiotechEscape1, FailClinicalTrials1, CanineEnergySleep1,
+        AvianPoopFine1. InformationalPlot1, InformationalPlot2,
+        InformationalPlot3, InformationalPlot4, InformationalPlot5,
+        InformationalPlot6, InformationalPlot7, InformationalPlot8
     ]
 
 
