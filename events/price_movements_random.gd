@@ -77,6 +77,30 @@ static var InformationalPlot3 = PriceChangeEvent.new(
     {}, "CELEBRITY NEWS: 'How I travel without my child, and why you should too! (Just sell them!)'"
 )
 
+static var InformationalPlot4 = PriceChangeEvent.new(
+    # No change
+    {}, "My dog learned this one cool shower trick!"
+)
+
+static var InformationalPlot5 = PriceChangeEvent.new(
+    # No change
+    {}, "Coal mine sued over childcare injuries -- spokesperson says, 'Stop suing and get back to work!!'"
+)
+
+static var InformationalPlot6 = PriceChangeEvent.new(
+    # No change
+    {}, "She grew up with 37 siblings -- local rabbit shares her story"
+)
+
+static var InformationalPlot7 = PriceChangeEvent.new(
+    # No change
+    {}, "Another super weather event is coming, local global warming enthusiasts rejoice"
+)
+
+static var InformationalPlot8 = PriceChangeEvent.new(
+    # No change
+    {}, "Study suggests mysterious brain contraction in small, terrible dogs"
+)
 
 static var EventsNotFired: Array[PriceChangeEvent]
 
@@ -89,7 +113,9 @@ static func repopulateEvents() -> void:
         PoliticianIceCreamSubsidy, DogCryptoInsiderTrading,
         CrowFactoryRelease, DogPlotThwarted, CarExplosionTest,
         CrimePlot1, CrimePlot2, CrimePlot3, InformationalPlot1,
-        InformationalPlot2, InformationalPlot3
+        InformationalPlot2, InformationalPlot3, InformationalPlot4,
+        InformationalPlot5, InformationalPlot6, InformationalPlot7,
+        InformationalPlot8
     ]
 
 
