@@ -155,7 +155,7 @@ static func repopulateEvents() -> void:
         CrimePlot1, CrimePlot2, CrimePlot3, HighSalaryInvestment1,
         AlcoholLust1, ComfySleepEvent1, SummerOfFurnishingsEvent1,
         BiotechEscape1, FailClinicalTrials1, CanineEnergySleep1,
-        AvianPoopFine1. InformationalPlot1, InformationalPlot2,
+        AvianPoopFine1, InformationalPlot1, InformationalPlot2,
         InformationalPlot3, InformationalPlot4, InformationalPlot5,
         InformationalPlot6, InformationalPlot7, InformationalPlot8
     ]
