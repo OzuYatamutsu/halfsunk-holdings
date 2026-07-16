@@ -53,9 +53,6 @@ func _1_on_wait() -> void:
 
 func _2_on_wait() -> void:
     ButtonOptions = ["(close)"]
-    YesAction = noop_action
-    update_button_options()
-
     add_message("%TS/brb, new cpi report just dropped")
     YesAction = _close_window
     update_button_options()

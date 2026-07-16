@@ -8,6 +8,7 @@ extends Node
 
 static var CatInsideTrading01: String = "res://events/cm_random_cat_inside_trading01.gd"
 static var MewEvent01: String = "res://events/cm_random_mew_event01.gd"
+static var RandomGold01: String = "res://events/cm_random_gold01.gd"
 
 static var EventsNotFired: Array[String]
 
@@ -15,7 +16,7 @@ static var EventsNotFired: Array[String]
 ## Reset events schedule.
 static func repopulateEvents() -> void:
     EventsNotFired = [
-        CatInsideTrading01, MewEvent01
+        CatInsideTrading01, MewEvent01, RandomGold01
     ]
 
 
