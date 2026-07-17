@@ -21,6 +21,11 @@ func _0_on_yes_button_pressed() -> void:
     YesAction = _close_window
     update_button_options()
 
+    GameState.cash -= 100
+    if GameState.cash < 0:
+        GameState.cash = 0
+    GameState.cash_changed.emit()
+
     add_message("%TS/[Expensed EXPENSIVE COFFEE (-$100.)]")
 
 
