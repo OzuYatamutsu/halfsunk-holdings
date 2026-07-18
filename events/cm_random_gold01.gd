@@ -1,5 +1,15 @@
 extends ChatWindowModal
 
+static var GoldEventPass = PriceChangeEvent.new(
+    {"XMAU": 1.40}, "Gold miners rejoice after discovery of new gold site in some guy's backyard!"
+)
+
+static var GoldEventFail = PriceChangeEvent.new(
+    {"CAT": 0.85}, "Feline Mega Capital shares tumble today after star trader digs around in his backyard and accidentally discovers oil, soiling his expensive suit"
+)
+
+var SelectedEvent: PriceChangeEvent
+
 
 func _ready() -> void:
     IgnoreCloseRequests = true
@@ -11,6 +21,11 @@ func _ready() -> void:
         "%TS/im rich! rich!!!"
     ]
     YesAction = _0_on_yes_button_pressed
+
+    if (randf() <= 0.2):
+        SelectedEvent = GoldEventPass
+    else:
+        SelectedEvent = GoldEventFail
 
     super._ready()
 
