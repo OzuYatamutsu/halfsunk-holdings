@@ -77,6 +77,10 @@ var random_chat_message_chance_pct: float = 0.20
 ## to fire, what's the chance of it happening?
 var random_price_movement_chance_pct: float = 0.20
 
+## These events are queued and must fire.
+var events_to_fire: Array[PriceChangeEvent] = []
+var event_fired_during_action: bool = false
+
 
 func _ready() -> void:
     if (!scene_path):
@@ -122,6 +126,7 @@ func start_next_phase() -> void:
 ## Only done in Phase.MARKETOPEN.
 func take_action():
     assert(phase == Phase.MARKETOPEN)
+    event_fired_during_action = false
 
     action_count += 1
     print("actions taken: %s/%s" % [
@@ -134,6 +139,9 @@ func take_action():
 
     if action_count == MARKETOPEN_ACTION_COUNT:
         start_next_phase()
+    elif !events_to_fire.is_empty():
+        event_fired_during_action = true
+        events_to_fire.pop_front().fire()
 
 
 func on_premarket_start() -> void:

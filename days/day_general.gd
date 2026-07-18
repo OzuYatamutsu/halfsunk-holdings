@@ -25,6 +25,9 @@ func on_premarket_end() -> void:
 
 
 func on_action_taken() -> void:
+    if event_fired_during_action:
+        return
+
     # If we have random chat events to fire, do so if
     # we pass the random check.
     if (RandomEventsEmitter.hasUnfiredRandomEvents()):
