@@ -1,7 +1,7 @@
 name: "Build & Deploy: Desktop"
 
 env:
-  GODOT_VERSION: 4.7
+  GODOT_VERSION: 4.7.1
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ jobs:
     name: Windows (x86-64)
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.7
+      image: barichello/godot-ci:4.7.1
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -38,7 +38,7 @@ jobs:
     name: Windows (arm64)
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.7
+      image: barichello/godot-ci:4.7.1
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -85,7 +85,7 @@ jobs:
     name: Linux (x86-64)
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.7
+      image: barichello/godot-ci:4.7.1
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -109,7 +109,7 @@ jobs:
     name: Linux (arm64)
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.7
+      image: barichello/godot-ci:4.7.1
     steps:
       - name: Checkout
         uses: actions/checkout@v6
