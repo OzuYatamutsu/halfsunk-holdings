@@ -25,6 +25,7 @@ func _0_on_yes_button_pressed() -> void:
     if GameState.cash < 0:
         GameState.cash = 0
     GameState.cash_changed.emit()
+    GameState.recalculate_net_worth()
 
     add_message("%TS/[Expensed EXPENSIVE COFFEE (-$100.)]")
 
