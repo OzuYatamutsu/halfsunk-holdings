@@ -1,5 +1,14 @@
 extends ChatWindowModal
 
+static var OptionsEventPass = PriceChangeEvent.new(
+    {"CAT": 2.00}, "Star trader from Feline Mega Capital discovers options trading and becomes fabulously rich!!"
+)
+
+static var OptionsEventFail = PriceChangeEvent.new(
+    {"CAT": 0.50}, "Feline Mega Capital shares collapse after trader discovers options trading, proceeds to lose half of the company's money"
+)
+var SelectedEvent: PriceChangeEvent
+
 
 func _ready() -> void:
     IgnoreCloseRequests = true
@@ -11,6 +20,11 @@ func _ready() -> void:
         "%TS/HOO YEAH! I'm gonna make a BUNCH OF MONEY!"
     ]
     YesAction = _0_on_yes_button_pressed
+
+    if (randf() <= 0.1):
+        SelectedEvent = OptionsEventPass
+    else:
+        SelectedEvent = OptionsEventFail
 
     super._ready()
 
