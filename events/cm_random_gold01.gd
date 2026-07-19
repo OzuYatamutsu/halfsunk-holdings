@@ -26,7 +26,7 @@ func _ready() -> void:
         SelectedEvent = GoldEventPass
     else:
         SelectedEvent = GoldEventFail
-
+    GameState.current_day.events_to_fire.append(SelectedEvent)
     super._ready()
 
 
