@@ -6,9 +6,9 @@ func _ready() -> void:
     # First day of week
     GameState.clear_state()
 
-    day = Day.DayOfWeek.THURSDAY
+    day = Day.DayOfWeek.MONDAY
     events = {
-        Day.Phase.PREMARKET: _event_chat_message,
+        Day.Phase.PREMARKET: _event_onboarding,
         Day.Phase.AFTERMARKET: _event_postmarket_chat_messages
     }
 
@@ -47,9 +47,9 @@ func on_close_end() -> void:
 
     GameState.load_day("res://days/day_infinite.gd")
 
-func _event_chat_message() -> void:
+func _event_onboarding() -> void:
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
-        "res://events/day0_test_message1.gd"
+        "res://events/cm_onboarding_01.gd"
     )
     GameState.game_window.add_child(chat_window)
 
