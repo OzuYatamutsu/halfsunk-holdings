@@ -30,7 +30,7 @@ func _2_on_wait() -> void:
     YesAction = noop_action
     update_button_options()
 
-    add_message("%TS/our goal is to double it by the end of next week.")
+    add_message("%TS/Your goal is to double it by the end of next week.")
     await wait_secs(2)
     _3_on_wait()
 
