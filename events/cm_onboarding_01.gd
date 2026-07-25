@@ -44,4 +44,23 @@ func _3_on_wait() -> void:
 
 
 func _4_continue() -> void:
-    pass  # TODO
+    ButtonOptions = ["(...)"]
+    YesAction = noop_action
+    update_button_options()
+
+    add_message("%TS/Let's pull up a stock.")
+    await wait_secs(1)
+    _5_on_wait()
+
+
+func _5_on_wait() -> void:
+    ButtonOptions = ["(close)"]
+    YesAction = _close_window
+    update_button_options()
+
+    add_message("%TS/Type INFO CAT in the command window at the top of the screen.")
+
+
+func _close_window() -> void:
+    IgnoreCloseRequests = false
+    close()
