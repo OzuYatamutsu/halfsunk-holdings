@@ -12,16 +12,21 @@ func _ready() -> void:
         Day.Phase.AFTERMARKET: _event_postmarket_chat_messages
     }
 
+    GameState.game_window.command_prompt.command_fired.connect(
+        _on_command_fired
+    )
     super()
     start_next_phase()
 
 
 func on_action_taken() -> void:
-    if RandomEventsEmitter.hasUnfiredRandomEvents():
-        GameState.game_window.add_child(RandomEventsEmitter.returnRandomEvent())
-        return
-    if PriceMovementsRandom.hasUnfiredRandomEvents():
-        PriceMovementsRandom.returnRandomEvent().fire()
+    if action_count == 1:
+        _event_onboarding02()  # TODO
+
+
+func _on_command_fired(command: String) -> void:
+    if command == "INFO CAT" and action_count == 0:
+        _event_onboarding02()
 
 
 func on_premarket_start() -> void:
@@ -50,6 +55,13 @@ func on_close_end() -> void:
 func _event_onboarding() -> void:
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
         "res://events/cm_onboarding_01.gd"
+    )
+    GameState.game_window.add_child(chat_window)
+
+
+func _event_onboarding02() -> void:
+    var chat_window: ChatWindowModal = ChatWindowModal.Create(
+        "res://events/cm_onboarding_02.gd"
     )
     GameState.game_window.add_child(chat_window)
 
