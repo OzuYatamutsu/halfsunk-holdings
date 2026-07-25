@@ -1,6 +1,8 @@
 class_name CommandPrompt
 extends Control
 
+signal command_fired(command)
+
 ## To add a command handler to the list,
 var COMMAND_LIST: Dictionary[String, Callable] = {
     "NOOP": _handle_noop,
@@ -57,6 +59,7 @@ func _on_prompt_edit_text_submitted(new_text: String) -> void:
         _handle_command_not_found()
     else:
         COMMAND_LIST[command].call(command_args)
+        command_fired.emit(command_fired)
     PromptEdit.clear()
 
 
