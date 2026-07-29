@@ -21,7 +21,9 @@ func _ready() -> void:
 
 func on_action_taken() -> void:
     if action_count == 1:
-        _event_onboarding02()  # TODO
+        _event_onboarding04()
+    if action_count == 2:
+        _event_onboarding05()
 
 
 func _on_command_fired(command: String) -> void:
@@ -62,6 +64,20 @@ func _event_onboarding() -> void:
 func _event_onboarding02() -> void:
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
         "res://events/cm_onboarding_02.gd"
+    )
+    GameState.game_window.add_child(chat_window)
+
+
+func _event_onboarding04() -> void:
+    var chat_window: ChatWindowModal = ChatWindowModal.Create(
+        "res://events/cm_onboarding_04.gd"
+    )
+    GameState.game_window.add_child(chat_window)
+
+
+func _event_onboarding05() -> void:
+    var chat_window: ChatWindowModal = ChatWindowModal.Create(
+        "res://events/cm_onboarding_05.gd"
     )
     GameState.game_window.add_child(chat_window)
 
