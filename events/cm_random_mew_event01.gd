@@ -45,7 +45,6 @@ func _1_on_wait() -> void:
     update_button_options()
 
     add_message("%TS/i hope it's only the OPTIONS that expire tomorrow...")
-    AudioEngine.play_sfx(AudioEngine.SFX_UPDATE)
     GameState.game_window.marquee.queue_text(
         "Oh, no! Market volatility has sharply increased!"
     )

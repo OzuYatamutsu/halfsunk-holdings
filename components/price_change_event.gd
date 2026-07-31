@@ -35,3 +35,4 @@ func fire() -> void:
 
     GameState.game_window.marquee.queue_text(description)
     GameState.game_window.marquee.queue_text_from_stock_market_data()
+    AudioEngine.play_sfx(AudioEngine.SFX_UPDATE)
