@@ -24,6 +24,7 @@ func _1_continue() -> void:
     YesAction = _close_window_and_fire_events
     update_button_options()
 
+    add_message("%TS/Like us?", true)
     add_message("%TS/Absolutely not.")
 
 func _close_window_and_fire_events() -> void:

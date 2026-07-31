@@ -20,6 +20,7 @@ func _1_continue() -> void:
     YesAction = _close_window
     update_button_options()
 
+    add_message("%TS/About time for what?", true)
     add_message("%TS/Time to BUY, of course. Buy 10 shares of CAT.")
 
 func _close_window() -> void:

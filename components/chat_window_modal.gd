@@ -77,7 +77,7 @@ func preload_chat_messages() -> void:
 
 ## Should be of the form: "%TS/message string"
 ## %TS will be replaced with the current timestamp
-func add_message(message: String) -> void:
+func add_message(message: String, is_player=false) -> void:
     var _message: ChatMessage = ChatMessageComponent.instantiate()
     var _timestamp = message.split("/")[0]
     chat_messages.add_child(_message)
@@ -86,6 +86,12 @@ func add_message(message: String) -> void:
         "%TS", GameState.get_current_timestamp_humanized()
     )
     _message.message.text = message.replace(_timestamp + "/", "")
+
+    if is_player:
+        # Show replies in a different style
+        _message.timestamp.text = " > "
+        _message.timestamp.theme = _message.THEME_REPLY
+        _message.message.theme = _message.THEME_REPLY
 
 
 func _on_yes_button_pressed() -> void:

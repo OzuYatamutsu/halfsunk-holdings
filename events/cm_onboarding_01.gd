@@ -20,6 +20,7 @@ func _1_continue() -> void:
     YesAction = noop_action
     update_button_options()
 
+    add_message("%TS/Good morning!", true)
     add_message("%TS/We've given you $1,000 to trade stocks with.")
     await wait_secs(1)
     _2_on_wait()
@@ -48,6 +49,7 @@ func _4_continue() -> void:
     YesAction = noop_action
     update_button_options()
 
+    add_message("%TS/Oh...", true)
     add_message("%TS/Let's pull up a stock.")
     await wait_secs(1)
     _5_on_wait()
