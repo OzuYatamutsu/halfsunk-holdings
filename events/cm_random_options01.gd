@@ -34,6 +34,7 @@ func _0_on_yes_button_pressed() -> void:
     YesAction = noop_action
     update_button_options()
 
+    add_message("%TS/What is it this time?", true)
     add_message("%TS/Guess who got approved for OPTIONS TRADING???")
     await wait_secs(1)
     _1_on_wait()
@@ -59,6 +60,7 @@ func _2_on_wait() -> void:
 
 func _3_on_yes_button_pressed() -> void:
     ButtonOptions = ["(close)"]
+    add_message("%TS/Trading derivatives involves high risk.", true)
     add_message("%TS/Wait until I tell you about my new PERSCRIPTIONS!!!")
     YesAction = _close_window
     update_button_options()

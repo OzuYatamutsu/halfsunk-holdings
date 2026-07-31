@@ -35,6 +35,7 @@ func _0_on_yes_button_pressed() -> void:
     YesAction = noop_action
     update_button_options()
 
+    add_message("%TS/Huh?", true)
     add_message("%TS/i picked up a new metal detector at TOPSCALE this past weekend")
     await wait_secs(1)
     _1_on_wait()
@@ -60,6 +61,7 @@ func _2_on_wait() -> void:
 
 func _3_on_yes_button_pressed() -> void:
     ButtonOptions = ["Maybe it's just trash?"]
+    add_message("%TS/Uh...", true)
     add_message("%TS/im rich!! smell ya later!")
     YesAction = _close_window
     update_button_options()

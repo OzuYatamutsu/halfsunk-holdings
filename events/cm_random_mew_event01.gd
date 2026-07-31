@@ -21,6 +21,7 @@ func _0_on_yes_button_pressed() -> void:
     YesAction = noop_action
     update_button_options()
 
+    add_message("%TS/me? i guess?", true)
     add_message("%TS/...")
     await wait_secs(1)
     _1_on_wait()
@@ -31,6 +32,7 @@ func _0_on_no_button_pressed() -> void:
     YesAction = noop_action
     update_button_options()
 
+    add_message("%TS/uh...not me!", true)
     add_message("%TS/smart kid!!")
     await wait_secs(1)
     _2_on_wait()
