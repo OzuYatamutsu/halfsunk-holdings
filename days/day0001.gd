@@ -69,6 +69,14 @@ func _event_onboarding02() -> void:
     GameState.game_window.add_child(chat_window)
 
 
+func _delay_event_onboarding03() -> void:
+    var chat_window: ChatWindowModal = ChatWindowModal.Create(
+        "res://events/cm_onboarding_03.gd"
+    )
+    await get_tree().create_timer(2).timeout
+    GameState.game_window.add_child(chat_window)
+
+
 func _event_onboarding04() -> void:
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
         "res://events/cm_onboarding_04.gd"

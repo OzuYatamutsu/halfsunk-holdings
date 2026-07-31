@@ -215,3 +215,8 @@ func deserialize(json: String) -> void:
     current_day = Day.deserialize(_data_obj.current_day)
     day_count = _data_obj.day_count
     stock_market = StockMarket.deserialize(_data_obj.stock_market)
+
+
+func force_refresh() -> void:
+    net_worth_changed.emit()
+    current_day.delayed_action_taken.emit()
