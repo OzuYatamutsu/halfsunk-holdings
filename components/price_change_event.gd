@@ -1,6 +1,8 @@
 class_name PriceChangeEvent
 extends Node
 
+signal event_fired
+
 ## A PriceChangeEvent results in a deterministic movement
 ## of a specific ticker (or tickers)' price.
 
@@ -36,3 +38,4 @@ func fire() -> void:
     GameState.game_window.marquee.queue_text(description)
     GameState.game_window.marquee.queue_text_from_stock_market_data()
     AudioEngine.play_sfx(AudioEngine.SFX_UPDATE)
+    event_fired.emit()

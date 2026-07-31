@@ -15,6 +15,7 @@ func _ready() -> void:
         "%TS/All day they just drink lots of coffee and make terrible investments."
     ]
     YesAction = _1_continue
+    OnboardingPCE01.event_fired.connect(GameState.current_day._delay_event_onboarding03)
     
     super._ready()
 
@@ -30,12 +31,5 @@ func _1_continue() -> void:
 func _close_window_and_fire_events() -> void:
     IgnoreCloseRequests = false
     OnboardingPCE01.fire()
-    get_tree().call_deferred("_event_onboarding03")
+    GameState.force_refresh()
     close()
-
-
-func _event_onboarding03() -> void:
-    var chat_window: ChatWindowModal = ChatWindowModal.Create(
-        "res://events/cm_onboarding_03.gd"
-    )
-    GameState.game_window.add_child(chat_window)
