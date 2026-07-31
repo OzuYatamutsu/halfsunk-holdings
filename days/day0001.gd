@@ -27,7 +27,8 @@ func on_action_taken() -> void:
 
 
 func _on_command_fired(command: String) -> void:
-    if command == "INFO CAT" and action_count == 0:
+    # hack
+    if command == "INFO" and GameState.switch_page_data_bus == "CAT" and action_count == 0:
         _event_onboarding02()
 
 
