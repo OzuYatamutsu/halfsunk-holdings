@@ -59,7 +59,7 @@ func _on_prompt_edit_text_submitted(new_text: String) -> void:
         _handle_command_not_found()
     else:
         COMMAND_LIST[command].call(command_args)
-        command_fired.emit(command_fired)
+        command_fired.emit(command)
     PromptEdit.clear()
 
 
