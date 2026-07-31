@@ -21,6 +21,7 @@ func _0_on_yes_button_pressed() -> void:
     update_button_options()
     GameState.target = 900.00
 
+    add_message("%TS/OK!", true)
     add_message("%TS/don't pay us $900 by the end of the week")
     await wait_secs(1)
     _1_on_wait()
@@ -34,6 +35,7 @@ func _1_on_wait() -> void:
 
 
 func _2_on_yes_button_pressed() -> void:
+    add_message("%TS/That's a lot of money!", true)
     add_message("%TS/not my problem lmao")
     ButtonOptions = ["OK..."]
     YesAction = _3_on_yes_button_pressed

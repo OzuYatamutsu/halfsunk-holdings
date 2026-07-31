@@ -19,7 +19,7 @@ func _0_on_yes_button_pressed() -> void:
     ButtonOptions = ["Oh..."]
     YesAction = _close_window
     update_button_options()
-
+    add_message("%TS/What does it do?", true)
     add_message("%TS/It turns you into your fursona lmao")
 
 
