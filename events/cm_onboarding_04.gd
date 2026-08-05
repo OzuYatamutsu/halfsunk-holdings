@@ -1,11 +1,6 @@
 extends ChatWindowModal
 
 
-static var OnboardingPCE02 = PriceChangeEvent.new(
-    {"CAT": 1.10}, ""
-)
-
-
 func _ready() -> void:
     IgnoreCloseRequests = true
     ButtonOptions = ["Gross?"]
@@ -16,8 +11,6 @@ func _ready() -> void:
         "%TS/Some retail investors bought the dip as well. Gross...",
     ]
     YesAction = _1_continue
-    OnboardingPCE02.fire()
-    GameState.force_refresh()
     super._ready()
 
 
