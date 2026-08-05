@@ -12,8 +12,7 @@ func _ready() -> void:
 
     day = Day.DayOfWeek.MONDAY
     events = {
-        Day.Phase.PREMARKET: _event_onboarding,
-        Day.Phase.AFTERMARKET: _event_postmarket_chat_messages
+        Day.Phase.PREMARKET: _event_onboarding
     }
 
     # Treats some behaviour differently
