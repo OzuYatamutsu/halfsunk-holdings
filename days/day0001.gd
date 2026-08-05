@@ -101,12 +101,3 @@ func _event_onboarding05() -> void:
         "res://events/cm_onboarding_05.gd"
     )
     GameState.game_window.add_child(chat_window)
-
-
-func _event_postmarket_chat_messages() -> void:
-    GameState.is_onboarding = false
-
-    var chat_window: ChatWindowModal = ChatWindowModal.Create(
-        "res://events/day0_test_message2.gd"
-    )
-    GameState.game_window.add_child(chat_window)
