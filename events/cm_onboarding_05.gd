@@ -17,6 +17,7 @@ func _ready() -> void:
 
 
 func _close_window_and_fire_events() -> void:
+    GameState.is_onboarding = false
     GameState.current_day.start_next_phase()
     IgnoreCloseRequests = false
     close()

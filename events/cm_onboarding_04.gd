@@ -20,7 +20,8 @@ func _1_continue() -> void:
     update_button_options()
 
     add_message("%TS/Gross?", true)
-    add_message("%TS/Let’s SELL those shares back. (This can also be done by typing the command SELL CAT 10 in your command window.)")
+    add_message("%TS/Let’s SELL those shares back.")
+    add_message("%TS/(You can also type SELL CAT 10 in your command window.)")
 
 func _close_window() -> void:
     IgnoreCloseRequests = false
