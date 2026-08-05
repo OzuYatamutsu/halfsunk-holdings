@@ -77,7 +77,7 @@ func preload_chat_messages() -> void:
 
 ## Should be of the form: "%TS/message string"
 ## %TS will be replaced with the current timestamp
-func add_message(message: String, is_player=false) -> void:
+func add_message(message: String, is_player: bool = false) -> void:
     var _message: ChatMessage = ChatMessageComponent.instantiate()
     var _timestamp = message.split("/")[0]
     chat_messages.add_child(_message)

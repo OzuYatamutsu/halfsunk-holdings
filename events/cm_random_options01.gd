@@ -61,7 +61,7 @@ func _2_on_wait() -> void:
 func _3_on_yes_button_pressed() -> void:
     ButtonOptions = ["(close)"]
     add_message("%TS/Trading derivatives involves high risk.", true)
-    add_message("%TS/Wait until I tell you about my new PERSCRIPTIONS!!!")
+    add_message("%TS/Wait until I tell you about my new PRESCRIPTIONS!!!")
     YesAction = _close_window
     update_button_options()
 
