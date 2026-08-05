@@ -1,6 +1,10 @@
 # week 0, day 1
 extends Day
 
+static var OnboardingPCE02 = PriceChangeEvent.new(
+    {"CAT": 1.10}, ""
+)
+
 
 func _ready() -> void:
     # First day of week
@@ -82,6 +86,9 @@ func _delay_event_onboarding03() -> void:
 
 
 func _delay_event_onboarding04() -> void:
+    OnboardingPCE02.fire()
+    GameState.force_refresh()
+
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
         "res://events/cm_onboarding_04.gd"
     )
