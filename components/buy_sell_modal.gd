@@ -129,7 +129,7 @@ func _validate_transaction() -> bool:
 
 
 func _execute_transaction() -> void:
-    if (GameState.current_day.phase != Day.Phase.MARKETOPEN):
+    if (GameState.current_day.phase != Day.Phase.MARKETOPEN and !GameState.is_onboarding):
         print("Ignoring _execute_transaction, incompatible phase")
         return
 
