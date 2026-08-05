@@ -29,7 +29,7 @@ func on_action_taken() -> void:
 func _on_command_fired(command: String) -> void:
     # hack
     if command == "INFO" and GameState.switch_page_data_bus == "CAT" and action_count == 0:
-        _event_onboarding02()
+        _delay_event_onboarding02()
 
 
 func on_premarket_start() -> void:
@@ -62,10 +62,11 @@ func _event_onboarding() -> void:
     GameState.game_window.add_child(chat_window)
 
 
-func _event_onboarding02() -> void:
+func _delay_event_onboarding02() -> void:
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
         "res://events/cm_onboarding_02.gd"
     )
+    await get_tree().create_timer(2).timeout
     GameState.game_window.add_child(chat_window)
 
 
