@@ -27,6 +27,7 @@ var current_day: Day
 var day_of_week: Day.DayOfWeek
 var day_count: int = 1
 var is_in_phase_transition: bool = false
+var is_onboarding: bool = false
 
 var game_window: GameWindow
 var stock_market: StockMarket

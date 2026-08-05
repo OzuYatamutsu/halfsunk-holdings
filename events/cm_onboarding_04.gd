@@ -17,6 +17,7 @@ func _ready() -> void:
     ]
     YesAction = _1_continue
     OnboardingPCE02.fire()
+    GameState.force_refresh()
     super._ready()
 
 

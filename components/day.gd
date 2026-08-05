@@ -125,7 +125,10 @@ func start_next_phase() -> void:
 ## Take an action and advance time forward.
 ## Only done in Phase.MARKETOPEN.
 func take_action():
-    assert(phase == Phase.MARKETOPEN)
+    if GameState.is_onboarding:
+        print("onboarding action taken")
+    else:
+        assert(phase == Phase.MARKETOPEN)
     event_fired_during_action = false
 
     action_count += 1
@@ -137,7 +140,7 @@ func take_action():
     await get_tree().create_timer(ACTION_DELAY_SECS).timeout
     delayed_action_taken.emit()
 
-    if action_count == MARKETOPEN_ACTION_COUNT:
+    if action_count == MARKETOPEN_ACTION_COUNT and not GameState.is_onboarding:
         start_next_phase()
     elif !events_to_fire.is_empty():
         event_fired_during_action = true

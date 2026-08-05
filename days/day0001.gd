@@ -12,6 +12,9 @@ func _ready() -> void:
         Day.Phase.AFTERMARKET: _event_postmarket_chat_messages
     }
 
+    # Treats some behaviour differently
+    GameState.is_onboarding = true
+
     GameState.game_window.command_prompt.command_fired.connect(
         _on_command_fired
     )
@@ -21,7 +24,7 @@ func _ready() -> void:
 
 func on_action_taken() -> void:
     if action_count == 1:
-        _event_onboarding04()
+        _delay_event_onboarding04()
     if action_count == 2:
         _event_onboarding05()
 
@@ -78,10 +81,11 @@ func _delay_event_onboarding03() -> void:
     GameState.game_window.add_child(chat_window)
 
 
-func _event_onboarding04() -> void:
+func _delay_event_onboarding04() -> void:
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
         "res://events/cm_onboarding_04.gd"
     )
+    await get_tree().create_timer(2).timeout
     GameState.game_window.add_child(chat_window)
 
 
@@ -93,6 +97,8 @@ func _event_onboarding05() -> void:
 
 
 func _event_postmarket_chat_messages() -> void:
+    GameState.is_onboarding = false
+
     var chat_window: ChatWindowModal = ChatWindowModal.Create(
         "res://events/day0_test_message2.gd"
     )
