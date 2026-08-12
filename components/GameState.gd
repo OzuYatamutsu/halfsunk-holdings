@@ -28,6 +28,7 @@ var day_of_week: Day.DayOfWeek
 var day_count: int = 1
 var is_in_phase_transition: bool = false
 var is_onboarding: bool = false
+var _path_to_day_gd: String = ""
 
 var game_window: GameWindow
 var stock_market: StockMarket
@@ -60,14 +61,20 @@ func load_day(path_to_day_gd: String) -> void:
     var new_scene: Node = load("res://days/day_layout.tscn").instantiate()
     new_scene.set_script(load(path_to_day_gd))
 
+    _path_to_day_gd = path_to_day_gd
+    new_scene.scene_path = _path_to_day_gd
+
     # Manual load
     get_tree().current_scene.queue_free()
     await get_tree().process_frame
     get_tree().root.add_child(new_scene)
     get_tree().current_scene = new_scene
+    current_day.scene_path = path_to_day_gd
 
 
 func start_day() -> void:
+    if _path_to_day_gd:
+        current_day.scene_path = _path_to_day_gd
     switch_page_data_bus = ""
     cash_changed.emit()
     net_worth_changed.emit()
@@ -188,7 +195,11 @@ func load_game(save_game_path: String) -> void:
     deserialize(_gamestate_data)
     print("[load_game] restored gamestate, loading level...")
     load_day(GameState.current_day.scene_path)
+
+    # Sleep while tree updates to avoid race condition
+    await get_tree().create_timer(0.01).timeout
     start_day()
+
 
 func serialize() -> String:
     return JSON.stringify({
