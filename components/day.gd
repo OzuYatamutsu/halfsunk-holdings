@@ -83,8 +83,6 @@ var event_fired_during_action: bool = false
 
 
 func _ready() -> void:
-    if (!scene_path):
-        scene_path = scene_file_path
     GameState.current_day = self
     GameState.day_of_week = day
     
@@ -225,7 +223,7 @@ func on_close_end() -> void:
 
 func serialize() -> String:
     return JSON.stringify({
-        "scene_path": scene_file_path,
+        "scene_path": scene_path,
         "class": get_script().resource_path,
         "day": int(day),
         "phase": int(phase),
