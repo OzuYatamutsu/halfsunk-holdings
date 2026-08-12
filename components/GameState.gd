@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 signal end_of_week_calc_done
 
-const BUILD_DATE: String = "20260805"
-const VERSION_STRING: String = "0.4.33"
+const BUILD_DATE: String = "20260812"
+const VERSION_STRING: String = "0.4.34"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -73,6 +73,8 @@ func start_day() -> void:
     net_worth_changed.emit()
     game_window.hud_status.update()
 
+    save_game()
+
 
 func end_day() -> void:
     pass
@@ -137,8 +139,6 @@ func end_of_week() -> void:
         portfolio.clear()
         recalculate_net_worth()
         
-        save_game()
-        
         # Only emit this if we want to continue
         end_of_week_calc_done.emit()
     
@@ -188,7 +188,7 @@ func load_game(save_game_path: String) -> void:
     deserialize(_gamestate_data)
     print("[load_game] restored gamestate, loading level...")
     load_day(GameState.current_day.scene_path)
-
+    start_day()
 
 func serialize() -> String:
     return JSON.stringify({

@@ -120,6 +120,7 @@ func start_next_phase() -> void:
     elif (phase == Phase.CLOSE):
         print("phase transition: close -> end")
         on_close_end()
+        GameState.end_day()
 
 
 ## Take an action and advance time forward.
