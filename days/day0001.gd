@@ -1,6 +1,8 @@
 # week 0, day 1
 extends Day
 
+const WEEKLY_GOAL: float = 2000.0
+
 static var OnboardingPCE02 = PriceChangeEvent.new(
     {"CAT": 1.10}, ""
 )
@@ -9,6 +11,7 @@ static var OnboardingPCE02 = PriceChangeEvent.new(
 func _ready() -> void:
     # First day of week
     GameState.clear_state()
+    GameState.target = WEEKLY_GOAL
 
     day = Day.DayOfWeek.MONDAY
     events = {

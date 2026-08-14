@@ -8,7 +8,8 @@ func _ready() -> void:
     UserTitle = "President of Jinhai Holdings"
     UserProfilePath = "res://components/pfp_jinhai.png"
     ChatMessages = [
-        "%TS/That's all. Make sure to make lots of money this week!",
+        "%TS/Easy 10% profit, in just a few minutes...",
+        "%TS/Just keep doing that! And make us LOTS OF MONEY!",
         "%TS/Or else...",
     ]
     YesAction = _close_window_and_fire_events
