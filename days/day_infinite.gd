@@ -6,11 +6,6 @@ extends GeneralDay
 ## (i.e. used in sandbox mode)
 
 
-## How much should the weekly goal increase
-## at the start of the week?
-const GOAL_INCREASE_MULTIPLIER: float = 1.30
-
-
 func _ready() -> void:
     # Advance forwards by one day
     day = clamp(
@@ -22,9 +17,6 @@ func _ready() -> void:
     # If we're at the end of the week,
     # loop back around to Monday
     if day == GameState.day_of_week:
-        var new_target = float("%.2f" % [GameState._old_target * GOAL_INCREASE_MULTIPLIER])
-        print("increasing goal from %s to %s" % [GameState._old_target, new_target])
-        GameState.target = new_target
         day = DayOfWeek.MONDAY
 
     GameState.day_of_week = day

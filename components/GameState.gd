@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 signal end_of_week_calc_done
 
-const BUILD_DATE: String = "20260812"
-const VERSION_STRING: String = "0.4.34"
+const BUILD_DATE: String = "20260814"
+const VERSION_STRING: String = "0.4.35"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -15,6 +15,10 @@ const SAVE_GAME_PREFIX: String = "save"
 const STARTING_CASH: float = 1000.0
 const STARTING_NET_WORTH: float = 1000.0
 const STARTING_DAY: int = 1
+
+## How much should the weekly goal increase
+## at the start of the week?
+const GOAL_INCREASE_MULTIPLIER: float = 1.25
 
 var save_slot: int = 0
 var cash: float = 0.0
@@ -139,13 +143,14 @@ func end_of_week() -> void:
         print("entering eow winning state")
         
         # Clear out all investments in prep for next week
-        cash = STARTING_CASH
+        cash = target
         net_worth = 0.0
         _old_target = target
-        target = 0.0
+        target = float("%.2f" % [_old_target * GOAL_INCREASE_MULTIPLIER])
+        print("increasing goal from %s to %s" % [_old_target, target])
         portfolio.clear()
         recalculate_net_worth()
-        
+
         # Only emit this if we want to continue
         end_of_week_calc_done.emit()
     
