@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 signal end_of_week_calc_done
 
-const BUILD_DATE: String = "20260814"
-const VERSION_STRING: String = "0.4.35"
+const BUILD_DATE: String = "20260819"
+const VERSION_STRING: String = "0.4.36"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -30,6 +30,7 @@ var _old_target: float = 0.0
 var current_day: Day
 var day_of_week: Day.DayOfWeek
 var day_count: int = 1
+var week_count: int = 1
 var is_in_phase_transition: bool = false
 var is_onboarding: bool = false
 var _path_to_day_gd: String = ""
@@ -73,7 +74,10 @@ func load_day(path_to_day_gd: String) -> void:
     await get_tree().process_frame
     get_tree().root.add_child(new_scene)
     get_tree().current_scene = new_scene
-    current_day.scene_path = path_to_day_gd
+    if current_day:
+        current_day.scene_path = path_to_day_gd
+    else:
+        print("WARNING: failed to write current_day.scene_path!!")
 
 
 func start_day() -> void:
@@ -83,8 +87,8 @@ func start_day() -> void:
     cash_changed.emit()
     net_worth_changed.emit()
     game_window.hud_status.update()
-
-    save_game()
+    if !GameState.is_onboarding:
+        save_game()
 
 
 func end_day() -> void:
@@ -146,14 +150,15 @@ func end_of_week() -> void:
         cash = target
         net_worth = 0.0
         _old_target = target
-        target = float("%.2f" % [_old_target * GOAL_INCREASE_MULTIPLIER])
+        target = float("%.2f" % [_old_target * (GOAL_INCREASE_MULTIPLIER + week_count)])
         print("increasing goal from %s to %s" % [_old_target, target])
         portfolio.clear()
         recalculate_net_worth()
 
         # Only emit this if we want to continue
+        week_count += 1
         end_of_week_calc_done.emit()
-    
+        
     print("eow calculation done")
 
 

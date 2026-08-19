@@ -35,7 +35,8 @@ func fire() -> void:
         stock.update_price(targetValue)
         GameState.stock_market.update_stock(stock)
 
-    GameState.game_window.marquee.queue_text(description)
+    if !description.is_empty():
+        GameState.game_window.marquee.queue_text(description)
     GameState.game_window.marquee.queue_text_from_stock_market_data()
     AudioEngine.play_sfx(AudioEngine.SFX_UPDATE)
     event_fired.emit()

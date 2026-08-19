@@ -90,8 +90,8 @@ func add_message(message: String, is_player: bool = false) -> void:
     if is_player:
         # Show replies in a different style
         _message.timestamp.text = " > "
-        _message.timestamp.theme = _message.THEME_REPLY
-        _message.message.theme = _message.THEME_REPLY
+        _message.timestamp.theme = ChatMessage.THEME_REPLY
+        _message.message.theme = ChatMessage.THEME_REPLY
 
 
 func _on_yes_button_pressed() -> void:
