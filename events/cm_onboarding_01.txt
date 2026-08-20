@@ -1,0 +1,10 @@
+FROM;Jinhai Qian;President of Jinhai Holdings;res://components/pfp_jinhai.png
+> Hello, rookie.
+< Good morning!
+> We've given you $1,000 to trade stocks with.
+> Your goal is to double it by the end of next week.
+> If you fail to do this you'll be fired, immediately.
+< Oh...
+> Let's pull up a stock.
+> Type INFO CAT in the command window at the top of the screen.
+< (close);CLOSE

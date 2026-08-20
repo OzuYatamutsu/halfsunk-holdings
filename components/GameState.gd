@@ -5,8 +5,8 @@ signal cash_changed
 signal net_worth_changed
 signal end_of_week_calc_done
 
-const BUILD_DATE: String = "20260819"
-const VERSION_STRING: String = "0.4.36"
+const BUILD_DATE: String = "20260820"
+const VERSION_STRING: String = "0.5.1"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
