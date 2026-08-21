@@ -69,7 +69,9 @@ static func _parse_line(line: String, chatevent: ChatMessageEvent) -> ChatMessag
         var message: String = line.strip_edges().trim_prefix(">")
         chatevent.Commands.append(_add_message_delegate.bind(message, chatevent))
     elif line.begins_with("<") and !line.contains(DELIMITER):
-        pass  # TODO
+        var message: String = line.strip_edges().trim_prefix("<")
+        chatevent.Commands.append(_player_advance_delegate.bind(message, chatevent))
+        chatevent.Commands.append(_player_advance_delegate_response.bind(message, chatevent))
     elif line.begins_with("<") and line.count(DELIMITER) == 3:
         pass  # TODO
     elif line.begins_with("<") and line.count(DELIMITER) == 1:
@@ -80,6 +82,19 @@ static func _parse_line(line: String, chatevent: ChatMessageEvent) -> ChatMessag
 
 
 static func _add_message_delegate(message: String, chatevent: ChatMessageEvent) -> void:
+    chatevent.ButtonOptions = ["(...)"]
     chatevent.add_message(message)
+    chatevent.update_button_options()
     await chatevent.wait_secs(DEFAULT_MESSAGE_DELAY_SECS)
+    chatevent.advance.emit()
+
+
+static func _player_advance_delegate(message: String, chatevent: ChatMessageEvent) -> void:
+    chatevent.YesAction = chatevent.advance.emit
+    chatevent.ButtonOptions = [message]
+    chatevent.update_button_options()
+
+
+static func _player_advance_delegate_response(message: String, chatevent: ChatMessageEvent) -> void:
+    chatevent.add_message(message)
     chatevent.advance.emit()
