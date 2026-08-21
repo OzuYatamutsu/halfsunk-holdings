@@ -111,3 +111,8 @@ func noop_action() -> void:
 
 func wait_secs(wait_time: float) -> void:
     await get_tree().create_timer(wait_time).timeout
+
+
+func close_window() -> void:
+    IgnoreCloseRequests = false
+    close()
