@@ -1,13 +1,14 @@
 class_name ChatEventParser
 extends Node
 
+
 ## The ChatEventParser provides a more convenient
 ## way of representing and parsing a ChatWindowModal
 ## as plain text. To use it, create a new .txt
 ## file, with each event/message represented according
 ## to the following syntax:
 ## 
-## FROM:<name>;<title>;<pfp_path>
+## FROM;<name>;<title>;<pfp_path>
 ## e.g. FROM;Jinhai Qian;President of Jinhai Holdings;res://components/pfp_jinhai.png
 ##  Specifies the sender of the chat message.
 ##
@@ -33,9 +34,14 @@ extends Node
 ##  e.g. Goodbye!;CLOSE
 ##   Closes the window upon click.
 
-static func load_chatevent_from_file(path: String) -> ChatWindowModal:
+
+const DELIMITER: String = ";"
+const DEFAULT_MESSAGE_DELAY_SECS: float = 0.5
+
+
+static func load_chatevent_from_file(path: String) -> ChatMessageEvent:
     var _chatevent = FileAccess.open(path, FileAccess.READ)
-    var _event_lines = []
+    var _event_lines: Array[String] = []
     if _chatevent == null:
         push_error("failed to open chatevent: " + path + " (does it exist?)")
         return
@@ -43,6 +49,37 @@ static func load_chatevent_from_file(path: String) -> ChatWindowModal:
         _event_lines.push_back(_chatevent.get_line())
     _chatevent.close()
 
-    # TODO: parse chatevent according to the above rules
+    # The first line in the txt file is assumed to be the FROM command
+    var chatevent: ChatMessageEvent = _parse_header(_event_lines.pop_front())
+    
+    # Parse remaining lines
+    for line in _event_lines:
+        chatevent = _parse_line(line, chatevent)
+    return chatevent
 
-    return null  # TODO
+
+static func _parse_header(_header_raw: String) -> ChatMessageEvent:
+    assert(_header_raw.begins_with("FROM;"), "error, malformed chat message!")
+    var header: PackedStringArray = _header_raw.trim_prefix("FROM;").split(DELIMITER)
+    return ChatMessageEvent.new(header[0].strip_edges(), header[1].strip_edges(), header[2].strip_edges())
+
+
+static func _parse_line(line: String, chatevent: ChatMessageEvent) -> ChatMessageEvent:
+    if line.begins_with(">") and !line.contains(DELIMITER):
+        var message: String = line.strip_edges().trim_prefix(">")
+        chatevent.Commands.append(_add_message_delegate.bind(message, chatevent))
+    elif line.begins_with("<") and !line.contains(DELIMITER):
+        pass  # TODO
+    elif line.begins_with("<") and line.count(DELIMITER) == 3:
+        pass  # TODO
+    elif line.begins_with("<") and line.count(DELIMITER) == 1:
+        pass  # TODO
+    else:
+        assert(false, "Error parsing chatevent line! " + line)
+    return chatevent
+
+
+static func _add_message_delegate(message: String, chatevent: ChatMessageEvent) -> void:
+    chatevent.add_message(message)
+    await chatevent.wait_secs(DEFAULT_MESSAGE_DELAY_SECS)
+    chatevent.advance.emit()
