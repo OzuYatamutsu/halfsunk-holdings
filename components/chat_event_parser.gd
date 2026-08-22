@@ -69,16 +69,27 @@ static func _parse_line(line: String, chatevent: ChatMessageEvent) -> ChatMessag
 
     if line.begins_with(">") and !line.contains(DELIMITER):
         message = message.trim_prefix(">")
-        chatevent.Commands.append(_add_message_delegate.bind(message, chatevent))
+        chatevent.Commands.append(
+            _add_message_delegate.bind(message, chatevent)
+        )
     elif line.begins_with("<") and !line.contains(DELIMITER):
         message = message.trim_prefix("<")
-        chatevent.Commands.append(_player_advance_delegate.bind(message, chatevent))
-        chatevent.Commands.append(_player_advance_delegate_response.bind(message, chatevent))
+        chatevent.Commands.append(
+            _player_advance_delegate.bind(message, chatevent)
+        )
+        chatevent.Commands.append(
+            _player_advance_delegate_response.bind(message, chatevent)
+        )
     elif line.begins_with("<") and line.count(DELIMITER) == 3:
-        pass  # TODO
+        var args = message.trim_prefix("<").strip_edges().split(DELIMITER)
+        chatevent.Commands.append(
+            _player_choice_delegate_helper.bind(args[0], args[1], args[2], args[3], chatevent)
+        )
     elif line.begins_with("<") and line.count(DELIMITER) == 1 and line.ends_with("CLOSE"):
         message = message.trim_prefix("<")
-        chatevent.Commands.append(_player_close_delegate.bind(message, chatevent))
+        chatevent.Commands.append(
+            _player_close_delegate.bind(message, chatevent)
+        )
     else:
         assert(false, "Error parsing chatevent line! " + line)
     return chatevent
@@ -101,6 +112,34 @@ static func _player_advance_delegate(message: String, chatevent: ChatMessageEven
 static func _player_advance_delegate_response(message: String, chatevent: ChatMessageEvent) -> void:
     chatevent.add_message(message.strip_edges())
     chatevent.advance.emit()
+
+
+static func _player_select_delegate(message_yes: String, message_no: String, yes_path: String, no_path: String, chatevent: ChatMessageEvent) -> void:
+    chatevent.ButtonOptions = [message_yes, message_no]
+
+    if yes_path == "CLOSE":
+        chatevent.YesAction = chatevent.close_window
+    else:
+        chatevent.YesAction = _player_choice_delegate_helper.bind(
+            message_yes, 
+            ChatEventParser.load_chatevent_from_file.bind(yes_path),
+            chatevent
+        )
+    if no_path == "CLOSE":
+        chatevent.NoAction = chatevent.close_window
+    else:
+        chatevent.NoAction = _player_choice_delegate_helper.bind(
+            message_no, 
+            ChatEventParser.load_chatevent_from_file.bind(no_path),
+            chatevent
+        )
+
+    chatevent.update_button_options()
+
+
+static func _player_choice_delegate_helper(message: String, action: Callable, chatevent: ChatMessageEvent) -> void:
+    chatevent.add_message(message.strip_edges())
+    action.call()
 
 
 static func _player_close_delegate(message: String, chatevent: ChatMessageEvent) -> void:
