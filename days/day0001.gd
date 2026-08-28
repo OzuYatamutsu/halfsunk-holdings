@@ -64,11 +64,17 @@ func on_close_end() -> void:
 
     GameState.load_day("res://days/day_infinite.gd")
 
+
 func _event_onboarding() -> void:
-    var chat_window: ChatWindowModal = ChatWindowModal.Create(
-        "res://events/cm_onboarding_01.gd"
-    )
-    GameState.game_window.add_child(chat_window)
+    #var chat_window: ChatWindowModal = ChatWindowModal.Create("res://events/cm_onboarding_01.gd")
+    var chat_window: ChatWindowModal = ChatEventParser.load_chatevent_from_file("res://events/cm_onboarding_01.txt")
+    
+    #var chat_window: ChatWindowModal = ChatWindowModal.CreateChat(
+    #    ChatEventParser.load_chatevent_from_file("res://events/cm_onboarding_01.txt")
+    #)
+    #chat_window.fire()
+    #GameState.game_window.add_child(chat_window)
+    chat_window.fire()
 
 
 func _delay_event_onboarding02() -> void:
