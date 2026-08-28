@@ -46,7 +46,9 @@ static func load_chatevent_from_file(path: String) -> ChatMessageEvent:
         push_error("failed to open chatevent: " + path + " (does it exist?)")
         return
     while not _chatevent.eof_reached():
-        _event_lines.push_back(_chatevent.get_line())
+        var _line = _chatevent.get_line().strip_edges()
+        if !_line.is_empty():
+            _event_lines.push_back(_line)
     _chatevent.close()
 
     # The first line in the txt file is assumed to be the FROM command
@@ -61,7 +63,7 @@ static func load_chatevent_from_file(path: String) -> ChatMessageEvent:
 static func _parse_header(_header_raw: String) -> ChatMessageEvent:
     assert(_header_raw.begins_with("FROM;"), "error, malformed chat message!")
     var header: PackedStringArray = _header_raw.trim_prefix("FROM;").split(DELIMITER)
-    return ChatMessageEvent.new(header[0].strip_edges(), header[1].strip_edges(), header[2].strip_edges())
+    return ChatMessageEvent.CreateChatEvent(header[0].strip_edges(), header[1].strip_edges(), header[2].strip_edges())
 
 
 static func _parse_line(line: String, chatevent: ChatMessageEvent) -> ChatMessageEvent:

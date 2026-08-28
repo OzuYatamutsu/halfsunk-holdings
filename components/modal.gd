@@ -18,8 +18,8 @@ func _ready() -> void:
     # Ensure only one modal is active
     if get_tree().get_first_node_in_group(_MODAL_GROUP):
         get_tree().get_first_node_in_group(_MODAL_GROUP).queue_free()
-    ModalWindow.close_requested.connect(_on_close_requested)
     add_to_group(_MODAL_GROUP)
+    ModalWindow.close_requested.connect(_on_close_requested)
 
 
 func _input(event):

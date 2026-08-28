@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bjrxxueie01y0"]
+
+[ext_resource type="PackedScene" uid="uid://b76h2x7uwel37" path="res://components/ChatWindowModal.tscn" id="1_vlnxx"]
+[ext_resource type="Script" uid="uid://ccsind21lwnp6" path="res://components/chat_message_event.gd" id="2_gbwek"]
+
+[node name="ChatMessageEvent" unique_id=558805024 instance=ExtResource("1_vlnxx")]
+script = ExtResource("2_gbwek")
