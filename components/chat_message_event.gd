@@ -32,7 +32,7 @@ func _ready() -> void:
     
     super._ready()
     advance.connect(advance_dialogue)
-
+    advance.emit()
 
 func advance_dialogue() -> void:
     if !Commands.is_empty():
