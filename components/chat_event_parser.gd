@@ -107,7 +107,7 @@ static func _add_message_delegate(message: String, chatevent: ChatMessageEvent) 
 
 static func _player_advance_delegate(message: String, chatevent: ChatMessageEvent) -> void:
     chatevent.YesAction = chatevent.advance.emit
-    chatevent.ButtonOptions = [message.strip_edges()]
+    chatevent.ButtonOptions = [message.strip_edges().replace(";CLOSE", "")]
     chatevent.update_button_options()
 
 
@@ -146,5 +146,5 @@ static func _player_choice_delegate_helper(message: String, action: Callable, ch
 
 static func _player_close_delegate(message: String, chatevent: ChatMessageEvent) -> void:
     chatevent.YesAction = chatevent.close_window
-    chatevent.ButtonOptions = [message.strip_edges()]
+    chatevent.ButtonOptions = [message.strip_edges().replace(";CLOSE", "")]
     chatevent.update_button_options()
