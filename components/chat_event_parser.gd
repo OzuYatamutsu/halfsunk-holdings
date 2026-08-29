@@ -99,7 +99,7 @@ static func _parse_line(line: String, chatevent: ChatMessageEvent) -> ChatMessag
 
 static func _add_message_delegate(message: String, chatevent: ChatMessageEvent) -> void:
     chatevent.ButtonOptions = ["(...)"]
-    chatevent.add_message(message.strip_edges())
+    chatevent.add_message("%TS/" + message.strip_edges())
     chatevent.update_button_options()
     await chatevent.wait_secs(DEFAULT_MESSAGE_DELAY_SECS)
     chatevent.advance.emit()
@@ -112,7 +112,7 @@ static func _player_advance_delegate(message: String, chatevent: ChatMessageEven
 
 
 static func _player_advance_delegate_response(message: String, chatevent: ChatMessageEvent) -> void:
-    chatevent.add_message(message.strip_edges())
+    chatevent.add_message("%TS/" + message.strip_edges(), true)
     chatevent.advance.emit()
 
 
