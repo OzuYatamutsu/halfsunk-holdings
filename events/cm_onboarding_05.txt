@@ -3,3 +3,4 @@ FROM;Jinhai Qian;President of Jinhai Holdings;res://components/pfp_jinhai.png
 > Just keep doing that! And make us LOTS OF MONEY!
 > Or else...
 < (close);CLOSE
+SIGNAL;2

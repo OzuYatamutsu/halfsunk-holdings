@@ -107,5 +107,13 @@ func _event_onboarding05() -> void:
     ).fire()
 
 
-func _on_chat_message_signal(_args) -> void:
-    _delay_event_onboarding03()
+func _event_onboarding_post() -> void:
+    GameState.is_onboarding = false
+    GameState.current_day.start_next_phase()
+
+
+func _on_chat_message_signal(args) -> void:
+    if args == "1":
+        _delay_event_onboarding03()
+    else:
+        _event_onboarding_post()
