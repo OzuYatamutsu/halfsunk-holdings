@@ -1,0 +1,5 @@
+> Some retail investors bought the dip as well. Gross...
+< Gross?
+> Let’s SELL those shares back.
+> (You can also type SELL CAT 10 in your command window.)
+< (close);CLOSE
