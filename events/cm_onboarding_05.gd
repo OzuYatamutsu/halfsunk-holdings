@@ -10,8 +10,7 @@ func _ready() -> void:
     ChatMessages = [
         "%TS/Easy 10% profit, in just a few minutes...",
         "%TS/Just keep doing that! And make us LOTS OF MONEY!",
-        "%T
-        S/Or else...",
+        "%TS/Or else...",
     ]
     YesAction = _close_window_and_fire_events
 
