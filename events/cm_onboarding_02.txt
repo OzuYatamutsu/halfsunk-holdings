@@ -1,3 +1,4 @@
+FROM;Jinhai Qian;President of Jinhai Holdings;res://components/pfp_jinhai.png
 > Aw, man, these guys have been a real pain in my ass...
 > All day they just drink lots of coffee and make terrible investments.
 < Like us?

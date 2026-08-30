@@ -1,3 +1,4 @@
+FROM;Jinhai Qian;President of Jinhai Holdings;res://components/pfp_jinhai.png
 > Hahahahah! It’s about time!!
 < About time for what?
 > Time to BUY, of course.

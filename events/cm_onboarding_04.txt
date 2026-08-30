@@ -1,3 +1,4 @@
+FROM;Jinhai Qian;President of Jinhai Holdings;res://components/pfp_jinhai.png
 > Some retail investors bought the dip as well. Gross...
 < Gross?
 > Let’s SELL those shares back.
