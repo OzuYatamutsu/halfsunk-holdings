@@ -1,7 +1,6 @@
 class_name ChatEventParser
 extends Node
 
-
 ## The ChatEventParser provides a more convenient
 ## way of representing and parsing a ChatWindowModal
 ## as plain text. To use it, create a new .txt
@@ -29,6 +28,10 @@ extends Node
 ##  <path_to_yes_option> loads and continues the specified chatevent if <yes_text> is selected,
 ##  <path_to_no_option> loads and continues the specified chatevent if <no_text> is selected.
 ##  These can both be replaced with CLOSE if desired (see below).
+##
+##  SIGNAL;args
+##  e.g. SIGNAL;1 2
+##   Emits GameState.chat_message_signal with provided string args.
 ##
 ##  < <text>;CLOSE
 ##  e.g. Goodbye!;CLOSE
@@ -92,6 +95,11 @@ static func _parse_line(line: String, chatevent: ChatMessageEvent) -> ChatMessag
         chatevent.Commands.append(
             _player_close_delegate.bind(message, chatevent)
         )
+        chatevent.Commands.append(
+            _player_close_delegate_post_helper.bind(chatevent)
+        )
+    elif line.contains("SIGNAL") and line.count(DELIMITER) == 1:
+        chatevent.Commands.append(_fire_chat_message_signal.bind(line.replace("SIGNAL;", "")))
     else:
         assert(false, "Error parsing chatevent line! " + line)
     return chatevent
@@ -145,6 +153,16 @@ static func _player_choice_delegate_helper(message: String, action: Callable, ch
 
 
 static func _player_close_delegate(message: String, chatevent: ChatMessageEvent) -> void:
-    chatevent.YesAction = chatevent.close_window
+    chatevent.YesAction = chatevent.advance.emit
     chatevent.ButtonOptions = [message.strip_edges().replace(";CLOSE", "")]
     chatevent.update_button_options()
+    
+
+
+static func _player_close_delegate_post_helper(chatevent: ChatMessageEvent) -> void:
+    chatevent.advance.emit()
+    chatevent.close_window()
+
+
+static func _fire_chat_message_signal(args: String) -> void:
+    GameState.chat_message_signal.emit(args)

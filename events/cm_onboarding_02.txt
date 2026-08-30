@@ -4,3 +4,4 @@ FROM;Jinhai Qian;President of Jinhai Holdings;res://components/pfp_jinhai.png
 < Like us?
 > Absolutely not.
 < (close);CLOSE
+SIGNAL;_
