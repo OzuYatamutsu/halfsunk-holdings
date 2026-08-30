@@ -4,6 +4,7 @@ extends Node
 signal cash_changed
 signal net_worth_changed
 signal end_of_week_calc_done
+signal chat_message_signal(args)
 
 const BUILD_DATE: String = "20260829"
 const VERSION_STRING: String = "0.5.5"

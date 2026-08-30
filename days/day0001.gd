@@ -3,6 +3,10 @@ extends Day
 
 const WEEKLY_GOAL: float = 2000.0
 
+static var OnboardingPCE01 = PriceChangeEvent.new(
+    {"CAT": 0.90}, "Civet Coffees press charges against CAT for ‘culture of unlicensed coffee consumption’. CAT shares tumble!"
+)
+
 static var OnboardingPCE02 = PriceChangeEvent.new(
     {"CAT": 1.10}, ""
 )
@@ -12,6 +16,7 @@ func _ready() -> void:
     # First day of week
     GameState.clear_state()
     GameState.target = WEEKLY_GOAL
+    GameState.chat_message_signal.connect(_on_chat_message_signal)
 
     day = Day.DayOfWeek.MONDAY
     events = {
@@ -66,46 +71,41 @@ func on_close_end() -> void:
 
 
 func _event_onboarding() -> void:
-    #var chat_window: ChatWindowModal = ChatWindowModal.Create("res://events/cm_onboarding_01.gd")
-    var chat_window: ChatWindowModal = ChatEventParser.load_chatevent_from_file("res://events/cm_onboarding_01.txt")
-    
-    #var chat_window: ChatWindowModal = ChatWindowModal.CreateChat(
-    #    ChatEventParser.load_chatevent_from_file("res://events/cm_onboarding_01.txt")
-    #)
-    #chat_window.fire()
-    #GameState.game_window.add_child(chat_window)
-    chat_window.fire()
+    ChatEventParser.load_chatevent_from_file(
+        "res://events/cm_onboarding_01.txt"
+    ).fire()
 
 
 func _delay_event_onboarding02() -> void:
-    var chat_window: ChatWindowModal = ChatWindowModal.Create(
-        "res://events/cm_onboarding_02.gd"
-    )
     await get_tree().create_timer(2).timeout
-    GameState.game_window.add_child(chat_window)
+    ChatEventParser.load_chatevent_from_file(
+        "res://events/cm_onboarding_02.txt"
+    ).fire()
 
 
 func _delay_event_onboarding03() -> void:
-    var chat_window: ChatWindowModal = ChatWindowModal.Create(
-        "res://events/cm_onboarding_03.gd"
-    )
+    OnboardingPCE01.fire()
+    GameState.force_refresh()
     await get_tree().create_timer(2).timeout
-    GameState.game_window.add_child(chat_window)
+    ChatEventParser.load_chatevent_from_file(
+        "res://events/cm_onboarding_03.txt"
+    ).fire()
 
 
 func _delay_event_onboarding04() -> void:
     OnboardingPCE02.fire()
     GameState.force_refresh()
-
-    var chat_window: ChatWindowModal = ChatWindowModal.Create(
-        "res://events/cm_onboarding_04.gd"
-    )
     await get_tree().create_timer(2).timeout
-    GameState.game_window.add_child(chat_window)
+    ChatEventParser.load_chatevent_from_file(
+        "res://events/cm_onboarding_04.txt"
+    ).fire()
 
 
 func _event_onboarding05() -> void:
-    var chat_window: ChatWindowModal = ChatWindowModal.Create(
-        "res://events/cm_onboarding_05.gd"
-    )
-    GameState.game_window.add_child(chat_window)
+    ChatEventParser.load_chatevent_from_file(
+        "res://events/cm_onboarding_05.txt"
+    ).fire()
+
+
+func _on_chat_message_signal(_args) -> void:
+    _delay_event_onboarding03()
