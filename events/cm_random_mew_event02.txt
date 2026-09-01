@@ -1,0 +1,3 @@
+FROM;mew cashin;Lead Analyst at Chicken Little Capital;res://components/pfp_mew.png
+> i hope it's only the OPTIONS that expire tomorrow...
+< (close);CLOSE
