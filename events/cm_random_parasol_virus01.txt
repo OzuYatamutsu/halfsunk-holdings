@@ -1,0 +1,5 @@
+FROM;Alex Bones;Bioresearcher at SnakeBiolabs;res://components/pfp_awre_twelve.png
+> Our new drug is set to release later this year. It's called the Parasol Virus...
+< What does it do?
+> It turns you into your fursona lmao
+< Oh... (close);CLOSE
