@@ -1,0 +1,9 @@
+FROM;Chao Main;Fund Manager at Feline Mega Capital;res://components/pfp_awre_twelve.png
+> HOO YEAH! I'm gonna make a BUNCH OF MONEY!
+< What is it this time?
+> Guess who got approved for OPTIONS TRADING???
+> I'm gonna double our funds money by TOMORROW!
+> FOR SURE!
+< Trading derivatives involves high risk.
+> Wait until I tell you about my new PRESCRIPTIONS!!!
+< (close);CLOSE
