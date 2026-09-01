@@ -1,0 +1,3 @@
+FROM;mew cashin;Lead Analyst at Chicken Little Capital;res://components/pfp_mew.png
+> who's buyin stocks when the riskfree rate is over 6%?!
+< me? i guess?;uh...not me!;res://events/cm_random_mew_event02.txt;res://events/cm_random_mew_event03.txt
