@@ -1,0 +1,9 @@
+FROM;Todd Grasley;Fund Manager at Feline Mega Capital;res://components/pfp_awre_twelve.png
+> im rich! rich!!!
+< Huh?
+> i picked up a new metal detector at TOPSCALE this past weekend
+> and i was digging around in my yard right
+> beep! beep!! beep!!!
+< Uh...
+> im rich!! smell ya later!
+< Maybe it's just trash? (close);CLOSE
