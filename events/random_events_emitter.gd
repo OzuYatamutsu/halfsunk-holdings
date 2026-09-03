@@ -6,12 +6,12 @@ extends Node
 ## in any day.
 
 
-static var CatInsideTrading01: String = "res://events/cm_random_cat_inside_trading01.gd"
-static var MewEvent01: String = "res://events/cm_random_mew_event01.gd"
-static var RandomGold01: String = "res://events/cm_random_gold01.gd"
-static var OptionsTrading01: String = "res://events/cm_random_options01.gd"
-static var ParasolVirus01: String = "res://events/cm_random_parasol_virus01.gd"
-static var CoffeeEvent01: String = "res://events/cm_random_coffee01.gd"
+static var CatInsideTrading01: String = "res://events/cm_random_cat_inside_trading01.txt"
+static var MewEvent01: String = "res://events/cm_random_mew_event01.txt"
+static var RandomGold01: String = "res://events/cm_random_gold01.txt"
+static var OptionsTrading01: String = "res://events/cm_random_options01.txt"
+static var ParasolVirus01: String = "res://events/cm_random_parasol_virus01.txt"
+static var CoffeeEvent01: String = "res://events/cm_random_coffee01.txt"
 
 static var EventsNotFired: Array[String]
 
@@ -32,6 +32,6 @@ static func hasUnfiredRandomEvents() -> bool:
 ## Returns a random, unfired event. 
 static func returnRandomEvent() -> ChatWindowModal:
     EventsNotFired.shuffle()
-    return ChatWindowModal.Create(
+    return ChatEventParser.load_chatevent_from_file(
         EventsNotFired.pop_front()
     )
