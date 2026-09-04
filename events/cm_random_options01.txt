@@ -7,3 +7,4 @@ FROM;Chao Main;Fund Manager at Feline Mega Capital;res://components/pfp_awre_twe
 < Trading derivatives involves high risk.
 > Wait until I tell you about my new PRESCRIPTIONS!!!
 < (close);CLOSE
+SIGNAL;cm_random_options_roll

@@ -7,3 +7,4 @@ FROM;Todd Grasley;Fund Manager at Feline Mega Capital;res://components/pfp_awre_
 < Uh...
 > im rich!! smell ya later!
 < Maybe it's just trash? (close);CLOSE
+SIGNAL;cm_random_gold_roll
