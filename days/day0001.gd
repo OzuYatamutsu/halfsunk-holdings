@@ -34,10 +34,13 @@ func _ready() -> void:
 
 
 func on_action_taken() -> void:
-    if action_count == 1:
+    if action_count == 1 and phase == Phase.PREMARKET:
         _delay_event_onboarding04()
-    if action_count == 2:
+    if action_count == 2 and phase == Phase.PREMARKET:
         _event_onboarding05()
+    if action_count == 2 and phase == Phase.MARKETOPEN:
+        print("DEBUG")
+        ChatEventParser.load_chatevent_from_file("res://events/cm_random_coffee01.txt").fire()
 
 
 func _on_command_fired(command: String) -> void:
@@ -110,6 +113,7 @@ func _event_onboarding05() -> void:
 func _event_onboarding_post() -> void:
     GameState.is_onboarding = false
     GameState.current_day.start_next_phase()
+    action_count = 0
 
 
 func _on_chat_message_signal(args) -> void:
