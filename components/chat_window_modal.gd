@@ -95,12 +95,16 @@ func add_message(message: String, is_player: bool = false) -> void:
 
 
 func _on_yes_button_pressed() -> void:
-    assert(YesAction != null)
+    if (YesAction == null):
+        print("ignoring click, null YesAction")
+        return
     YesAction.call()
 
 
 func _on_no_button_pressed() -> void:
-    assert(NoAction != null)
+    if (NoAction == null):
+        print("ignoring click, null NoAction")
+        return
     NoAction.call()
 
 
