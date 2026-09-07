@@ -119,5 +119,5 @@ func _event_onboarding_post() -> void:
 func _on_chat_message_signal(args) -> void:
     if args == "1":
         _delay_event_onboarding03()
-    else:
+    elif args == "2":
         _event_onboarding_post()

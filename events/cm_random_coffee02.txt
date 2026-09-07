@@ -1,4 +1,4 @@
 FROM;Timmi;Relationship Manager at Jinhai Holdings;res://components/pfp_awre_twelve.png
 > [Expensed EXPENSIVE COFFEE (-$100).]
+< (close);CLOSE
 SIGNAL;cm_random_coffee_yes
-> (close);CLOSE
