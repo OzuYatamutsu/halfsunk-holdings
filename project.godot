@@ -28,6 +28,7 @@ buses/default_bus_layout="uid://cet8idepc42j1"
 GameState="*res://components/GameState.gd"
 AudioEngine="*uid://dcdc7o4ccehu7"
 SharedConstants="*uid://c6fr7k0xv87xv"
+EventSideEffects="*uid://87kg6bhogpj7"
 
 [display]
 
