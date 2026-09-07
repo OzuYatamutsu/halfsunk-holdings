@@ -26,6 +26,8 @@ func _init(
 
 ## Executes the event. Effects take effect immediately.
 func fire() -> void:
+    print("firing event: " + description)
+
     for ticker in tickerToChangePercent:
         var stock: Stock = GameState.stock_market.get_stock(ticker)
         var changePercent: float = tickerToChangePercent[ticker]
@@ -36,7 +38,7 @@ func fire() -> void:
         GameState.stock_market.update_stock(stock)
 
     if !description.is_empty():
-        GameState.game_window.marquee.queue_text(description)
+        GameState.game_window.marquee.flush_and_fire_text(description)
     GameState.game_window.marquee.queue_text_from_stock_market_data()
     AudioEngine.play_sfx(AudioEngine.SFX_UPDATE)
     event_fired.emit()

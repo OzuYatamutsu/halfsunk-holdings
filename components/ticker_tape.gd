@@ -24,6 +24,11 @@ func queue_text(text: String) -> void:
         start_marquee()
 
 
+func flush_and_fire_text(text: String) -> void:
+    _marquee_queue.clear()
+    set_text(text)
+
+
 func set_text(text: String) -> void:
     label.text = text
 

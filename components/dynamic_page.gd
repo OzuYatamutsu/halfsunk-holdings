@@ -12,12 +12,18 @@ const KEYBOARD_SCROLL_SPEED: int = 75
 @onready var DynamicPageContentsParent: MarginContainer = %DynamicPageScroller/MarginContainer
 @onready var DynamicPageContents: PageContent = %DynamicPageContents
 
+@export var PathToPageContent: String = ""
 @export var PageTitle: String = ""
+@export var PageLoadedWithArgs: String = ""
+
 
 func _ready() -> void:
     pass
 
+
 func load_page(path_to_page_content: String) -> void:
+    PathToPageContent = path_to_page_content
+    PageLoadedWithArgs = GameState.switch_page_data_bus
     var page_content: PageContent = load(path_to_page_content).instantiate()
     var _old_page_content = DynamicPageContents
     DynamicPageContentsParent.remove_child(_old_page_content)
@@ -29,14 +35,23 @@ func load_page(path_to_page_content: String) -> void:
     PageTitleLabel.text = PageTitle
     DynamicPageContents.position = Vector2.ZERO
 
+
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_up"):
         keyboard_scroll_up()
     elif event.is_action_pressed("ui_down"):
         keyboard_scroll_down()
 
+
 func keyboard_scroll_up() -> void:
     DynamicPageScroller.scroll_vertical -= KEYBOARD_SCROLL_SPEED
 
+
 func keyboard_scroll_down() -> void:
     DynamicPageScroller.scroll_vertical += KEYBOARD_SCROLL_SPEED
+
+
+func reload_page() -> void:
+    if PathToPageContent:
+        GameState.switch_page_data_bus = PageLoadedWithArgs
+        load_page(PathToPageContent)
