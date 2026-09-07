@@ -87,8 +87,9 @@ static func _parse_line(line: String, chatevent: ChatMessageEvent) -> ChatMessag
         )
     elif line.begins_with("<") and line.count(DELIMITER) == 3:
         var args = message.trim_prefix("<").strip_edges().split(DELIMITER)
+        # TODO this is failing at coffee event because of mismatch arg count
         chatevent.Commands.append(
-            _player_choice_delegate_helper.bind(args[0], args[1], args[2], args[3], chatevent)
+            _player_select_delegate.bind(args[0], args[1], args[2], args[3], chatevent)
         )
     elif line.begins_with("<") and line.count(DELIMITER) == 1 and line.ends_with("CLOSE"):
         message = message.trim_prefix("<")
