@@ -149,7 +149,8 @@ static func _player_select_delegate(message_yes: String, message_no: String, yes
 
 
 static func _player_choice_delegate_helper(message: String, action: Callable, chatevent: ChatMessageEvent) -> void:
-    chatevent.add_message(message.strip_edges())
+    # TODO not working in coffee action
+    chatevent.add_message(message.strip_edges(), true)
     action.call()
 
 
