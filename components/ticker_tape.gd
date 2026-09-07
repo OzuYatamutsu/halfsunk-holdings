@@ -27,6 +27,8 @@ func queue_text(text: String) -> void:
 func flush_and_fire_text(text: String) -> void:
     _marquee_queue.clear()
     set_text(text)
+    if !_is_active:
+        start_marquee()
 
 
 func set_text(text: String) -> void:
