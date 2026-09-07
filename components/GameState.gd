@@ -243,3 +243,5 @@ func deserialize(json: String) -> void:
 func force_refresh() -> void:
     net_worth_changed.emit()
     current_day.delayed_action_taken.emit()
+    if game_window.browser.DynamicPageContents.has_method("populate_data"):
+        game_window.browser.DynamicPageContents.populate_data()
