@@ -1,4 +1,4 @@
-class_name EventSideEffects
+# EventSideEffects
 extends Node
 
 # Handles side effects associated with a ChatEvent.
@@ -39,6 +39,7 @@ func __cm_random_coffee_yes() -> void:
         GameState.cash = 0
     GameState.cash_changed.emit()
     GameState.recalculate_net_worth()
+    GameState.force_refresh()
 
 
 func __cm_random_gold_roll() -> void:
