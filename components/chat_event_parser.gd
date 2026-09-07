@@ -87,7 +87,6 @@ static func _parse_line(line: String, chatevent: ChatMessageEvent) -> ChatMessag
         )
     elif line.begins_with("<") and line.count(DELIMITER) == 3:
         var args = message.trim_prefix("<").strip_edges().split(DELIMITER)
-        # TODO this is failing at coffee event because of mismatch arg count
         chatevent.Commands.append(
             _player_select_delegate.bind(args[0], args[1], args[2], args[3], chatevent)
         )
@@ -149,9 +148,10 @@ static func _player_select_delegate(message_yes: String, message_no: String, yes
 
 
 static func _player_choice_delegate_helper(message: String, action: Callable, chatevent: ChatMessageEvent) -> void:
-    # TODO not working in coffee action
     chatevent.add_message(message.strip_edges(), true)
-    action.call()
+    chatevent.close()
+    chatevent = action.call()
+    chatevent.fire()
 
 
 static func _player_close_delegate(message: String, chatevent: ChatMessageEvent) -> void:

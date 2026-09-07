@@ -1,3 +1,3 @@
 FROM;Timmi;Relationship Manager at Jinhai Holdings;res://components/pfp_awre_twelve.png
 > Let's meet for coffee at EXPENSIVE RESTAURANT.
-< OK!;Maybe not... (close);res://cm_random_coffee02.txt;CLOSE
+< OK!;Maybe not... (close);res://events/cm_random_coffee02.txt;CLOSE
