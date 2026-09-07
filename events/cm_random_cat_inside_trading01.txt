@@ -6,4 +6,4 @@ FROM;Fat Tony;Hungry Trader at Jinhai Holdings
 > we got a BIG money move goin on!!
 > let's buy up all the cat stocks!!
 > are you in??
-< Yeah!;Uh...yeah...;res://events/cm_cat_inside_trading02.txt;res://events/cm_cat_inside_trading_02.txt
+< Yeah!;Uh...yeah...;res://events/cm_random_cat_inside_trading02.txt;res://events/cm_random_cat_inside_trading02.txt
