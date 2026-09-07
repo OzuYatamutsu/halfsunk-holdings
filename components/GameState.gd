@@ -241,7 +241,14 @@ func deserialize(json: String) -> void:
 
 
 func force_refresh() -> void:
+    await get_tree().create_timer(0.05).timeout
+
     net_worth_changed.emit()
     current_day.delayed_action_taken.emit()
     if game_window.browser.DynamicPageContents.has_method("populate_data"):
         game_window.browser.DynamicPageContents.populate_data()
+    if game_window.browser.DynamicPageContents.has_method("_populate_data"):
+        game_window.browser.DynamicPageContents._populate_data()
+    
+    await get_tree().create_timer(0.05).timeout
+    game_window.browser.reload_page()

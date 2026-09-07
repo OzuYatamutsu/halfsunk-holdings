@@ -144,6 +144,7 @@ func take_action():
     elif !events_to_fire.is_empty():
         event_fired_during_action = true
         events_to_fire.pop_front().fire()
+        GameState.force_refresh()
 
 
 func on_premarket_start() -> void:
