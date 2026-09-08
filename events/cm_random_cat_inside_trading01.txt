@@ -1,4 +1,4 @@
-FROM;Fat Tony;Hungry Trader at Jinhai Holdings
+FROM;Fat Tony;Hungry Trader at Jinhai Holdings;res://components/pfp_awre_twelve.png
 > hey!
 > *crunch crunch*
 > got some news for you on a FAT trade
