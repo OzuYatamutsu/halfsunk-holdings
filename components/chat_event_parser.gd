@@ -23,7 +23,7 @@ extends Node
 ##  When clicked, advances dialogue by 1 tick.
 ## 
 ## < <yes_text>;<no_text>;<path_to_yes_option>;<path_to_no_option>
-## e.g. < Sure!;That's no good!;res://events:cm_onboarding_02.txt;res://events:cm_onboarding_03.txt
+## e.g. < Sure!;That's no good!;res://events/cm_onboarding_02.txt;res://events/cm_onboarding_03.txt
 ##  Specifies two clickable options to send to the sender.
 ##  <path_to_yes_option> loads and continues the specified chatevent if <yes_text> is selected,
 ##  <path_to_no_option> loads and continues the specified chatevent if <no_text> is selected.
