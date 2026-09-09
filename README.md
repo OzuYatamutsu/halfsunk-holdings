@@ -29,6 +29,13 @@ Other assets:
 
 ## Versions
 
+### 0.5.10 (2026-09-09)
+
+- Added tutorial
+- Added several more messages and events
+- Goal now increases at the end of the week
+- Added new chat message system and format
+
 ### 0.4.26 (2026-06-30)
 
 - Weekly score targets
