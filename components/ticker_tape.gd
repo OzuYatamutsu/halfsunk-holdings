@@ -13,7 +13,7 @@ var _down_regex := RegEx.new()
 
 func _ready() -> void:
     _up_regex.compile(r"(↗\s+[\d.]+)\s+\(([+][\d.]+%)\)")
-    _down_regex.compile(r"(↘\s+[\d.]+)\s+\(([−-][\d.]+%)\)")
+    _down_regex.compile(r"(↘\s+[\d.]+)\s+\(([-][\d.]+%)\)")
 
     label.position = Vector2(
         get_viewport_rect().size.x,
