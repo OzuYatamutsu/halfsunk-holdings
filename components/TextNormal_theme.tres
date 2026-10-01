@@ -3,6 +3,8 @@
 [ext_resource type="FontFile" uid="uid://d2nsk1b2gqf8x" path="res://components/bergoom/Bergoom-Semibold.woff2" id="1_mfyp1"]
 
 [resource]
+default_font = ExtResource("1_mfyp1")
+Label/colors/default_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 Label/colors/font_color = Color(0.36078432, 0.5803922, 0.7764706, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 1)

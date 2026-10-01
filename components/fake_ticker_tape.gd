@@ -1,12 +1,12 @@
 class_name FakeTickerTape
 extends Control
 
-const DUMMY_TEXT := "CAT 223.25 ↗ 22.05 (+10.96%)  |  BIRD 415.28 ↗ 22.05 (+5.61%)  |  DOG 15.26 ↘ 1.06 (−6.50%)  |  CRW 12.48 ↘ 1.14 (−8.37%)  |  SNEK 66.66 ↗ 0.22 (+0.33%)  |  TIGR 21.14 ↗ 0.22 (+1.05%)  |  LZRD 67.69 ↗ 0.69 (+1.03%)  |  "
+const DUMMY_TEXT := "CAT 223.25 [color=green]↗ 22.05[/color] ([color=green]+10.96%[/color])  |  BIRD 415.28 [color=green]↗ 22.05[/color] ([color=green]+5.61%[/color])  |  DOG 15.26 [color=red]↘ 1.06[/color] ([color=red]−6.50%[/color])  |  CRW 12.48 [color=red]↘ 1.14[/color] ([color=red]−8.37%[/color])  |  SNEK 66.66 [color=green]↗ 0.22[/color] ([color=green]+0.33%[/color])  |  TIGR 21.14 [color=green]↗ 0.22[/color] ([color=green]+1.05%[/color])  |  LZRD 67.69 [color=green]↗ 0.69[/color] ([color=green]+1.03%[/color])  |  "
 
 @export var speed_px_per_sec: float = 100.0
 
-@onready var _label: Label = %Label
-@onready var _label2: Label = %Label2
+@onready var _label: RichTextLabel = %Label
+@onready var _label2: RichTextLabel = %Label2
 
 ## Simulates infinite scrolling text using two
 ## repeated labels which loop back on top of
