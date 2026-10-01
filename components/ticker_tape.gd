@@ -3,13 +3,18 @@ extends Control
 
 @export var speed_px_per_sec: float = 250.0
 
-@onready var label: Label = %Label
+@onready var label: RichTextLabel = %Label
 
 var _is_active: bool = false
 var _marquee_queue: Array[String] = []
-
+var _up_regex := RegEx.new()
+var _down_regex := RegEx.new()
+    
 
 func _ready() -> void:
+    _up_regex.compile(r"(↗\s+[\d.]+)\s+\(([+][\d.]+%)\)")
+    _down_regex.compile(r"(↘\s+[\d.]+)\s+\(([−-][\d.]+%)\)")
+
     label.position = Vector2(
         get_viewport_rect().size.x,
         label.position.y
@@ -36,8 +41,23 @@ func set_text(text: String) -> void:
 
 
 func queue_text_from_stock_market_data() -> void:
+    var stock_market_data_text: Array[String] = GameState.stock_market.get_all_to_string()
+
+    for i in stock_market_data_text.size():
+        stock_market_data_text[i] = _up_regex.sub(
+            stock_market_data_text[i],
+            "[color=green]$1[/color] ([color=green]$2[/color])",
+            true
+        )
+
+        stock_market_data_text[i] = _down_regex.sub(
+            stock_market_data_text[i],
+            "[color=red]$1[/color] ([color=red]$2[/color])",
+            true
+        )
+
     queue_text(
-        "    |   ".join(GameState.stock_market.get_all_to_string())
+        "    |   ".join(stock_market_data_text)
     )
 
 
