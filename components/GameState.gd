@@ -7,7 +7,7 @@ signal end_of_week_calc_done
 signal chat_message_signal(args)
 
 const BUILD_DATE: String = "20261001"
-const VERSION_STRING: String = "0.5.12"
+const VERSION_STRING: String = "0.5.13"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -90,6 +90,8 @@ func start_day() -> void:
     game_window.hud_status.update()
     if !GameState.is_onboarding:
         save_game()
+    else:
+        print("not saving game, in onboarding")
 
 
 func end_day() -> void:
