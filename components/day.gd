@@ -92,7 +92,6 @@ func _ready() -> void:
     action_taken.connect(GameState.stock_market.on_action_taken)
     action_taken.connect(on_action_taken)
     delayed_action_taken.connect(GameState.game_window.marquee.queue_text_from_stock_market_data)
-    GameState.save_game()
 
 
 func start_next_phase() -> void:
