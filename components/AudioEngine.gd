@@ -8,6 +8,7 @@ const DUCK_SFX_PERCENT: float = 0.4
 
 enum BGM {
     NONE,
+    BGM_MAINMENU,
     BGM1
 }
 enum BGM_COMPONENTS {
@@ -16,6 +17,11 @@ enum BGM_COMPONENTS {
     OUTTRO
 }
 var BGM_COMPONENTS_MAP = {
+    BGM.BGM_MAINMENU: {
+        BGM_COMPONENTS.INTRO: null,
+        BGM_COMPONENTS.LOOP: BGM_MAINMENU,
+        BGM_COMPONENTS.OUTTRO: null
+    },
     BGM.BGM1: {
         BGM_COMPONENTS.INTRO: BGM_1_INTRO,
         BGM_COMPONENTS.LOOP: [
@@ -116,7 +122,12 @@ func play_sfx(_sfx: AudioStreamMP3) -> void:
 func play_bgm(_bgm: BGM) -> void:
     _current_bgm = _bgm
     _bgm_pointer = 0
-    bgm.stream = BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.INTRO]
+    
+    if BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.INTRO]:
+        bgm.stream = BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.INTRO]
+    else:
+        bgm.stream = BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.LOOP]
+
     bgm.play()
 
 
@@ -141,6 +152,11 @@ func _bgm_continue_loop() -> void:
         return
 
     if _bgm_pointer == -1:
+        if not BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.OUTTRO]:
+            _current_bgm = BGM.NONE
+            bgm.stop()
+            return
+
         bgm.stream = BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.OUTTRO]
         _current_bgm = BGM.NONE
         bgm.play()
