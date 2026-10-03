@@ -6,7 +6,7 @@ extends Control
 func _ready() -> void:
     do_load()
 
-    AudioEngine.play_bgm(AudioEngine.BGM_MAINMENU)
+    AudioEngine.play_bgm(AudioEngine.BGM.BGM_MAINMENU)
     get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 func do_load() -> void:

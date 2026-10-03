@@ -185,6 +185,8 @@ func on_marketopen_end() -> void:
 
 
 func on_aftermarket_start() -> void:
+    AudioEngine.end_bgm()
+
     # Play starting animation
     var _anim: PhaseTransitionAnim = AFTERMARKET_START_ANIM.instantiate()
     add_child(_anim)
