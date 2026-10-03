@@ -16,24 +16,7 @@ enum BGM_COMPONENTS {
     LOOP,
     OUTTRO
 }
-var BGM_COMPONENTS_MAP = {
-    BGM.BGM_MAINMENU: {
-        BGM_COMPONENTS.INTRO: null,
-        BGM_COMPONENTS.LOOP: BGM_MAINMENU,
-        BGM_COMPONENTS.OUTTRO: null
-    },
-    BGM.BGM1: {
-        BGM_COMPONENTS.INTRO: BGM_1_INTRO,
-        BGM_COMPONENTS.LOOP: [
-            BGM_1_LOOP_01, BGM_1_LOOP_02, BGM_1_LOOP_03,
-            BGM_1_LOOP_04, BGM_1_LOOP_05, BGM_1_LOOP_06,
-            BGM_1_LOOP_07, BGM_1_LOOP_08, BGM_1_LOOP_09,
-            BGM_1_LOOP_10, BGM_1_LOOP_11, BGM_1_LOOP_12,
-            BGM_1_LOOP_13, BGM_1_LOOP_14
-        ],
-        BGM_COMPONENTS.OUTTRO: BGM_1_OUTTRO
-    }
-}
+var BGM_COMPONENTS_MAP = {}
 var _current_bgm: BGM = BGM.BGM1
 var _bgm_pointer: int = 0
 
@@ -80,6 +63,7 @@ func _ready() -> void:
     bgm.autoplay = false
     sfx.autoplay = false
 
+    bgm.finished.connect(_bgm_continue_loop)
     sfx.finished.connect(_on_sfx_finished)
 
 
@@ -101,6 +85,25 @@ func load_bgm() -> void:
     BGM_1_LOOP_12 = AudioStreamMP3.load_from_file("res://bgm/bgm-loop-section12.mp3")
     BGM_1_LOOP_13 = AudioStreamMP3.load_from_file("res://bgm/bgm-loop-section13.mp3")
     BGM_1_LOOP_14 = AudioStreamMP3.load_from_file("res://bgm/bgm-loop-section14.mp3")
+    BGM_COMPONENTS_MAP = {
+        BGM.BGM_MAINMENU: {
+            BGM_COMPONENTS.INTRO: null,
+            BGM_COMPONENTS.LOOP: [BGM_MAINMENU],
+            BGM_COMPONENTS.OUTTRO: null
+        },
+        BGM.BGM1: {
+            BGM_COMPONENTS.INTRO: BGM_1_INTRO,
+            BGM_COMPONENTS.LOOP: [
+                BGM_1_LOOP_01, BGM_1_LOOP_02, BGM_1_LOOP_03,
+                BGM_1_LOOP_04, BGM_1_LOOP_05, BGM_1_LOOP_06,
+                BGM_1_LOOP_07, BGM_1_LOOP_08, BGM_1_LOOP_09,
+                BGM_1_LOOP_10, BGM_1_LOOP_11, BGM_1_LOOP_12,
+                BGM_1_LOOP_13, BGM_1_LOOP_14
+            ],
+            BGM_COMPONENTS.OUTTRO: BGM_1_OUTTRO
+        }
+    }
+
 
 func load_sfx() -> void:
     SFX_CLICK = AudioStreamMP3.load_from_file("res://sfx/sfx_click.mp3")
@@ -126,7 +129,7 @@ func play_bgm(_bgm: BGM) -> void:
     if BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.INTRO]:
         bgm.stream = BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.INTRO]
     else:
-        bgm.stream = BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.LOOP]
+        bgm.stream = BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.LOOP][_bgm_pointer]
 
     bgm.play()
 
@@ -134,6 +137,8 @@ func play_bgm(_bgm: BGM) -> void:
 func end_bgm() -> void:
     if not _current_bgm or _current_bgm == BGM.NONE:
         return
+
+    print("[bgm] queueing outtro")
     _bgm_pointer = -1
 
 
@@ -152,6 +157,8 @@ func _bgm_continue_loop() -> void:
         return
 
     if _bgm_pointer == -1:
+        print("[bgm] playing outtro")
+
         if not BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.OUTTRO]:
             _current_bgm = BGM.NONE
             bgm.stop()
@@ -162,6 +169,7 @@ func _bgm_continue_loop() -> void:
         bgm.play()
         return
     
+    print("[bgm] playing section " + str(_bgm_pointer))
     bgm.stream = BGM_COMPONENTS_MAP[_current_bgm][BGM_COMPONENTS.LOOP][_bgm_pointer]
     bgm.play()
 
@@ -169,6 +177,7 @@ func _bgm_continue_loop() -> void:
         _bgm_pointer = 0
     else:
         _bgm_pointer += 1
+    print("[bgm] next section is " + str(_bgm_pointer))
 
 
 func get_master_volume() -> float:

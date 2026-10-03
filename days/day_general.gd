@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func on_premarket_start() -> void:
     super()
-    AudioEngine.play_bgm(AudioEngine.BGM_GAME)
+    AudioEngine.play_bgm(AudioEngine.BGM.BGM1)
     GameState.game_window.browser.load_page("res://pages/StartPage.tscn")
     
 
@@ -43,7 +43,6 @@ func on_action_taken() -> void:
 
 func on_aftermarket_start() -> void:
     super()
-    AudioEngine.pause_bgm()
 
 
 func on_close_end() -> void:
