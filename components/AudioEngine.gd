@@ -5,6 +5,7 @@ const INITIAL_MASTER_VOLUME: float = 1.0
 const INITIAL_MUSIC_VOLUME: float = 0.75
 const INITIAL_SFX_VOLUME: float = 1.0
 const DUCK_SFX_PERCENT: float = 0.4
+const DUCK_SFX_DURATION_SECS: float = 0.1
 
 enum BGM {
     NONE,
@@ -238,7 +239,7 @@ func _duck_bgm() -> void:
         func(v): AudioServer.set_bus_volume_db(bus, linear_to_db(v)),
         _bgm_duck_previous_volume,
         _bgm_duck_previous_volume * DUCK_SFX_PERCENT,
-        0.1
+        DUCK_SFX_DURATION_SECS
     )
 
 
@@ -254,5 +255,5 @@ func _on_sfx_finished() -> void:
         func(v): AudioServer.set_bus_volume_db(bus, linear_to_db(v)),
         get_music_volume(),
         _bgm_duck_previous_volume,
-        0.2
+        DUCK_SFX_DURATION_SECS
     )
