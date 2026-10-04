@@ -4,8 +4,8 @@ extends Node
 const INITIAL_MASTER_VOLUME: float = 1.0
 const INITIAL_MUSIC_VOLUME: float = 0.75
 const INITIAL_SFX_VOLUME: float = 1.0
-const DUCK_SFX_PERCENT: float = 0.4
-const DUCK_SFX_DURATION_SECS: float = 0.1
+const DUCK_SFX_PERCENT: float = 0.8
+const DUCK_SFX_DURATION_SECS: float = 0.05
 
 enum BGM {
     NONE,
