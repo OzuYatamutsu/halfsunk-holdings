@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://8qe6srm6vjh5"]
+
+[ext_resource type="Script" uid="uid://dorralu6r56s1" path="res://components/load_game_chart.gd" id="1_a38hq"]
+[ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_we8l3"]
+[ext_resource type="Texture2D" uid="uid://cbcebi2ylo7jf" path="res://components/_STOCK_CHART_PLACEHOLDER.png" id="3_jprf7"]
+
+[node name="LoadGameChart" type="MarginContainer" unique_id=587976061]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a38hq")
+
+[node name="_Chart" parent="." unique_id=318836299 instance=ExtResource("2_we8l3")]
+layout_mode = 2
+
+[node name="_PLACEHOLDER_PREVIEW" type="TextureRect" parent="." unique_id=2109543883]
+layout_mode = 2
+texture = ExtResource("3_jprf7")
