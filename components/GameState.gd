@@ -113,6 +113,7 @@ func recalculate_net_worth() -> void:
     if len(net_worth_history) > MAX_NET_WORTH_HISTORY_ITEMS:
         net_worth_history.remove_at(0)
 
+    print("net_worth_history: " + str(net_worth_history))
     net_worth_changed.emit()
 
 
@@ -226,6 +227,13 @@ func load_game(save_game_path: String) -> void:
     await get_tree().create_timer(0.01).timeout
     start_day()
 
+
+func load_item_from_save_file(save_game_path: String, item_name: String) -> Variant:
+    var save_file = FileAccess.open(save_game_path, FileAccess.READ)
+    # Advance past the header
+    save_file.get_line()
+    return JSON.parse_string(save_file.get_line())[item_name]
+    
 
 func serialize() -> String:
     return JSON.stringify({

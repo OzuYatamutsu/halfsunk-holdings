@@ -34,7 +34,10 @@ func load_saved_games() -> void:
         LoadGamesContainer.add_child(saveGameItem)
 
         # Create item in the load games list
-        saveGameItem.setup(savefile, saveDataHeader[0], saveDataHeader[1], saveDataHeader[2], saveDataHeader[3])
+        saveGameItem.setup(
+            savefile, saveDataHeader[0], saveDataHeader[1],
+            saveDataHeader[2], saveDataHeader[3],
+            GameState.load_item_from_save_file(savefile, "net_worth_history"))
         saveGameItem.load_game.connect(GameState.load_game)
 
         savefile = save_game_dir.get_next()
@@ -50,13 +53,13 @@ func _validate_savefile(savegame_file_path: String) -> bool:
     return true
 
 
-## Returns an array of the format: [name of savefile, day count, day of week, total_score]
+## Returns an array of the format: [name of savefile, day count, day of week, total_score, net_worth_history]
 func _read_savefile_header(savegame_file_path: String) -> Array[String]:
     var save_name: String = savegame_file_path.get_file().get_basename()
     var save_file = FileAccess.open(savegame_file_path, FileAccess.READ)
     var header: String = save_file.get_line()
     if len(header.split(" ")) != 3:
-        return ["MALFORMED_SAVE", "0", "Monday", "$0.00"]
+        return ["MALFORMED_SAVE", "0", "Monday", "$0.00", "[]"]
 
     var day_count = int(header.split(" ")[0])
     var day_of_week = Day.DayOfWeek.keys()[int(header.split(" ")[1])]
