@@ -6,8 +6,8 @@ signal net_worth_changed
 signal end_of_week_calc_done
 signal chat_message_signal(args)
 
-const BUILD_DATE: String = "20261004"
-const VERSION_STRING: String = "0.6.2"
+const BUILD_DATE: String = "20261005"
+const VERSION_STRING: String = "0.6.3"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -21,10 +21,15 @@ const STARTING_DAY: int = 1
 ## at the start of the week?
 const GOAL_INCREASE_MULTIPLIER: float = 1.25
 
+## How much net worth history should we keep?
+const MAX_NET_WORTH_HISTORY_ITEMS: int = 5
+
 var save_slot: int = 0
 var cash: float = 0.0
 var portfolio: Portfolio = Portfolio.new()
 var net_worth: float = 0.0
+# Collection of [timestamp, value] tuples
+var net_worth_history: Array[Array] = []
 var total_score: float = 0.0
 var target: float = 0.0
 var _old_target: float = 0.0
@@ -54,6 +59,7 @@ func clear_state() -> void:
     cash = STARTING_CASH
     portfolio.clear()
     net_worth = STARTING_NET_WORTH
+    net_worth_history = []
     day_count = STARTING_DAY
     total_score = 0.0
     target = 0.0
@@ -100,6 +106,13 @@ func end_day() -> void:
 
 func recalculate_net_worth() -> void:
     net_worth = cash + portfolio.value()
+
+    # Save net worth history
+    if net_worth_history.is_empty() or net_worth_history[-1][0] != get_current_timestamp():
+        net_worth_history.append([get_current_timestamp(), net_worth])
+    if len(net_worth_history) > MAX_NET_WORTH_HISTORY_ITEMS:
+        net_worth_history.remove_at(0)
+
     net_worth_changed.emit()
 
 
@@ -220,6 +233,7 @@ func serialize() -> String:
         "cash": cash,
         "portfolio": portfolio.serialize(),
         "net_worth": net_worth,
+        "net_worth_history": net_worth_history,
         "total_score": total_score,
         "target": target,
         "current_day": current_day.serialize(),
@@ -235,6 +249,7 @@ func deserialize(json: String) -> void:
     cash = _data_obj.cash
     portfolio = Portfolio.deserialize(_data_obj.portfolio)
     net_worth = _data_obj.net_worth
+    net_worth_history = _data_obj.net_worth_history
     total_score = _data_obj.total_score
     target = _data_obj.target
     current_day = Day.deserialize(_data_obj.current_day)
