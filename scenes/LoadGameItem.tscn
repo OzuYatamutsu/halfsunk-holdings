@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dpwykohnkp5b5"]
 
 [ext_resource type="Script" uid="uid://df8sgq2ljyo5c" path="res://scenes/load_game_item.gd" id="1_2axgp"]
-[ext_resource type="Texture2D" uid="uid://n4gg882tp0li" path="res://components/blue_placeholder.png" id="1_eu14c"]
 [ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_2axgp"]
+[ext_resource type="PackedScene" uid="uid://8qe6srm6vjh5" path="res://components/LoadGameChart.tscn" id="2_amfgr"]
 [ext_resource type="Theme" uid="uid://b7parojases6d" path="res://components/TextWhite_theme.tres" id="3_amfgr"]
 [ext_resource type="Texture2D" uid="uid://b6k6k514hdngr" path="res://components/arrow_right_50pt.png" id="5_2axgp"]
 
@@ -15,9 +15,9 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 100
 script = ExtResource("1_2axgp")
 
-[node name="LoadGameFileIconTemp" type="TextureRect" parent="." unique_id=1889605354]
+[node name="NetWorthChart" parent="." unique_id=587976061 instance=ExtResource("2_amfgr")]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("1_eu14c")
 
 [node name="LoadFileDetailsAligner" type="VBoxContainer" parent="." unique_id=977375721]
 layout_mode = 2
