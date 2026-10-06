@@ -17,6 +17,7 @@ script = ExtResource("1_2axgp")
 
 [node name="NetWorthChart" parent="." unique_id=587976061 instance=ExtResource("2_amfgr")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 250)
 layout_mode = 2
 
 [node name="LoadFileDetailsAligner" type="VBoxContainer" parent="." unique_id=977375721]
