@@ -29,7 +29,7 @@ var cash: float = 0.0
 var portfolio: Portfolio = Portfolio.new()
 var net_worth: float = 0.0
 # Collection of [timestamp, value] tuples
-var net_worth_history: Array[Array] = []
+var net_worth_history: Array = []
 var total_score: float = 0.0
 var target: float = 0.0
 var _old_target: float = 0.0
