@@ -31,20 +31,20 @@ static var PoliticianIceCreamSubsidy = PriceChangeEvent.new(
 )
 
 static var DogCryptoInsiderTrading = PriceChangeEvent.new(
-    {"DOG": 0.90}, "Scandal! An employee of Canine Energy was accused of insider trading!"
+    {"DOG": 0.90}, "Scandal! An employee of Canine Energy [DOG] was accused of insider trading!"
 )
 
 static var CrowFactoryRelease = PriceChangeEvent.new(
-    {"CRW": 1.10}, "Corvid Auto confirms the opening of a new factory on the Southern Islands."
+    {"CRW": 1.10}, "Corvid Auto [CRW] confirms the opening of a new factory on the Southern Islands."
 )
 
 static var DogPlotThwarted = PriceChangeEvent.new(
     # Decrease dog stocks
-    {"DOG": 0.90}, "A nasty price collusion plot by DOGS was discovered by the Chief Investigator! Better luck next time!!"
+    {"DOG": 0.90}, "A nasty price collusion plot by DOGS [DOG] was discovered by the Chief Investigator! Better luck next time!!"
 )
 
 static var CarExplosionTest = PriceChangeEvent.new(
-    {"CRW": 0.70}, "Disaster! Corvid Auto's new car exploded at the test track!!"
+    {"CRW": 0.70}, "Disaster! Corvid Auto's [CRW] new car exploded at the test track!!"
 )
 
 static var CrimePlot1 = PriceChangeEvent.new(
@@ -94,12 +94,12 @@ static var FailClinicalTrials1 = PriceChangeEvent.new(
 
 static var CanineEnergySleep1 = PriceChangeEvent.new(
     # DOG decreases 10%
-    {"DOG": 0.90}, "Why do people keep falling asleep after drinking CANINE ENERGY'S latest soft drink?"
+    {"DOG": 0.90}, "Why do people keep falling asleep after drinking CANINE ENERGY'S [DOG] latest soft drink?"
 )
 
 static var AvianPoopFine1 = PriceChangeEvent.new(
     # BIRD decreases 10%
-    {"BIRD": 0.90}, "Avian Express fined $1.3B over waste dumping concerns over its delivery routes"
+    {"BIRD": 0.90}, "Avian Express [BIRD] fined $1.3B over waste dumping concerns over its delivery routes"
 )
 
 static var InformationalPlot1 = PriceChangeEvent.new(
