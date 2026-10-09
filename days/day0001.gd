@@ -111,6 +111,20 @@ func _event_onboarding05() -> void:
 func _event_onboarding_post() -> void:
     GameState.is_onboarding = false
     GameState.current_day.start_next_phase()
+    
+    # Correct timestamp data for previous actions
+    # in PREMARKET (normally not allowed)
+    print("leaving tutorial and correcting CAT's timestamps")
+    var _affected_stock: Stock = GameState.stock_market.get_stock("CAT")
+    var _index = len(_affected_stock.last_values)
+    for i in range(len(_affected_stock.last_values)):
+        _affected_stock.last_values[i] = [
+            _affected_stock.last_values[i][0] - _index,
+            _affected_stock.last_values[i][1]
+        ]
+        _index -= 1
+    GameState.stock_market.update_stock(_affected_stock)
+
     action_count = 0
 
 

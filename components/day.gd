@@ -125,6 +125,7 @@ func start_next_phase() -> void:
 func take_action():
     if GameState.is_onboarding:
         print("onboarding action taken")
+        GameState._tutorial_premarket_actions += 1
     else:
         assert(phase == Phase.MARKETOPEN)
     event_fired_during_action = false
