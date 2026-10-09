@@ -6,8 +6,8 @@ signal net_worth_changed
 signal end_of_week_calc_done
 signal chat_message_signal(args)
 
-const BUILD_DATE: String = "20261008"
-const VERSION_STRING: String = "0.6.5"
+const BUILD_DATE: String = "20261009"
+const VERSION_STRING: String = "0.6.6"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
@@ -40,6 +40,7 @@ var week_count: int = 1
 var is_in_phase_transition: bool = false
 var is_onboarding: bool = false
 var _path_to_day_gd: String = ""
+var _tutorial_premarket_actions = 0
 
 var game_window: GameWindow
 var stock_market: StockMarket
@@ -132,7 +133,7 @@ func get_time() -> String:
         return "18:00"
 
 
-## e.g. day 1, action 5 = 5, day 2, action 2 = 10
+## e.g. day 1, action 5 = 5, day 2, action 2 = 18
 func get_current_timestamp() -> int:
     if (current_day):
         return (day_count * Day.MARKETOPEN_ACTION_COUNT) + current_day.action_count
