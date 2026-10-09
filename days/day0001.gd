@@ -44,6 +44,8 @@ func on_action_taken() -> void:
 
 func _on_command_fired(command: String) -> void:
     # hack
+    if !GameState.is_onboarding:
+        return
     if command == "INFO" and GameState.switch_page_data_bus == "CAT" and action_count == 0:
         _delay_event_onboarding02()
 
