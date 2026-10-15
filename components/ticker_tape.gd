@@ -1,15 +1,18 @@
 class_name TickerTape
 extends Control
 
+const SEPARATOR: String = "    |   "
+
 @export var speed_px_per_sec: float = 250.0
 
 @onready var label: RichTextLabel = %Label
 
 var _is_active: bool = false
 var _marquee_queue: Array[String] = []
+var _latest_stock_market_data_text: String = ""
 var _up_regex := RegEx.new()
 var _down_regex := RegEx.new()
-    
+
 
 func _ready() -> void:
     _up_regex.compile(r"(↗\s+[\d.]+)\s+\(([+][\d.]+%)\)")
@@ -41,6 +44,24 @@ func set_text(text: String) -> void:
 
 
 func queue_text_from_stock_market_data() -> void:
+    _latest_stock_market_data_text = get_stock_market_data_string()
+    queue_text(_latest_stock_market_data_text)
+
+
+## Start scrolling text from stock market data
+## if otherwise stopped. If we're already scrolling,
+## update our current scroll.
+func stock_market_data_scroll_and_update():
+    if !_is_active:
+        # Not scrolling, start a scroll
+        queue_text_from_stock_market_data()
+
+
+func _ticker_shift(old_text: String, new_text: String) -> void:
+    pass  # TODO
+    
+    
+func get_stock_market_data_string() -> String:
     var stock_market_data_text: Array[String] = GameState.stock_market.get_all_to_string()
 
     for i in stock_market_data_text.size():
@@ -56,9 +77,7 @@ func queue_text_from_stock_market_data() -> void:
             true
         )
 
-    queue_text(
-        "    |   ".join(stock_market_data_text)
-    )
+    return SEPARATOR.join(stock_market_data_text)
 
 
 func start_marquee() -> void:    
