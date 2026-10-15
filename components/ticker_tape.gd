@@ -14,6 +14,9 @@ var _is_active: bool = false
 
 var _window_size_char_count: int = 0
 var _marquee_queue: Array[String] = []
+var _message_char_lengths: Array[int] = []
+var _message_widths: Array[float] = []
+var _scroll_offset: float = 0.0
 
 var _up_regex := RegEx.new()
 var _down_regex := RegEx.new()
@@ -26,13 +29,64 @@ func _ready() -> void:
     label.position = Vector2(0, label.position.y)
 
 
+func _process(delta: float) -> void:
+    if !_is_active:
+        return
+
+    _scroll_ticker(delta)
+    _remove_offscreen_messages()
+    _append_from_queue()
+
+
 func start() -> void:
     _calibrate_window_size_characters()
     print("[ticker] max width is about " + str(_window_size_char_count) + " chars.")
     _populate_stock_market_data_queue()
-    while label.text.length() < _window_size_char_count:
-        label.text += _marquee_queue.pop_front() + SEPARATOR
-    start_marquee()
+    _append_from_queue()
+    _is_active = true
+
+
+func stop() -> void:
+    _is_active = false
+
+
+func _append_from_queue() -> void:
+    if _marquee_queue.is_empty():
+        _populate_stock_market_data_queue()
+    if _marquee_queue.is_empty():
+        return
+
+    var visible_content_width: float = 0.0
+
+    for width in _message_widths:
+        visible_content_width += width
+
+    while visible_content_width - _scroll_offset < get_viewport_rect().size.x:
+        var text_to_add: String = _marquee_queue.pop_front() + SEPARATOR
+        var text_width: float = _get_effective_text_width(text_to_add)
+
+        _message_char_lengths.append(len(text_to_add))
+        _message_widths.append(text_width)
+        label.text += text_to_add
+
+        visible_content_width += text_width
+
+
+func _get_effective_text_width(text: String) -> float:
+    return window_calibrator_label.get_theme_font("normal_font").get_string_size(
+        text, HORIZONTAL_ALIGNMENT_LEFT, -1, window_calibrator_label.get_theme_font_size("normal_font_size")
+    ).x
+
+
+func _scroll_ticker(delta: float) -> void:
+    _scroll_offset += speed_px_per_sec * delta
+    label.position.x = -_scroll_offset
+
+
+func _remove_offscreen_messages() -> void:
+    while not _message_widths.is_empty() and _scroll_offset >= _message_widths[0]:
+        _scroll_offset -= _message_widths.pop_front()
+        label.text = label.text.substr(_message_char_lengths.pop_front())
 
 
 ## Set _window_size_char_count to the number of
@@ -46,8 +100,8 @@ func _calibrate_window_size_characters() -> void:
     ).x
 
     _window_size_char_count = int(
-        get_viewport().size.x
-        - window_calibrator_label.position.x / char_width
+        (get_viewport().size.x - window_calibrator_label.position.x)
+        / char_width
     )
 
 
@@ -55,7 +109,6 @@ func _populate_stock_market_data_queue() -> void:
     var stock_market_data = get_stock_market_data_formatted()
     for _i in range(STOCK_MARKET_DATA_BUFFER_MULT):
         _marquee_queue.append_array(stock_market_data)
-
 
 
 func get_stock_market_data_formatted() -> Array[String]:
@@ -75,31 +128,3 @@ func get_stock_market_data_formatted() -> Array[String]:
         )
 
     return stock_market_data_text
-
-
-func start_marquee() -> void:    
-    _is_active = true
-
-    var _tween = create_tween()
-    
-    # Start just off the right side
-    label.position = Vector2(
-        get_viewport_rect().size.x,
-        label.position.y
-    )
-
-    # Move label from right to left
-    _tween.tween_property(
-        label,
-        "position:x",
-        -label.size.x,
-        ((get_viewport_rect().size.x + label.size.x) / speed_px_per_sec)
-    ).set_trans(Tween.TRANS_LINEAR)
-
-    _tween.finished.connect(_on_marquee_finished)
-
-
-func _on_marquee_finished() -> void:
-    if _marquee_queue.is_empty():
-        _populate_stock_market_data_queue()
-    label.text += _marquee_queue.pop_front() + SEPARATOR
