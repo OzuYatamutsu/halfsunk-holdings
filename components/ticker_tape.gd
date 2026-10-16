@@ -50,6 +50,25 @@ func stop() -> void:
     _is_active = false
 
 
+## Flush the marquee queue and replace it with fresh data
+## from live stock market prices.
+func refresh_stock_market_data() -> void:
+    print("[ticker] refreshing stock market data")
+    _marquee_queue = []
+    _populate_stock_market_data_queue()
+
+
+## Places the text to be fired at the beginning of the
+## scroll queue.
+func fire_text(text: String, is_bold=true) -> void:
+    _marquee_queue = []
+    if is_bold:
+        _marquee_queue.append("[b]" + text + "[/b]")
+    else:
+        _marquee_queue.append(text)
+    refresh_stock_market_data()
+
+
 func _append_from_queue() -> void:
     if _marquee_queue.is_empty():
         _populate_stock_market_data_queue()
