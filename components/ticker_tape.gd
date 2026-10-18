@@ -20,11 +20,13 @@ var _scroll_offset: float = 0.0
 
 var _up_regex := RegEx.new()
 var _down_regex := RegEx.new()
+var _bbcode_regex := RegEx.new()
 
 
 func _ready() -> void:
     _up_regex.compile(r"(↗\s+[\d.]+)\s+\(([+][\d.]+%)\)")
     _down_regex.compile(r"(↘\s+[\d.]+)\s+\(([-][\d.]+%)\)")
+    _bbcode_regex.compile(r"\[/?[a-zA-Z][^\]]*\]")
 
     label.position = Vector2(0, label.position.y)
 
@@ -91,9 +93,14 @@ func _append_from_queue() -> void:
         visible_content_width += text_width
 
 
+## Returns the text width of the rendered text,
+## ignoring bbcode-related chars
 func _get_effective_text_width(text: String) -> float:
     return window_calibrator_label.get_theme_font("normal_font").get_string_size(
-        text, HORIZONTAL_ALIGNMENT_LEFT, -1, window_calibrator_label.get_theme_font_size("normal_font_size")
+        _bbcode_regex.sub(text, "", true),
+        HORIZONTAL_ALIGNMENT_LEFT,
+        -1,
+        window_calibrator_label.get_theme_font_size("normal_font_size")
     ).x
 
 
