@@ -104,6 +104,14 @@ func _get_effective_text_width(text: String) -> float:
     ).x
 
 
+## Returns the text string char count of the text,
+## ignoring bbcode-related chars
+func _get_effective_text_length(text: String) -> int:
+    # TODO this results in an even more noticable text jitter
+    # TODO if actually used for _message_char_lengths
+    return len(_bbcode_regex.sub(text, "", true))
+
+
 func _scroll_ticker(delta: float) -> void:
     _scroll_offset += speed_px_per_sec * delta
     label.position.x = -_scroll_offset
