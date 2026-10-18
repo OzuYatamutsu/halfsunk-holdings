@@ -31,6 +31,7 @@ func _ready() -> void:
     )
     super()
     start_next_phase()
+    GameState.game_window.marquee.start()
 
 
 func on_action_taken() -> void:
