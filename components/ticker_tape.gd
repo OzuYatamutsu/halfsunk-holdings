@@ -56,7 +56,13 @@ func stop() -> void:
 ## from live stock market prices.
 func refresh_stock_market_data() -> void:
     print("[ticker] refreshing stock market data")
-    _marquee_queue = []
+    # Don't just blindly clear the queue, only clear
+    # queued price change items
+    var _saved_items: Array[String] = []
+    for i in range(len(_marquee_queue)):
+        if "[color=green]↗" not in _marquee_queue[i] and "[color=red]↘" not in _marquee_queue[i]:
+            _saved_items.append(_marquee_queue[i])
+    _marquee_queue = _saved_items
     _populate_stock_market_data_queue()
 
 
@@ -68,7 +74,7 @@ func fire_text(text: String, is_bold=true) -> void:
         _marquee_queue.append("[b]" + text + "[/b]")
     else:
         _marquee_queue.append(text)
-    refresh_stock_market_data()
+    _populate_stock_market_data_queue()
 
 
 func _append_from_queue() -> void:
