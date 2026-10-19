@@ -71,7 +71,7 @@ func refresh_stock_market_data() -> void:
 func fire_text(text: String, is_bold=true) -> void:
     _marquee_queue = []
     if is_bold:
-        _marquee_queue.append("[b][color=white]" + text + "[/color][/b]")
+        _marquee_queue.append("[color=white]" + text + "[/color]")
     else:
         _marquee_queue.append(text)
     _populate_stock_market_data_queue()
