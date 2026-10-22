@@ -28,6 +28,7 @@ func _ready() -> void:
     _down_regex.compile(r"(↘\s+[\d.]+)\s+\(([-][\d.]+%)\)")
     _bbcode_regex.compile(r"\[/?[a-zA-Z][^\]]*\]")
 
+    label.text = ""
     label.position = Vector2(0, label.position.y)
 
 
