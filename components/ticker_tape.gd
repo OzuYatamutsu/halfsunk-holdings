@@ -128,6 +128,7 @@ func _remove_offscreen_messages() -> void:
     while not _message_widths.is_empty() and _scroll_offset >= _message_widths[0]:
         _scroll_offset -= _message_widths.pop_front()
         label.text = label.text.substr(_message_char_lengths.pop_front())
+    label.position.x = -_scroll_offset
 
 
 ## Set _window_size_char_count to the number of
