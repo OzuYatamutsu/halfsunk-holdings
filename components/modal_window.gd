@@ -9,4 +9,6 @@ func _input(event: InputEvent) -> void:
         # Enter key should default to whatever
         # the yes option is in dialog modals
         if get_parent() is ChatWindowModal:
+            if !get_parent().YesAction:
+                return
             get_parent()._on_yes_button_pressed()
