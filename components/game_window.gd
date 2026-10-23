@@ -13,5 +13,8 @@ func _ready() -> void:
 
 
 func _input(event):
-    if event.is_action_pressed("ui_accept"):
+    if (
+        event.is_action_pressed("ui_accept")
+        and !GameState.is_in_phase_transition
+    ):
         command_prompt.focus()
