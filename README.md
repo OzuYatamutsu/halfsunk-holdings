@@ -24,6 +24,7 @@ Other assets:
 - [Bird blue flying](https://opengameart.org/content/bird-blue-flying), by Enquest
 - [Bossa Nova](https://opengameart.org/content/bossa-nova), by Joth
 - [Along the Way](https://opengameart.org/content/along-the-way), by congusbongus
+- [Clock Animation](https://opengameart.org/content/clock-animation), by AntumDeluge
 - Calendar icon by smashingstocks
 - Money icon by Freepik
 
