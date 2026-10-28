@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o56h3eaq7ntf"
-path="res://.godot/imported/pfp_jinhai_framed.png-9a476cd7928c57084c8e20fbc3c4b29d.ctex"
+uid="uid://c1txbhumvocv4"
+path="res://.godot/imported/clock_animation.png-166aaec9b29f32227fb07fe8d60b8055.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/pfp_jinhai_framed.png"
-dest_files=["res://.godot/imported/pfp_jinhai_framed.png-9a476cd7928c57084c8e20fbc3c4b29d.ctex"]
+source_file="res://components/clock_animation.png"
+dest_files=["res://.godot/imported/clock_animation.png-166aaec9b29f32227fb07fe8d60b8055.ctex"]
 
 [params]
 
