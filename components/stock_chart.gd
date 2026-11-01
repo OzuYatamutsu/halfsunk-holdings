@@ -8,9 +8,12 @@ const CHART_BG_COLOR: Color = Color("#000000")
 const CHART_GRID_COLOR: Color = Color("#283442")
 const CHART_TICK_COLOR: Color = Color("#283442")
 const CHART_LINE_COLOR: Color = Color("#5c94c6")
+const MAX_DUMMY_MODE_POINTS: int = 7
+const DUMMY_MODE_RANDRANGE: Array = [0, 100]
 
 @onready var _Chart: Chart = $_Chart
 @onready var _placeholder_image: TextureRect = $_PLACEHOLDER_PREVIEW
+@export var _is_dummy_mode: bool = true
 
 var _chart_func: Function
 
@@ -21,8 +24,32 @@ var _historical_data: Array
 func _ready() -> void:
     _placeholder_image.queue_free()
 
+
+func _process(_delta: float) -> void:
+    if !_is_dummy_mode:
+        return
+    _draw_dummy_chart()
+
+
+func _draw_dummy_chart() -> void:
+    print("drawing dummy chart!")
+    _historical_data = []
+
+    for i in range(MAX_DUMMY_MODE_POINTS):
+        _historical_data.append([
+            i, randf_range(
+                DUMMY_MODE_RANDRANGE[0],
+                DUMMY_MODE_RANDRANGE[1]
+            )
+        ])
+    _Chart.queue_redraw()
+    draw()
+
+
 func update_stock(stock: Stock) -> void:
     _historical_data = stock.last_values
+    _is_dummy_mode = len(_historical_data) < 2
+
 
 ## Call this to draw the graph after calling set_stock().
 func draw() -> void:
@@ -66,8 +93,8 @@ func _compose_chart_properties() -> ChartProperties:
     chart_properties.show_title = false
     chart_properties.draw_vertical_grid = false
     chart_properties.show_tick_labels = false
-    chart_properties.y_label = "Price"
-    chart_properties.x_label = "Time"
+    chart_properties.y_label = "Price" if not _is_dummy_mode else ""
+    chart_properties.x_label = "Time" if not _is_dummy_mode else ""
     return chart_properties
 
 

@@ -32,10 +32,9 @@ func _init(_ticker: String, _name: String, _base_value: float, _category: String
     last_values = _last_values
     last_update_timestamp = GameState.get_current_timestamp()
 
-    if last_values.size() <= 2:
+    if last_values.size() <= 1:
         last_values = [
-            [GameState.get_current_timestamp() - 1, current_value],
-            [GameState.get_current_timestamp(), current_value],
+            [GameState.get_current_timestamp() - 1, current_value]
         ]
 
 
