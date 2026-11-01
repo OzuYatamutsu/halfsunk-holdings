@@ -10,11 +10,13 @@ const CHART_TICK_COLOR: Color = Color("#283442")
 const CHART_LINE_COLOR: Color = Color("#5c94c6")
 const MAX_DUMMY_MODE_POINTS: int = 7
 const DUMMY_MODE_RANDRANGE: Array = [0, 100]
+const DUMMY_MODE_DELAY_COUNT: int = 100
 
 @onready var _Chart: Chart = $_Chart
 @onready var _placeholder_image: TextureRect = $_PLACEHOLDER_PREVIEW
 @export var _is_dummy_mode: bool = true
 
+var _dummy_mode_delay_counter: int = 0
 var _chart_func: Function
 
 ## An array of tuples of the form: [timestamp, value];
@@ -28,7 +30,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     if !_is_dummy_mode:
         return
+    if len(_historical_data) > 2 and _dummy_mode_delay_counter <= DUMMY_MODE_DELAY_COUNT:
+        _dummy_mode_delay_counter += 1
+        return
     _draw_dummy_chart()
+    _dummy_mode_delay_counter = 0
 
 
 func _draw_dummy_chart() -> void:
@@ -95,6 +101,8 @@ func _compose_chart_properties() -> ChartProperties:
     chart_properties.show_tick_labels = false
     chart_properties.y_label = "Price" if not _is_dummy_mode else ""
     chart_properties.x_label = "Time" if not _is_dummy_mode else ""
+    chart_properties.title = "Awaiting data..." if _is_dummy_mode else ""
+    chart_properties.show_title = _is_dummy_mode
     return chart_properties
 
 
