@@ -11,6 +11,11 @@ static var OnboardingPCE02 = PriceChangeEvent.new(
     {"CAT": 1.10}, ""
 )
 
+var NEXT_EXPECTED_COMMAND: Array = [
+    "INFO CAT",
+    "BUY CAT 10",
+    "SELL CAT 10"
+]
 
 func _ready() -> void:
     # First day of week
@@ -75,12 +80,18 @@ func on_close_end() -> void:
 
 
 func _event_onboarding() -> void:
+    # Intro chat window when day is loaded
+
     ChatEventParser.load_chatevent_from_file(
         "res://events/cm_onboarding_01.txt"
     ).fire()
 
 
 func _delay_event_onboarding02() -> void:
+    # After "INFO CAT" executed
+
+    NEXT_EXPECTED_COMMAND.pop_front()
+
     await get_tree().create_timer(2).timeout
     ChatEventParser.load_chatevent_from_file(
         "res://events/cm_onboarding_02.txt"
@@ -88,6 +99,8 @@ func _delay_event_onboarding02() -> void:
 
 
 func _delay_event_onboarding03() -> void:
+    # After "BUY CAT 10" executed
+
     OnboardingPCE01.fire()
     GameState.force_refresh()
     await get_tree().create_timer(2).timeout
@@ -97,6 +110,9 @@ func _delay_event_onboarding03() -> void:
 
 
 func _delay_event_onboarding04() -> void:
+    # After "SELL CAT 10" executed
+    NEXT_EXPECTED_COMMAND.pop_front()
+
     OnboardingPCE02.fire()
     GameState.force_refresh()
     await get_tree().create_timer(2).timeout
