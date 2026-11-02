@@ -59,6 +59,12 @@ func _on_prompt_edit_text_submitted(new_text: String) -> void:
 
     if !(command in COMMAND_LIST):
         _handle_command_not_found()
+    elif (
+        GameState.is_onboarding
+        and !command.begins_with("_DEBUG")
+        and new_text.to_upper() != GameState.current_day.NEXT_EXPECTED_COMMAND[0]
+    ):
+        print("enforcing tutorial flow, ignoring command")
     else:
         COMMAND_LIST[command].call(command_args)
         command_fired.emit(command)
