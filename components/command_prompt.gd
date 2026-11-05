@@ -162,7 +162,8 @@ func _handle_sell(args: Array[String]) -> void:
     get_tree().current_scene.add_child(buy_sell_modal)
 
 
-## debug command: this command immediately skips the marketopen phase.
+## debug command: this command immediately skips to the next phase.
 func _handle_debug_endday(_args: Array[String]) -> void:
-    print("debug command: ending day immediately!!")
+    print("debug command: force skipping to next phase immediately!!")
+    GameState.is_onboarding = false
     GameState.current_day.start_next_phase()
