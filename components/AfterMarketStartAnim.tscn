@@ -239,3 +239,5 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_cm361")
 autoplay = "default"
 centered = false
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
