@@ -1,6 +1,6 @@
 FROM;Jinhai Qian;President of Jinhai Holdings [JINH];res://components/pfp_jinhai.png
-> Hahahahah! It’s about time!!
+> BWAHAHAHAH! It's about time!!!
 < About time for what?
-> Time to BUY, of course.
-> Buy 10 shares of CAT.
+> Time to BUY the dip!!
+> You should BUY 10 shares of CAT!
 < (close);CLOSE

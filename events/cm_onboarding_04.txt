@@ -1,6 +1,7 @@
 FROM;Jinhai Qian;President of Jinhai Holdings [JINH];res://components/pfp_jinhai.png
-> Some retail investors bought the dip as well. Gross...
+> Aw, gross! RETAIL INVESTORS bought the dip, too!
 < Gross?
-> Let’s SELL those shares back.
-> (You can also type SELL CAT 10 in your command window.)
+> Let's dump our shares!
+> SELL all 10 shares of CAT!
+> * (You can also type SELL CAT 10 in the command window.)
 < (close);CLOSE
