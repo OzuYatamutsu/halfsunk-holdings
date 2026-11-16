@@ -6,8 +6,8 @@ signal net_worth_changed
 signal end_of_week_calc_done
 signal chat_message_signal(args)
 
-const BUILD_DATE: String = "20261114"
-const VERSION_STRING: String = "0.7.11"
+const BUILD_DATE: String = "20261115"
+const VERSION_STRING: String = "0.7.12"
 const SAVE_GAME_PATH_ROOT: String = "user://"
 const SAVE_GAME_PATH_FOLDER: String = "savegames"
 const SAVE_GAME_PATH: String = SAVE_GAME_PATH_ROOT + SAVE_GAME_PATH_FOLDER
