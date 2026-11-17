@@ -110,7 +110,7 @@ func load_sfx() -> void:
     SFX_CLICK = AudioStreamMP3.load_from_file("res://sfx/sfx_click.mp3")
     SFX_BUYSELL = AudioStreamMP3.load_from_file("res://sfx/sfx_cha_ching.mp3")
     SFX_MESSAGE_RECEIVED = AudioStreamMP3.load_from_file("res://sfx/sfx_chat_message_received.mp3")
-    SFX_MESSAGE_SENT = AudioStreamMP3.load_from_file("res://sfx/sfx_chat_message_sent.mp3")
+    SFX_MESSAGE_SENT = AudioStreamMP3.load_from_file("res://sfx/sfx_message_sent2.mp3")
     SFX_WATCH_BEEP = AudioStreamMP3.load_from_file("res://sfx/sfx_watch_beep.mp3")
     SFX_UPDATE = AudioStreamMP3.load_from_file("res://sfx/sfx_update.mp3")
     
