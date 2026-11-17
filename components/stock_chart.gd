@@ -79,6 +79,7 @@ func add_point(last_value_record: Array[Variant]) -> void:
     _chart_func.add_point(last_value_record[0], last_value_record[1])
     _Chart.queue_redraw()
 
+
 ## After composing chart properties, other things to modify:
 ## .title, .x_label, .y_label, .x_scale, .y_scale
 func _compose_chart_properties() -> ChartProperties:
