@@ -133,16 +133,9 @@ func _event_onboarding_post() -> void:
     
     # Correct timestamp data for previous actions
     # in PREMARKET (normally not allowed)
-    print("leaving tutorial and correcting CAT's timestamps")
-    var _affected_stock: Stock = GameState.stock_market.get_stock("CAT")
-    var _index = len(_affected_stock.last_values)
-    for i in range(len(_affected_stock.last_values)):
-        _affected_stock.last_values[i] = [
-            _affected_stock.last_values[i][0] - _index,
-            _affected_stock.last_values[i][1]
-        ]
-        _index -= 1
-    GameState.stock_market.update_stock(_affected_stock)
+    print("leaving tutorial and resetting stock market state")
+    GameState.stock_market.queue_free()
+    GameState.stock_market = StockMarket.new()
 
     action_count = 0
 

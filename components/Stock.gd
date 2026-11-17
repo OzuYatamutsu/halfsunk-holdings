@@ -48,6 +48,13 @@ func update_price(new_price: float) -> void:
     )
     
     # Update last values graph
+    if !GameState.is_onboarding:
+        assert(
+            last_values[-1][0] < last_update_timestamp,
+            "Tried to commit a last_values in the past! "
+            + "previous value=" + str(last_values[-1][0])
+            + " next value=" + str(last_update_timestamp)
+        )
     last_values.append([
         last_update_timestamp, current_value
     ])
