@@ -39,7 +39,7 @@ extends Node
 
 
 const DELIMITER: String = ";"
-const DEFAULT_MESSAGE_DELAY_SECS: float = 0.25
+const DEFAULT_MESSAGE_DELAY_SECS: float = 0.5
 
 
 static func load_chatevent_from_file(path: String) -> ChatMessageEvent:
