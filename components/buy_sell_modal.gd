@@ -155,6 +155,7 @@ func _execute_transaction() -> void:
     GameState.recalculate_net_worth()
     GameState.current_day.take_action()
     _update_stock_info()
+    GameState.force_refresh()
 
 
 func _on_quantity_edit_text_changed(new_text: String) -> void:
