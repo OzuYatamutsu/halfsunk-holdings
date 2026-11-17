@@ -43,6 +43,25 @@ func _init() -> void:
             _MARKET_DATA[_ticker][3]
         )
 
+func clear_and_reset() -> void:
+    for stock: Stock in _market.values():
+        stock.last_update_timestamp = 0
+        stock.last_values = []
+        stock.free()
+    _market.clear()
+
+    for _ticker in _MARKET_DATA:
+        print("stock_market: inserting " + _ticker)
+
+        _market[_ticker] = Stock.new(
+            _ticker,
+            _MARKET_DATA[_ticker][0],
+            _MARKET_DATA[_ticker][1],
+            _MARKET_DATA[_ticker][2],
+            _MARKET_DATA[_ticker][3]
+        )
+
+
 ## Returns null if stock wasn't found
 func get_stock(ticker: String) -> Stock:
     return _market.get(ticker, null)

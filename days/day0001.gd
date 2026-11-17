@@ -129,15 +129,17 @@ func _event_onboarding05() -> void:
 
 func _event_onboarding_post() -> void:
     GameState.is_onboarding = false
-    GameState.current_day.start_next_phase()
-    
+
     # Correct timestamp data for previous actions
     # in PREMARKET (normally not allowed)
     print("leaving tutorial and resetting stock market state")
-    GameState.stock_market.queue_free()
-    GameState.stock_market = StockMarket.new()
-
+    #GameState.stock_market.queue_free()
+    #GameState.stock_market = StockMarket.new()
+    action_taken.connect(GameState.stock_market.on_action_taken)
+    GameState.net_worth_history = []
     action_count = 0
+    GameState.current_day.start_next_phase()
+    GameState.stock_market.clear_and_reset()
 
 
 func _on_chat_message_signal(args) -> void:
