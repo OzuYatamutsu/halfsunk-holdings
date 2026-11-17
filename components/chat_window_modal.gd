@@ -92,6 +92,8 @@ func add_message(message: String, is_player: bool = false) -> void:
         _message.timestamp.text = " > "
         _message.timestamp.theme = ChatMessage.THEME_REPLY
         _message.message.theme = ChatMessage.THEME_REPLY
+        AudioEngine.play_sfx(AudioEngine.SFX_MESSAGE_SENT)
+
 
 
 func _on_yes_button_pressed() -> void:
