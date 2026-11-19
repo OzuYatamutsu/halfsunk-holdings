@@ -1,4 +1,4 @@
-FROM;Jinhai Qian;President of Jinhai Holdings [JINH];res://components/pfp_jinhai.png
+FROM;Jinhai Qian;President of Jinhai Holdings [JINH]
 > Wow! That's like, what, 1% profit per minute?
 > Just keep doing that! And make us LOTS OF MONEY!
 < Uh...

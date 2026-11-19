@@ -1,4 +1,4 @@
-FROM;Jinhai Qian;President of Jinhai Holdings [JINH];res://components/pfp_jinhai.png
+FROM;Jinhai Qian;President of Jinhai Holdings [JINH]
 > Aw, gross! RETAIL INVESTORS bought the dip, too!
 < Gross?
 > Let's dump our shares!
