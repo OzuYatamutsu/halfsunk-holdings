@@ -7,8 +7,8 @@ extends Node
 ## file, with each event/message represented according
 ## to the following syntax:
 ## 
-## FROM;<name>;<title>;<pfp_path>
-## e.g. FROM;Jinhai Qian;President of Jinhai Holdings;res://components/pfp_jinhai.png
+## FROM;<name>;<title>
+## e.g. FROM;Jinhai Qian;President of Jinhai Holdings
 ##  Specifies the sender of the chat message.
 ##
 ## > <text>
