@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b3w3ke6c75rx6"]
 
 [ext_resource type="Script" uid="uid://c5enpq3rkju4b" path="res://components/market_open_start_anim.gd" id="1_xdpm7"]
+[ext_resource type="Theme" uid="uid://cock2i711obdq" path="res://components/TextNormal_theme.tres" id="2_ntr6b"]
+[ext_resource type="Texture2D" uid="uid://c1txbhumvocv4" path="res://components/clock_animation.png" id="3_2oxpt"]
 
 [sub_resource type="Animation" id="Animation_ifb2x"]
 length = 0.001
@@ -27,6 +29,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ClockAnim:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_eudgq"]
@@ -55,23 +69,127 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 1.2, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.7058824), Color(0, 0, 0, 0.7058824), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.7058824), Color(0, 0, 0, 0.78431374), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ClockAnim:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdpm7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ekx4"]
 _data = {
 &"RESET": SubResource("Animation_ifb2x"),
 &"on_load": SubResource("Animation_eudgq")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_eudgq"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(0, 0, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uorcq"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(290, 0, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fdyp"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(580, 0, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxmb4"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(870, 0, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnpvd"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(1160, 0, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj11d"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(1450, 0, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0oon"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(0, 290, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2q1u"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(290, 290, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr2i6"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(580, 290, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kd82"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(870, 290, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgn8t"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(1160, 290, 290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u58j"]
+atlas = ExtResource("3_2oxpt")
+region = Rect2(1450, 290, 290, 290)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1tby"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eudgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uorcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fdyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxmb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnpvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dj11d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0oon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2q1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr2i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kd82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgn8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u58j")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="MarketOpenStartAnim" type="CanvasLayer" unique_id=456519578]
 script = ExtResource("1_xdpm7")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1556664235]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1492730848]
 unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_xdpm7")
+libraries/ = SubResource("AnimationLibrary_5ekx4")
 
-[node name="BgDimEffect" type="ColorRect" parent="." unique_id=1830303693]
+[node name="BgDimEffect" type="ColorRect" parent="." unique_id=612318687]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -81,4 +199,39 @@ grow_vertical = 2
 scale = Vector2(1.0009594, 1.0072175)
 color = Color(0, 0, 0, 0)
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="ClockAnim" type="Control" parent="." unique_id=858002823]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ClockAnim" unique_id=2087752756]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ClockAnim/CenterContainer" unique_id=1956007602]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="ClockAnim/CenterContainer/VBoxContainer" unique_id=1295517209]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_ntr6b")
+text = "Markets are open!"
+
+[node name="Control" type="Control" parent="ClockAnim/CenterContainer/VBoxContainer" unique_id=671741788]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ClockAnim/CenterContainer/VBoxContainer/Control" unique_id=911534275]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_g1tby")
+autoplay = "default"
+centered = false
