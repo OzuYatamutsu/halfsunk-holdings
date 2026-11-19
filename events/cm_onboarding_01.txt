@@ -1,4 +1,4 @@
-FROM;Jinhai Qian;President of Jinhai Holdings [JINH];res://components/pfp_jinhai.png
+FROM;Jinhai Qian;President of Jinhai Holdings [JINH]
 > Hi, rookie! =^_^=
 < Hey!
 > How about a nice $1,000?

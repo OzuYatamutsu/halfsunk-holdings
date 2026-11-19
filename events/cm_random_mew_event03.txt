@@ -1,4 +1,4 @@
-FROM;mew cashin;Lead Analyst at Chicken Little Capital;res://components/pfp_mew.png
+FROM;mew cashin;Lead Analyst at Chicken Little Capital
 > smart kid!!
 > brb, new cpi report just dropped
 < (close);CLOSE
