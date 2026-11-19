@@ -8,7 +8,6 @@ const ChatMessageComponent: PackedScene = preload("res://components/chat_message
 @export var ButtonOptions: Array[String] = ["Yes", "No"]
 @export var UserName: String = "Jeff Someguy"
 @export var UserTitle: String = "Investment Advisor at Jinhai Holdings"
-@export var UserProfilePath: String = "res://components/chat_user_icon_100px.png"
 
 ## Pass in a sorted array (oldest to recent) of the form: 
 ## ["10:01:32/message string", "23:59:59/string2", ...]
@@ -25,7 +24,6 @@ const ChatMessageComponent: PackedScene = preload("res://components/chat_message
 @onready var yes_button: Button = %YesButton
 @onready var no_button: Button = %NoButton
 
-@onready var _chat_user_profile: TextureRect = %ChatUserProfile
 @onready var _chat_user_name: Label = %ChatUserName
 @onready var _chat_user_title: Label = %ChatUserTitle
 
@@ -51,7 +49,6 @@ func fire() -> void:
 
 
 func update_user_info() -> void:
-    _chat_user_profile.texture = load(UserProfilePath)
     _chat_user_name.text = UserName
     _chat_user_title.text = UserTitle
 

@@ -11,8 +11,7 @@ var Commands: Array[Callable] = []
 
 static func CreateChatEvent(
     user_name: String,
-    user_title: String,
-    user_profile_path: String
+    user_title: String
 ) -> ChatMessageEvent:
     var instance: ChatMessageEvent = load(
         "res://components/ChatMessageEvent.tscn"
@@ -20,7 +19,6 @@ static func CreateChatEvent(
 
     instance.UserName = user_name
     instance.UserTitle = user_title
-    instance.UserProfilePath = user_profile_path
 
     return instance
 
