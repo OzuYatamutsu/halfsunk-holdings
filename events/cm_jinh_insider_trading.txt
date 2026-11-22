@@ -1,0 +1,5 @@
+FROM;Peter Bacanovich;Stocks Exchange Commission
+> HAHAHAHAHAH! GOT YOU NOW!
+> Here's a NICE BIG FINE!!!
+< Oh, no! Insider trading?! (close);CLOSE
+SIGNAL;cm_jinh_insider_trading
