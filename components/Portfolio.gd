@@ -3,6 +3,12 @@ extends Node
 
 ## A collection of stocks, etc. (not cash)
 
+## When trading JINH, what's the chance that
+## you're investigated for insider trading?
+const INSIDER_TRADING_CHANCE_PERCENT: float = 0.05
+const JINH_INSIDER_TRADING_EVENT: String = "res://events/cm_jinh_insider_trading.txt"
+
+
 ## Dictionary[String, int]
 ## Can't type it due to issues during deserialization
 var _portfolio: Dictionary = {}
@@ -23,6 +29,9 @@ func buy(stock: String, quantity: int) -> void:
         quantity,
         GameState.stock_market.get_stock(stock).current_value * quantity
     ])
+    
+    if stock == "JINH" and randf() <= INSIDER_TRADING_CHANCE_PERCENT:
+        ChatEventParser.load_chatevent_from_file(JINH_INSIDER_TRADING_EVENT).fire()
 
 
 func sell(stock: String, quantity: int) -> void:
