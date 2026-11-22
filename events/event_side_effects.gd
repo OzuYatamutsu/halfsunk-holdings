@@ -4,19 +4,23 @@ extends Node
 # Handles side effects associated with a ChatEvent.
 
 static var GoldEventPass = PriceChangeEvent.new(
-    {"XMAU": 1.40}, "Gold miners rejoice after discovery of new gold site in some guy's backyard!"
+    {"XMAU": 1.40}, "Gold miners [XMAU] rejoice after discovery of new gold site in some guy's backyard!"
 )
 
 static var GoldEventFail = PriceChangeEvent.new(
-    {"CAT": 0.85}, "Feline Mega Capital shares tumble today after star trader digs around in his backyard and accidentally discovers oil, soiling his expensive suit"
+    {"CAT": 0.85}, "Feline Mega Capital [CAT] shares tumble today after star trader digs around in his backyard and accidentally discovers oil, soiling his expensive suit"
 )
 
 static var OptionsEventPass = PriceChangeEvent.new(
-    {"CAT": 2.00}, "Star trader from Feline Mega Capital discovers options trading and becomes fabulously rich!!"
+    {"CAT": 2.00}, "Star trader from Feline Mega Capital [CAT] discovers options trading and becomes fabulously rich!!"
 )
 
 static var OptionsEventFail = PriceChangeEvent.new(
-    {"CAT": 0.50}, "Feline Mega Capital shares collapse after trader discovers options trading, proceeds to lose half of the company's money"
+    {"CAT": 0.50}, "Feline Mega Capital [CAT] shares collapse after trader discovers options trading, proceeds to lose half of the company's money"
+)
+
+static var JinhInsiderTradingEvent = PriceChangeEvent.new(
+    {}, "Star trader at Jinhai Holdings [JINH] fined for insider trading"
 )
 
 
@@ -31,7 +35,8 @@ func _handle_event_trigger(args: String) -> void:
         __cm_random_gold_roll()
     elif args == "cm_random_options_roll":
         __cm_random_options_roll()
-
+    elif args == "cm_jinh_insider_trading":
+        __cm_jinh_insider_trading()
 
 func __cm_random_coffee_yes() -> void:
     GameState.cash -= 100
@@ -54,3 +59,12 @@ func __cm_random_options_roll() -> void:
         GameState.current_day.events_to_fire.append(OptionsEventPass)
     else:
         GameState.current_day.events_to_fire.append(OptionsEventFail)
+
+
+func __cm_jinh_insider_trading() -> void:
+    JinhInsiderTradingEvent.fire()
+
+    GameState.cash *= 0.75
+    GameState.cash_changed.emit()
+    GameState.recalculate_net_worth()
+    GameState.force_refresh()
