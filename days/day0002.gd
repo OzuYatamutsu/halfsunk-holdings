@@ -3,13 +3,14 @@ extends Day
 
 
 func _ready() -> void:
-    day = Day.DayOfWeek.FRIDAY
+    day = Day.DayOfWeek.TUESDAY
     events = {
         Day.Phase.PREMARKET: _event_chat_message
     }
 
     super()
     start_next_phase()
+    GameState.game_window.marquee.start()
 
 
 func on_premarket_start() -> void:
@@ -25,11 +26,11 @@ func on_aftermarket_start() -> void:
 func on_close_end() -> void:
     super()
     
-    GameState.end_of_week()
+    GameState.load_day("res://days/day_infinite.gd")
+    # GameState.end_of_week()
 
 
 func _event_chat_message() -> void:
-    var chat_window: ChatWindowModal = ChatWindowModal.Create(
-        "res://events/day1_test_message1.gd"
-    )
-    GameState.game_window.add_child(chat_window)
+    ChatEventParser.load_chatevent_from_file(
+        "res://events/cm_day2_intro01.txt"
+    ).fire()

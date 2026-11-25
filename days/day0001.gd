@@ -76,7 +76,7 @@ func on_aftermarket_start() -> void:
 func on_close_end() -> void:
     super()
 
-    GameState.load_day("res://days/day_infinite.gd")
+    GameState.load_day("res://days/day0002.gd")
 
 
 func _event_onboarding() -> void:
@@ -133,8 +133,6 @@ func _event_onboarding_post() -> void:
     # Correct timestamp data for previous actions
     # in PREMARKET (normally not allowed)
     print("leaving tutorial and resetting stock market state")
-    #GameState.stock_market.queue_free()
-    #GameState.stock_market = StockMarket.new()
     action_taken.connect(GameState.stock_market.on_action_taken)
     GameState.net_worth_history = []
     action_count = 0
