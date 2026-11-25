@@ -10,7 +10,8 @@ static var Day02CoffeeForcedEvent = PriceChangeEvent.new(
 func _ready() -> void:
     day = Day.DayOfWeek.TUESDAY
     events = {
-        Day.Phase.PREMARKET: _event_chat_message
+        Day.Phase.PREMARKET: _event_chat_message,
+        Day.Phase.AFTERMARKET: _event_chat_message
     }
 
     super()
@@ -43,6 +44,11 @@ func on_close_end() -> void:
 
 
 func _event_chat_message() -> void:
-    ChatEventParser.load_chatevent_from_file(
-        "res://events/cm_day2_intro01.txt"
-    ).fire()
+    if phase == Day.Phase.PREMARKET:
+        ChatEventParser.load_chatevent_from_file(
+            "res://events/cm_day2_intro01.txt"
+        ).fire()
+    elif phase == Day.Phase.AFTERMARKET:
+        ChatEventParser.load_chatevent_from_file(
+            "res://events/cm_day2_outtro01.txt"
+        ).fire()
